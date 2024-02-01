@@ -13,7 +13,11 @@
   "license": "MIT License",
   "icon": "affogatotweaks.png",
   "environment": "*",
-  "entrypoints": {},
+  "entrypoints": {
+    "main": [
+      "me.pajic.affogatotweaks.AffogatoTweaks"
+    ]
+  },
   "mixins": [
     "affogatotweaks.mixins.json"
   ],

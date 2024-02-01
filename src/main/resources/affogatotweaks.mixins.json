@@ -4,10 +4,22 @@
   "package": "me.pajic.affogatotweaks.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-  ],
-  "client": [
+    "ArmorMaterialsMixin",
+    "EnchantBookFactoryMixin",
+    "EnchantingTableBlockMixin",
+    "EnchantmentHelperMixin",
+    "EnchantRandomlyLootFunctionMixin",
+    "ItemsMixin",
+    "ToolMaterialsMixin",
+    "TradeOfferMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "client": [
+    "MinecraftClientMixin"
+  ],
+  "server": [
+    "MinecraftServerMixin"
+  ]
 }
