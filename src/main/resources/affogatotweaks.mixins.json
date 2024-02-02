@@ -5,11 +5,13 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "ArmorMaterialsMixin",
+    "BrewingRecipeRegistryMixin",
     "EnchantBookFactoryMixin",
     "EnchantingTableBlockMixin",
     "EnchantmentHelperMixin",
     "EnchantRandomlyLootFunctionMixin",
     "ItemsMixin",
+    "PhantomSpawnerMixin",
     "ToolMaterialsMixin",
     "TradeOfferMixin"
   ],
