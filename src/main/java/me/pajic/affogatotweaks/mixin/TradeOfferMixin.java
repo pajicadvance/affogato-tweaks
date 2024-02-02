@@ -18,8 +18,8 @@ public class TradeOfferMixin {
     private ItemStack sellItem;
 
     @Inject(method = "resetUses", at = @At("HEAD"), cancellable = true)
-    private void skipEnchantedBookTradeRestock(CallbackInfo ci) {
-        if (sellItem.isOf(Items.ENCHANTED_BOOK)) {
+    private void skipEnchantedItemTradeRestock(CallbackInfo ci) {
+        if (sellItem.isOf(Items.ENCHANTED_BOOK) || !sellItem.getEnchantments().isEmpty()) {
             ci.cancel();
         }
     }
