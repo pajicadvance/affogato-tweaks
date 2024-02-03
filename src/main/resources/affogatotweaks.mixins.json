@@ -12,6 +12,7 @@
     "EnchantRandomlyLootFunctionMixin",
     "ItemsMixin",
     "PhantomSpawnerMixin",
+    "PlayerEntityMixin",
     "ToolMaterialsMixin",
     "TradeOfferMixin"
   ],
