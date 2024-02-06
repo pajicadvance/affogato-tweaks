@@ -33,6 +33,6 @@ public class PhantomSpawnerMixin {
 
     @ModifyConstant(method = "spawn", constant = @Constant(intValue = 72000))
     private int changeConditionCheckValue(int constant) {
-        return 128;
+        return 160;
     }
 }
