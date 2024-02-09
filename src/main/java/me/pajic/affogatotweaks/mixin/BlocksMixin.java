@@ -12,11 +12,11 @@ public class BlocksMixin {
 
     @Inject(method = "method_26152", at = @At("RETURN"), cancellable = true)
     private static void setTorchLightLevel(BlockState state, CallbackInfoReturnable<Integer> cir) {
-        cir.setReturnValue(12);
+        cir.setReturnValue(10);
     }
 
     @Inject(method = "method_26136", at = @At("RETURN"), cancellable = true)
     private static void setWallTorchLightLevel(BlockState state, CallbackInfoReturnable<Integer> cir) {
-        cir.setReturnValue(12);
+        cir.setReturnValue(10);
     }
 }

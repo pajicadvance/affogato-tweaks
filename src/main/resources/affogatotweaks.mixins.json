@@ -4,6 +4,7 @@
   "package": "me.pajic.affogatotweaks.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AbstractFurnaceBlockEntityMixin",
     "ArmorMaterialsMixin",
     "BlocksMixin",
     "BrewingRecipeRegistryMixin",
