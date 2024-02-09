@@ -23,6 +23,11 @@ public class ToolMaterialsMixin {
         return 192;
     }
 
+    @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 32))
+    private static int setGoldDurability(int constant) {
+        return 64;
+    }
+
     @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 1561))
     private static int setDiamondDurability(int constant) {
         return 1024;

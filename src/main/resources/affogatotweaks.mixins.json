@@ -15,6 +15,7 @@
     "ItemsMixin",
     "PhantomSpawnerMixin",
     "PlayerEntityMixin",
+    "TippedArrowRecipeMixin",
     "ToolMaterialsMixin",
     "TradeOfferMixin"
   ],

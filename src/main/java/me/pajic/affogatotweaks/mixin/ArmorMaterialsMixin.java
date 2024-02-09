@@ -14,17 +14,17 @@ public class ArmorMaterialsMixin {
     @Inject(method = "method_48406", at = @At("HEAD"), cancellable = true)
     private static void setNetheriteArmorValues(EnumMap<ArmorItem.Type, Integer> map, CallbackInfo ci) {
         ci.cancel();
-        map.put(ArmorItem.Type.HELMET, 3);
-        map.put(ArmorItem.Type.CHESTPLATE, 5);
-        map.put(ArmorItem.Type.LEGGINGS, 4);
-        map.put(ArmorItem.Type.BOOTS, 3);
+        map.put(ArmorItem.Type.HELMET, 2);
+        map.put(ArmorItem.Type.CHESTPLATE, 7);
+        map.put(ArmorItem.Type.LEGGINGS, 5);
+        map.put(ArmorItem.Type.BOOTS, 2);
     }
 
     @Inject(method = "method_48409", at = @At("HEAD"), cancellable = true)
     private static void setGoldArmorValues(EnumMap<ArmorItem.Type, Integer> map, CallbackInfo ci) {
         ci.cancel();
         map.put(ArmorItem.Type.HELMET, 1);
-        map.put(ArmorItem.Type.CHESTPLATE, 4);
+        map.put(ArmorItem.Type.CHESTPLATE, 3);
         map.put(ArmorItem.Type.LEGGINGS, 3);
         map.put(ArmorItem.Type.BOOTS, 1);
     }
@@ -34,8 +34,17 @@ public class ArmorMaterialsMixin {
         ci.cancel();
         map.put(ArmorItem.Type.HELMET, 2);
         map.put(ArmorItem.Type.CHESTPLATE, 5);
-        map.put(ArmorItem.Type.LEGGINGS, 4);
-        map.put(ArmorItem.Type.BOOTS, 1);
+        map.put(ArmorItem.Type.LEGGINGS, 3);
+        map.put(ArmorItem.Type.BOOTS, 2);
+    }
+
+    @Inject(method = "method_48411", at = @At("HEAD"), cancellable = true)
+    private static void setChainArmorValues(EnumMap<ArmorItem.Type, Integer> map, CallbackInfo ci) {
+        ci.cancel();
+        map.put(ArmorItem.Type.HELMET, 2);
+        map.put(ArmorItem.Type.CHESTPLATE, 5);
+        map.put(ArmorItem.Type.LEGGINGS, 3);
+        map.put(ArmorItem.Type.BOOTS, 2);
     }
 
     @Inject(method = "method_48412", at = @At("HEAD"), cancellable = true)
@@ -74,6 +83,6 @@ public class ArmorMaterialsMixin {
 
     @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 5))
     private static int setLeatherDurabilityMultiplier(int constant) {
-        return 3;
+        return 0;
     }
 }
