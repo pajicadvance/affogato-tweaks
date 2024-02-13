@@ -11,7 +11,8 @@ import java.util.List;
 public class EnchantmentUtil {
 
     public static List<Enchantment> ENCHANTMENT_BLACKLIST;
-    private static final int[] levelPool = new int[]{1, 1, 1, 1, 1, 1, 2, 2, 2, 3};
+    private static final int[] levelPoolMax5 = new int[]{1, 1, 1, 1, 1, 1, 2, 2, 2, 3};
+    private static final int[] levelPoolMax4 = new int[]{1, 1, 1, 1, 2};
 
     public static boolean preventEnchantmentAdditionToList(List<EnchantmentLevelEntry> list, EnchantmentLevelEntry entry) {
 
@@ -19,8 +20,9 @@ public class EnchantmentUtil {
             return false;
         }
         else {
-            int enchantmentLevel = returnEnchantmentLevelFromPool(Random.create(MinecraftClient.getInstance().getServer().getWorld(World.OVERWORLD).getSeed()), entry.enchantment.getMaxLevel());
-            return list.add(new EnchantmentLevelEntry(entry.enchantment, enchantmentLevel));
+            return list.add(new EnchantmentLevelEntry(entry.enchantment, returnEnchantmentLevelFromPool(
+                    Random.create(MinecraftClient.getInstance().getServer().getWorld(World.OVERWORLD).getSeed()),
+                    entry.enchantment.getMaxLevel())));
         }
     }
 
@@ -29,8 +31,16 @@ public class EnchantmentUtil {
     }
 
     public static int returnEnchantmentLevelFromPool(Random random, int max) {
-        if (max >= 3) return EnchantmentUtil.levelPool[random.nextInt(10)];
-        if (max == 2) return EnchantmentUtil.levelPool[random.nextInt(9)];
-        return 1;
+        switch (max) {
+            case 5 -> {
+                return EnchantmentUtil.levelPoolMax5[random.nextInt(10)];
+            }
+            case 4 -> {
+                return EnchantmentUtil.levelPoolMax4[random.nextInt(5)];
+            }
+            default -> {
+                return 1;
+            }
+        }
     }
 }

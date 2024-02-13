@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 public class AffogatoTweaks implements ModInitializer {
     @Override
     public void onInitialize() {
-        LootTableModifier.updateLootTables();
+        LootTableModifier.modifyLootTables();
 
         FabricLoader.getInstance().getModContainer("affogatotweaks").ifPresent(modContainer ->
                 ResourceManagerHelper.registerBuiltinResourcePack(new Identifier("affogatotweaks","affogatotweaks"),
