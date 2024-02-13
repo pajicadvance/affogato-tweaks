@@ -31,6 +31,7 @@ public class LootTableModifier {
     private static final Identifier BURIED_TREASURE = LootTables.BURIED_TREASURE_CHEST;
     private static final Identifier BIG_UNDERWATER_RUIN = LootTables.UNDERWATER_RUIN_BIG_CHEST;
     private static final Identifier SMALL_UNDERWATER_RUIN = LootTables.UNDERWATER_RUIN_SMALL_CHEST;
+    private static final Identifier BASTION_OTHER = LootTables.BASTION_OTHER_CHEST;
     private static final Identifier OCEAN_MONUMENT_UPPER_SIDE_CHAMBER = new Identifier("betteroceanmonuments", "chests/upper_side_chamber");
     private static final Identifier EGG_ROOM = new Identifier("betterdungeons", "spider_dungeon/chests/egg_room");
     private static final Identifier SKELETON_DUNGEON = new Identifier("betterdungeons", "skeleton_dungeon/chests/common");
@@ -112,7 +113,7 @@ public class LootTableModifier {
                             .add(Enchantments.SMITE)
                     );
                 }
-                if (NETHER_BRIDGE.equals(id) || SMALL_NETHER_DUNGEON.equals(id)) {
+                if (NETHER_BRIDGE.equals(id) || SMALL_NETHER_DUNGEON.equals(id) || BASTION_OTHER.equals(id)) {
                     addGuaranteedEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
                             .add(Enchantments.FIRE_PROTECTION)
                             .add(Enchantments.FLAME)
