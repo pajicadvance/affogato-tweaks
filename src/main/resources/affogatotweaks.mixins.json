@@ -8,6 +8,7 @@
     "ArmorMaterialsMixin",
     "BlocksMixin",
     "BrewingRecipeRegistryMixin",
+    "EmiVanillaPluginMixin",
     "EnchantBookFactoryMixin",
     "EnchantingTableBlockMixin",
     "EnchantmentHelperMixin",
