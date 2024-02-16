@@ -83,6 +83,6 @@ public class ArmorMaterialsMixin {
 
     @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 5))
     private static int setLeatherDurabilityMultiplier(int constant) {
-        return 0;
+        return 10;
     }
 }
