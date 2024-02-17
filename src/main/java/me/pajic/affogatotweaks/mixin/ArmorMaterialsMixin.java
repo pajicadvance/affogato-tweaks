@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.EnumMap;
 
-@Mixin(ArmorMaterials.class)
+@Mixin(value = ArmorMaterials.class)
 public class ArmorMaterialsMixin {
 
     @Inject(method = "method_48406", at = @At("HEAD"), cancellable = true)
@@ -61,7 +61,7 @@ public class ArmorMaterialsMixin {
         return 40;
     }
 
-    @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 25))
+    @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 25, ordinal = 1))
     private static int setTurtleDurabilityMultiplier(int constant) {
         return 15;
     }
@@ -76,12 +76,17 @@ public class ArmorMaterialsMixin {
         return 5;
     }
 
-    @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 15))
-    private static int setIronAndChainDurabilityMultiplier(int constant) {
+    @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 15, ordinal = 1))
+    private static int setChainDurabilityMultiplier(int constant) {
         return 10;
     }
 
-    @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 5))
+    @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 15, ordinal = 2))
+    private static int setIronDurabilityMultiplier(int constant) {
+        return 10;
+    }
+
+    @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 5, ordinal = 0))
     private static int setLeatherDurabilityMultiplier(int constant) {
         return 10;
     }
