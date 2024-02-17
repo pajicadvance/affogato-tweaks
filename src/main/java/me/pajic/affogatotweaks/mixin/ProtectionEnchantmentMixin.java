@@ -12,10 +12,6 @@ public abstract class ProtectionEnchantmentMixin {
 
     @Inject(method = "canAccept", at = @At("HEAD"), cancellable = true)
     private void changeCanAccept(Enchantment other, CallbackInfoReturnable<Boolean> cir) {
-        if (other instanceof ProtectionEnchantment) {
-            cir.setReturnValue(false);
-            return;
-        }
-        cir.setReturnValue((Enchantment) ((Object) this) != other);
+        cir.setReturnValue(!(other instanceof ProtectionEnchantment) && (Enchantment) ((Object) this) != other);
     }
 }
