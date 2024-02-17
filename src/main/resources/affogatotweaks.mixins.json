@@ -13,6 +13,7 @@
     "EnchantingTableBlockMixin",
     "EnchantmentHelperMixin",
     "EnchantRandomlyLootFunctionMixin",
+    "ItemMixin",
     "ItemsMixin",
     "PhantomSpawnerMixin",
     "PlayerEntityMixin",
