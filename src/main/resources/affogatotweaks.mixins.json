@@ -8,7 +8,6 @@
     "ArmorMaterialsMixin",
     "BlocksMixin",
     "BrewingRecipeRegistryMixin",
-    "EmiVanillaPluginMixin",
     "EnchantBookFactoryMixin",
     "EnchantingTableBlockMixin",
     "EnchantmentHelperMixin",
@@ -20,7 +19,8 @@
     "ProtectionEnchantmentMixin",
     "TippedArrowRecipeMixin",
     "ToolMaterialsMixin",
-    "TradeOfferMixin"
+    "TradeOfferMixin",
+    "emi.VanillaPluginMixin"
   ],
   "injectors": {
     "defaultRequire": 1

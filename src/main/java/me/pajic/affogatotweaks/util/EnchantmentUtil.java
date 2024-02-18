@@ -6,11 +6,12 @@ import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EnchantmentUtil {
 
-    public static List<Enchantment> ENCHANTMENT_BLACKLIST;
+    public static List<Enchantment> ENCHANTMENT_BLACKLIST = new ArrayList<>();
     private static final int[] levelPoolMax5 = new int[]{1, 1, 1, 1, 1, 1, 2, 2, 2, 3};
     private static final int[] levelPoolMax4 = new int[]{1, 1, 1, 1, 2};
 

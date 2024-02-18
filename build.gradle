@@ -33,7 +33,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     modImplementation "dev.emi:emi-fabric:${emi_version}"
-    modImplementation("de.siphalor:capsaicin-1.20:${capsaicin_version}")
+    modImplementation "de.siphalor:capsaicin-1.20:${capsaicin_version}"
 }
 
 processResources {
