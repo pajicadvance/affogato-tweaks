@@ -1,4 +1,7 @@
 {
   "enchantment.guarding.barbed.desc": "Causes damage to enemies who hit your shield.",
-  "enchantment.guarding.pummeling.desc": "Increases parry knockback intensity."
+  "enchantment.guarding.pummeling.desc": "Increases parry knockback intensity.",
+  "effect.farmersdelight.comfort.description": "Gain natural health regeneration regardless of hunger level.",
+  "effect.farmersdelight.nourishment.description": "Prevents hunger and saturation loss.",
+  "effect.charm.echolocation.description": "Highlights nearby mobs, even through walls."
 }
