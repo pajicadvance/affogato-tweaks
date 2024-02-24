@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "immersive_weathering:flammable_planks"
+  },
+  "result": "immersive_weathering:charred_planks",
+  "cookingtime": 200
+}

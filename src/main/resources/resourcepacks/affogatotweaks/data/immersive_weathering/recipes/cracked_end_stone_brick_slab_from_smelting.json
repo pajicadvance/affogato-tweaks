@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:end_stone_brick_slab"
+  },
+  "result": "immersive_weathering:cracked_end_stone_brick_slab",
+  "cookingtime": 200
+}

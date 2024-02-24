@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:nether_brick_stairs"
+  },
+  "result": "immersive_weathering:cracked_nether_brick_stairs",
+  "cookingtime": 200
+}

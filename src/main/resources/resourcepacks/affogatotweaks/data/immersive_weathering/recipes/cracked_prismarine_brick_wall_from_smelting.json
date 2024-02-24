@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "immersive_weathering:prismarine_brick_wall"
+  },
+  "result": "immersive_weathering:cracked_prismarine_brick_wall",
+  "cookingtime": 200
+}

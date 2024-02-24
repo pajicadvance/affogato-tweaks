@@ -1,0 +1,8 @@
+{
+  "type": "charm:firing",
+  "ingredient": {
+    "item": "minecraft:netherrack"
+  },
+  "result": "minecraft:nether_brick",
+  "cookingtime": 100
+}

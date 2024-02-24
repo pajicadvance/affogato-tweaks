@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:nether_brick_wall"
+  },
+  "result": "immersive_weathering:cracked_nether_brick_wall",
+  "cookingtime": 200
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:deepslate_tile_slab"
+  },
+  "result": "immersive_weathering:cracked_deepslate_tile_slab",
+  "cookingtime": 200
+}
