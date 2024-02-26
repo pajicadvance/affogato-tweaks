@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(ToolMaterials.class)
 public class ToolMaterialsMixin {
 
+    // Modifies the durability of tools
     @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 59))
     private static int setWoodDurability(int constant) {
         return 48;
@@ -38,6 +39,7 @@ public class ToolMaterialsMixin {
         return 2560;
     }
 
+    // Modifies the mining speed of certain tools
     @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = 8.0F))
     private static float setDiamondMiningSpeed(float constant) {
         return 10.0F;

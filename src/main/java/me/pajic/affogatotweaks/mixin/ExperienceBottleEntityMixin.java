@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @Mixin(ExperienceBottleEntity.class)
 public class ExperienceBottleEntityMixin {
 
+    // Increases the amount of experience dropped by bottles of enchanting
     @ModifyArg(method = "onCollision", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/ExperienceOrbEntity;spawn(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/Vec3d;I)V"), index = 2)
     private int setXpDropAmount(int amount) {
         ExperienceBottleEntity instance = (ExperienceBottleEntity) (Object) this;

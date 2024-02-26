@@ -18,19 +18,23 @@ import java.util.Iterator;
 @Mixin(PhantomSpawner.class)
 public class PhantomSpawnerMixin {
 
+    // Modifies phantom spawning to be based on the player's height level instead of time since last slept
     @Unique
     private BlockPos playerBlockPos;
 
+    // Captures the player's current block position
     @Inject(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/MathHelper;clamp(III)I", shift = At.Shift.BEFORE),locals = LocalCapture.CAPTURE_FAILHARD)
     private void getPlayerBlockPos(ServerWorld world, boolean spawnMonsters, boolean spawnAnimals, CallbackInfoReturnable<Integer> cir, Random random, int i, Iterator var6, ServerPlayerEntity serverPlayerEntity, BlockPos blockPos, LocalDifficulty localDifficulty, ServerStatHandler serverStatHandler) {
         playerBlockPos = blockPos;
     }
 
+    // Changes the spawn condition to the player's height level
     @Redirect(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/MathHelper;clamp(III)I"))
     private int changeSpawnCondition(int value, int min, int max) {
         return playerBlockPos.getY();
     }
 
+    // Changes the value which the condition is checked against
     @ModifyConstant(method = "spawn", constant = @Constant(intValue = 72000))
     private int changeConditionCheckValue(int constant) {
         return 160;

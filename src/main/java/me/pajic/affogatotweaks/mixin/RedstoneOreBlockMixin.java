@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 @Mixin(RedstoneOreBlock.class)
 public class RedstoneOreBlockMixin {
 
+    // Increases the amount of experience dropped by mining redstone ore
     @ModifyArgs(method = "onStacksDropped", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/RedstoneOreBlock;dropExperience(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;I)V"))
     private void setRedstoneOreXpDropAmount(Args args) {
         ServerWorld world = args.get(0);

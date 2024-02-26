@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 @Mixin(Blocks.class)
 public class BlocksMixin {
 
+    // Decreases torch light level from 14 to 10
     @Inject(method = "method_26152", at = @At("RETURN"), cancellable = true)
     private static void setTorchLightLevel(BlockState state, CallbackInfoReturnable<Integer> cir) {
         cir.setReturnValue(10);
@@ -20,6 +21,7 @@ public class BlocksMixin {
         cir.setReturnValue(10);
     }
 
+    // Decreases slipperiness of ice blocks to nerf boat speed on ice
     @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = 0.98F))
     private static float setIceSlipperiness(float constant) {
         return 0.965F;
@@ -30,6 +32,7 @@ public class BlocksMixin {
         return 0.97F;
     }
 
+    // Modifies the amount of experience dropped from mining ore
     @ModifyArg(method = "<clinit>", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/intprovider/UniformIntProvider;create(II)Lnet/minecraft/util/math/intprovider/UniformIntProvider;", ordinal = 0), index = 1)
     private static int setCoalOreXpDropAmount(int min) {
         return 3;

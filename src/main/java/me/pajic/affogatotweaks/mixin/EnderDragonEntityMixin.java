@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(EnderDragonEntity.class)
 public class EnderDragonEntityMixin {
 
+    // Prevents the ender dragon from dropping experience on death
     @Redirect(method = "updatePostDeath", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/ExperienceOrbEntity;spawn(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/Vec3d;I)V"))
     private void preventXpOrbSpawn(ServerWorld world, Vec3d pos, int amount) {
     }

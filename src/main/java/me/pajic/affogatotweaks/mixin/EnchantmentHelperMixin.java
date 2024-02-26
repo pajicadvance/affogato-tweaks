@@ -12,6 +12,7 @@ import java.util.List;
 @Mixin(EnchantmentHelper.class)
 public class EnchantmentHelperMixin {
 
+    // Prevents addition of blacklisted enchantments to the list of possible enchantments when enchanting an item
     @Redirect(method = "getPossibleEntries", at = @At(value = "INVOKE", target = "Ljava/util/List;add(Ljava/lang/Object;)Z"))
     private static <E> boolean redirectListAdd(List<EnchantmentLevelEntry> instance, E e) {
         EnchantmentLevelEntry entry = (EnchantmentLevelEntry) e;

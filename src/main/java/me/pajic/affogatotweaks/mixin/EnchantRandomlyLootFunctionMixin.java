@@ -14,11 +14,13 @@ import java.util.List;
 @Mixin(EnchantRandomlyLootFunction.class)
 public class EnchantRandomlyLootFunctionMixin {
 
+    // Removes blacklisted enchantments from the list of possible enchantments
     @ModifyVariable(method = "process", at = @At("STORE"))
     public List<Enchantment> modifyEnchantmentList(List<Enchantment> list) {
         return EnchantmentUtil.removeEnchantmentsFromList(list);
     }
 
+    // Limits the maximum enchantment level to 1
     @Redirect(method = "addEnchantmentToStack", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/MathHelper;nextInt(Lnet/minecraft/util/math/random/Random;II)I"))
     private static int setMaxEnchantmentLevel(Random random, int min, int max) {
         return EnchantmentUtil.returnEnchantmentLevelFromPool(random, max);

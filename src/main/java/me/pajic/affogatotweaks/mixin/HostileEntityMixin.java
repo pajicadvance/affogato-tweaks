@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(HostileEntity.class)
 public class HostileEntityMixin {
 
+    // Prevents hostile entities from dropping experience on death
     @Inject(method = "shouldDropXp", at = @At("RETURN"), cancellable = true)
     private void preventEntityXpDrops(CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(false);

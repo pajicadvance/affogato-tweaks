@@ -17,10 +17,12 @@ public abstract class BrewingRecipeRegistryMixin {
     public static void registerPotionRecipe(Potion input, Item item, Potion output) {
     }
 
+    // Disables the recipe for the night vision potion
     @Redirect(method = "registerDefaults", at = @At(value = "INVOKE", target = "Lnet/minecraft/recipe/BrewingRecipeRegistry;registerPotionRecipe(Lnet/minecraft/potion/Potion;Lnet/minecraft/item/Item;Lnet/minecraft/potion/Potion;)V", ordinal = 10))
     private static void disableNightVisionRecipe(Potion input, Item item, Potion output) {
     }
 
+    // Changes the recipe for the invisibility potion to the recipe of the night vision potion
     @Redirect(method = "registerDefaults", at = @At(value = "INVOKE", target = "Lnet/minecraft/recipe/BrewingRecipeRegistry;registerPotionRecipe(Lnet/minecraft/potion/Potion;Lnet/minecraft/item/Item;Lnet/minecraft/potion/Potion;)V", ordinal = 12))
     private static void changeInvisibilityRecipe(Potion input, Item item, Potion output) {
         registerPotionRecipe(Potions.AWKWARD, Items.GOLDEN_CARROT, Potions.INVISIBILITY);

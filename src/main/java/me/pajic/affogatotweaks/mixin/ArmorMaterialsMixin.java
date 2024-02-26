@@ -11,6 +11,7 @@ import java.util.EnumMap;
 @Mixin(value = ArmorMaterials.class)
 public class ArmorMaterialsMixin {
 
+    // Modifies the armor ratings for each material type
     @Inject(method = "method_48406", at = @At("HEAD"), cancellable = true)
     private static void setNetheriteArmorValues(EnumMap<ArmorItem.Type, Integer> map, CallbackInfo ci) {
         ci.cancel();
@@ -56,6 +57,7 @@ public class ArmorMaterialsMixin {
         map.put(ArmorItem.Type.BOOTS, 1);
     }
 
+    // Modifies the armor durability multiplier for each material type
     @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 37))
     private static int setNetheriteDurabilityMultiplier(int constant) {
         return 40;

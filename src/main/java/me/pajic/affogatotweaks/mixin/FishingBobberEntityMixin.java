@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(FishingBobberEntity.class)
 public class FishingBobberEntityMixin {
 
+    // Prevents obtaining experience from fishing
     @Redirect(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z", ordinal = 1))
     private boolean preventXpOrbSpawn(World instance, Entity entity) {
         return false;

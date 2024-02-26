@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @Mixin(Items.class)
 public abstract class ItemsMixin {
 
+    // Changes the durabilities of certain items
     @ModifyArg(method = "<clinit>", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/BowItem;<init>(Lnet/minecraft/item/Item$Settings;)V"))
     private static Item.Settings setBowDurability(Item.Settings settings) {
         return new Item.Settings().maxDamage(256);

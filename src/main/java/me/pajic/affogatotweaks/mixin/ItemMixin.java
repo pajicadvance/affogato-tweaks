@@ -15,8 +15,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Item.class)
 public class ItemMixin {
 
+    // Prevents eating food that would not restore any hunger points
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
-    private void cancelUseIfFoodHungerRestorationIsZero2(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
+    private void cancelUseIfFoodHungerRestorationIsZero(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
         ItemStack stack = user.getStackInHand(hand);
         if (stack.getItem().isFood()) {
             if (DynamicFoodPropertiesAccess.create().withStack(stack).getModifiedFoodComponent().getHunger() == 0) {

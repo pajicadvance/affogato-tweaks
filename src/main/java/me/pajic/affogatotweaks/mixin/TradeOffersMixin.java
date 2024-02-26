@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @Mixin(TradeOffers.class)
 public abstract class TradeOffersMixin {
 
+    // Removes the bottle of enchanting trade from the cleric villager
     @ModifyArg(method = "method_16929", at = @At(value = "INVOKE", target = "Lnet/minecraft/village/TradeOffers;copyToFastUtilMap(Lcom/google/common/collect/ImmutableMap;)Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;", ordinal = 6))
     private static ImmutableMap<Integer, TradeOffers.Factory[]> modifyClericTrades(ImmutableMap<Integer, TradeOffers.Factory[]> map) {
         return ImmutableMap.of(1,

@@ -17,6 +17,7 @@ public class TradeOfferMixin {
     @Shadow
     private ItemStack sellItem;
 
+    // Prevents restocking for trades which contain enchanted items
     @Inject(method = "resetUses", at = @At("HEAD"), cancellable = true)
     private void skipEnchantedItemTradeRestock(CallbackInfo ci) {
         if (sellItem.isOf(Items.ENCHANTED_BOOK) || !sellItem.getEnchantments().isEmpty()) {

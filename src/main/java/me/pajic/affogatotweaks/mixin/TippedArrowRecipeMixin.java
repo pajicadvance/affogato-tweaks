@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @Mixin(TippedArrowRecipe.class)
 public class TippedArrowRecipeMixin {
 
+    // Changes the tipped arrow recipe to use regular potions instead of lingering potions
     @ModifyArg(method = "matches(Lnet/minecraft/inventory/RecipeInputInventory;Lnet/minecraft/world/World;)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z", ordinal = 0))
     private Item setRequiredPotionType1(Item item) {
         return Items.POTION;

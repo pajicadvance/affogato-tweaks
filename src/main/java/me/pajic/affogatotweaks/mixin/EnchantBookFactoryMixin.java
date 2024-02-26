@@ -31,12 +31,14 @@ public abstract class EnchantBookFactoryMixin {
     @Shadow
     private int experience;
 
+    // Removes blacklisted enchantments from the list of possible enchantments for enchanted book trades
     @ModifyVariable(method = "create", at = @At("STORE"))
     private List<Enchantment> modifyEnchantmentList(List<Enchantment> list) {
         modifiedList = EnchantmentUtil.removeEnchantmentsFromList(list);
         return modifiedList;
     }
 
+    // If the list ends up empty, the enchanted book trade is replaced with a regular book trade
     @Inject(method = "create", at = @At(value = "INVOKE", target = "Ljava/util/List;get(I)Ljava/lang/Object;", shift = At.Shift.BEFORE), cancellable = true)
     private void replaceTrade(Entity entity, Random random, CallbackInfoReturnable<TradeOffer> cir) {
         if (modifiedList.isEmpty()) {
@@ -44,11 +46,13 @@ public abstract class EnchantBookFactoryMixin {
         }
     }
 
+    // Limits the maximum enchantment level of enchanted book trades to 1
     @Redirect(method = "create", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/MathHelper;nextInt(Lnet/minecraft/util/math/random/Random;II)I"))
     private int setMaxEnchantmentLevel(Random random, int min, int max) {
         return 1;
     }
 
+    // Sets the amount of uses of enchanted book trades to 1
     @Inject(method = "create", at = @At("RETURN"), cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
     private void setTradeUses(Entity entity, Random random, CallbackInfoReturnable<TradeOffer> cir, List list, Enchantment enchantment, int i, ItemStack itemStack, int j) {
         cir.setReturnValue(new TradeOffer(new ItemStack(Items.EMERALD, j), new ItemStack(Items.BOOK), itemStack, 1, this.experience, 0.2F));

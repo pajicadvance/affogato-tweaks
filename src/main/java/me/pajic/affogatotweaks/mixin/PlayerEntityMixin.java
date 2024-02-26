@@ -15,11 +15,13 @@ public abstract class PlayerEntityMixin {
 
     @Shadow public abstract void setReducedDebugInfo(boolean reducedDebugInfo);
 
+    // Turns on reduced debug info if the player is not in creative mode
     @Inject(method = "tick", at = @At("HEAD"))
     private void setReducedDebugInfo(CallbackInfo ci) {
         setReducedDebugInfo(!isCreative());
     }
 
+    // Prevents player entities from dropping experience
     @Inject(method = "shouldAlwaysDropXp", at = @At("RETURN"), cancellable = true)
     private void preventPlayerEntityXpDrops1(CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(false);
