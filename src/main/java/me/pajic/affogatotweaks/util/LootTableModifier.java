@@ -37,22 +37,22 @@ public class LootTableModifier {
     private static final Identifier OCEAN_MONUMENT_UPPER_SIDE_CHAMBER = new Identifier("betteroceanmonuments", "chests/upper_side_chamber");
     private static final Identifier JUNGLE_TEMPLE_TREASURE = new Identifier("betterjungletemples", "chests/treasure");
     private static final Identifier EGG_ROOM = new Identifier("betterdungeons", "spider_dungeon/chests/egg_room");
-    private static final Identifier SKELETON_DUNGEON = new Identifier("betterdungeons", "skeleton_dungeon/chests/common");
-    private static final Identifier ZOMBIE_DUNGEON = new Identifier("betterdungeons", "zombie_dungeon/chests/common");
+    private static final Identifier SKELETON_DUNGEON_COMMON = new Identifier("betterdungeons", "skeleton_dungeon/chests/common");
+    private static final Identifier SKELETON_DUNGEON_MIDDLE = new Identifier("betterdungeons", "skeleton_dungeon/chests/middle");
+    private static final Identifier ZOMBIE_DUNGEON_COMMON = new Identifier("betterdungeons", "zombie_dungeon/chests/common");
+    private static final Identifier ZOMBIE_DUNGEON_SPECIAL = new Identifier("betterdungeons", "zombie_dungeon/chests/special");
+    private static final Identifier ZOMBIE_DUNGEON_TOMBSTONE = new Identifier("betterdungeons", "zombie_dungeon/chests/tombstone");
     private static final Identifier SMALL_NETHER_DUNGEON = new Identifier("betterdungeons", "small_nether_dungeon/chests/common");
+    private static final Identifier NETHER_FORTRESS_KEEP = new Identifier("betterfortresses", "chests/keep");
+    private static final Identifier NETHER_FORTRESS_BEACON = new Identifier("betterfortresses", "chests/beacon");
     private static final Identifier ELDER_GUARDIAN = new Identifier("minecraft", "entities/elder_guardian");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
             if (source.isBuiltin()) {
-                if (ABANDONED_MINESHAFT.equals(id) || SIMPLE_DUNGEON.equals(id) || STRONGHOLD_CORRIDOR.equals(id)
-                        || STRONGHOLD_CROSSING.equals(id) || ANCIENT_CITY.equals(id)) {
-                    add1in2ChanceRandomEnchantedBook(tableBuilder);
-                    add1in2ChanceExperienceBottle(tableBuilder);
-                    addRandomMusicDisc(tableBuilder);
-                }
                 if (WOODLAND_MANSION.equals(id) || STRONGHOLD_LIBRARY.equals(id) || JUNGLE_TEMPLE.equals(id)
-                        || DESERT_PYRAMID.equals(id)) {
+                        || DESERT_PYRAMID.equals(id) || ABANDONED_MINESHAFT.equals(id) || SIMPLE_DUNGEON.equals(id)
+                        || STRONGHOLD_CORRIDOR.equals(id) || STRONGHOLD_CROSSING.equals(id) || ANCIENT_CITY.equals(id)) {
                     addRandomEnchantedBook(tableBuilder);
                     addExperienceBottle(tableBuilder, 1);
                     addRandomMusicDisc(tableBuilder);
@@ -116,7 +116,7 @@ public class LootTableModifier {
                     addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
                             .add(Enchantments.DEPTH_STRIDER)
                     );
-                    add1in2ChanceExperienceBottle(tableBuilder);
+                    addExperienceBottle(tableBuilder, 1);
                 }
                 if (SMALL_UNDERWATER_RUIN.equals(id)) {
                     add1in2ChanceEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
@@ -125,11 +125,17 @@ public class LootTableModifier {
                     );
                     add1in2ChanceExperienceBottle(tableBuilder);
                 }
-                if (SKELETON_DUNGEON.equals(id) || ZOMBIE_DUNGEON.equals(id)) {
+                if (SKELETON_DUNGEON_COMMON.equals(id) || ZOMBIE_DUNGEON_COMMON.equals(id) || SKELETON_DUNGEON_MIDDLE.equals(id)) {
                     add1in2ChanceEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
                             .add(Enchantments.SMITE)
                     );
                     add1in2ChanceExperienceBottle(tableBuilder);
+                }
+                if (ZOMBIE_DUNGEON_SPECIAL.equals(id) || ZOMBIE_DUNGEON_TOMBSTONE.equals(id)) {
+                    addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
+                            .add(Enchantments.SMITE)
+                    );
+                    addExperienceBottle(tableBuilder, 1);
                 }
                 if (NETHER_BRIDGE.equals(id) || SMALL_NETHER_DUNGEON.equals(id) || BASTION_OTHER.equals(id)) {
                     addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
@@ -139,6 +145,20 @@ public class LootTableModifier {
                     );
                     add1in2ChanceExperienceBottle(tableBuilder);
                 }
+                if (NETHER_FORTRESS_KEEP.equals(id)) {
+                    add1in4ChanceEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
+                            .add(Enchantments.FIRE_PROTECTION)
+                            .add(Enchantments.FLAME)
+                            .add(Enchantments.FIRE_ASPECT)
+                    );
+                    add1in2ChanceExperienceBottle(tableBuilder);
+                }
+                if (NETHER_FORTRESS_BEACON.equals(id)) {
+                    addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
+                            .add(Enchantments.POWER)
+                    );
+                    addExperienceBottle(tableBuilder, 1);
+                }
             }
         });
     }
@@ -146,13 +166,6 @@ public class LootTableModifier {
     private static void addRandomEnchantedBook(LootTable.Builder tableBuilder) {
         LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
                 .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.builder()));
-        tableBuilder.pool(enchantedBookPoolBuilder);
-    }
-
-    private static void add1in2ChanceRandomEnchantedBook(LootTable.Builder tableBuilder) {
-        LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
-                .with(ItemEntry.builder(Items.BOOK).weight(50).apply(EnchantRandomlyLootFunction.builder()))
-                .with(EmptyEntry.builder().weight(50));
         tableBuilder.pool(enchantedBookPoolBuilder);
     }
 
@@ -166,6 +179,13 @@ public class LootTableModifier {
         LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
                 .with(ItemEntry.builder(Items.BOOK).apply(function).weight(50))
                 .with(EmptyEntry.builder().weight(50));
+        tableBuilder.pool(enchantedBookPoolBuilder);
+    }
+
+    private static void add1in4ChanceEnchantedBookFromList(LootTable.Builder tableBuilder, EnchantRandomlyLootFunction.Builder function) {
+        LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
+                .with(ItemEntry.builder(Items.BOOK).apply(function).weight(25))
+                .with(EmptyEntry.builder().weight(75));
         tableBuilder.pool(enchantedBookPoolBuilder);
     }
 

@@ -4,89 +4,194 @@
     {
       "rolls": {
         "min": 2.0,
-        "max": 6.0,
+        "max": 4.0,
         "type": "minecraft:uniform"
       },
       "entries": [
         {
-          "name": "minecraft:coal",
-          "type": "minecraft:item",
-          "weight": 15,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 4.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
-        },
-        {
-          "name": "minecraft:rotten_flesh",
-          "type": "minecraft:item",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 8.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
-        },
-        {
-          "name": "minecraft:quartz",
           "type": "minecraft:item",
           "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2.0,
-                "max": 7.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
+          "name": "minecraft:golden_apple"
         },
         {
-          "name": "minecraft:iron_ingot",
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:enchanted_golden_apple"
+        },
+        {
           "type": "minecraft:item",
           "weight": 10,
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 4.0,
-                "max": 8.0,
-                "type": "minecraft:uniform"
-              }
+              "function": "minecraft:enchant_randomly"
             }
-          ]
+          ],
+          "name": "minecraft:book"
         },
         {
-          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
-          "weight": 15,
+          "weight": 1,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "min": 2.0,
-                "max": 7.0,
+                "max": 6.0,
                 "type": "minecraft:uniform"
               }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion: \"minecraft:slowness\"}"
             }
-          ]
+          ],
+          "name": "minecraft:tipped_arrow"
         },
         {
-          "name": "minecraft:redstone",
           "type": "minecraft:item",
-          "weight": 2,
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 6.0,
+                "type": "minecraft:uniform"
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion: \"minecraft:leaping\"}"
+            }
+          ],
+          "name": "minecraft:tipped_arrow"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 6.0,
+                "type": "minecraft:uniform"
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion: \"minecraft:fire_resistance\"}"
+            }
+          ],
+          "name": "minecraft:tipped_arrow"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 6.0,
+                "type": "minecraft:uniform"
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion: \"minecraft:swiftness\"}"
+            }
+          ],
+          "name": "minecraft:tipped_arrow"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 6.0,
+                "type": "minecraft:uniform"
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion: \"minecraft:long_swiftness\"}"
+            }
+          ],
+          "name": "minecraft:tipped_arrow"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 6.0,
+                "type": "minecraft:uniform"
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion: \"minecraft:harming\"}"
+            }
+          ],
+          "name": "minecraft:tipped_arrow"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 6.0,
+                "type": "minecraft:uniform"
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion: \"minecraft:poison\"}"
+            }
+          ],
+          "name": "minecraft:tipped_arrow"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 6.0,
+                "type": "minecraft:uniform"
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion: \"minecraft:weakness\"}"
+            }
+          ],
+          "name": "minecraft:tipped_arrow"
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 1.0,
+        "max": 3.0,
+        "type": "minecraft:uniform"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -96,117 +201,10 @@
                 "type": "minecraft:uniform"
               }
             }
-          ]
+          ],
+          "name": "minecraft:iron_ingot"
         },
         {
-          "name": "minecraft:nether_wart",
-          "type": "minecraft:item",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 10.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
-        },
-        {
-          "name": "minecraft:saddle",
-          "type": "minecraft:item",
-          "weight": 3
-        },
-        {
-          "name": "minecraft:golden_horse_armor",
-          "type": "minecraft:item"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:music_disc_otherside"
-        }
-      ]
-    },
-    {
-      "rolls": {
-        "min": 1.0,
-        "max": 3.0,
-        "type": "minecraft:uniform"
-      },
-      "entries": [
-        {
-          "name": "minecraft:saddle",
-          "type": "minecraft:item",
-          "weight": 20
-        },
-        {
-          "name": "minecraft:music_disc_pigstep",
-          "type": "minecraft:item",
-          "weight": 2
-        },
-        {
-          "name": "minecraft:name_tag",
-          "type": "minecraft:item",
-          "weight": 20
-        },
-        {
-          "name": "minecraft:enchanted_golden_apple",
-          "type": "minecraft:item",
-          "weight": 2
-        },
-        {
-          "name": "minecraft:book",
-          "type": "minecraft:item",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:enchant_randomly"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": {
-        "min": 1.0,
-        "max": 3.0,
-        "type": "minecraft:uniform"
-      },
-      "entries": [
-        {
-          "name": "minecraft:coal",
-          "type": "minecraft:item",
-          "weight": 15,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 9.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
-        },
-        {
-          "name": "minecraft:rotten_flesh",
-          "type": "minecraft:item",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 5.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
-        },
-        {
-          "name": "minecraft:quartz",
           "type": "minecraft:item",
           "weight": 5,
           "functions": [
@@ -214,71 +212,72 @@
               "function": "minecraft:set_count",
               "count": {
                 "min": 2.0,
-                "max": 9.0,
+                "max": 4.0,
                 "type": "minecraft:uniform"
               }
             }
-          ]
+          ],
+          "name": "minecraft:gold_ingot"
         },
         {
-          "name": "minecraft:gold_nugget",
           "type": "minecraft:item",
-          "weight": 15,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 4.0,
+                "min": 2.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:redstone"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:name_tag"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "minecraft:lead"
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
                 "max": 8.0,
                 "type": "minecraft:uniform"
               }
             }
-          ]
+          ],
+          "name": "minecraft:bone"
         },
         {
-          "name": "minecraft:gold_ingot",
           "type": "minecraft:item",
-          "weight": 15,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 3.0,
-                "max": 9.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
-        },
-        {
-          "name": "minecraft:redstone",
-          "type": "minecraft:item",
-          "weight": 2,
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "min": 2.0,
-                "max": 9.0,
+                "max": 8.0,
                 "type": "minecraft:uniform"
               }
             }
-          ]
-        },
-        {
-          "name": "minecraft:nether_wart",
-          "type": "minecraft:item",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 6.0,
-                "max": 10.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ]
+          ],
+          "name": "minecraft:bone_meal"
         }
       ]
     }
