@@ -23,6 +23,7 @@
     "PlayerEntityMixin",
     "ProtectionEnchantmentMixin",
     "RedstoneOreBlockMixin",
+    "SellEnchantedToolFactoryMixin",
     "TippedArrowRecipeMixin",
     "ToolMaterialsMixin",
     "TradeOfferMixin",
