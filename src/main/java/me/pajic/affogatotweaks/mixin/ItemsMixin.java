@@ -46,26 +46,26 @@ public abstract class ItemsMixin {
     // Changes the attack speed of axes
     @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = -3.2F))
     private static float setWoodenAndStoneAxeAttackSpeed(float constant) {
-        return -4.8F;
+        return -3.5F;
     }
 
     @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = -3.1F))
     private static float setIronAxeAttackSpeed(float constant) {
-        return -4.8F;
+        return -3.5F;
     }
 
     @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = -3.0F, ordinal = 4))
     private static float setGoldenAxeAttackSpeed(float constant) {
-        return -4.8F;
+        return -3.5F;
     }
 
     @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = -3.0F, ordinal = 8))
     private static float setDiamondAxeAttackSpeed(float constant) {
-        return -4.8F;
+        return -3.5F;
     }
 
     @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = -3.0F, ordinal = 10))
     private static float setNetheriteAxeAttackSpeed(float constant) {
-        return -4.8F;
+        return -3.5F;
     }
 }
