@@ -1,8 +1,0 @@
-{
-  "type": "charm:firing",
-  "ingredient": {
-    "item": "minecraft:cobbled_deepslate"
-  },
-  "result": "minecraft:deepslate",
-  "cookingtime": 100
-}
