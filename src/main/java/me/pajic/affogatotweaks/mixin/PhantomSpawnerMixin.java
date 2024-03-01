@@ -15,10 +15,10 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.util.Iterator;
 
+// Modifies phantom spawning to be based on the player's height level instead of time since last slept
 @Mixin(PhantomSpawner.class)
 public class PhantomSpawnerMixin {
 
-    // Modifies phantom spawning to be based on the player's height level instead of time since last slept
     @Unique
     private BlockPos playerBlockPos;
 
