@@ -12,6 +12,6 @@ public class ExperienceBottleEntityMixin {
     @ModifyArg(method = "onCollision", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/ExperienceOrbEntity;spawn(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/Vec3d;I)V"), index = 2)
     private int setXpDropAmount(int amount) {
         ExperienceBottleEntity instance = (ExperienceBottleEntity) (Object) this;
-        return 30 + instance.getWorld().random.nextInt(10) + instance.getWorld().random.nextInt(10);
+        return 30 + instance.getWorld().random.nextInt(11) + instance.getWorld().random.nextInt(11);
     }
 }

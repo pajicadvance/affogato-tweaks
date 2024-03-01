@@ -14,6 +14,6 @@ public class RedstoneOreBlockMixin {
     @ModifyArgs(method = "onStacksDropped", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/RedstoneOreBlock;dropExperience(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;I)V"))
     private void setRedstoneOreXpDropAmount(Args args) {
         ServerWorld world = args.get(0);
-        args.set(2, 3 + world.random.nextInt(4));
+        args.set(2, 3 + world.random.nextInt(5));
     }
 }
