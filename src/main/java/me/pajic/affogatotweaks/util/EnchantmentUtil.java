@@ -1,10 +1,8 @@
 package me.pajic.affogatotweaks.util;
 
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +20,7 @@ public class EnchantmentUtil {
         }
         else {
             return list.add(new EnchantmentLevelEntry(entry.enchantment, returnEnchantmentLevelFromPool(
-                    Random.create(MinecraftClient.getInstance().getServer().getWorld(World.OVERWORLD).getSeed()),
-                    entry.enchantment.getMaxLevel())));
+                    Random.create(), entry.enchantment.getMaxLevel())));
         }
     }
 
