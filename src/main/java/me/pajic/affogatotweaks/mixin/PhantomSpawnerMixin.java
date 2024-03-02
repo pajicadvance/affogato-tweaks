@@ -39,4 +39,10 @@ public class PhantomSpawnerMixin {
     private int changeConditionCheckValue(int constant) {
         return 160;
     }
+
+    // Modifies the rate at which the spawn check runs
+    @ModifyConstant(method = "spawn", constant = @Constant(intValue = 20, ordinal = 0))
+    private int modifySpawnCheckTimer(int constant) {
+        return 10;
+    }
 }
