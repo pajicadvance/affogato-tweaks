@@ -34,7 +34,8 @@
     "defaultRequire": 1
   },
   "client": [
-    "MinecraftClientMixin"
+    "MinecraftClientMixin",
+    "WorldCreatorMixin"
   ],
   "server": [
     "MinecraftServerMixin"
