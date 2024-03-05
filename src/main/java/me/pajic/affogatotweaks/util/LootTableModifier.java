@@ -67,14 +67,16 @@ public class LootTableModifier {
                     addRandomMusicDisc(tableBuilder);
                 }
                 if (END_CITY.equals(id)) {
-                    addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
+                    EnchantRandomlyLootFunction.Builder builder = EnchantRandomlyLootFunction.create()
                             .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "siphon")))
                             .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "refill")))
                             .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "vacuum")))
                             .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "void")))
+                            .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "augment")))
                             .add(Registries.ENCHANTMENT.get(new Identifier("aileron", "smokestack")))
-                            .add(Registries.ENCHANTMENT.get(new Identifier("aileron", "cloudskipper")))
-                    );
+                            .add(Registries.ENCHANTMENT.get(new Identifier("aileron", "cloudskipper")));
+                    addEnchantedBookFromList(tableBuilder, builder);
+                    addEnchantedBookFromList(tableBuilder, builder);
                     addExperienceBottle(tableBuilder, 2);
                 }
                 if (ANCIENT_CITY_ICE_BOX.equals(id)) {
