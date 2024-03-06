@@ -36,6 +36,7 @@ public class LootTableModifier {
     private static final Identifier BASTION_OTHER = LootTables.BASTION_OTHER_CHEST;
     private static final Identifier OCEAN_MONUMENT_UPPER_SIDE_CHAMBER = new Identifier("betteroceanmonuments", "chests/upper_side_chamber");
     private static final Identifier JUNGLE_TEMPLE_TREASURE = new Identifier("betterjungletemples", "chests/treasure");
+    private static final Identifier DESERT_TEMPLE_LIBRARY = new Identifier("betterdeserttemples", "chests/library");
     private static final Identifier EGG_ROOM = new Identifier("betterdungeons", "spider_dungeon/chests/egg_room");
     private static final Identifier SKELETON_DUNGEON_COMMON = new Identifier("betterdungeons", "skeleton_dungeon/chests/common");
     private static final Identifier SKELETON_DUNGEON_MIDDLE = new Identifier("betterdungeons", "skeleton_dungeon/chests/middle");
@@ -63,6 +64,12 @@ public class LootTableModifier {
                     addExperienceBottle(tableBuilder, 3);
                     addRandomMusicDisc(tableBuilder);
                 }
+                if (DESERT_TEMPLE_LIBRARY.equals(id)) {
+                    addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
+                            .add(Enchantments.BINDING_CURSE)
+                            .add(Enchantments.VANISHING_CURSE)
+                    );
+                }
                 if (CAT_GIFT.equals(id)) {
                     addRandomMusicDisc(tableBuilder);
                 }
@@ -85,11 +92,12 @@ public class LootTableModifier {
                     );
                 }
                 if (PILLAGER_OUTPOST.equals(id)) {
-                    addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
+                    EnchantRandomlyLootFunction.Builder builder = EnchantRandomlyLootFunction.create()
                             .add(Enchantments.PIERCING)
                             .add(Enchantments.MULTISHOT)
-                            .add(Enchantments.QUICK_CHARGE)
-                    );
+                            .add(Enchantments.QUICK_CHARGE);
+                    addEnchantedBookFromList(tableBuilder, builder);
+                    addEnchantedBookFromList(tableBuilder, builder);
                     addExperienceBottle(tableBuilder, 2);
                 }
                 if (ELDER_GUARDIAN.equals(id) || OCEAN_MONUMENT_UPPER_SIDE_CHAMBER.equals(id)) {
