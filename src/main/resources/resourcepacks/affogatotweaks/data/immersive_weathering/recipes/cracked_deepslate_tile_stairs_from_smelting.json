@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "minecraft:deepslate_tile_stairs"
-  },
-  "result": "immersive_weathering:cracked_deepslate_tile_stairs",
-  "cookingtime": 200
-}

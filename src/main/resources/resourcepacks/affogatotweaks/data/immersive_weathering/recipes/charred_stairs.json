@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "tag": "immersive_weathering:flammable_stairs"
-  },
-  "result": "immersive_weathering:charred_stairs",
-  "cookingtime": 200
-}

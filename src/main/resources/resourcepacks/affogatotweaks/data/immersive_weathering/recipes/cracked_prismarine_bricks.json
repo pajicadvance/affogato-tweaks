@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "minecraft:prismarine_bricks"
-  },
-  "result": "immersive_weathering:cracked_prismarine_bricks",
-  "cookingtime": 200
-}

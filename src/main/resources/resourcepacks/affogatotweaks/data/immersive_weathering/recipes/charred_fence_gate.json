@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "tag": "immersive_weathering:flammable_fence_gates"
-  },
-  "result": "immersive_weathering:charred_fence_gate",
-  "cookingtime": 200
-}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "tag": "immersive_weathering:weathered_iron_smelting"
-  },
-  "result": "minecraft:iron_ingot",
-  "cookingtime": 100
-}

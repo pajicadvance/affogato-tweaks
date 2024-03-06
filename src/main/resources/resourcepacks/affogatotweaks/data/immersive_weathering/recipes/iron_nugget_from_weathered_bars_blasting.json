@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "immersive_weathering:weathered_iron_bars"
-  },
-  "result": "minecraft:iron_nugget",
-  "cookingtime": 100
-}

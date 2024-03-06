@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "minecraft:deepslate_brick_wall"
-  },
-  "result": "immersive_weathering:cracked_deepslate_brick_wall",
-  "cookingtime": 200
-}

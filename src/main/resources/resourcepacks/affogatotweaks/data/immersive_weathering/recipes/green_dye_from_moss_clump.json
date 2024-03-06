@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "immersive_weathering:moss_clump"
-  },
-  "result": "minecraft:green_dye",
-  "cookingtime": 200
-}
