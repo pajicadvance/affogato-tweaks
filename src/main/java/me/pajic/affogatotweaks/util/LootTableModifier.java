@@ -218,10 +218,12 @@ public class LootTableModifier {
                 .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
                         .add(Enchantments.KNOCKBACK)
                         .add(Enchantments.PUNCH)
+                ).weight(10))
+                .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
                         .add(Enchantments.SILK_TOUCH)
                         .add(Registries.ENCHANTMENT.get(new Identifier("charm", "collection")))
                         .add(Registries.ENCHANTMENT.get(new Identifier("guarding", "barbed")))
-                ).weight(15));
+                ).weight(5));
         tableBuilder.pool(enchantedBookPoolBuilder);
     }
 
