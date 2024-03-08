@@ -175,7 +175,30 @@ public class LootTableModifier {
 
     private static void addRandomEnchantedBook(LootTable.Builder tableBuilder) {
         LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
-                .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.builder()));
+                // common enchantments
+                .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                        .add(Enchantments.EFFICIENCY)
+                        .add(Enchantments.SHARPNESS)
+                        .add(Enchantments.PROTECTION)
+                        .add(Enchantments.POWER)
+                ).weight(50))
+                // uncommon enchantments
+                .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                        .add(Enchantments.FEATHER_FALLING)
+                        .add(Enchantments.PROJECTILE_PROTECTION)
+                        .add(Enchantments.BLAST_PROTECTION)
+                        .add(Enchantments.KNOCKBACK)
+                        .add(Enchantments.SWEEPING)
+                        .add(Enchantments.PUNCH)
+                        .add(Registries.ENCHANTMENT.get(new Identifier("guarding", "pummeling")))
+                        .add(Registries.ENCHANTMENT.get(new Identifier("guarding", "barbed")))
+                        .add(Registries.ENCHANTMENT.get(new Identifier("farmersdelight", "backstabbing")))
+                ).weight(40))
+                // rare enchantments
+                .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                        .add(Enchantments.SILK_TOUCH)
+                        .add(Registries.ENCHANTMENT.get(new Identifier("charm", "collection")))
+                ).weight(10));
         tableBuilder.pool(enchantedBookPoolBuilder);
     }
 
