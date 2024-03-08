@@ -64,50 +64,19 @@ public class LootTableModifier {
                     addExperienceBottle(tableBuilder, 3);
                     addRandomMusicDisc(tableBuilder);
                 }
+                if (CAT_GIFT.equals(id)) {
+                    addRandomMusicDisc(tableBuilder);
+                }
                 if (DESERT_TEMPLE_LIBRARY.equals(id)) {
                     addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
                             .add(Enchantments.BINDING_CURSE)
                             .add(Enchantments.VANISHING_CURSE)
                     );
                 }
-                if (CAT_GIFT.equals(id)) {
-                    addRandomMusicDisc(tableBuilder);
-                }
-                if (END_CITY.equals(id)) {
-                    EnchantRandomlyLootFunction.Builder builder = EnchantRandomlyLootFunction.create()
-                            .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "siphon")))
-                            .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "refill")))
-                            .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "vacuum")))
-                            .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "void")))
-                            .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "augment")))
-                            .add(Registries.ENCHANTMENT.get(new Identifier("aileron", "smokestack")))
-                            .add(Registries.ENCHANTMENT.get(new Identifier("aileron", "cloudskipper")));
-                    addEnchantedBookFromList(tableBuilder, builder);
-                    addEnchantedBookFromList(tableBuilder, builder);
-                    addExperienceBottle(tableBuilder, 2);
-                }
                 if (ANCIENT_CITY_ICE_BOX.equals(id)) {
                     addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
                             .add(Enchantments.FROST_WALKER)
                     );
-                }
-                if (PILLAGER_OUTPOST.equals(id)) {
-                    EnchantRandomlyLootFunction.Builder builder = EnchantRandomlyLootFunction.create()
-                            .add(Enchantments.PIERCING)
-                            .add(Enchantments.MULTISHOT)
-                            .add(Enchantments.QUICK_CHARGE);
-                    addEnchantedBookFromList(tableBuilder, builder);
-                    addEnchantedBookFromList(tableBuilder, builder);
-                    addExperienceBottle(tableBuilder, 2);
-                }
-                if (ELDER_GUARDIAN.equals(id) || OCEAN_MONUMENT_UPPER_SIDE_CHAMBER.equals(id)) {
-                    addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
-                            .add(Enchantments.LOYALTY)
-                            .add(Enchantments.IMPALING)
-                            .add(Enchantments.RIPTIDE)
-                            .add(Enchantments.CHANNELING)
-                    );
-                    addExperienceBottle(tableBuilder, 1);
                 }
                 if (EGG_ROOM.equals(id)) {
                     addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
@@ -115,16 +84,21 @@ public class LootTableModifier {
                     );
                     addExperienceBottle(tableBuilder, 1);
                 }
-                if (BURIED_TREASURE.equals(id)) {
-                    addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
-                            .add(Enchantments.RESPIRATION)
-                            .add(Enchantments.AQUA_AFFINITY)
-                    );
-                    addExperienceBottle(tableBuilder, 2);
-                }
                 if (BIG_UNDERWATER_RUIN.equals(id)) {
                     addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
                             .add(Enchantments.DEPTH_STRIDER)
+                    );
+                    addExperienceBottle(tableBuilder, 1);
+                }
+                if (ZOMBIE_DUNGEON_SPECIAL.equals(id) || ZOMBIE_DUNGEON_TOMBSTONE.equals(id)) {
+                    addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
+                            .add(Enchantments.SMITE)
+                    );
+                    addExperienceBottle(tableBuilder, 1);
+                }
+                if (NETHER_FORTRESS_BEACON.equals(id)) {
+                    addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
+                            .add(Enchantments.POWER)
                     );
                     addExperienceBottle(tableBuilder, 1);
                 }
@@ -141,33 +115,85 @@ public class LootTableModifier {
                     );
                     add1in2ChanceExperienceBottle(tableBuilder);
                 }
-                if (ZOMBIE_DUNGEON_SPECIAL.equals(id) || ZOMBIE_DUNGEON_TOMBSTONE.equals(id)) {
-                    addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
-                            .add(Enchantments.SMITE)
-                    );
+                if (END_CITY.equals(id)) {
+                    LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
+                            .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                                    .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "augment")))
+                                    .add(Registries.ENCHANTMENT.get(new Identifier("aileron", "smokestack")))
+                                    .add(Registries.ENCHANTMENT.get(new Identifier("aileron", "cloudskipper")))
+                            ).weight(75))
+                            .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                                    .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "siphon")))
+                                    .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "refill")))
+                                    .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "vacuum")))
+                                    .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "void")))
+                            ).weight(25));
+                    tableBuilder.pool(enchantedBookPoolBuilder);
+                    addExperienceBottle(tableBuilder, 2);
+                }
+                if (PILLAGER_OUTPOST.equals(id)) {
+                    LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
+                            .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                                    .add(Enchantments.PIERCING)
+                                    .add(Enchantments.QUICK_CHARGE)
+                            ).weight(80))
+                            .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                                    .add(Enchantments.MULTISHOT)
+                            ).weight(20));
+                    tableBuilder.pool(enchantedBookPoolBuilder);
+                    tableBuilder.pool(enchantedBookPoolBuilder);
+                    addExperienceBottle(tableBuilder, 2);
+                }
+                if (ELDER_GUARDIAN.equals(id) || OCEAN_MONUMENT_UPPER_SIDE_CHAMBER.equals(id)) {
+                    LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
+                            .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                                    .add(Enchantments.IMPALING)
+                            ).weight(50))
+                            .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                                    .add(Enchantments.LOYALTY)
+                                    .add(Enchantments.RIPTIDE)
+                            ).weight(40))
+                            .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                                    .add(Enchantments.CHANNELING)
+                            ).weight(10));
+                    tableBuilder.pool(enchantedBookPoolBuilder);
                     addExperienceBottle(tableBuilder, 1);
                 }
+                if (BURIED_TREASURE.equals(id)) {
+                    LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
+                            .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                                    .add(Enchantments.RESPIRATION)
+                            ).weight(75))
+                            .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                                    .add(Enchantments.AQUA_AFFINITY)
+                            ).weight(25));
+                    tableBuilder.pool(enchantedBookPoolBuilder);
+                    addExperienceBottle(tableBuilder, 2);
+                }
                 if (NETHER_BRIDGE.equals(id) || SMALL_NETHER_DUNGEON.equals(id) || BASTION_OTHER.equals(id)) {
-                    addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
-                            .add(Enchantments.FIRE_PROTECTION)
-                            .add(Enchantments.FLAME)
-                            .add(Enchantments.FIRE_ASPECT)
-                    );
+                    LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
+                            .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                                    .add(Enchantments.FIRE_PROTECTION)
+                            ).weight(75))
+                            .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                                    .add(Enchantments.FLAME)
+                                    .add(Enchantments.FIRE_ASPECT)
+                            ).weight(25));
+                    tableBuilder.pool(enchantedBookPoolBuilder);
                     add1in2ChanceExperienceBottle(tableBuilder);
                 }
                 if (NETHER_FORTRESS_KEEP.equals(id)) {
-                    add1in4ChanceEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
-                            .add(Enchantments.FIRE_PROTECTION)
-                            .add(Enchantments.FLAME)
-                            .add(Enchantments.FIRE_ASPECT)
-                    );
+                    LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
+                            .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                                    .add(Enchantments.FIRE_PROTECTION)
+                            ).weight(15))
+                            .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                                    .add(Enchantments.FLAME)
+                                    .add(Enchantments.FIRE_ASPECT)
+                            ).weight(5))
+                            .with(EmptyEntry.builder().weight(60));
+                    tableBuilder.pool(enchantedBookPoolBuilder);
                     add1in2ChanceExperienceBottle(tableBuilder);
-                }
-                if (NETHER_FORTRESS_BEACON.equals(id)) {
-                    addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
-                            .add(Enchantments.POWER)
-                    );
-                    addExperienceBottle(tableBuilder, 1);
                 }
             }
         });
@@ -175,30 +201,27 @@ public class LootTableModifier {
 
     private static void addRandomEnchantedBook(LootTable.Builder tableBuilder) {
         LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
-                // common enchantments
                 .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
                         .add(Enchantments.EFFICIENCY)
                         .add(Enchantments.SHARPNESS)
                         .add(Enchantments.PROTECTION)
                         .add(Enchantments.POWER)
                 ).weight(50))
-                // uncommon enchantments
                 .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
                         .add(Enchantments.FEATHER_FALLING)
                         .add(Enchantments.PROJECTILE_PROTECTION)
                         .add(Enchantments.BLAST_PROTECTION)
-                        .add(Enchantments.KNOCKBACK)
                         .add(Enchantments.SWEEPING)
-                        .add(Enchantments.PUNCH)
                         .add(Registries.ENCHANTMENT.get(new Identifier("guarding", "pummeling")))
-                        .add(Registries.ENCHANTMENT.get(new Identifier("guarding", "barbed")))
                         .add(Registries.ENCHANTMENT.get(new Identifier("farmersdelight", "backstabbing")))
-                ).weight(40))
-                // rare enchantments
+                ).weight(35))
                 .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
+                        .add(Enchantments.KNOCKBACK)
+                        .add(Enchantments.PUNCH)
                         .add(Enchantments.SILK_TOUCH)
                         .add(Registries.ENCHANTMENT.get(new Identifier("charm", "collection")))
-                ).weight(10));
+                        .add(Registries.ENCHANTMENT.get(new Identifier("guarding", "barbed")))
+                ).weight(15));
         tableBuilder.pool(enchantedBookPoolBuilder);
     }
 
@@ -212,13 +235,6 @@ public class LootTableModifier {
         LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
                 .with(ItemEntry.builder(Items.BOOK).apply(function).weight(50))
                 .with(EmptyEntry.builder().weight(50));
-        tableBuilder.pool(enchantedBookPoolBuilder);
-    }
-
-    private static void add1in4ChanceEnchantedBookFromList(LootTable.Builder tableBuilder, EnchantRandomlyLootFunction.Builder function) {
-        LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
-                .with(ItemEntry.builder(Items.BOOK).apply(function).weight(25))
-                .with(EmptyEntry.builder().weight(75));
         tableBuilder.pool(enchantedBookPoolBuilder);
     }
 
