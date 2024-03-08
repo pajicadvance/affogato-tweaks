@@ -30,7 +30,7 @@ public abstract class ItemsMixin {
 
     @ModifyArg(method = "<clinit>", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ShieldItem;<init>(Lnet/minecraft/item/Item$Settings;)V"))
     private static Item.Settings setShieldDurability(Item.Settings settings) {
-        return new Item.Settings().maxDamage(256);
+        return new Item.Settings().maxDamage(384);
     }
 
     @ModifyArg(method = "<clinit>", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/CrossbowItem;<init>(Lnet/minecraft/item/Item$Settings;)V"))
