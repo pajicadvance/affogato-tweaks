@@ -21,6 +21,18 @@ repositories {
         url = "https://maven.terraformersmc.com/"
     }
     maven { url "https://maven.siphalor.de" }
+    maven { url = "https://jitpack.io" }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 dependencies {
@@ -34,6 +46,12 @@ dependencies {
 
     modImplementation "dev.emi:emi-fabric:${emi_version}"
     modImplementation "de.siphalor:capsaicin-1.20:${capsaicin_version}"
+
+    // MixinSquared
+    include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.1.2-beta.4")))
+
+    // Reacharound
+    modImplementation "maven.modrinth:r3VgI4QN:uk6tRHW7"
 }
 
 processResources {

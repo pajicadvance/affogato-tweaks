@@ -31,6 +31,7 @@
     "ToolMaterialsMixin",
     "TradeOfferMixin",
     "TradeOffersMixin",
+    "TridentItemMixin",
     "emi.VanillaPluginMixin"
   ],
   "injectors": {
@@ -38,7 +39,8 @@
   },
   "client": [
     "MinecraftClientMixin",
-    "WorldCreatorMixin"
+    "WorldCreatorMixin",
+    "reacharound.InGameHudMixinSquared"
   ],
   "server": [
     "MinecraftServerMixin"
