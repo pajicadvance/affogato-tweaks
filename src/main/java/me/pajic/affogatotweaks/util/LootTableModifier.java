@@ -58,11 +58,15 @@ public class LootTableModifier {
                     addExperienceBottle(tableBuilder, 1);
                     addRandomMusicDisc(tableBuilder);
                 }
+                if (WOODLAND_MANSION.equals(id)) {
+                    addTotemOfUndying(tableBuilder);
+                }
                 if (JUNGLE_TEMPLE_TREASURE.equals(id)) {
                     addRandomEnchantedBook(tableBuilder);
                     addRandomEnchantedBook(tableBuilder);
                     addExperienceBottle(tableBuilder, 3);
                     addRandomMusicDisc(tableBuilder);
+                    addTotemOfUndying(tableBuilder);
                 }
                 if (CAT_GIFT.equals(id)) {
                     addRandomMusicDisc(tableBuilder);
@@ -130,6 +134,7 @@ public class LootTableModifier {
                             ).weight(25));
                     tableBuilder.pool(enchantedBookPoolBuilder);
                     addExperienceBottle(tableBuilder, 2);
+                    add1in8ChanceTotemOfUndying(tableBuilder);
                 }
                 if (PILLAGER_OUTPOST.equals(id)) {
                     LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
@@ -143,6 +148,7 @@ public class LootTableModifier {
                     tableBuilder.pool(enchantedBookPoolBuilder);
                     tableBuilder.pool(enchantedBookPoolBuilder);
                     addExperienceBottle(tableBuilder, 2);
+                    addTotemOfUndying(tableBuilder);
                 }
                 if (ELDER_GUARDIAN.equals(id) || OCEAN_MONUMENT_UPPER_SIDE_CHAMBER.equals(id)) {
                     LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
@@ -206,7 +212,7 @@ public class LootTableModifier {
                         .add(Enchantments.SHARPNESS)
                         .add(Enchantments.PROTECTION)
                         .add(Enchantments.POWER)
-                ).weight(50))
+                ).weight(55))
                 .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
                         .add(Enchantments.FEATHER_FALLING)
                         .add(Enchantments.PROJECTILE_PROTECTION)
@@ -214,7 +220,7 @@ public class LootTableModifier {
                         .add(Enchantments.SWEEPING)
                         .add(Registries.ENCHANTMENT.get(new Identifier("guarding", "pummeling")))
                         .add(Registries.ENCHANTMENT.get(new Identifier("farmersdelight", "backstabbing")))
-                ).weight(35))
+                ).weight(30))
                 .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
                         .add(Enchantments.KNOCKBACK)
                         .add(Enchantments.PUNCH)
@@ -251,6 +257,19 @@ public class LootTableModifier {
         LootPool.Builder bottleOfEnchantingPoolBuilder = LootPool.builder()
                 .with(ItemEntry.builder(Items.EXPERIENCE_BOTTLE).weight(50))
                 .with(EmptyEntry.builder().weight(50));
+        tableBuilder.pool(bottleOfEnchantingPoolBuilder);
+    }
+
+    private static void addTotemOfUndying(LootTable.Builder tableBuilder) {
+        LootPool.Builder bottleOfEnchantingPoolBuilder = LootPool.builder()
+                .with(ItemEntry.builder(Items.TOTEM_OF_UNDYING));
+        tableBuilder.pool(bottleOfEnchantingPoolBuilder);
+    }
+
+    private static void add1in8ChanceTotemOfUndying(LootTable.Builder tableBuilder) {
+        LootPool.Builder bottleOfEnchantingPoolBuilder = LootPool.builder()
+                .with(ItemEntry.builder(Items.TOTEM_OF_UNDYING).weight(10))
+                .with(EmptyEntry.builder().weight(70));
         tableBuilder.pool(bottleOfEnchantingPoolBuilder);
     }
 
