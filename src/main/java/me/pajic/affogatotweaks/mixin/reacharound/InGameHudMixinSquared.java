@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(value = InGameHud.class, priority = 1500)
 public class InGameHudMixinSquared {
 
+    // Makes the indicator widgets from Reacharound align with the crosshair change from Centered Crosshair
     @Shadow private int scaledHeight;
 
     @Shadow private int scaledWidth;
