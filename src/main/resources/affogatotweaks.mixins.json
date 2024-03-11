@@ -32,7 +32,8 @@
     "TradeOfferMixin",
     "TradeOffersMixin",
     "TridentItemMixin",
-    "emi.VanillaPluginMixin"
+    "emi.VanillaPluginMixin",
+    "spiceoffabric.FoodContainerItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

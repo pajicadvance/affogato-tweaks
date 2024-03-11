@@ -52,6 +52,30 @@ dependencies {
 
     // Reacharound
     modImplementation "maven.modrinth:r3VgI4QN:uk6tRHW7"
+
+    // Spice of Fabric
+    modImplementation "maven.modrinth:roxihOCb:JQeNIIvU"
+
+    // AppleSkin
+    modImplementation "maven.modrinth:EsAfCjCV:xcauwnEB"
+
+    // Enchanted Shulkers
+    modImplementation "maven.modrinth:vUi6HFie:4YXMZuAk"
+
+    // Farmer's Delight
+    modImplementation "maven.modrinth:4EakbH8e:QXYNitXw"
+
+    // Fabric Language Kotlin
+    modImplementation "maven.modrinth:Ha28R6CL:ZMokinzs"
+
+    // Polymer
+    modImplementation "maven.modrinth:xGdtZczs:3ii2xU3x"
+
+    // Cloth Config
+    modImplementation "maven.modrinth:9s6osm5g:J3FLptsi"
+
+    // Guarding
+    modImplementation "maven.modrinth:aV1COQ7a:zz7EL9j5"
 }
 
 processResources {
