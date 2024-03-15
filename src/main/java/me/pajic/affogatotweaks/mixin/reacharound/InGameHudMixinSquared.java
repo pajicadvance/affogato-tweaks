@@ -16,17 +16,8 @@ public class InGameHudMixinSquared {
 
     @Shadow private int scaledWidth;
 
-    @TargetHandler(
-            mixin = "com.spanser.reacharound.mixin.client.InGameHudMixin",
-            name = "renderPlacementAssistText"
-    )
-    @Redirect(
-            method = "@MixinSquared:Handler",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/client/util/math/MatrixStack;translate(FFF)V"
-            )
-    )
+    @TargetHandler(mixin = "com.spanser.reacharound.mixin.client.InGameHudMixin", name = "renderPlacementAssistText")
+    @Redirect(method = "@MixinSquared:Handler", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/math/MatrixStack;translate(FFF)V"))
     private void centerReacharoundWidget(MatrixStack instance, float x, float y, float z) {
         instance.translate(scaledWidth / 2f + 0.5, scaledHeight / 2f - 3.5, 0);
     }

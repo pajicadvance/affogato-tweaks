@@ -18,6 +18,7 @@
     "EnderDragonEntityMixin",
     "ExperienceBottleEntityMixin",
     "FishingBobberEntityMixin",
+    "FlowerBlockMixin",
     "HostileEntityMixin",
     "ItemMixin",
     "ItemsMixin",
@@ -32,6 +33,7 @@
     "TradeOfferMixin",
     "TradeOffersMixin",
     "TridentItemMixin",
+    "charm.ImprovedMineshaftsMixin",
     "emi.VanillaPluginMixin",
     "spiceoffabric.FoodContainerItemMixin"
   ],
@@ -41,6 +43,7 @@
   "client": [
     "MinecraftClientMixin",
     "WorldCreatorMixin",
+    "presencefootsteps.DebugHudMixinSquared",
     "reacharound.InGameHudMixinSquared"
   ],
   "server": [

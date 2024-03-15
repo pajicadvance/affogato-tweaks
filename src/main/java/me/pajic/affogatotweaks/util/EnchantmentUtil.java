@@ -14,7 +14,6 @@ public class EnchantmentUtil {
     private static final int[] levelPoolMax4 = new int[]{1, 1, 1, 1, 2};
 
     public static boolean preventEnchantmentAdditionToList(List<EnchantmentLevelEntry> list, EnchantmentLevelEntry entry) {
-
         if (ENCHANTMENT_BLACKLIST.contains(entry.enchantment)) {
             return false;
         }

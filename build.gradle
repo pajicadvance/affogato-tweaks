@@ -76,6 +76,13 @@ dependencies {
 
     // Guarding
     modImplementation "maven.modrinth:aV1COQ7a:zz7EL9j5"
+
+    // Presence Footsteps
+    modImplementation "maven.modrinth:rcTfTZr3:KAmTaDGR"
+
+    // Charm
+    implementation files('run/mods/charm-fabric-1.20.1-6.0.21.jar')
+    implementation files('jij-libs/charmony-fabric-1.20.1-6.15.1.jar')
 }
 
 processResources {
