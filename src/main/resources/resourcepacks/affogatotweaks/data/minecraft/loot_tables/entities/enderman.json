@@ -25,11 +25,11 @@
               "function": "minecraft:looting_enchant"
             }
           ],
-          "name": "minecraft:rotten_flesh"
+          "name": "minecraft:ender_pearl"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "minecraft:entities/zombified_piglin"
+  "random_sequence": "minecraft:entities/enderman"
 }
