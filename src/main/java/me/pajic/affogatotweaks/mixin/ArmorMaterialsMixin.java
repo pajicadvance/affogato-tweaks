@@ -57,10 +57,21 @@ public class ArmorMaterialsMixin {
         map.put(ArmorItem.Type.BOOTS, 1);
     }
 
+    // Modifies the armor toughness values for certain material types
+    @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = 2.0F))
+    private static float setDiamondToughness(float constant) {
+        return 0.0F;
+    }
+
+    @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = 3.0F))
+    private static float setNetheriteToughness(float constant) {
+        return 4.0F;
+    }
+
     // Modifies the armor durability multiplier for each material type
     @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 37))
     private static int setNetheriteDurabilityMultiplier(int constant) {
-        return 40;
+        return 50;
     }
 
     @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 25, ordinal = 1))
