@@ -11,6 +11,16 @@ import java.util.EnumMap;
 @Mixin(value = ArmorMaterials.class)
 public class ArmorMaterialsMixin {
 
+    // Modifies the base armor durabilities for each armor part
+    @Inject(method = "method_48405", at = @At("HEAD"),cancellable = true)
+    private static void setBaseDurabilities(EnumMap<ArmorItem.Type, Integer> map, CallbackInfo ci) {
+        ci.cancel();
+        map.put(ArmorItem.Type.HELMET, 13);
+        map.put(ArmorItem.Type.LEGGINGS, 15);
+        map.put(ArmorItem.Type.CHESTPLATE, 16);
+        map.put(ArmorItem.Type.BOOTS, 12);
+    }
+
     // Modifies the armor ratings for each material type
     @Inject(method = "method_48406", at = @At("HEAD"), cancellable = true)
     private static void setNetheriteArmorValues(EnumMap<ArmorItem.Type, Integer> map, CallbackInfo ci) {
