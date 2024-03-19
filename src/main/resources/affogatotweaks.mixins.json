@@ -11,6 +11,7 @@
     "BowAttackGoalMixin",
     "BowItemMixin",
     "BrewingRecipeRegistryMixin",
+    "DrownedEntityMixin",
     "EnchantBookFactoryMixin",
     "EnchantingTableBlockMixin",
     "EnchantmentHelperMixin",
@@ -41,6 +42,7 @@
     "defaultRequire": 1
   },
   "client": [
+    "InGameHudMixin",
     "MinecraftClientMixin",
     "WorldCreatorMixin",
     "presencefootsteps.DebugHudMixinSquared",

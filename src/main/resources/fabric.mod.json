@@ -21,6 +21,7 @@
   "mixins": [
     "affogatotweaks.mixins.json"
   ],
+  "accessWidener": "affogatotweaks.accesswidener",
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
