@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public class AbstractSkeletonEntityMixin {
 
     // Reduce skeleton bow fire rate on Hard difficulty
-    @ModifyConstant(method = "updateAttackType", constant = @Constant(intValue = 40))
+    @ModifyConstant(method = "updateAttackType", constant = @Constant(intValue = 20))
     private int modifyFireRate(int constant) {
         return 30;
     }
