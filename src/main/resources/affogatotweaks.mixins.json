@@ -27,6 +27,7 @@
     "PhantomSpawnerMixin",
     "PlayerEntityMixin",
     "ProtectionEnchantmentMixin",
+    "RavagerEntityMixin",
     "RedstoneOreBlockMixin",
     "SellEnchantedToolFactoryMixin",
     "TippedArrowRecipeMixin",
