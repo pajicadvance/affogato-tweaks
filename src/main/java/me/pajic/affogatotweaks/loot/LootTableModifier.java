@@ -91,13 +91,11 @@ public class LootTableModifier {
                                     .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "augment")))
                                     .add(Registries.ENCHANTMENT.get(new Identifier("aileron", "smokestack")))
                                     .add(Registries.ENCHANTMENT.get(new Identifier("aileron", "cloudskipper")))
-                            ).weight(75))
+                            ).weight(80))
                             .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
                                     .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "siphon")))
                                     .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "refill")))
-                                    .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "vacuum")))
-                                    .add(Registries.ENCHANTMENT.get(new Identifier("enchantedshulkers", "void")))
-                            ).weight(25));
+                            ).weight(20));
                     tableBuilder.pool(enchantedBookPoolBuilder);
                     LootUtil.addExperienceBottle(tableBuilder, 2);
                     LootUtil.add1in8ChanceTotemOfUndying(tableBuilder);
