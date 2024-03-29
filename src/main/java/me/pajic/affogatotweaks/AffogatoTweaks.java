@@ -30,16 +30,16 @@ public class AffogatoTweaks implements ModInitializer {
     );
     public static final CopperLanternBlock EXPOSED_COPPER_LANTERN = new CopperLanternBlock(
             Oxidizable.OxidationLevel.EXPOSED,
-            FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).solid().requiresTool().strength(3.0F, 6.0F).sounds(BlockSoundGroup.LANTERN).luminance(state -> 12).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)
+            FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).solid().requiresTool().strength(3.0F, 6.0F).sounds(BlockSoundGroup.LANTERN).luminance(state -> 11).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)
     );
 
     public static final CopperLanternBlock WEATHERED_COPPER_LANTERN = new CopperLanternBlock(
             Oxidizable.OxidationLevel.WEATHERED,
-            FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).solid().requiresTool().strength(3.0F, 6.0F).sounds(BlockSoundGroup.LANTERN).luminance(state -> 9).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)
+            FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).solid().requiresTool().strength(3.0F, 6.0F).sounds(BlockSoundGroup.LANTERN).luminance(state -> 7).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)
     );
     public static final CopperLanternBlock OXIDIZED_COPPER_LANTERN = new CopperLanternBlock(
             Oxidizable.OxidationLevel.OXIDIZED,
-            FabricBlockSettings.create().mapColor(MapColor.TEAL).solid().requiresTool().strength(3.0F, 6.0F).sounds(BlockSoundGroup.LANTERN).luminance(state -> 6).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)
+            FabricBlockSettings.create().mapColor(MapColor.TEAL).solid().requiresTool().strength(3.0F, 6.0F).sounds(BlockSoundGroup.LANTERN).luminance(state -> 3).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)
     );
 
     public static final Item COPPER_NUGGET = new Item(new FabricItemSettings());

@@ -86,6 +86,9 @@ dependencies {
     // Chalk
     modImplementation "maven.modrinth:OrtjXTCH:jWMVQdZu"
 
+    // ImmediatelyFast
+    modImplementation "maven.modrinth:5ZwdcRci:FEOsWs1E"
+
     // Charm
     implementation files('run/mods/charm-fabric-1.20.1-6.0.21.jar')
     implementation files('jij-libs/charmony-fabric-1.20.1-6.15.1.jar')
