@@ -29,9 +29,9 @@ public class AnvilScreenHandlerMixin {
         int divideBy = 4;
 
         if (item instanceof ArmorItem) {
-            if (((ArmorItem) item).getSlotType() == EquipmentSlot.HEAD) divideBy = 5;
-            else if (((ArmorItem) item).getSlotType() == EquipmentSlot.CHEST) divideBy = 8;
-            else if (((ArmorItem) item).getSlotType() == EquipmentSlot.LEGS) divideBy = 7;
+            if (((ArmorItem) item).getSlotType() == EquipmentSlot.CHEST) divideBy = 6;
+            else if (((ArmorItem) item).getSlotType() == EquipmentSlot.LEGS) divideBy = 5;
+            else if (((ArmorItem) item).getSlotType() == EquipmentSlot.FEET) divideBy = 3;
         }
         else if (item instanceof ShovelItem || item instanceof KnifeItem || item instanceof FlintAndSteelItem || item instanceof BrushItem) {
             divideBy = 1;
@@ -40,10 +40,7 @@ public class AnvilScreenHandlerMixin {
             divideBy = 2;
         }
         else if (item instanceof AxeItem || item instanceof PickaxeItem || item instanceof BowItem || item instanceof TridentItem) {
-            divideBy = 3;
-        }
-        else if (item instanceof ShieldItem) {
-            divideBy = 6;
+            divideBy = 2;
         }
 
         return itemStack.getMaxDamage() / divideBy;
