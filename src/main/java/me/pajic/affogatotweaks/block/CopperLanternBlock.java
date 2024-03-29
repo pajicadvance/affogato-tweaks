@@ -15,6 +15,7 @@ public class CopperLanternBlock extends LanternBlock implements Oxidizable {
         this.oxidationLevel = oxidationLevel;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         this.tickDegradation(state, world, pos, random);
