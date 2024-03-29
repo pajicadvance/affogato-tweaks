@@ -9,5 +9,10 @@
   "gui.affogatotweaks.season.spring": "Spring",
   "gui.affogatotweaks.season.summer": "Summer",
   "gui.affogatotweaks.season.fall": "Fall",
-  "gui.affogatotweaks.season.winter": "Winter"
+  "gui.affogatotweaks.season.winter": "Winter",
+  "block.affogatotweaks.copper_lantern": "Copper Lantern",
+  "block.affogatotweaks.exposed_copper_lantern": "Exposed Copper Lantern",
+  "block.affogatotweaks.weathered_copper_lantern": "Weathered Copper Lantern",
+  "block.affogatotweaks.oxidized_copper_lantern": "Oxidized Copper Lantern",
+  "item.affogatotweaks.copper_nugget": "Copper Nugget"
 }
