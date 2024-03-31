@@ -17,10 +17,15 @@ repositories {
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
     maven {
+        name = 'ParchmentMC'
+        url = 'https://maven.parchmentmc.org'
+    }
+    maven {
         name = "TerraformersMC"
         url = "https://maven.terraformersmc.com/"
     }
     maven { url "https://maven.siphalor.de" }
+    maven { url 'https://maven.wispforest.io' }
     maven { url = "https://jitpack.io" }
     exclusiveContent {
         forRepository {
@@ -39,16 +44,26 @@ dependencies {
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    //mappings loom.officialMojangMappings()
+    /*mappings loom.layered() {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-1.20.1:2023.09.03@zip")
+    }*/
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
     modImplementation "dev.emi:emi-fabric:${emi_version}"
     modImplementation "de.siphalor:capsaicin-1.20:${capsaicin_version}"
 
     // MixinSquared
     include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.1.2-beta.4")))
+
+    // Lavender
+    dependencies {
+        modImplementation "io.wispforest:lavender:${project.lavender_version}"
+        include "io.wispforest:owo-sentinel:${project.owo_version}"
+    }
 
     // Reacharound
     modImplementation "maven.modrinth:r3VgI4QN:uk6tRHW7"
@@ -89,9 +104,15 @@ dependencies {
     // ImmediatelyFast
     modImplementation "maven.modrinth:5ZwdcRci:FEOsWs1E"
 
+    // Sodium
+    modImplementation "maven.modrinth:AANobbMI:mhZtY2lR"
+
+    // Iris
+    modImplementation "maven.modrinth:YL57xq9U:JHbrO6Zq"
+
     // Charm
-    implementation files('run/mods/charm-fabric-1.20.1-6.0.21.jar')
-    implementation files('jij-libs/charmony-fabric-1.20.1-6.15.1.jar')
+    implementation files("run/mods/charm-fabric-1.20.1-6.0.21.jar")
+    implementation files("jij-libs/charmony-fabric-1.20.1-6.15.1.jar")
 }
 
 loom {
