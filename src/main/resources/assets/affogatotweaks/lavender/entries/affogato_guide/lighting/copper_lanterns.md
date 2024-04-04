@@ -18,4 +18,4 @@ Copper Lanterns are a new light source added to fill in the gap between regular 
 
 ;;;;;
 
-Copper lanterns emit a very slightly dimmer light than regular lanterns. They behave the same way as regular lanterns, except they are affected by oxidization - they will degrade in the same manner as copper blocks do. The more oxidized they are, the dimmer the light is going to be. You can wax them to keep the oxidization stage, and right click them with an axe to scrap off the oxidization.
+Copper lanterns emit a very slightly dimmer light than regular lanterns. They behave the same way as regular lanterns, except they are affected by oxidization - they will degrade in the same manner as copper blocks do. The more oxidized they are, the dimmer the light is going to be. You can wax them to keep the oxidization stage, and right click them with an axe to scrape off the oxidization.
