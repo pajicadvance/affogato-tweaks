@@ -49,7 +49,7 @@ public class AffogatoTweaks implements ModInitializer {
     public void onInitialize() {
 
         FabricLoader.getInstance().getModContainer("affogatotweaks").ifPresent(modContainer ->
-                ResourceManagerHelper.registerBuiltinResourcePack(new Identifier("affogatotweaks","affogatotweaks_data"),
+                ResourceManagerHelper.registerBuiltinResourcePack(new Identifier("affogatotweaks","affogatotweaks"),
                         modContainer, ResourcePackActivationType.ALWAYS_ENABLED));
 
         LootTableModifier.modifyLootTables();
