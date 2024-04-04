@@ -13,12 +13,14 @@ public abstract class PlayerEntityMixin {
 
     @Shadow public abstract boolean isCreative();
 
+    @Shadow public abstract boolean isSpectator();
+
     @Shadow public abstract void setReducedDebugInfo(boolean reducedDebugInfo);
 
-    // Turns on reduced debug info if the player is not in creative mode
+    // Turns on reduced debug info if the player is not in creative or spectator mode
     @Inject(method = "tick", at = @At("HEAD"))
     private void setReducedDebugInfo(CallbackInfo ci) {
-        setReducedDebugInfo(!isCreative());
+        setReducedDebugInfo(!isCreative() && !isSpectator());
     }
 
     // Prevents player entities from dropping experience

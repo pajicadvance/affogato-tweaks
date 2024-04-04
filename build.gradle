@@ -147,7 +147,7 @@ tasks.register("moveBuiltJars", Copy) {
     def remapJar = project.tasks.named('remapJar')
     dependsOn remapJar
     from remapJar
-    into '/home/pajic/.local/share/PrismLauncher/instances/Affogato-Beta-35/.minecraft/mods/'
+    into '/home/pajic/.local/share/PrismLauncher/instances/ab35/.minecraft/mods/'
 }
 
 java {
