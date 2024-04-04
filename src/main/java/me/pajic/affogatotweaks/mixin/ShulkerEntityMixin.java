@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ShulkerEntity.class)
 public class ShulkerEntityMixin {
 
+    // Disables shulker duplication mechanic
     @Inject(method = "spawnNewShulker", at = @At("HEAD"), cancellable = true)
     private void disableShulkerDuplication(CallbackInfo ci) {
         ci.cancel();

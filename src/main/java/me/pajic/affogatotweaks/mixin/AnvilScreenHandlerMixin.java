@@ -13,11 +13,14 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
+// Makes anvil repair respect material unit costs
+// Repair is 33% cheaper than shapeless repair
 @Mixin(AnvilScreenHandler.class)
 public class AnvilScreenHandlerMixin {
 
     @Unique private ItemStack itemStack;
 
+    // Gets item stack from the first slot
     @Inject(method = "updateResult", at = @At(value = "INVOKE", target = "Lnet/minecraft/enchantment/EnchantmentHelper;get(Lnet/minecraft/item/ItemStack;)Ljava/util/Map;", ordinal = 0), locals = LocalCapture.CAPTURE_FAILHARD)
     private void getItemStack(CallbackInfo ci, ItemStack itemStack, int i, int j, int k, ItemStack itemStack2, ItemStack itemStack3) {
         this.itemStack = itemStack2;

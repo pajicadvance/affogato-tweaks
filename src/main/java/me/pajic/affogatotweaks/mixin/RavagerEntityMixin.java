@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(RavagerEntity.class)
 public class RavagerEntityMixin {
 
+    // Decreases ravager roar knockback intensity
     @ModifyConstant(method = "knockBack", constant = @Constant(doubleValue = 0.001))
     private double modifyRoarKnockbackMaxIntensity(double constant) {
         return 0.1;
