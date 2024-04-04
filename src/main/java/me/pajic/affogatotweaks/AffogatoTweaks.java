@@ -1,5 +1,6 @@
 package me.pajic.affogatotweaks;
 
+import io.wispforest.lavender.book.LavenderBookItem;
 import me.pajic.affogatotweaks.block.CopperLanternBlock;
 import me.pajic.affogatotweaks.loot.LootTableModifier;
 import net.fabricmc.api.ModInitializer;
@@ -76,5 +77,7 @@ public class AffogatoTweaks implements ModInitializer {
             content.addAfter(EXPOSED_COPPER_LANTERN, WEATHERED_COPPER_LANTERN);
             content.addAfter(WEATHERED_COPPER_LANTERN, OXIDIZED_COPPER_LANTERN);
         });
+
+        LavenderBookItem.registerForBook(new Identifier("affogatotweaks", "affogato_guide"), new FabricItemSettings().maxCount(1));
     }
 }
