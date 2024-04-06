@@ -58,7 +58,11 @@ public class ShaderPackSelectionListMixin {
                 try (Stream<Path> fileStream = Files.walk(shaderPackPath)) {
                     fileStream.forEach(path -> {
                         try {
-                            fileHashes.put(shaderPackPath.relativize(path).toString(), SHA256Util.calculateSHA256(path.toFile()));
+                            String fileName = path.toString().substring(path.toString().lastIndexOf(File.separator) + 1);
+                            File f = path.toFile();
+                            if (!fileName.startsWith(".") && !f.isDirectory()) {
+                                fileHashes.put(shaderPackPath.relativize(path).toString(), SHA256Util.calculateSHA256(path.toFile()));
+                            }
                         } catch (IOException | NoSuchAlgorithmException e) {
                             LOGGER.error("Failed to open file for hash calculation", e);
                         }
