@@ -49,6 +49,7 @@ dependencies {
         officialMojangMappings()
         parchment("org.parchmentmc.data:parchment-1.20.1:2023.09.03@zip")
     }*/
+
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     // Fabric API. This is technically optional, but you probably want it anyway.
@@ -60,15 +61,7 @@ dependencies {
     include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.1.2-beta.4")))
 
     // Lavender
-    dependencies {
-        modImplementation "io.wispforest:lavender:${project.lavender_version}"
-        include "io.wispforest:owo-sentinel:${project.owo_version}"
-    }
-
-    // Reacharound
-    modImplementation "maven.modrinth:r3VgI4QN:uk6tRHW7"
-
-    // Spice of Fabric
+    modImplementation "io.wispforest:lavender:${project.lavender_version}"
     modImplementation "maven.modrinth:roxihOCb:JQeNIIvU"
 
     // AppleSkin

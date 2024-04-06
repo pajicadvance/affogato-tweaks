@@ -50,6 +50,7 @@
     "InGameHudMixin",
     "MinecraftClientMixin",
     "WorldCreatorMixin",
+    "iris.ShaderPackSelectionListMixin",
     "presencefootsteps.DebugHudMixinSquared",
     "reacharound.InGameHudMixinSquared"
   ],
