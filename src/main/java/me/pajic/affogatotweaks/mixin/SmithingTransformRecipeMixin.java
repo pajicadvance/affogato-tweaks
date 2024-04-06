@@ -21,6 +21,7 @@ import static me.pajic.affogatotweaks.item.ModItems.ENCHANTMENT_UPGRADE_SMITHING
 @Mixin(SmithingTransformRecipe.class)
 public class SmithingTransformRecipeMixin {
 
+    // Defines conditions under which the enchantment upgrade recipe can be used and increments enchanted book enchantment level
     @Inject(method = "craft", at = @At(value = "RETURN", shift = At.Shift.BEFORE), locals = LocalCapture.CAPTURE_FAILHARD, cancellable = true)
     private void incrementBookEnchantmentLevel(Inventory inventory, DynamicRegistryManager registryManager, CallbackInfoReturnable<ItemStack> cir, ItemStack itemStack, NbtCompound nbtCompound) {
         if (itemStack.isOf(Items.ENCHANTED_BOOK) && inventory.getStack(0).isOf(ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE)) {

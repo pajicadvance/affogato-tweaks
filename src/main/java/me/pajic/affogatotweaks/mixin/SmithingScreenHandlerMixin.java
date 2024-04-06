@@ -21,6 +21,7 @@ public abstract class SmithingScreenHandlerMixin extends ForgingScreenHandler {
         super(type, syncId, playerInventory, context);
     }
 
+    // Decrements the material by 64 instead of 1 if the enchantment upgrade recipe is used
     @Inject(method = "decrementStack", at = @At("HEAD"), cancellable = true)
     private void modifyDecrementAmount(int slot, CallbackInfo ci) {
         if (slot == 2 && input.getStack(0).isOf(ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE)) {
