@@ -22,7 +22,7 @@ public class LootTableModifier {
                         || STRONGHOLD_CORRIDOR.equals(id) || STRONGHOLD_CROSSING.equals(id) || ANCIENT_CITY.equals(id)) {
                     LootUtil.addRandomEnchantedBook(tableBuilder);
                     LootUtil.addExperienceBottle(tableBuilder, 1);
-                    LootUtil.addRandomMusicDisc(tableBuilder);
+                    LootUtil.add1in10ChanceRandomMusicDisc(tableBuilder);
                 }
                 if (WOODLAND_MANSION.equals(id)) {
                     LootUtil.addTotemOfUndying(tableBuilder);
@@ -31,11 +31,11 @@ public class LootTableModifier {
                     LootUtil.addRandomEnchantedBook(tableBuilder);
                     LootUtil.addRandomEnchantedBook(tableBuilder);
                     LootUtil.addExperienceBottle(tableBuilder, 3);
-                    LootUtil.addRandomMusicDisc(tableBuilder);
+                    LootUtil.add1in10ChanceRandomMusicDisc(tableBuilder);
                     LootUtil.addTotemOfUndying(tableBuilder);
                 }
                 if (CAT_GIFT.equals(id)) {
-                    LootUtil.addRandomMusicDisc(tableBuilder);
+                    LootUtil.add1in10ChanceRandomMusicDisc(tableBuilder);
                 }
                 if (DESERT_TEMPLE_LIBRARY.equals(id)) {
                     LootUtil.addEnchantedBookFromList(tableBuilder, EnchantRandomlyLootFunction.create()
@@ -99,6 +99,7 @@ public class LootTableModifier {
                     tableBuilder.pool(enchantedBookPoolBuilder);
                     LootUtil.addExperienceBottle(tableBuilder, 2);
                     LootUtil.add1in8ChanceTotemOfUndying(tableBuilder);
+                    LootUtil.add1in10ChanceEnchantmentUpgradeSmithingTemplate(tableBuilder);
                 }
                 if (PILLAGER_OUTPOST.equals(id)) {
                     LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()

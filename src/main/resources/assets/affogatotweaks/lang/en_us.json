@@ -15,5 +15,11 @@
   "block.affogatotweaks.weathered_copper_lantern": "Weathered Copper Lantern",
   "block.affogatotweaks.oxidized_copper_lantern": "Oxidized Copper Lantern",
   "item.affogatotweaks.copper_nugget": "Copper Nugget",
-  "item.affogatotweaks.affogato_guide": "Affogato Guide"
+  "item.affogatotweaks.affogato_guide": "Affogato Guide",
+  "item.affogatotweaks.enchantment_upgrade": "Enchantment Upgrade",
+  "upgrade.minecraft.affogatotweaks.enchantment_upgrade": "Enchantment Upgrade",
+  "item.minecraft.affogatotweaks.smithing_template.enchantment_upgrade.applies_to": "Enchanted Books with One Enchantment",
+  "item.minecraft.affogatotweaks.smithing_template.enchantment_upgrade.ingredients": "64 Lapis Lazuli",
+  "item.minecraft.affogatotweaks.smithing_template.enchantment_upgrade.base_slot_description": "Add enchanted book",
+  "item.minecraft.affogatotweaks.smithing_template.enchantment_upgrade.additions_slot_description": "Add 64 Lapis Lazuli"
 }

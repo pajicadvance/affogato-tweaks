@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:lapis_lazuli"
+  },
+  "base": {
+    "item": "minecraft:enchanted_book"
+  },
+  "result": {
+    "item": "minecraft:enchanted_book"
+  },
+  "template": {
+    "item": "affogatotweaks:enchantment_upgrade"
+  }
+}

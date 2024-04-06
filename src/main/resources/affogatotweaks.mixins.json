@@ -32,6 +32,8 @@
     "RedstoneOreBlockMixin",
     "SellEnchantedToolFactoryMixin",
     "ShulkerEntityMixin",
+    "SmithingScreenHandlerMixin",
+    "SmithingTransformRecipeMixin",
     "TippedArrowRecipeMixin",
     "ToolMaterialsMixin",
     "TradeOfferMixin",

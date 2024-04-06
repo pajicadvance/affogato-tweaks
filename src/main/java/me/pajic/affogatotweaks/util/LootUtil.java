@@ -1,5 +1,6 @@
 package me.pajic.affogatotweaks.util;
 
+import me.pajic.affogatotweaks.item.ModItems;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
@@ -82,7 +83,14 @@ public class LootUtil {
         tableBuilder.pool(bottleOfEnchantingPoolBuilder);
     }
 
-    public static void addRandomMusicDisc(LootTable.Builder tableBuilder) {
+    public static void add1in10ChanceEnchantmentUpgradeSmithingTemplate(LootTable.Builder tableBuilder) {
+        LootPool.Builder enchantmentUpgradePoolBuilder = LootPool.builder()
+                .with(ItemEntry.builder(ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE).weight(10))
+                .with(EmptyEntry.builder().weight(90));
+        tableBuilder.pool(enchantmentUpgradePoolBuilder);
+    }
+
+    public static void add1in10ChanceRandomMusicDisc(LootTable.Builder tableBuilder) {
         LootPool.Builder musicDiscPoolBuilder = LootPool.builder()
                 .with(ItemEntry.builder(Items.MUSIC_DISC_11).weight(1))
                 .with(ItemEntry.builder(Items.MUSIC_DISC_13).weight(1))
