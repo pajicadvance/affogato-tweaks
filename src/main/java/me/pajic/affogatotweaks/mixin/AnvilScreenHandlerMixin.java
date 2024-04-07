@@ -1,6 +1,5 @@
 package me.pajic.affogatotweaks.mixin;
 
-import com.nhoryzon.mc.farmersdelight.item.KnifeItem;
 import de.dafuqs.chalk.common.items.ChalkItem;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
@@ -12,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+import vectorwing.farmersdelight.common.item.KnifeItem;
 
 // Makes anvil repair respect material unit costs
 // Repair is 33% cheaper than shapeless repair

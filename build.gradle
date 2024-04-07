@@ -77,7 +77,7 @@ dependencies {
     modImplementation "maven.modrinth:vUi6HFie:4YXMZuAk"
 
     // Farmer's Delight
-    modImplementation "maven.modrinth:4EakbH8e:QXYNitXw"
+    modImplementation "maven.modrinth:7vxePowz:X6fzggyI"
 
     // Fabric Language Kotlin
     modImplementation "maven.modrinth:Ha28R6CL:ZMokinzs"
