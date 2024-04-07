@@ -21,7 +21,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -37,10 +36,8 @@ public class ShaderPackSelectionListMixin {
     private static final Logger LOGGER = LoggerFactory.getLogger("AffogatoTweaks-ShaderPackSelectionListMixin");
 
     @Unique
-    private static final List<String> ALLOWED_SHADER_PACK_ZIPS = Arrays.asList(
-            "f4925044d6975225296cb9cb84b3ee9388bc00d3aacce066eee92bc427ca66cf", // Complementary Reimagined 5.1.1
-            "70d8602d8743925b0d12eb351f3fb8b8fd5298a5d0b44eb2a9833cf8ddef013a", // Rethinking Voxels r0.1 beta 2
-            "75fef8003f1a9f70eeca4849d0ac526e75e1220f55790f32f23e061bce1c5a28" // Rethinking Voxels r0.1 beta 3 fix 1
+    private static final List<String> ALLOWED_SHADER_PACK_ZIPS = List.of(
+            "f4925044d6975225296cb9cb84b3ee9388bc00d3aacce066eee92bc427ca66cf" // Complementary Reimagined 5.1.1
                                                                                 // Euphoria Patches 1.2 (json)
     );
 
