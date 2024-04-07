@@ -1,7 +1,7 @@
 package me.pajic.affogatotweaks.mixin;
 
 import com.nhoryzon.mc.farmersdelight.item.KnifeItem;
-import de.dafuqs.chalk.items.ChalkItem;
+import de.dafuqs.chalk.common.items.ChalkItem;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.screen.AnvilScreenHandler;

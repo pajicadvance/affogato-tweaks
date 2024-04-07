@@ -92,13 +92,16 @@ dependencies {
     modImplementation "maven.modrinth:aV1COQ7a:zz7EL9j5"
 
     // Presence Footsteps
-    modImplementation "maven.modrinth:rcTfTZr3:KAmTaDGR"
+    modImplementation "maven.modrinth:rcTfTZr3:HwGHderf"
 
     // Fabric Seasons
     modImplementation "maven.modrinth:KJe6y9Eu:uMEzKato"
 
     // Chalk
-    modImplementation "maven.modrinth:OrtjXTCH:jWMVQdZu"
+    modImplementation "maven.modrinth:OrtjXTCH:AnIA4EcY"
+
+    // Chalk: Colorful Addon
+    modImplementation "maven.modrinth:VPJS28NH:gvVFiwqG"
 
     // ImmediatelyFast
     modImplementation "maven.modrinth:5ZwdcRci:FEOsWs1E"
@@ -146,7 +149,7 @@ tasks.register("moveBuiltJars", Copy) {
     def remapJar = project.tasks.named('remapJar')
     dependsOn remapJar
     from remapJar
-    into '/home/pajic/.local/share/PrismLauncher/instances/ab35/.minecraft/mods/'
+    into '/home/pajic/.local/share/PrismLauncher/instances/ab36/.minecraft/mods/'
 }
 
 java {
