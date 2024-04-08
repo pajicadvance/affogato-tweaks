@@ -3,6 +3,7 @@ package me.pajic.affogatotweaks.mixin;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.ProtectionEnchantment;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.registry.tag.DamageTypeTags;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -31,7 +32,8 @@ public abstract class ProtectionEnchantmentMixin {
             cir.setReturnValue(0);
         } else if (protectionType == ProtectionEnchantment.Type.ALL
                 && !source.isIn(DamageTypeTags.IS_FIRE) && !source.isIn(DamageTypeTags.IS_FALL)
-                && !source.isIn(DamageTypeTags.IS_EXPLOSION) && !source.isIn(DamageTypeTags.IS_PROJECTILE)) {
+                && !source.isIn(DamageTypeTags.IS_EXPLOSION) && !source.isIn(DamageTypeTags.IS_PROJECTILE)
+                && !source.isOf(DamageTypes.MAGIC)) {
             cir.setReturnValue(level);
         } else if (protectionType == ProtectionEnchantment.Type.FIRE && source.isIn(DamageTypeTags.IS_FIRE)) {
             cir.setReturnValue(level * 2);
