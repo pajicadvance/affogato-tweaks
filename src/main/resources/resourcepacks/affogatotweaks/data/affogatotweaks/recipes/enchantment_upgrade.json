@@ -7,11 +7,14 @@
     },
     "X": {
       "item": "minecraft:lapis_block"
+    },
+    "D": {
+      "item": "minecraft:diamond_block"
     }
   },
   "pattern": [
-    "XXX",
     "X#X",
+    "XDX",
     "XXX"
   ],
   "result": {
