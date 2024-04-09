@@ -149,7 +149,7 @@ tasks.register("moveBuiltJars", Copy) {
     def remapJar = project.tasks.named('remapJar')
     dependsOn remapJar
     from remapJar
-    into '/home/pajic/.local/share/PrismLauncher/instances/ab36/.minecraft/mods/'
+    into '/home/pajic/.local/share/PrismLauncher/instances/abpre2/.minecraft/mods/'
 }
 
 java {
