@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "affogatotweaks:copper_lantern",
+    "affogatotweaks:exposed_copper_lantern",
+    "affogatotweaks:weathered_copper_lantern",
+    "affogatotweaks:oxidized_copper_lantern"
+  ]
+}
