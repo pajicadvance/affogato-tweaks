@@ -90,6 +90,13 @@ public class LootUtil {
         tableBuilder.pool(enchantmentUpgradePoolBuilder);
     }
 
+    public static void add1in50ChanceColoredGlintSmithingTemplate(LootTable.Builder tableBuilder) {
+        LootPool.Builder coloredGlintPoolBuilder = LootPool.builder()
+                .with(ItemEntry.builder(Registries.ITEM.get(new Identifier("charm", "colored_glint_smithing_template"))).weight(2))
+                .with(EmptyEntry.builder().weight(98));
+        tableBuilder.pool(coloredGlintPoolBuilder);
+    }
+
     public static void add1in10ChanceRandomMusicDisc(LootTable.Builder tableBuilder) {
         LootPool.Builder musicDiscPoolBuilder = LootPool.builder()
                 .with(ItemEntry.builder(Items.MUSIC_DISC_11).weight(1))

@@ -23,6 +23,7 @@ public class LootTableModifier {
                     LootUtil.addRandomEnchantedBook(tableBuilder);
                     LootUtil.addExperienceBottle(tableBuilder, 1);
                     LootUtil.add1in10ChanceRandomMusicDisc(tableBuilder);
+                    LootUtil.add1in50ChanceColoredGlintSmithingTemplate(tableBuilder);
                 }
                 if (WOODLAND_MANSION.equals(id)) {
                     LootUtil.addTotemOfUndying(tableBuilder);
@@ -100,6 +101,7 @@ public class LootTableModifier {
                     LootUtil.addExperienceBottle(tableBuilder, 2);
                     LootUtil.add1in8ChanceTotemOfUndying(tableBuilder);
                     LootUtil.add1in10ChanceEnchantmentUpgradeSmithingTemplate(tableBuilder);
+                    LootUtil.add1in50ChanceColoredGlintSmithingTemplate(tableBuilder);
                 }
                 if (PILLAGER_OUTPOST.equals(id)) {
                     LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
