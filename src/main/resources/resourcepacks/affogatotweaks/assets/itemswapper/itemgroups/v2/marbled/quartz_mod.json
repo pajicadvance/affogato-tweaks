@@ -1,0 +1,10 @@
+{
+  "type": "paletteModification",
+  "target": "itemswapper:v2/marbled/quartz",
+  "addItems": [
+    "cinderscapes:crystalline_quartz",
+    "cinderscapes:sulfur_quartz_block",
+    "cinderscapes:rose_quartz_block",
+    "cinderscapes:smoky_quartz_block"
+  ]
+}

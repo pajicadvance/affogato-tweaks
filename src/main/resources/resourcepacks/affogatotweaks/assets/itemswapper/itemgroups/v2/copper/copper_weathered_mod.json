@@ -1,0 +1,7 @@
+{
+  "type": "paletteModification",
+  "target": "itemswapper:v2/copper/copper_weathered",
+  "addItems": [
+    "affogatotweaks:weathered_copper_lantern"
+  ]
+}

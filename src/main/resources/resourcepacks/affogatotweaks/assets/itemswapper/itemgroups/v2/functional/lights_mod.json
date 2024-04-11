@@ -1,0 +1,8 @@
+{
+  "type": "paletteModification",
+  "target": "itemswapper:v2/functional/lights",
+  "addItems": [
+    "charm:smooth_glowstone",
+    "affogatotweaks:copper_lantern"
+  ]
+}

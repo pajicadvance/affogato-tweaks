@@ -1,0 +1,32 @@
+{
+  "type": "palette",
+  "priority": 100,
+  "displayName": "text.itemswapper.palette.wood.scorched",
+  "items": [
+    "cinderscapes:scorched_stem",
+    "cinderscapes:scorched_hyphae",
+    "cinderscapes:stripped_scorched_stem",
+    "cinderscapes:stripped_scorched_hyphae",
+    "cinderscapes:scorched_planks",
+    "cinderscapes:scorched_stairs",
+    "cinderscapes:scorched_slab",
+    "cinderscapes:scorched_trapdoor",
+    "cinderscapes:scorched_door",
+    "cinderscapes:scorched_fence_gate",
+    "cinderscapes:scorched_fence",
+    "cinderscapes:scorched_sign",
+    "cinderscapes:scorched_hanging_sign",
+    "cinderscapes:scorched_button",
+    "cinderscapes:scorched_pressure_plate"
+  ],
+  "shortcuts": [
+    {
+      "type": "link",
+      "target": "itemswapper:v2/wood/warped"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/wood/crimson"
+    }
+  ]
+}

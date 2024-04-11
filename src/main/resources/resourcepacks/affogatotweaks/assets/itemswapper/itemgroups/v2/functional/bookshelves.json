@@ -1,0 +1,25 @@
+{
+  "type": "palette",
+  "priority": 100,
+  "displayName": "text.itemswapper.palette.functional.bookshelves",
+  "items": [
+    "charm:azalea_bookshelf",
+    "charm:acacia_bookshelf",
+    "charm:bamboo_bookshelf",
+    "charm:birch_bookshelf",
+    "charm:cherry_bookshelf",
+    "charm:crimson_bookshelf",
+    "charm:dark_oak_bookshelf",
+    "charm:jungle_bookshelf",
+    "charm:mangrove_bookshelf",
+    "charm:oak_bookshelf",
+    "charm:spruce_bookshelf",
+    "charm:warped_bookshelf"
+  ],
+  "shortcuts": [
+    {
+      "type": "link",
+      "target": "itemswapper:v2/functional/miscellaneous"
+    }
+  ]
+}

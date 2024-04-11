@@ -1,0 +1,11 @@
+{
+  "type": "paletteModification",
+  "target": "itemswapper:v2/growable/seeds",
+  "addItems": [
+    "farmersdelight:rice",
+    "farmersdelight:cabbage_seeds",
+    "farmersdelight:tomato_seeds",
+    "farmersdelight:onion",
+    "cinderscapes:bramble_berries"
+  ]
+}

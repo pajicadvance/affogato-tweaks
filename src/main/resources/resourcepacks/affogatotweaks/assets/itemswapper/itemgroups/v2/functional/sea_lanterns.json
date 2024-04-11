@@ -1,0 +1,19 @@
+{
+  "type": "palette",
+  "priority": 100,
+  "displayName": "text.itemswapper.palette.functional.sea_lanterns",
+  "items": [
+    "minecraft:sea_lantern",
+    "charm:brain_sea_lantern",
+    "charm:bubble_sea_lantern",
+    "charm:fire_sea_lantern",
+    "charm:horn_sea_lantern",
+    "charm:tube_sea_lantern"
+  ],
+  "shortcuts": [
+    {
+      "type": "link",
+      "target": "itemswapper:v2/functional/lights"
+    }
+  ]
+}

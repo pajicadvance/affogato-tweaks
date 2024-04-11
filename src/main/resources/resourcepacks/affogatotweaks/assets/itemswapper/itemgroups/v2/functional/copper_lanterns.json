@@ -1,0 +1,25 @@
+{
+  "type": "palette",
+  "priority": 100,
+  "displayName": "text.itemswapper.palette.functional.copper_lanterns",
+  "items": [
+    "affogatotweaks:copper_lantern",
+    "affogatotweaks:exposed_copper_lantern",
+    "affogatotweaks:weathered_copper_lantern",
+    "affogatotweaks:oxidized_copper_lantern",
+    "affogatotweaks:waxed_copper_lantern",
+    "affogatotweaks:waxed_exposed_copper_lantern",
+    "affogatotweaks:waxed_weathered_copper_lantern",
+    "affogatotweaks:waxed_oxidized_copper_lantern"
+  ],
+  "shortcuts": [
+    {
+      "type": "link",
+      "target": "itemswapper:v2/functional/lights"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/copper/copper"
+    }
+  ]
+}

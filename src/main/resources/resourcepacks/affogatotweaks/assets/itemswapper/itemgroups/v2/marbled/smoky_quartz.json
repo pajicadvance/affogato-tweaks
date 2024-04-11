@@ -1,0 +1,23 @@
+{
+  "type": "palette",
+  "priority": 100,
+  "displayName": "text.itemswapper.palette.marbled.smoky_quartz",
+  "items": [
+    "cinderscapes:smoky_quartz_block",
+    "cinderscapes:smoky_quartz_stairs",
+    "cinderscapes:smoky_quartz_slab",
+    "cinderscapes:chiseled_smoky_quartz_block",
+    "cinderscapes:smoky_quartz_bricks",
+    "cinderscapes:smoky_quartz_pillar",
+    "cinderscapes:smooth_smoky_quartz",
+    "cinderscapes:smooth_smoky_quartz_stairs",
+    "cinderscapes:smooth_smoky_quartz_slab",
+    "cinderscapes:crystalline_smoky_quartz"
+  ],
+  "shortcuts": [
+    {
+      "type": "link",
+      "target": "itemswapper:v2/marbled/quartz"
+    }
+  ]
+}

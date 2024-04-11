@@ -1,0 +1,7 @@
+{
+  "type": "paletteModification",
+  "target": "itemswapper:v2/copper/copper_exposed",
+  "addItems": [
+    "affogatotweaks:exposed_copper_lantern"
+  ]
+}

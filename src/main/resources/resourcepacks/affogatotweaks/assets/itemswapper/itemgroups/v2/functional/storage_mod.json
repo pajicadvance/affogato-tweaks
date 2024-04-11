@@ -1,0 +1,8 @@
+{
+  "type": "paletteModification",
+  "target": "itemswapper:v2/functional/storage",
+  "addItems": [
+    "charm:oak_chest",
+    "charm:oak_barrel"
+  ]
+}

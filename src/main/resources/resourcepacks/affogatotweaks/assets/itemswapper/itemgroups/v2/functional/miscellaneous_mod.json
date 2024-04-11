@@ -1,0 +1,9 @@
+{
+  "type": "paletteModification",
+  "target": "itemswapper:v2/functional/miscellaneous",
+  "addItems": [
+    "charm:oak_ladder",
+    "charm:oak_bookshelf",
+    "charm:chiseled_oak_bookshelf"
+  ]
+}

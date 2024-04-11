@@ -1,0 +1,19 @@
+{
+  "type": "paletteModification",
+  "target": "itemswapper:v2/the_nether/netherflora",
+  "addItems": [
+    "cinderscapes:umbral_fungus",
+    "cinderscapes:twilight_fescues",
+    "cinderscapes:twilight_tendrils",
+    "cinderscapes:scorched_sprouts",
+    "cinderscapes:scorched_tendrils",
+    "cinderscapes:photofern",
+    "cinderscapes:scorched_shrub",
+    "cinderscapes:pyracinth",
+    "cinderscapes:crystinium",
+    "cinderscapes:twilight_vine_block",
+    "cinderscapes:ghastly_ectoplasm",
+    "cinderscapes:tall_photofern",
+    "cinderscapes:luminous_pod"
+  ]
+}

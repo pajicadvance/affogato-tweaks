@@ -1,0 +1,11 @@
+{
+  "type": "paletteModification",
+  "target": "itemswapper:v2/the_nether/netherterrain",
+  "addItems": [
+    "cinderscapes:umbral_nylium",
+    "cinderscapes:sulfur_quartz_ore",
+    "cinderscapes:rose_quartz_ore",
+    "cinderscapes:smoky_quartz_ore",
+    "cinderscapes:sulfur_ore"
+  ]
+}

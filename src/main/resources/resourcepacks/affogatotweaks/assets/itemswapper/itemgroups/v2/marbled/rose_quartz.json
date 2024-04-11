@@ -1,0 +1,23 @@
+{
+  "type": "palette",
+  "priority": 100,
+  "displayName": "text.itemswapper.palette.marbled.rose_quartz",
+  "items": [
+    "cinderscapes:rose_quartz_block",
+    "cinderscapes:rose_quartz_stairs",
+    "cinderscapes:rose_quartz_slab",
+    "cinderscapes:chiseled_rose_quartz_block",
+    "cinderscapes:rose_quartz_bricks",
+    "cinderscapes:rose_quartz_pillar",
+    "cinderscapes:smooth_rose_quartz",
+    "cinderscapes:smooth_rose_quartz_stairs",
+    "cinderscapes:smooth_rose_quartz_slab",
+    "cinderscapes:crystalline_rose_quartz"
+  ],
+  "shortcuts": [
+    {
+      "type": "link",
+      "target": "itemswapper:v2/marbled/quartz"
+    }
+  ]
+}

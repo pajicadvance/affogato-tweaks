@@ -1,0 +1,44 @@
+{
+  "type": "palette",
+  "priority": 100,
+  "displayName": "text.itemswapper.palette.wood.fir",
+  "items": [
+    "traverse:fir_log",
+    "traverse:fir_wood",
+    "traverse:stripped_fir_log",
+    "traverse:stripped_fir_wood",
+    "traverse:fir_planks",
+    "traverse:fir_stairs",
+    "traverse:fir_slab",
+    "traverse:fir_trapdoor",
+    "traverse:fir_door",
+    "traverse:fir_fence_gate",
+    "traverse:fir_fence",
+    "traverse:fir_sign",
+    "traverse:fir_hanging_sign",
+    "traverse:fir_button",
+    "traverse:fir_pressure_plate"
+  ],
+  "shortcuts": [
+    {
+      "type": "link",
+      "target": "itemswapper:v2/wood/acacia"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/wood/jungle"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/wood/mangrove"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/wood/bamboo"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/wood/cherry"
+    }
+  ]
+}

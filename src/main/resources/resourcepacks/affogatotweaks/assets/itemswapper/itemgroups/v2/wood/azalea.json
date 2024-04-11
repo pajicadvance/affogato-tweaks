@@ -1,0 +1,44 @@
+{
+  "type": "palette",
+  "priority": 100,
+  "displayName": "text.itemswapper.palette.wood.azalea",
+  "items": [
+    "charm:azalea_log",
+    "charm:azalea_wood",
+    "charm:stripped_azalea_log",
+    "charm:stripped_azalea_wood",
+    "charm:azalea_planks",
+    "charm:azalea_stairs",
+    "charm:azalea_slab",
+    "charm:azalea_trapdoor",
+    "charm:azalea_door",
+    "charm:azalea_fence_gate",
+    "charm:azalea_fence",
+    "charm:azalea_sign",
+    "charm:azalea_hanging_sign",
+    "charm:azalea_button",
+    "charm:azalea_pressure_plate"
+  ],
+  "shortcuts": [
+    {
+      "type": "link",
+      "target": "itemswapper:v2/wood/acacia"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/wood/jungle"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/wood/mangrove"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/wood/bamboo"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/wood/cherry"
+    }
+  ]
+}

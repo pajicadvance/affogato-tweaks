@@ -1,0 +1,32 @@
+{
+  "type": "palette",
+  "priority": 100,
+  "displayName": "text.itemswapper.palette.wood.umbral",
+  "items": [
+    "cinderscapes:umbral_stem",
+    "cinderscapes:umbral_hyphae",
+    "cinderscapes:stripped_umbral_stem",
+    "cinderscapes:stripped_umbral_hyphae",
+    "cinderscapes:umbral_planks",
+    "cinderscapes:umbral_stairs",
+    "cinderscapes:umbral_slab",
+    "cinderscapes:umbral_trapdoor",
+    "cinderscapes:umbral_door",
+    "cinderscapes:umbral_fence_gate",
+    "cinderscapes:umbral_fence",
+    "cinderscapes:umbral_sign",
+    "cinderscapes:umbral_hanging_sign",
+    "cinderscapes:umbral_button",
+    "cinderscapes:umbral_pressure_plate"
+  ],
+  "shortcuts": [
+    {
+      "type": "link",
+      "target": "itemswapper:v2/wood/warped"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/wood/crimson"
+    }
+  ]
+}
