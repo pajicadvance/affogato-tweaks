@@ -41,6 +41,7 @@
     "TridentItemMixin",
     "charm.ImprovedMineshaftsMixin",
     "emi.VanillaPluginMixin",
+    "mcwbridges.BridgeTorchMixin",
     "spiceoffabric.FoodContainerItemMixin"
   ],
   "injectors": {
