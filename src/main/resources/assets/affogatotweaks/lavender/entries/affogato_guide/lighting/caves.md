@@ -14,3 +14,4 @@
 
 - Holding a light source in your hand will emit light around you, and dropped light sources will also emit light. 
   - This means you can throw torches and other light sources to check how deep a cave or hole is.
+- Lanterns can be worn in the Belt slot, and provide light at all times.

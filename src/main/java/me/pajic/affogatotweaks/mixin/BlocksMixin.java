@@ -13,12 +13,12 @@ public class BlocksMixin {
     // Decreases torch light level from 14 to 10
     @Inject(method = "method_26152", at = @At("RETURN"), cancellable = true)
     private static void setTorchLightLevel(BlockState state, CallbackInfoReturnable<Integer> cir) {
-        cir.setReturnValue(10);
+        cir.setReturnValue(11);
     }
 
     @Inject(method = "method_26136", at = @At("RETURN"), cancellable = true)
     private static void setWallTorchLightLevel(BlockState state, CallbackInfoReturnable<Integer> cir) {
-        cir.setReturnValue(10);
+        cir.setReturnValue(11);
     }
 
     // Decreases slipperiness of ice blocks to nerf boat speed on ice
