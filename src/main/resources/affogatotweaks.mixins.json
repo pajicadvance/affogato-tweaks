@@ -42,7 +42,8 @@
     "charm.ImprovedMineshaftsMixin",
     "emi.VanillaPluginMixin",
     "mcwbridges.BridgeTorchMixin",
-    "spiceoffabric.FoodContainerItemMixin"
+    "spiceoffabric.FoodContainerItemMixin",
+    "trinketlanterns.ClientModEventsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

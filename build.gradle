@@ -115,9 +115,15 @@ dependencies {
     // Iris
     modImplementation "maven.modrinth:YL57xq9U:JHbrO6Zq"
 
+    // Trinkets
+    modImplementation "maven.modrinth:5aaWibi9:AHxQGtuC"
+
     // Charm
     implementation files("run/mods/charm-fabric-1.20.1-6.0.21.jar")
     modImplementation files("jij-libs/charmony-fabric-1.20.1-6.15.1.jar")
+
+    // Trinket Lanterns
+    modImplementation files("run/mods/trinketlanterns-1.0.0+1.20.jar")
 }
 
 loom {
@@ -152,7 +158,7 @@ tasks.register("moveBuiltJars", Copy) {
     def remapJar = project.tasks.named('remapJar')
     dependsOn remapJar
     from remapJar
-    into '/home/pajic/.local/share/PrismLauncher/instances/Affogato-PreRelease-7/.minecraft/mods/'
+    into '/home/pajic/.local/share/PrismLauncher/instances/Affogato-PreRelease-3/.minecraft/mods/'
 }
 
 java {
