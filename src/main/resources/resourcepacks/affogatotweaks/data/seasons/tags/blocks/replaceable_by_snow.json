@@ -2,8 +2,11 @@
   "replace": true,
   "values": [
     "#c:flowers",
-    "#minecraft:flowers",
+    "#minecraft:small_flowers",
     "#minecraft:tall_flowers",
+    "minecraft:mangrove_propagule",
+    "minecraft:cherry_leaves",
+    "minecraft:pink_petals",
     "minecraft:grass",
     "minecraft:fern",
     "minecraft:dead_bush",
