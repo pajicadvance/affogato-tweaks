@@ -12,6 +12,7 @@
     "BowAttackGoalMixin",
     "BowItemMixin",
     "BrewingRecipeRegistryMixin",
+    "BrewingStandScreenHandlerMixin",
     "DrownedEntityMixin",
     "EnchantBookFactoryMixin",
     "EnchantingTableBlockMixin",
