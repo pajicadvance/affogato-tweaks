@@ -1,117 +1,117 @@
 package me.pajic.affogatotweaks.util;
 
 import me.pajic.affogatotweaks.item.ModItems;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.item.Items;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.entry.EmptyEntry;
-import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.function.EnchantRandomlyLootFunction;
-import net.minecraft.loot.function.SetCountLootFunction;
-import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
-import net.minecraft.registry.Registries;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.EmptyLootItem;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.EnchantRandomlyFunction;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 public class LootUtil {
 
     public static void addRandomEnchantedBook(LootTable.Builder tableBuilder) {
-        LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
-                .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
-                        .add(Enchantments.EFFICIENCY)
-                        .add(Enchantments.SHARPNESS)
-                        .add(Enchantments.PROTECTION)
-                        .add(Enchantments.POWER)
-                ).weight(55))
-                .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
-                        .add(Enchantments.FEATHER_FALLING)
-                        .add(Enchantments.PROJECTILE_PROTECTION)
-                        .add(Enchantments.BLAST_PROTECTION)
-                        .add(Enchantments.SWEEPING)
-                        .add(Registries.ENCHANTMENT.get(new Identifier("guarding", "pummeling")))
-                        .add(Registries.ENCHANTMENT.get(new Identifier("farmersdelight", "backstabbing")))
-                ).weight(30))
-                .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
-                        .add(Enchantments.KNOCKBACK)
-                        .add(Enchantments.PUNCH)
-                ).weight(10))
-                .with(ItemEntry.builder(Items.BOOK).apply(EnchantRandomlyLootFunction.create()
-                        .add(Enchantments.SILK_TOUCH)
-                        .add(Registries.ENCHANTMENT.get(new Identifier("charm", "collection")))
-                        .add(Registries.ENCHANTMENT.get(new Identifier("guarding", "barbed")))
-                ).weight(5));
-        tableBuilder.pool(enchantedBookPoolBuilder);
+        LootPool.Builder enchantedBookPoolBuilder = LootPool.lootPool()
+                .add(LootItem.lootTableItem(Items.BOOK).apply(EnchantRandomlyFunction.randomEnchantment()
+                        .withEnchantment(Enchantments.BLOCK_EFFICIENCY)
+                        .withEnchantment(Enchantments.SHARPNESS)
+                        .withEnchantment(Enchantments.ALL_DAMAGE_PROTECTION)
+                        .withEnchantment(Enchantments.POWER_ARROWS)
+                ).setWeight(55))
+                .add(LootItem.lootTableItem(Items.BOOK).apply(EnchantRandomlyFunction.randomEnchantment()
+                        .withEnchantment(Enchantments.FALL_PROTECTION)
+                        .withEnchantment(Enchantments.PROJECTILE_PROTECTION)
+                        .withEnchantment(Enchantments.BLAST_PROTECTION)
+                        .withEnchantment(Enchantments.SWEEPING_EDGE)
+                        .withEnchantment(BuiltInRegistries.ENCHANTMENT.get(new ResourceLocation("guarding", "pummeling")))
+                        .withEnchantment(BuiltInRegistries.ENCHANTMENT.get(new ResourceLocation("farmersdelight", "backstabbing")))
+                ).setWeight(30))
+                .add(LootItem.lootTableItem(Items.BOOK).apply(EnchantRandomlyFunction.randomEnchantment()
+                        .withEnchantment(Enchantments.KNOCKBACK)
+                        .withEnchantment(Enchantments.PUNCH_ARROWS)
+                ).setWeight(10))
+                .add(LootItem.lootTableItem(Items.BOOK).apply(EnchantRandomlyFunction.randomEnchantment()
+                        .withEnchantment(Enchantments.SILK_TOUCH)
+                        .withEnchantment(BuiltInRegistries.ENCHANTMENT.get(new ResourceLocation("charm", "collection")))
+                        .withEnchantment(BuiltInRegistries.ENCHANTMENT.get(new ResourceLocation("guarding", "barbed")))
+                ).setWeight(5));
+        tableBuilder.withPool(enchantedBookPoolBuilder);
     }
 
-    public static void addEnchantedBookFromList(LootTable.Builder tableBuilder, EnchantRandomlyLootFunction.Builder function) {
-        LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
-                .with(ItemEntry.builder(Items.BOOK).apply(function));
-        tableBuilder.pool(enchantedBookPoolBuilder);
+    public static void addEnchantedBookFromList(LootTable.Builder tableBuilder, EnchantRandomlyFunction.Builder function) {
+        LootPool.Builder enchantedBookPoolBuilder = LootPool.lootPool()
+                .add(LootItem.lootTableItem(Items.BOOK).apply(function));
+        tableBuilder.withPool(enchantedBookPoolBuilder);
     }
 
-    public static void add1in2ChanceEnchantedBookFromList(LootTable.Builder tableBuilder, EnchantRandomlyLootFunction.Builder function) {
-        LootPool.Builder enchantedBookPoolBuilder = LootPool.builder()
-                .with(ItemEntry.builder(Items.BOOK).apply(function).weight(50))
-                .with(EmptyEntry.builder().weight(50));
-        tableBuilder.pool(enchantedBookPoolBuilder);
+    public static void add1in2ChanceEnchantedBookFromList(LootTable.Builder tableBuilder, EnchantRandomlyFunction.Builder function) {
+        LootPool.Builder enchantedBookPoolBuilder = LootPool.lootPool()
+                .add(LootItem.lootTableItem(Items.BOOK).apply(function).setWeight(50))
+                .add(EmptyLootItem.emptyItem().setWeight(50));
+        tableBuilder.withPool(enchantedBookPoolBuilder);
     }
 
     public static void addExperienceBottle(LootTable.Builder tableBuilder, float count) {
-        LootPool.Builder bottleOfEnchantingPoolBuilder = LootPool.builder()
-                .with(ItemEntry.builder(Items.EXPERIENCE_BOTTLE).apply(
-                        SetCountLootFunction.builder(ConstantLootNumberProvider.create(count))));
-        tableBuilder.pool(bottleOfEnchantingPoolBuilder);
+        LootPool.Builder bottleOfEnchantingPoolBuilder = LootPool.lootPool()
+                .add(LootItem.lootTableItem(Items.EXPERIENCE_BOTTLE).apply(
+                        SetItemCountFunction.setCount(ConstantValue.exactly(count))));
+        tableBuilder.withPool(bottleOfEnchantingPoolBuilder);
     }
 
     public static void add1in2ChanceExperienceBottle(LootTable.Builder tableBuilder) {
-        LootPool.Builder bottleOfEnchantingPoolBuilder = LootPool.builder()
-                .with(ItemEntry.builder(Items.EXPERIENCE_BOTTLE).weight(50))
-                .with(EmptyEntry.builder().weight(50));
-        tableBuilder.pool(bottleOfEnchantingPoolBuilder);
+        LootPool.Builder bottleOfEnchantingPoolBuilder = LootPool.lootPool()
+                .add(LootItem.lootTableItem(Items.EXPERIENCE_BOTTLE).setWeight(50))
+                .add(EmptyLootItem.emptyItem().setWeight(50));
+        tableBuilder.withPool(bottleOfEnchantingPoolBuilder);
     }
 
     public static void addTotemOfUndying(LootTable.Builder tableBuilder) {
-        LootPool.Builder bottleOfEnchantingPoolBuilder = LootPool.builder()
-                .with(ItemEntry.builder(Items.TOTEM_OF_UNDYING));
-        tableBuilder.pool(bottleOfEnchantingPoolBuilder);
+        LootPool.Builder bottleOfEnchantingPoolBuilder = LootPool.lootPool()
+                .add(LootItem.lootTableItem(Items.TOTEM_OF_UNDYING));
+        tableBuilder.withPool(bottleOfEnchantingPoolBuilder);
     }
 
     public static void add1in8ChanceTotemOfUndying(LootTable.Builder tableBuilder) {
-        LootPool.Builder bottleOfEnchantingPoolBuilder = LootPool.builder()
-                .with(ItemEntry.builder(Items.TOTEM_OF_UNDYING).weight(10))
-                .with(EmptyEntry.builder().weight(70));
-        tableBuilder.pool(bottleOfEnchantingPoolBuilder);
+        LootPool.Builder bottleOfEnchantingPoolBuilder = LootPool.lootPool()
+                .add(LootItem.lootTableItem(Items.TOTEM_OF_UNDYING).setWeight(10))
+                .add(EmptyLootItem.emptyItem().setWeight(70));
+        tableBuilder.withPool(bottleOfEnchantingPoolBuilder);
     }
 
     public static void add1in10ChanceEnchantmentUpgradeSmithingTemplate(LootTable.Builder tableBuilder) {
-        LootPool.Builder enchantmentUpgradePoolBuilder = LootPool.builder()
-                .with(ItemEntry.builder(ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE).weight(10))
-                .with(EmptyEntry.builder().weight(90));
-        tableBuilder.pool(enchantmentUpgradePoolBuilder);
+        LootPool.Builder enchantmentUpgradePoolBuilder = LootPool.lootPool()
+                .add(LootItem.lootTableItem(ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE).setWeight(10))
+                .add(EmptyLootItem.emptyItem().setWeight(90));
+        tableBuilder.withPool(enchantmentUpgradePoolBuilder);
     }
 
     public static void add1in50ChanceColoredGlintSmithingTemplate(LootTable.Builder tableBuilder) {
-        LootPool.Builder coloredGlintPoolBuilder = LootPool.builder()
-                .with(ItemEntry.builder(Registries.ITEM.get(new Identifier("charm", "colored_glint_smithing_template"))).weight(2))
-                .with(EmptyEntry.builder().weight(98));
-        tableBuilder.pool(coloredGlintPoolBuilder);
+        LootPool.Builder coloredGlintPoolBuilder = LootPool.lootPool()
+                .add(LootItem.lootTableItem(BuiltInRegistries.ITEM.get(new ResourceLocation("charm", "colored_glint_smithing_template"))).setWeight(2))
+                .add(EmptyLootItem.emptyItem().setWeight(98));
+        tableBuilder.withPool(coloredGlintPoolBuilder);
     }
 
     public static void add1in10ChanceRandomMusicDisc(LootTable.Builder tableBuilder) {
-        LootPool.Builder musicDiscPoolBuilder = LootPool.builder()
-                .with(ItemEntry.builder(Items.MUSIC_DISC_11).weight(1))
-                .with(ItemEntry.builder(Items.MUSIC_DISC_13).weight(1))
-                .with(ItemEntry.builder(Items.MUSIC_DISC_CAT).weight(1))
-                .with(ItemEntry.builder(Items.MUSIC_DISC_BLOCKS).weight(1))
-                .with(ItemEntry.builder(Items.MUSIC_DISC_CHIRP).weight(1))
-                .with(ItemEntry.builder(Items.MUSIC_DISC_FAR).weight(1))
-                .with(ItemEntry.builder(Items.MUSIC_DISC_MALL).weight(1))
-                .with(ItemEntry.builder(Items.MUSIC_DISC_MELLOHI).weight(1))
-                .with(ItemEntry.builder(Items.MUSIC_DISC_STAL).weight(1))
-                .with(ItemEntry.builder(Items.MUSIC_DISC_STRAD).weight(1))
-                .with(ItemEntry.builder(Items.MUSIC_DISC_WAIT).weight(1))
-                .with(ItemEntry.builder(Items.MUSIC_DISC_WARD).weight(1))
-                .with(EmptyEntry.builder().weight(108));
-        tableBuilder.pool(musicDiscPoolBuilder);
+        LootPool.Builder musicDiscPoolBuilder = LootPool.lootPool()
+                .add(LootItem.lootTableItem(Items.MUSIC_DISC_11).setWeight(1))
+                .add(LootItem.lootTableItem(Items.MUSIC_DISC_13).setWeight(1))
+                .add(LootItem.lootTableItem(Items.MUSIC_DISC_CAT).setWeight(1))
+                .add(LootItem.lootTableItem(Items.MUSIC_DISC_BLOCKS).setWeight(1))
+                .add(LootItem.lootTableItem(Items.MUSIC_DISC_CHIRP).setWeight(1))
+                .add(LootItem.lootTableItem(Items.MUSIC_DISC_FAR).setWeight(1))
+                .add(LootItem.lootTableItem(Items.MUSIC_DISC_MALL).setWeight(1))
+                .add(LootItem.lootTableItem(Items.MUSIC_DISC_MELLOHI).setWeight(1))
+                .add(LootItem.lootTableItem(Items.MUSIC_DISC_STAL).setWeight(1))
+                .add(LootItem.lootTableItem(Items.MUSIC_DISC_STRAD).setWeight(1))
+                .add(LootItem.lootTableItem(Items.MUSIC_DISC_WAIT).setWeight(1))
+                .add(LootItem.lootTableItem(Items.MUSIC_DISC_WARD).setWeight(1))
+                .add(EmptyLootItem.emptyItem().setWeight(108));
+        tableBuilder.withPool(musicDiscPoolBuilder);
     }
 }

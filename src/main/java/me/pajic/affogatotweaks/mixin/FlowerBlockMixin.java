@@ -1,9 +1,9 @@
 package me.pajic.affogatotweaks.mixin;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.FlowerBlock;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.level.block.FlowerBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
@@ -16,13 +16,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class FlowerBlockMixin {
 
     @Mutable @Shadow @Final
-    private StatusEffect effectInStew;
+    private MobEffect suspiciousStewEffect;
 
     // Swaps the Night Vision status effect in suspicious stews with Invisibility
     @Inject(method = "<init>", at = @At("RETURN"))
-    private void swapNightVisionEffect(StatusEffect suspiciousStewEffect, int effectDuration, AbstractBlock.Settings settings, CallbackInfo ci) {
-        if (effectInStew == StatusEffects.NIGHT_VISION) {
-            effectInStew = StatusEffects.INVISIBILITY;
+    private void swapNightVisionEffect(MobEffect suspiciousStewEffect, int effectDuration, BlockBehaviour.Properties settings, CallbackInfo ci) {
+        if (this.suspiciousStewEffect == MobEffects.NIGHT_VISION) {
+            this.suspiciousStewEffect = MobEffects.INVISIBILITY;
         }
     }
 }

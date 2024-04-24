@@ -1,6 +1,5 @@
 package me.pajic.affogatotweaks.mixin;
 
-import net.minecraft.item.ToolMaterials;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
@@ -12,11 +11,12 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.function.Supplier;
+import net.minecraft.world.item.Tiers;
 
-@Mixin(ToolMaterials.class)
-public class ToolMaterialsMixin {
+@Mixin(Tiers.class)
+public class TiersMixin {
 
-    @Mutable @Shadow @Final private float attackDamage;
+    @Mutable @Shadow @Final private float damage;
 
     // Modifies the durability of tools
     @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 59))
@@ -54,11 +54,11 @@ public class ToolMaterialsMixin {
     private void modifyAttackDamage(String name, int ordinal, int miningLevel, int itemDurability, float miningSpeed, float attackDamage, int enchantability, Supplier repairIngredient, CallbackInfo ci) {
         // diamond
         if (ordinal == 3) {
-            this.attackDamage = 4.0f;
+            this.damage = 4.0f;
         }
         // netherite
         if (ordinal == 5) {
-            this.attackDamage = 3.0f;
+            this.damage = 3.0f;
         }
     }
 

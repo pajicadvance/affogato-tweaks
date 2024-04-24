@@ -1,32 +1,32 @@
 package me.pajic.affogatotweaks.block;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.LanternBlock;
-import net.minecraft.block.MapColor;
-import net.minecraft.block.Oxidizable;
-import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.LanternBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.WeatheringCopper;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 
 public class ModBlocks {
 
     // Copper lanterns
     public static final Block COPPER_LANTERN = new CopperLanternBlock(
-            Oxidizable.OxidationLevel.UNAFFECTED,
-            FabricBlockSettings.create().mapColor(MapColor.ORANGE).solid().requiresTool().strength(3.0F).sounds(BlockSoundGroup.LANTERN).luminance(state -> 14).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)
+            WeatheringCopper.WeatherState.UNAFFECTED,
+            FabricBlockSettings.create().mapColor(MapColor.COLOR_ORANGE).forceSolidOn().requiresCorrectToolForDrops().strength(3.0F).sound(SoundType.LANTERN).lightLevel(state -> 14).noOcclusion().pushReaction(PushReaction.DESTROY)
     );
     public static final Block EXPOSED_COPPER_LANTERN = new CopperLanternBlock(
-            Oxidizable.OxidationLevel.EXPOSED,
-            FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).solid().requiresTool().strength(3.0F).sounds(BlockSoundGroup.LANTERN).luminance(state -> 12).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)
+            WeatheringCopper.WeatherState.EXPOSED,
+            FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).forceSolidOn().requiresCorrectToolForDrops().strength(3.0F).sound(SoundType.LANTERN).lightLevel(state -> 12).noOcclusion().pushReaction(PushReaction.DESTROY)
     );
 
     public static final Block WEATHERED_COPPER_LANTERN = new CopperLanternBlock(
-            Oxidizable.OxidationLevel.WEATHERED,
-            FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).solid().requiresTool().strength(3.0F).sounds(BlockSoundGroup.LANTERN).luminance(state -> 10).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)
+            WeatheringCopper.WeatherState.WEATHERED,
+            FabricBlockSettings.create().mapColor(MapColor.WARPED_STEM).forceSolidOn().requiresCorrectToolForDrops().strength(3.0F).sound(SoundType.LANTERN).lightLevel(state -> 10).noOcclusion().pushReaction(PushReaction.DESTROY)
     );
     public static final Block OXIDIZED_COPPER_LANTERN = new CopperLanternBlock(
-            Oxidizable.OxidationLevel.OXIDIZED,
-            FabricBlockSettings.create().mapColor(MapColor.TEAL).solid().requiresTool().strength(3.0F).sounds(BlockSoundGroup.LANTERN).luminance(state -> 8).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)
+            WeatheringCopper.WeatherState.OXIDIZED,
+            FabricBlockSettings.create().mapColor(MapColor.WARPED_NYLIUM).forceSolidOn().requiresCorrectToolForDrops().strength(3.0F).sound(SoundType.LANTERN).lightLevel(state -> 8).noOcclusion().pushReaction(PushReaction.DESTROY)
     );
 
     // Waxed variants

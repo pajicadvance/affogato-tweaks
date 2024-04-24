@@ -1,19 +1,19 @@
 package me.pajic.affogatotweaks.mixin;
 
-import net.minecraft.block.RedstoneOreBlock;
-import net.minecraft.server.world.ServerWorld;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.block.RedStoneOreBlock;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArgs;
 import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
-@Mixin(RedstoneOreBlock.class)
-public class RedstoneOreBlockMixin {
+@Mixin(RedStoneOreBlock.class)
+public class RedStoneOreBlockMixin {
 
     // Increases the amount of experience dropped by mining redstone ore
-    @ModifyArgs(method = "onStacksDropped", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/RedstoneOreBlock;dropExperience(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;I)V"))
+    @ModifyArgs(method = "spawnAfterBreak", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/RedStoneOreBlock;popExperience(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;I)V"))
     private void setRedstoneOreXpDropAmount(Args args) {
-        ServerWorld world = args.get(0);
+        ServerLevel world = args.get(0);
         args.set(2, 3 + world.random.nextInt(5));
     }
 }

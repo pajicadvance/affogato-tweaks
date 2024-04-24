@@ -1,11 +1,10 @@
 package me.pajic.affogatotweaks.util;
 
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentLevelEntry;
-import net.minecraft.util.math.random.Random;
-
 import java.util.ArrayList;
 import java.util.List;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentInstance;
 
 public class EnchantmentUtil {
 
@@ -13,13 +12,13 @@ public class EnchantmentUtil {
     private static final int[] levelPoolMax5 = new int[]{1, 1, 1, 1, 1, 1, 2, 2, 2, 3};
     private static final int[] levelPoolMax4 = new int[]{1, 1, 1, 1, 2};
 
-    public static boolean preventEnchantmentAdditionToList(List<EnchantmentLevelEntry> list, EnchantmentLevelEntry entry) {
+    public static boolean preventEnchantmentAdditionToList(List<EnchantmentInstance> list, EnchantmentInstance entry) {
         if (ENCHANTMENT_BLACKLIST.contains(entry.enchantment)) {
             return false;
         }
         else {
-            return list.add(new EnchantmentLevelEntry(entry.enchantment, returnEnchantmentLevelFromPool(
-                    Random.create(), entry.enchantment.getMaxLevel())));
+            return list.add(new EnchantmentInstance(entry.enchantment, returnEnchantmentLevelFromPool(
+                    RandomSource.create(), entry.enchantment.getMaxLevel())));
         }
     }
 
@@ -27,7 +26,7 @@ public class EnchantmentUtil {
         return list.stream().filter(enchantment -> !EnchantmentUtil.ENCHANTMENT_BLACKLIST.contains(enchantment)).toList();
     }
 
-    public static int returnEnchantmentLevelFromPool(Random random, int max) {
+    public static int returnEnchantmentLevelFromPool(RandomSource random, int max) {
         switch (max) {
             case 5 -> {
                 return EnchantmentUtil.levelPoolMax5[random.nextInt(10)];

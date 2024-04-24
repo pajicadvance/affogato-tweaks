@@ -1,6 +1,6 @@
 package me.pajic.affogatotweaks.mixin;
 
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(PlayerEntity.class)
-public abstract class PlayerEntityMixin {
+@Mixin(Player.class)
+public abstract class PlayerMixin {
 
     @Shadow public abstract boolean isCreative();
 
@@ -24,12 +24,12 @@ public abstract class PlayerEntityMixin {
     }
 
     // Prevents player entities from dropping experience
-    @Inject(method = "shouldAlwaysDropXp", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "isAlwaysExperienceDropper", at = @At("RETURN"), cancellable = true)
     private void preventPlayerEntityXpDrops1(CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(false);
     }
 
-    @Inject(method = "getXpToDrop", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "getExperienceReward", at = @At("RETURN"), cancellable = true)
     private void preventPlayerEntityXpDrops2(CallbackInfoReturnable<Integer> cir) {
         cir.setReturnValue(0);
     }

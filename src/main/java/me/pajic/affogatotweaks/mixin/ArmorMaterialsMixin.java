@@ -1,12 +1,12 @@
 package me.pajic.affogatotweaks.mixin;
 
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterials;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.EnumMap;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterials;
 
 @Mixin(value = ArmorMaterials.class)
 public class ArmorMaterialsMixin {
