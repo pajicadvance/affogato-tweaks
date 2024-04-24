@@ -42,6 +42,7 @@
     "VillagerTradesMixin",
     "charm.ImprovedMineshaftsMixin",
     "charmony.CharmonyLoaderMixin",
+    "charmony.CharmonyStairBlockMixin",
     "emi.VanillaPluginMixin",
     "mcwbridges.BridgeTorchMixin",
     "spiceoffabric.FoodContainerItemMixin",
