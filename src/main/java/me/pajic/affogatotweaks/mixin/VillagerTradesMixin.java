@@ -103,7 +103,7 @@ public abstract class VillagerTradesMixin {
                         new VillagerTrades.EnchantedItemForEmeralds(Items.IRON_AXE, 1, 3, 10, 0.2F),
                         new VillagerTrades.EnchantedItemForEmeralds(Items.IRON_SHOVEL, 2, 3, 10, 0.2F),
                         new VillagerTrades.EnchantedItemForEmeralds(Items.IRON_PICKAXE, 3, 3, 10, 0.2F),
-                        new VillagerTrades.ItemsForEmeralds(new ItemStack(Items.DIAMOND_HOE), 4, 1, 3, 10, 0.2F)},
+                        new VillagerTrades.ItemsForEmeralds(new ItemStack(Items.IRON_HOE), 4, 1, 3, 10, 0.2F)},
                 4, new VillagerTrades.ItemListing[]{
                         new VillagerTrades.EmeraldForItems(Items.DIAMOND, 1, 12, 30),
                         new VillagerTrades.EnchantedItemForEmeralds(Items.IRON_AXE, 1, 3, 10, 0.2F),

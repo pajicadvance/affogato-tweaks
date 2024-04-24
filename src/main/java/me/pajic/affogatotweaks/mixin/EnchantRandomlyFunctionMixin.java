@@ -20,7 +20,7 @@ public class EnchantRandomlyFunctionMixin {
         return EnchantmentUtil.removeEnchantmentsFromList(list);
     }
 
-    // Limits the maximum enchantment level to 1
+    // Changes the enchantment level to a random one from level pool
     @Redirect(method = "enchantItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/Mth;nextInt(Lnet/minecraft/util/RandomSource;II)I"))
     private static int setMaxEnchantmentLevel(RandomSource random, int min, int max) {
         return EnchantmentUtil.returnEnchantmentLevelFromPool(random, max);

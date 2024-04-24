@@ -1,5 +1,6 @@
 package me.pajic.affogatotweaks.mixin;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import de.dafuqs.chalk.common.items.ChalkItem;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.server.level.ServerPlayer;
@@ -30,34 +31,24 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.TridentItem;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import vectorwing.farmersdelight.common.item.KnifeItem;
 
 @Mixin(AnvilMenu.class)
 public abstract class AnvilMenuMixin extends ItemCombinerMenu {
 
-    @Unique private ItemStack itemStack;
-
     public AnvilMenuMixin(@Nullable MenuType<?> type, int syncId, Inventory playerInventory, ContainerLevelAccess context) {
         super(type, syncId, playerInventory, context);
-    }
-
-    // Gets item stack from the first slot
-    @Inject(method = "createResult", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/enchantment/EnchantmentHelper;getEnchantments(Lnet/minecraft/world/item/ItemStack;)Ljava/util/Map;", ordinal = 0), locals = LocalCapture.CAPTURE_FAILHARD)
-    private void getItemStack(CallbackInfo ci, ItemStack itemStack, int i, int j, int k, ItemStack itemStack2, ItemStack itemStack3) {
-        this.itemStack = itemStack2;
     }
 
     // Makes anvil repair respect material unit costs
     // Repair is 33% cheaper than shapeless repair
     @ModifyArg(method = "createResult", at = @At(value = "INVOKE", target = "Ljava/lang/Math;min(II)I"), index = 1)
-    private int modifyRequiredRepairUnitAmount(int a) {
-        Item item = itemStack.getItem();
+    private int modifyRequiredRepairUnitAmount(int a, @Local(ordinal = 1) ItemStack itemStack2) {
+        Item item = itemStack2.getItem();
         int divideBy = 4;
 
         if (item instanceof ArmorItem) {
@@ -76,7 +67,7 @@ public abstract class AnvilMenuMixin extends ItemCombinerMenu {
             divideBy = 2;
         }
 
-        return itemStack.getMaxDamage() / divideBy;
+        return itemStack2.getMaxDamage() / divideBy;
     }
 
     // Trigger Enchanter advancement and increment player stat when an enchantment is applied to an item for the first time
