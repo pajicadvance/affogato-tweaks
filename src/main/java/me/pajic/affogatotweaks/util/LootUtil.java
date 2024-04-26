@@ -38,6 +38,7 @@ public class LootUtil {
                 .add(LootItem.lootTableItem(Items.BOOK).apply(EnchantRandomlyFunction.randomEnchantment()
                         .withEnchantment(Enchantments.SILK_TOUCH)
                         .withEnchantment(BuiltInRegistries.ENCHANTMENT.get(new ResourceLocation("charm", "collection")))
+                        .withEnchantment(BuiltInRegistries.ENCHANTMENT.get(new ResourceLocation("charm", "aerial_affinity")))
                         .withEnchantment(BuiltInRegistries.ENCHANTMENT.get(new ResourceLocation("guarding", "barbed")))
                 ).setWeight(5));
         tableBuilder.withPool(enchantedBookPoolBuilder);
