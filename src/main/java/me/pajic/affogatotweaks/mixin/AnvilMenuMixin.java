@@ -45,7 +45,7 @@ public abstract class AnvilMenuMixin extends ItemCombinerMenu {
     }
 
     // Makes anvil repair respect material unit costs
-    // Repair is 33% cheaper than shapeless repair
+    // Anvil repair is roughly 33% cheaper than shapeless repair
     @ModifyArg(method = "createResult", at = @At(value = "INVOKE", target = "Ljava/lang/Math;min(II)I"), index = 1)
     private int modifyRequiredRepairUnitAmount(int a, @Local(ordinal = 1) ItemStack itemStack2) {
         Item item = itemStack2.getItem();
@@ -73,7 +73,7 @@ public abstract class AnvilMenuMixin extends ItemCombinerMenu {
     // Trigger Enchanter advancement and increment player stat when an enchantment is applied to an item for the first time
     @Inject(method = "onTake", at = @At("HEAD"))
     private void triggerEnchanterAdvancement(Player player, ItemStack stack, CallbackInfo ci) {
-        if (!resultSlots.getItem(0).is(Items.ENCHANTED_BOOK) && !inputSlots.getItem(0).isEnchanted()) {
+        if (!resultSlots.getItem(0).is(Items.ENCHANTED_BOOK) && !inputSlots.getItem(0).isEnchanted() && inputSlots.getItem(1).is(Items.ENCHANTED_BOOK)) {
             player.awardStat(Stats.ENCHANT_ITEM);
             if (player instanceof ServerPlayer) {
                 CriteriaTriggers.ENCHANTED_ITEM.trigger((ServerPlayer) player, resultSlots.getItem(0), 1);
