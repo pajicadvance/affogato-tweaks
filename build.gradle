@@ -52,74 +52,56 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    modImplementation "dev.emi:emi-fabric:${emi_version}"
-    modImplementation "de.siphalor:capsaicin-1.20:${capsaicin_version}"
-
     // MixinSquared
     include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.1.2-beta.4")))
-
+    // EMI
+    modImplementation "dev.emi:emi-fabric:${emi_version}"
+    // Capsaicin
+    modImplementation "de.siphalor:capsaicin-1.20:${capsaicin_version}"
     // Lavender
     modImplementation "io.wispforest:lavender:${project.lavender_version}"
     include "io.wispforest:owo-sentinel:${project.owo_version}"
 
     // Reacharound
-    modImplementation "maven.modrinth:r3VgI4QN:uk6tRHW7"
-
+    modImplementation "maven.modrinth:reacharound:1.1.2"
     // Spice of Fabric
-    modImplementation "maven.modrinth:roxihOCb:JQeNIIvU"
-
+    modImplementation "maven.modrinth:spice-of-fabric:1.6.2+mc1.20.1"
     // AppleSkin
-    modImplementation "maven.modrinth:EsAfCjCV:xcauwnEB"
-
+    modImplementation "maven.modrinth:appleskin:2.5.1+mc1.20"
     // Enchanted Shulkers
-    modImplementation "maven.modrinth:vUi6HFie:4YXMZuAk"
-
+    modImplementation "maven.modrinth:enchantedshulkers:1.2.4+1.20.1"
     // Farmer's Delight
-    modImplementation "maven.modrinth:7vxePowz:X6fzggyI"
-
+    modImplementation "maven.modrinth:farmers-delight-refabricated:1.20.1-2.1.1"
     // Fabric Language Kotlin
-    modImplementation "maven.modrinth:Ha28R6CL:ZMokinzs"
-
+    modImplementation "maven.modrinth:fabric-language-kotlin:1.10.19+kotlin.1.9.23"
     // Polymer
-    modImplementation "maven.modrinth:xGdtZczs:3ii2xU3x"
-
+    modImplementation "maven.modrinth:polymer:0.5.19+1.20.1"
     // Cloth Config
-    modImplementation "maven.modrinth:9s6osm5g:J3FLptsi"
-
+    modImplementation "maven.modrinth:cloth-config:11.1.118+fabric"
     // Guarding
-    modImplementation "maven.modrinth:aV1COQ7a:zz7EL9j5"
-
+    modImplementation "maven.modrinth:guarding:2.4.0"
     // Presence Footsteps
-    modImplementation "maven.modrinth:rcTfTZr3:HwGHderf"
-
+    modImplementation "maven.modrinth:presence-footsteps:1.9.3"
     // Fabric Seasons
-    modImplementation "maven.modrinth:KJe6y9Eu:uMEzKato"
-
+    modImplementation "maven.modrinth:fabric-seasons:2.3+1.20"
     // Chalk
-    modImplementation "maven.modrinth:OrtjXTCH:AnIA4EcY"
-
+    modImplementation "maven.modrinth:chalk:2.2.4"
     // Chalk: Colorful Addon
-    modImplementation "maven.modrinth:VPJS28NH:gvVFiwqG"
-
+    modImplementation "maven.modrinth:chalk-colorful-addon:universal"
     // Macaw's Bridges
-    modImplementation "maven.modrinth:GURcjz8O:RmsMXs3r"
-
+    modImplementation "maven.modrinth:macaws-bridges:3.0.0"
     // ImmediatelyFast
-    modImplementation "maven.modrinth:5ZwdcRci:FEOsWs1E"
-
+    modImplementation "maven.modrinth:immediatelyfast:1.2.13+1.20.4-fabric"
     // Sodium
-    modImplementation "maven.modrinth:AANobbMI:mhZtY2lR"
-
+    modImplementation "maven.modrinth:sodium:mc1.20.1-0.5.8"
     // Iris
-    modImplementation "maven.modrinth:YL57xq9U:JHbrO6Zq"
-
+    modImplementation "maven.modrinth:iris:1.7.0+1.20.1"
     // Trinkets
-    modImplementation "maven.modrinth:5aaWibi9:AHxQGtuC"
+    modImplementation "maven.modrinth:trinkets:3.7.2"
 
     // Charm
     modImplementation files("run/mods/charm-fabric-1.20.1-6.0.21.jar")
     modImplementation files("jij-libs/charmony-fabric-1.20.1-6.15.1.jar")
-
     // Trinket Lanterns
     modImplementation files("run/mods/trinketlanterns-1.0.0+1.20.jar")
 }
