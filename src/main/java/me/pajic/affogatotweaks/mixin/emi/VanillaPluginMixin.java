@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 public class VanillaPluginMixin {
 
     // Modifies the tipped arrow recipes in EMI to show regular potions instead of lingering potions
-    @ModifyArg(method = "lambda$register$12", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/alchemy/PotionUtils;setPotion(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/alchemy/Potion;)Lnet/minecraft/world/item/ItemStack;", ordinal = 0))
+    @ModifyArg(method = "lambda$register$13", at = @At(value = "INVOKE", target = "Ldev/emi/emi/EmiPort;setPotion(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/alchemy/Potion;)Lnet/minecraft/world/item/ItemStack;", ordinal = 0))
     private static ItemStack setEmiTippedArrowRecipe(ItemStack stack) {
         return new ItemStack(Items.POTION);
     }
