@@ -89,7 +89,6 @@ public class LootTableModifier {
                 if (END_CITY.equals(id)) {
                     LootPool.Builder enchantedBookPoolBuilder = LootPool.lootPool()
                             .add(LootItem.lootTableItem(Items.BOOK).apply(EnchantRandomlyFunction.randomEnchantment()
-                                    .withEnchantment(BuiltInRegistries.ENCHANTMENT.get(new ResourceLocation("enchantedshulkers", "augment")))
                                     .withEnchantment(BuiltInRegistries.ENCHANTMENT.get(new ResourceLocation("aileron", "smokestack")))
                                     .withEnchantment(BuiltInRegistries.ENCHANTMENT.get(new ResourceLocation("aileron", "cloudskipper")))
                             ).setWeight(80))
