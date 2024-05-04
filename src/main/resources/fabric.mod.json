@@ -19,6 +19,9 @@
     ],
     "client": [
       "me.pajic.affogatotweaks.AffogatoTweaksClient"
+    ],
+    "mixinsquared": [
+      "me.pajic.affogatotweaks.mixin.canceller.ModMixinCanceller"
     ]
   },
   "mixins": [
