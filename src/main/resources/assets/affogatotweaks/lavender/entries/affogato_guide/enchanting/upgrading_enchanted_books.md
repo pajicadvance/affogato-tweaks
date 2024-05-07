@@ -10,9 +10,9 @@
 
 - Enchanted books containing one enchantment can be upgraded with the {blue}Enchantment Upgrade Smithing Template{} in the smithing table.
 - The template can be found in The End.
-- Upgrading requires 64 lapis lazuli.
-- Templates can be duplicated with lapis blocks.
+- Upgrading requires a number of diamonds based on the current enchantment level.
 
 ;;;;;
 
+- Templates can be duplicated with lapis blocks and a diamond.
 <recipe;affogatotweaks:enchantment_upgrade>

@@ -9,7 +9,7 @@
       "item": "minecraft:lapis_block"
     },
     "D": {
-      "item": "minecraft:diamond_block"
+      "item": "minecraft:diamond"
     }
   },
   "pattern": [

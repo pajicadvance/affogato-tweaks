@@ -21,6 +21,6 @@ public class ModItems {
             Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("affogatotweaks.smithing_template.enchantment_upgrade.base_slot_description"))),
             Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("affogatotweaks.smithing_template.enchantment_upgrade.additions_slot_description"))),
             List.of(new ResourceLocation("affogatotweaks","item/empty_slot_enchanted_book")),
-            List.of(new ResourceLocation("item/empty_slot_lapis_lazuli"))
+            List.of(new ResourceLocation("item/empty_slot_diamond"))
     );
 }

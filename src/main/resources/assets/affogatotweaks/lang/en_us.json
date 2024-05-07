@@ -23,7 +23,7 @@
   "item.affogatotweaks.enchantment_upgrade": "Enchantment Upgrade",
   "upgrade.minecraft.affogatotweaks.enchantment_upgrade": "Enchantment Upgrade",
   "item.minecraft.affogatotweaks.smithing_template.enchantment_upgrade.applies_to": "Enchanted Books with One Enchantment",
-  "item.minecraft.affogatotweaks.smithing_template.enchantment_upgrade.ingredients": "64 Lapis Lazuli",
+  "item.minecraft.affogatotweaks.smithing_template.enchantment_upgrade.ingredients": "Diamonds",
   "item.minecraft.affogatotweaks.smithing_template.enchantment_upgrade.base_slot_description": "Add enchanted book",
-  "item.minecraft.affogatotweaks.smithing_template.enchantment_upgrade.additions_slot_description": "Add 64 Lapis Lazuli"
+  "item.minecraft.affogatotweaks.smithing_template.enchantment_upgrade.additions_slot_description": "Add diamonds"
 }

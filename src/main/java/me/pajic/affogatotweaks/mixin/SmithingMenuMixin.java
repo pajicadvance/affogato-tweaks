@@ -1,5 +1,11 @@
 package me.pajic.affogatotweaks.mixin;
 
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.world.item.EnchantedBookItem;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,10 +33,17 @@ public abstract class SmithingMenuMixin extends ItemCombinerMenu {
     private void modifyDecrementAmount(int slot, CallbackInfo ci) {
         if (slot == 2 && inputSlots.getItem(0).is(ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE)) {
             ci.cancel();
-            ItemStack itemStack = inputSlots.getItem(slot);
-            if (!itemStack.isEmpty()) {
-                itemStack.shrink(64);
-                inputSlots.setItem(slot, itemStack);
+            ItemStack materialStack = inputSlots.getItem(slot);
+            ItemStack enchantedBookStack = inputSlots.getItem(1);
+
+            if (!materialStack.isEmpty()) {
+                ListTag enchantments = EnchantedBookItem.getEnchantments(enchantedBookStack);
+                CompoundTag enchantmentCompound = enchantments.getCompound(0);
+                Enchantment enchantment = BuiltInRegistries.ENCHANTMENT.get(EnchantmentHelper.getEnchantmentId(enchantmentCompound));
+                int enchantmentLevel = EnchantmentHelper.getEnchantmentLevel(enchantmentCompound);
+
+                materialStack.shrink( 8 / (int) Math.pow(2, enchantment.getMaxLevel() - enchantmentLevel - 1));
+                inputSlots.setItem(slot, materialStack);
             }
         }
     }
