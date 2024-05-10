@@ -42,6 +42,7 @@ public class FoodContainerItemMixin {
                 int hungerRestorationValue = DynamicFoodPropertiesAccess.create().withStack(stack).getModifiedFoodComponent().getNutrition();
                 int timesEaten = FoodHistory.get(player).getTimesRecentlyEaten(stack);
                 if (timesEaten == currentTimesEaten && hungerRestorationValue > bestValue) {
+                    bestValue = hungerRestorationValue;
                     bestStack = new IndexedValue<>(value.index(), stack);
                 }
             }
