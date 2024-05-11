@@ -9,5 +9,4 @@
 - Backpacks for more inventory storage
 - Dedicated equipment slots for certain items
 - New storage unit - Packages
-- Labels for marking containers
 - Quality of life inventory features
