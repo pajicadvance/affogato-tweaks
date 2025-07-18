@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(Items.class)
 public abstract class ItemsMixin {
 
-    @ModifyArg(method = "<clinit>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/BoatItem;<init>(ZLnet/minecraft/world/entity/vehicle/Boat$Type;Lnet/minecraft/world/item/Item$Properties;)V"))
+    @ModifyArg(method = "<clinit>", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/BowItem;<init>(Lnet/minecraft/world/item/Item$Properties;)V"))
     private static Item.Properties setBowDurability(Item.Properties settings) {
         return new Item.Properties().durability(256);
     }
