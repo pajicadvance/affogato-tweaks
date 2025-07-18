@@ -66,22 +66,12 @@ public class WorldgenDataEvents {
         );
         ORE.forEach(ore -> Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
-                rl -> rl.getPath().startsWith("worldgen/configured_feature/ore_" + ore),
+                rl -> rl.getPath().startsWith("minecraft:worldgen/configured_feature/ore_" + ore),
                 "Increase " + ore + " ore size",
-                context -> {
-                    if (context.getFile().getAsJsonObject().getAsJsonObject("config").has("size"))
-                        context.getFile().getAsJsonObject()
-                                .getAsJsonObject("config").addProperty("size", Math.round(
-                                    context.getFile().getAsJsonObject().getAsJsonObject("config")
-                                            .getAsJsonPrimitive("size").getAsInt() * 1.2F));
-                    else context.getFile().getAsJsonObject() // handle weird clifftree tuff diamond ore ???
-                            .getAsJsonObject("config")
-                            .getAsJsonObject("feature")
-                            .getAsJsonObject("feature")
-                            .getAsJsonObject("config").addProperty("size", Math.round(
-                                    context.getFile().getAsJsonObject().getAsJsonObject("config")
-                                            .getAsJsonPrimitive("size").getAsInt() * 1.2F));
-                },
+                context -> context.getFile().getAsJsonObject()
+                        .getAsJsonObject("config").addProperty("size", Math.round(
+                                context.getFile().getAsJsonObject().getAsJsonObject("config")
+                                        .getAsJsonPrimitive("size").getAsInt() * 1.2F)),
                 true
         ));
         Mixson.registerEvent(

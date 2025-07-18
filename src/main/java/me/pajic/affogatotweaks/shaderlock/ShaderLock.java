@@ -65,9 +65,11 @@ public class ShaderLock {
 
     public static void read() {
         try (FileReader reader = new FileReader(filePath.toFile())) {
-            setupMode = GSON.fromJson(reader, Boolean.class);
+            setupMode = GSON.fromJson(reader, boolean.class);
+            if (setupMode) LOGGER.info("Setup mode enabled");
         } catch (FileNotFoundException | JsonSyntaxException e) {
-            LOGGER.info("File not found");
+            if (e instanceof JsonSyntaxException) LOGGER.info("Incorrect syntax: {}", e.getMessage());
+            else LOGGER.info("File not found");
         } catch (IOException e) {
             LOGGER.error("Failed to read file", e);
         }

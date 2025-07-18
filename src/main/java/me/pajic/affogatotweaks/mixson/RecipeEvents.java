@@ -3,6 +3,7 @@ package me.pajic.affogatotweaks.mixson;
 import com.google.gson.JsonElement;
 import it.unimi.dsi.fastutil.objects.Object2DoubleArrayMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
+import net.fabricmc.loader.api.FabricLoader;
 import net.ramixin.mixson.inline.Mixson;
 
 import java.util.Map;
@@ -50,6 +51,13 @@ public class RecipeEvents {
                         }
                     }
                 },
+                true
+        );
+        if (FabricLoader.getInstance().isModLoaded("farmersdelight")) Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:recipe/cake") || rl.toString().equals("farmersdelight:recipe/cake_from_milk_bottle"),
+                "Remove other cake recipes",
+                context -> context.markForDeletion(true),
                 true
         );
     }
