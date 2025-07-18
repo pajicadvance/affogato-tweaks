@@ -23,10 +23,10 @@ public class Main implements ModInitializer {
         // data patches
         MixsonInitializer.init();
         // guide book
-        LavenderBookItem.registerForBook(
+        /*LavenderBookItem.registerForBook(
                 ResourceLocation.fromNamespaceAndPath(MOD_ID, "affogato_guide"),
                 new Item.Properties().stacksTo(1)
-        );
+        );*/
         // xp bottle brewing recipe
         CustomBrewRecipeRegister.registerCustomRecipeWithComponents(
                 Items.SPLASH_POTION,

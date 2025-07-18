@@ -26,7 +26,7 @@ public class RecipeEvents {
     public static void register() {
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
-                rl -> rl.getPath().startsWith("recipe/"),
+                rl -> rl.getPath().startsWith("recipe/") && !rl.getNamespace().equals("emi"),
                 "Modify smelting and blasting recipe XP rewards",
                 context -> {
                     String type = context.getFile().getAsJsonObject().getAsJsonPrimitive("type").getAsString();
