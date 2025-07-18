@@ -1,0 +1,52 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.pajic.affogatotweaks.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "combat.BlazeMixin",
+    "combat.DrownedMixin",
+    "combat.IllusionerMixin",
+    "combat.LivingEntityMixin",
+    "combat.MeleeAttackGoalMixin",
+    "combat.PillagerMixin",
+    "combat.RavagerMixin",
+    "combat.ZombieMixin",
+    "difficulty.DedicatedServerPropertiesMixin",
+    "food.CakeBlockMixin",
+    "food.FoodDataMixin",
+    "food.FoodPropertiesBuilderMixin",
+    "food.PlayerMixin",
+    "food.ServerPlayerMixin",
+    "gameplay.AbstractFurnaceBlockEntityMixin",
+    "gameplay.BlocksMixin",
+    "gameplay.InventoryMixin",
+    "gameplay.ZombieVillagerMixin",
+    "integration.FoodValuesMixin",
+    "nightvision.FlowerBlockMixin",
+    "nightvision.PotionBrewingMixin",
+    "nightvision.SetStewEffectFunctionMixin",
+    "stats.ArmorItemTypeMixin",
+    "stats.ArmorMaterialsMixin",
+    "stats.ItemsMixin",
+    "stats.TiersMixin",
+    "worldgen.IglooPiecesMixin",
+    "worldgen.ScatteredOreFeatureMixin",
+    "xp.BlocksMixin",
+    "xp.FishingHookMixin",
+    "xp.LivingEntityMixin",
+    "xp.RedStoneOreBlockMixin"
+  ],
+  "client": [
+    "difficulty.WorldCreationUiStateMixin",
+    "rendering.LivingEntityRendererMixin",
+    "shaderlock.ClientMainMixin",
+    "shaderlock.ShaderPackSelectionListMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "affogatotweaks",
+  "version": "${version}",
+  "name": "Affogato Tweaks",
+  "description": "Tweak mod used in my modpack, Affogato",
+  "authors": ["pajic"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.pajic.affogatotweaks.Main"
+    ]
+  },
+  "mixins": [
+    "affogatotweaks.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
