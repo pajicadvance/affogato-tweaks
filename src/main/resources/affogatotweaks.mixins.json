@@ -39,6 +39,7 @@
   ],
   "client": [
     "difficulty.WorldCreationUiStateMixin",
+    "gameplay.MultiPlayerGameModeMixin",
     "rendering.LivingEntityRendererMixin",
     "shaderlock.ClientMainMixin",
     "shaderlock.ShaderPackSelectionListMixin"
