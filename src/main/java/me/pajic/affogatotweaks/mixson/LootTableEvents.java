@@ -4,10 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import it.unimi.dsi.fastutil.objects.Object2DoubleArrayMap;
-import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
-import it.unimi.dsi.fastutil.objects.Object2IntArrayMap;
-import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import it.unimi.dsi.fastutil.objects.*;
 import net.ramixin.mixson.inline.Mixson;
 
 import java.util.Map;
@@ -80,12 +77,155 @@ public class LootTableEvents {
                 },
                 true
         );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:loot_table/chests/simple_dungeon") || rl.toString().equals("minecraft:loot_table/chests/abandoned_mineshaft"),
+                "Distribute trial explorer map to dungeons and abandoned mineshafts",
+                context -> {
+                    JsonElement pool = JsonParser.parseString("""
+                    {
+                      "rolls": 1,
+                      "entries": [
+                        {
+                          "type": "minecraft:item",
+                          "functions": [
+                            {
+                              "function": "minecraft:exploration_map",
+                              "destination": "minecraft:on_trial_chambers_maps",
+                              "decoration": "minecraft:trial_chambers",
+                              "zoom": 2
+                            },
+                            {
+                              "function": "minecraft:set_name",
+                              "name": {
+                                "translate": "filled_map.trial_chambers"
+                              },
+                              "target": "item_name"
+                            }
+                          ],
+                          "name": "minecraft:map"
+                        }
+                      ],
+                      "conditions": [
+                        {
+                          "condition": "minecraft:random_chance",
+                          "chance": 0.08
+                        }
+                      ]
+                    }
+                    """).deepCopy();
+                    context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
+                },
+                true
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:loot_table/chests/woodland_mansion"),
+                "Distribute Globe banner pattern to woodland mansion chest",
+                context -> {
+                    JsonElement pool = JsonParser.parseString("""
+                    {
+                      "rolls": 1.0,
+                      "entries": [
+                        {
+                          "type": "minecraft:item",
+                          "name": "minecraft:globe_banner_pattern"
+                        }
+                      ]
+                    }
+                    """).deepCopy();
+                    context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
+                },
+                true
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:loot_table/chests/pillager_outpost"),
+                "Distribute woodland explorer map to pillager outpost chest",
+                context -> {
+                    JsonElement pool = JsonParser.parseString("""
+                    {
+                      "rolls": 1.0,
+                      "entries": [
+                        {
+                          "type": "minecraft:item",
+                          "functions": [
+                            {
+                              "function": "minecraft:exploration_map",
+                              "destination": "minecraft:on_woodland_explorer_maps",
+                              "decoration": "minecraft:mansion",
+                              "zoom": 2
+                            },
+                            {
+                              "function": "minecraft:set_name",
+                              "name": {
+                                "translate": "filled_map.mansion"
+                              },
+                              "target": "item_name"
+                            }
+                          ],
+                          "name": "minecraft:map"
+                        }
+                      ],
+                      "conditions": [
+                        {
+                          "condition": "minecraft:random_chance",
+                          "chance": 0.33
+                        }
+                      ]
+                    }
+                    """).deepCopy();
+                    context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
+                },
+                true
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:loot_table/chests/shipwreck_map"),
+                "Distribute ocean explorer map to shipwreck map chest",
+                context -> {
+                    JsonElement pool = JsonParser.parseString("""
+                    {
+                      "rolls": 1,
+                      "entries": [
+                        {
+                          "type": "minecraft:item",
+                          "functions": [
+                            {
+                              "function": "minecraft:exploration_map",
+                              "destination": "minecraft:on_ocean_explorer_maps",
+                              "decoration": "minecraft:monument",
+                              "zoom": 2
+                            },
+                            {
+                              "function": "minecraft:set_name",
+                              "name": {
+                                "translate": "filled_map.monument"
+                              },
+                              "target": "item_name"
+                            }
+                          ],
+                          "name": "minecraft:map"
+                        }
+                      ],
+                      "conditions": [
+                        {
+                          "condition": "minecraft:random_chance",
+                          "chance": 0.5
+                        }
+                      ]
+                    }
+                    """).deepCopy();
+                    context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
+                },
+                true
+        );
         TOTEM_MAP.forEach((key, value) -> Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
                 rl -> rl.toString().equals("minecraft:loot_table/chests/" + key),
                 "Distribute Totem of Undying to loot chests",
                 context -> {
-                    JsonElement totemPool = JsonParser.parseString("""
+                    JsonElement pool = JsonParser.parseString("""
                     {
                       "rolls": 1.0,
                       "entries": [
@@ -100,13 +240,13 @@ public class LootTableEvents {
                       ]
                     }
                     """).deepCopy();
-                    totemPool.getAsJsonObject()
+                    pool.getAsJsonObject()
                             .getAsJsonArray("entries").get(0).getAsJsonObject()
                             .addProperty("name", "minecraft:totem_of_undying");
-                    totemPool.getAsJsonObject()
+                    pool.getAsJsonObject()
                             .getAsJsonArray("conditions").get(0).getAsJsonObject()
                             .addProperty("chance", value);
-                    context.getFile().getAsJsonObject().getAsJsonArray("pools").add(totemPool);
+                    context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
                 true
         ));
