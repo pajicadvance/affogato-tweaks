@@ -8,13 +8,20 @@ import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.levelgen.structure.Structure;
 
 public class Main implements ModInitializer {
     public static final String MOD_ID = "affogatotweaks";
+    public static final TagKey<Structure> OUTPOSTS = TagKey.create(
+            Registries.STRUCTURE,
+            ResourceLocation.fromNamespaceAndPath(MOD_ID, "outposts")
+    );
 
     @Override
     public void onInitialize() {
@@ -42,6 +49,14 @@ public class Main implements ModInitializer {
             FabricLoader.getInstance().getModContainer(Main.MOD_ID).ifPresent(modContainer ->
                     ResourceManagerHelper.registerBuiltinResourcePack(
                             ResourceLocation.fromNamespaceAndPath(MOD_ID, "cake_recipe"),
+                            modContainer, ResourcePackActivationType.ALWAYS_ENABLED
+                    )
+            );
+        // handle rs outposts for raids
+        if (FabricLoader.getInstance().isModLoaded("repurposed_structures"))
+            FabricLoader.getInstance().getModContainer(Main.MOD_ID).ifPresent(modContainer ->
+                    ResourceManagerHelper.registerBuiltinResourcePack(
+                            ResourceLocation.fromNamespaceAndPath(MOD_ID, "rs_outpost_tag"),
                             modContainer, ResourcePackActivationType.ALWAYS_ENABLED
                     )
             );

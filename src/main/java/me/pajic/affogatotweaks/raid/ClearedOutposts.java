@@ -1,18 +1,13 @@
 package me.pajic.affogatotweaks.raid;
 
-import com.mojang.datafixers.util.Pair;
+import me.pajic.affogatotweaks.Main;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.HolderSet;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.IntTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.datafix.DataFixTypes;
-import net.minecraft.world.level.levelgen.structure.BuiltinStructures;
-import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.saveddata.SavedData;
 import org.jetbrains.annotations.NotNull;
 
@@ -39,9 +34,8 @@ public class ClearedOutposts extends SavedData {
     }
 
     public static boolean isPillagerOutpost(ServerLevel level, BlockPos center) {
-        HolderSet<Structure> outpost = HolderSet.direct(level.registryAccess().registryOrThrow(Registries.STRUCTURE).getHolderOrThrow(BuiltinStructures.PILLAGER_OUTPOST));
-        Pair<BlockPos, Holder<Structure>> pair = level.getChunkSource().getGenerator().findNearestMapStructure(level, outpost, center, 1, false);
-        return pair != null && center.distToCenterSqr(pair.getFirst().getX(), center.getY(), pair.getFirst().getZ()) < 2304;
+        BlockPos pos = level.findNearestMapStructure(Main.OUTPOSTS, center, 1, false);
+        return pos != null && center.distToCenterSqr(pos.getX(), center.getY(), pos.getZ()) < 2304;
     }
 
     private static ClearedOutposts read(CompoundTag tag, HolderLookup.Provider provider) {
