@@ -16,6 +16,6 @@ public class PillagerMixin {
             )
     )
     private static double modifyFollowRange(double original) {
-        return 16;
+        return 24;
     }
 }
