@@ -21,6 +21,7 @@
     "gameplay.AbstractFurnaceBlockEntityMixin",
     "gameplay.BlocksMixin",
     "gameplay.InventoryMixin",
+    "trade.VillagerTradesMixin",
     "gameplay.ZombieVillagerMixin",
     "integration.FoodValuesMixin",
     "nightvision.FlowerBlockMixin",
@@ -44,7 +45,9 @@
     "xp.BlocksMixin",
     "xp.FishingHookMixin",
     "xp.LivingEntityMixin",
-    "xp.RedStoneOreBlockMixin"
+    "xp.RedStoneOreBlockMixin",
+    "trade.VillagerMixin",
+    "trade.WanderingTraderMixin"
   ],
   "client": [
     "difficulty.WorldCreationUiStateMixin",
