@@ -16,6 +16,6 @@ public class IglooPiecesMixin {
             )
     )
     private static double nukeIglooBasement(double original) {
-        return 0;
+        return 1;
     }
 }
