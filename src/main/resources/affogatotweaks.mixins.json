@@ -17,6 +17,7 @@
     "food.CakeBlockMixin",
     "food.FoodDataMixin",
     "food.FoodPropertiesBuilderMixin",
+    "food.ItemsMixin",
     "food.PlayerMixin",
     "food.ServerPlayerMixin",
     "gameplay.AbstractFurnaceBlockEntityMixin",

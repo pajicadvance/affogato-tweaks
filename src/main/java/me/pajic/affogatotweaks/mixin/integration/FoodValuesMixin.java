@@ -25,7 +25,7 @@ public class FoodValuesMixin {
     )
     private static void buffCakeSlice(CallbackInfo ci) {
         CAKE_SLICE = (new FoodProperties.Builder())
-                .nutrition(5)
+                .nutrition(3)
                 .saturationModifier(0.3F)
                 .fast()
                 .effect(new MobEffectInstance(

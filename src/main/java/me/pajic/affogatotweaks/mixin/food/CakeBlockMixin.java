@@ -17,7 +17,7 @@ public class CakeBlockMixin {
             )
     )
     private static void buffCake(Args args) {
-        args.set(0, 5);
+        args.set(0, 3);
         args.set(1, 0.3F);
     }
 }
