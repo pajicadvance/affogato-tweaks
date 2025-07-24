@@ -44,19 +44,19 @@ public class Main implements ModInitializer {
                 null,
                 null
         );
-        // custom cake recipe
+        // farmer's delight cake recipe and gravel cutting recipe
         if (FabricLoader.getInstance().isModLoaded("farmersdelight"))
             FabricLoader.getInstance().getModContainer(Main.MOD_ID).ifPresent(modContainer ->
                     ResourceManagerHelper.registerBuiltinResourcePack(
-                            ResourceLocation.fromNamespaceAndPath(MOD_ID, "cake_recipe"),
+                            ResourceLocation.fromNamespaceAndPath(MOD_ID, "fd_compat"),
                             modContainer, ResourcePackActivationType.ALWAYS_ENABLED
                     )
             );
-        // handle rs outposts for raids
+        // handle rs outposts for reworked raids
         if (FabricLoader.getInstance().isModLoaded("repurposed_structures"))
             FabricLoader.getInstance().getModContainer(Main.MOD_ID).ifPresent(modContainer ->
                     ResourceManagerHelper.registerBuiltinResourcePack(
-                            ResourceLocation.fromNamespaceAndPath(MOD_ID, "rs_outpost_tag"),
+                            ResourceLocation.fromNamespaceAndPath(MOD_ID, "rs_compat"),
                             modContainer, ResourcePackActivationType.ALWAYS_ENABLED
                     )
             );
