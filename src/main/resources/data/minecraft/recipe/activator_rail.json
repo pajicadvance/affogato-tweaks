@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:redstone_torch"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:iron_ingot"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "pattern": [
+    "NSN",
+    "X#X",
+    "NSN"
+  ],
+  "result": {
+    "count": 8,
+    "id": "minecraft:activator_rail"
+  }
+}

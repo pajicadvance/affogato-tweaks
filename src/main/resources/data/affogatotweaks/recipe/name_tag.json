@@ -6,10 +6,13 @@
     },
     "S": {
       "item": "minecraft:string"
+    },
+    "B": {
+      "item": "minecraft:slime_ball"
     }
   },
   "pattern": [
-    " S",
+    "BS",
     "P "
   ],
   "result": {

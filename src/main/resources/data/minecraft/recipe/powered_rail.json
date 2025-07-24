@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "X": {
+      "item": "minecraft:gold_ingot"
+    },
+    "N": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "pattern": [
+    "N N",
+    "X#X",
+    "NRN"
+  ],
+  "result": {
+    "count": 8,
+    "id": "minecraft:powered_rail"
+  }
+}
