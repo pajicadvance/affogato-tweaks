@@ -25,6 +25,7 @@
     "gameplay.InventoryMixin",
     "gameplay.ZombieVillagerMixin",
     "integration.FoodValuesMixin",
+    "integration.InmisClothConfigMixin",
     "nightvision.FlowerBlockMixin",
     "nightvision.PotionBrewingMixin",
     "nightvision.SetStewEffectFunctionMixin",

@@ -60,5 +60,13 @@ public class Main implements ModInitializer {
                             modContainer, ResourcePackActivationType.ALWAYS_ENABLED
                     )
             );
+        // inmis smithing recipe for blazing backpack
+        if (FabricLoader.getInstance().isModLoaded("inmis"))
+            FabricLoader.getInstance().getModContainer(Main.MOD_ID).ifPresent(modContainer ->
+                    ResourceManagerHelper.registerBuiltinResourcePack(
+                            ResourceLocation.fromNamespaceAndPath(MOD_ID, "inmis_compat"),
+                            modContainer, ResourcePackActivationType.ALWAYS_ENABLED
+                    )
+            );
     }
 }
