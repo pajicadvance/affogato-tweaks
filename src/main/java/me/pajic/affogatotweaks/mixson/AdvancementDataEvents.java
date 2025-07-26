@@ -1,5 +1,6 @@
 package me.pajic.affogatotweaks.mixson;
 
+import net.fabricmc.loader.api.FabricLoader;
 import net.ramixin.mixson.inline.Mixson;
 
 public class AdvancementDataEvents {
@@ -56,6 +57,13 @@ public class AdvancementDataEvents {
                     context.getFile().getAsJsonObject().addProperty("advancements.adventure.voluntary_exile.description", "Kill a raid captain.");
                     context.getFile().getAsJsonObject().addProperty("advancements.adventure.summon_iron_golem.description", "Summon an Iron Golem");
                 },
+                true
+        );
+        if (FabricLoader.getInstance().isModLoaded("inmis")) Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().startsWith("inmis:advancement/"),
+                "Remove backpack advancements",
+                context -> context.markForDeletion(true),
                 true
         );
     }

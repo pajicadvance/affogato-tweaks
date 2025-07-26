@@ -60,5 +60,12 @@ public class RecipeEvents {
                 context -> context.markForDeletion(true),
                 true
         );
+        if (FabricLoader.getInstance().isModLoaded("inmis")) Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("inmis:recipe/baby_backpack") || rl.toString().equals("inmis:recipe/endless_backpack") || rl.toString().equals("inmis:recipe/withered_backpack"),
+                "Remove backpack recipes",
+                context -> context.markForDeletion(true),
+                true
+        );
     }
 }

@@ -66,7 +66,7 @@ public class WorldgenDataEvents {
         );
         ORE.forEach(ore -> Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
-                rl -> rl.getPath().startsWith("minecraft:worldgen/configured_feature/ore_" + ore),
+                rl -> rl.toString().startsWith("minecraft:worldgen/configured_feature/ore_" + ore),
                 "Increase " + ore + " ore size",
                 context -> context.getFile().getAsJsonObject()
                         .getAsJsonObject("config").addProperty("size", Math.round(
@@ -74,12 +74,5 @@ public class WorldgenDataEvents {
                                         .getAsJsonPrimitive("size").getAsInt() * 1.2F)),
                 true
         ));
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.getPath().startsWith("worldgen/noise_settings/overworld"),
-                "Disable ore vein feature",
-                context -> context.getFile().getAsJsonObject().addProperty("ore_veins_enabled", false),
-                true
-        );
     }
 }
