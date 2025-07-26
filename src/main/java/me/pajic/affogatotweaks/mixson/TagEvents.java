@@ -43,5 +43,48 @@ public class TagEvents {
                 },
                 true
         );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:tags/enchantment/non_treasure"),
+                "Remove select enchantments from random loot",
+                context -> {
+                    JsonArray values = context.getFile().getAsJsonObject().getAsJsonArray("values");
+                    values.remove(new JsonPrimitive("minecraft:density"));
+                    values.remove(new JsonPrimitive("minecraft:breach"));
+                    values.remove(new JsonPrimitive("minecraft:loyalty"));
+                    values.remove(new JsonPrimitive("minecraft:impaling"));
+                    values.remove(new JsonPrimitive("minecraft:riptide"));
+                    values.remove(new JsonPrimitive("guarding:barbed"));
+                    values.remove(new JsonPrimitive("guarding:pummeling"));
+                },
+                true
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:tags/enchantment/in_enchanting_table"),
+                "Add select enchantments to enchanting table",
+                context -> {
+                    JsonArray values = context.getFile().getAsJsonObject().getAsJsonArray("values");
+                    values.add(new JsonPrimitive("minecraft:density"));
+                    values.add(new JsonPrimitive("minecraft:breach"));
+                    values.add(new JsonPrimitive("minecraft:loyalty"));
+                    values.add(new JsonPrimitive("minecraft:impaling"));
+                    values.add(new JsonPrimitive("minecraft:riptide"));
+                    values.add(new JsonPrimitive("guarding:barbed"));
+                    values.add(new JsonPrimitive("guarding:pummeling"));
+                },
+                true
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:tags/enchantment/on_random_loot"),
+                "Remove curses from random loot",
+                context -> {
+                    JsonArray values = context.getFile().getAsJsonObject().getAsJsonArray("values");
+                    values.remove(new JsonPrimitive("minecraft:binding_curse"));
+                    values.remove(new JsonPrimitive("minecraft:vanishing_curse"));
+                },
+                true
+        );
     }
 }

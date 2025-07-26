@@ -252,6 +252,97 @@ public class LootTableEvents {
         ));
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:loot_table/chests/desert_pyramid"),
+                "Distribute curse enchantments to desert pyramid chests",
+                context -> {
+                    JsonElement pool = JsonParser.parseString("""
+                    {
+                      "rolls": 1,
+                      "entries": [
+                        {
+                          "type": "minecraft:item",
+                          "name": "minecraft:book",
+                          "functions": [
+                            {
+                              "function": "minecraft:enchant_randomly",
+                              "options": "#minecraft:curse"
+                            }
+                          ]
+                        }
+                      ],
+                      "conditions": [
+                        {
+                          "condition": "minecraft:random_chance",
+                          "chance": 0.5
+                        }
+                      ]
+                    }
+                    """).deepCopy();
+                    context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
+                },
+                true
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:loot_table/entities/elder_guardian"),
+                "Distribute trident enchantments to elder guardian drops",
+                context -> {
+                    JsonElement pool = JsonParser.parseString("""
+                    {
+                      "rolls": 1,
+                      "entries": [
+                        {
+                          "type": "minecraft:item",
+                          "name": "minecraft:book",
+                          "functions": [
+                            {
+                              "function": "minecraft:enchant_randomly",
+                              "options": [
+                                 "minecraft:loyalty",
+                                 "minecraft:riptide",
+                                 "minecraft:impaling"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                    """).deepCopy();
+                    context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
+                },
+                true
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:loot_table/chests/trial_chambers/reward_ominous"),
+                "Distribute mace enchantments to trial chamber rewards",
+                context -> {
+                    JsonElement pool = JsonParser.parseString("""
+                    {
+                      "rolls": 1,
+                      "entries": [
+                        {
+                          "type": "minecraft:item",
+                          "name": "minecraft:book",
+                          "functions": [
+                            {
+                              "function": "minecraft:enchant_randomly",
+                              "options": [
+                                 "minecraft:density",
+                                 "minecraft:breach"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                    """).deepCopy();
+                    context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
+                },
+                true
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
                 rl -> rl.toString().equals("minecraft:loot_table/blocks/oak_leaves") || rl.toString().equals("minecraft:loot_table/blocks/dark_oak_leaves"),
                 "Increase apple drop chance",
                 context -> {
