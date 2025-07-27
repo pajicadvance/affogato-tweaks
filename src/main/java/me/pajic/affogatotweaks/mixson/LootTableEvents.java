@@ -28,7 +28,9 @@ public class LootTableEvents {
             Map.entry("minecraft:iron_axe", 3),
             Map.entry("minecraft:iron_shovel", 1),
             Map.entry("minecraft:iron_sword", 2),
-            Map.entry("minecraft:iron_hoe", 2)
+            Map.entry("minecraft:iron_hoe", 2),
+            Map.entry("farmersdelight:diamond_knife", 1),
+            Map.entry("farmersdelight:iron_knife", 1)
     ));
     private static final Object2DoubleMap<String> TOTEM_MAP = new Object2DoubleArrayMap<>(Map.ofEntries(
             Map.entry("jungle_temple", 0.5),
@@ -333,7 +335,8 @@ public class LootTableEvents {
                               "options": [
                                  "minecraft:loyalty",
                                  "minecraft:riptide",
-                                 "minecraft:impaling"
+                                 "minecraft:impaling",
+                                 "minecraft:channeling"
                               ]
                             }
                           ]

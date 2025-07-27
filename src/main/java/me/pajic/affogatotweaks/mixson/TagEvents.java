@@ -54,6 +54,7 @@ public class TagEvents {
                     values.remove(new JsonPrimitive("minecraft:loyalty"));
                     values.remove(new JsonPrimitive("minecraft:impaling"));
                     values.remove(new JsonPrimitive("minecraft:riptide"));
+                    values.remove(new JsonPrimitive("minecraft:channeling"));
                     values.remove(new JsonPrimitive("guarding:barbed"));
                     values.remove(new JsonPrimitive("guarding:pummeling"));
                 },
@@ -70,6 +71,7 @@ public class TagEvents {
                     values.add(new JsonPrimitive("minecraft:loyalty"));
                     values.add(new JsonPrimitive("minecraft:impaling"));
                     values.add(new JsonPrimitive("minecraft:riptide"));
+                    values.add(new JsonPrimitive("minecraft:channeling"));
                     values.add(new JsonPrimitive("guarding:barbed"));
                     values.add(new JsonPrimitive("guarding:pummeling"));
                 },
