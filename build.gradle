@@ -58,6 +58,7 @@ dependencies {
     modRuntimeOnly "maven.modrinth:guarding:1.21.1-2.7.4"
     modRuntimeOnly "maven.modrinth:sketch:1.21.1-1.2.1"
     modRuntimeOnly "maven.modrinth:midnightlib:1.7.5+1.21.1-fabric"
+    modRuntimeOnly "maven.modrinth:repurposed-structures-fabric:7.5.17+1.21.1-fabric"
     modRuntimeOnly "maven.modrinth:worldedit:7.3.8"
     modRuntimeOnly "org.antlr:antlr4-runtime:4.13.1"
     modRuntimeOnly "io.github.douira:glsl-transformer:2.0.1"

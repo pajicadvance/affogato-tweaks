@@ -1,6 +1,5 @@
 package me.pajic.affogatotweaks.mixin.food;
 
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
@@ -27,16 +26,5 @@ public abstract class PlayerMixin extends LivingEntity {
     )
     private void cancelEatingOnHurt(DamageSource damageSource, float damageAmount, CallbackInfo ci) {
         if (getUseItem().has(DataComponents.FOOD)) stopUsingItem();
-    }
-
-    @ModifyExpressionValue(
-            method = "jumpFromGround",
-            at = @At(
-                    value = "CONSTANT",
-                    args = "floatValue=0.2"
-            )
-    )
-    private float reduceSprintJumpExhaustion(float original) {
-        return 0.15F;
     }
 }

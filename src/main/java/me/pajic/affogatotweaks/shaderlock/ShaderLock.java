@@ -51,7 +51,7 @@ public class ShaderLock {
     }
 
     private static boolean compare(String name, Map<String, String> fileHashes) throws IOException {
-        InputStream is = Main.class.getResourceAsStream("/" + name + "_sha256");
+        InputStream is = Main.class.getResourceAsStream("/keys/" + name + "_sha256");
         if (setupMode)
             try (FileWriter fw = new FileWriter(Iris.getShaderpacksDirectory() + File.separator + name + "_sha256")) {
                 GSON.toJson(fileHashes, fw);

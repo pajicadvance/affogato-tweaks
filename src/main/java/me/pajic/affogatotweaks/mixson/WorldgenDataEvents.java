@@ -1,6 +1,8 @@
 package me.pajic.affogatotweaks.mixson;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.ramixin.mixson.inline.Mixson;
 
@@ -74,5 +76,32 @@ public class WorldgenDataEvents {
                                         .getAsJsonPrimitive("size").getAsInt() * 1.2F)),
                 true
         ));
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().startsWith("minecraft:worldgen/placed_feature/monster_room") || rl.toString().startsWith("repurposed_structures:worldgen/placed_feature/dungeons/"),
+                "Increase dungeon spawn rate",
+                context -> {
+                    JsonArray placement = context.getFile().getAsJsonObject().getAsJsonArray("placement");
+                    for (JsonElement element : placement) {
+                        JsonObject object = element.getAsJsonObject();
+                        String type = object.getAsJsonPrimitive("type").getAsString();
+                        if (type.equals("minecraft:count") || type.equals("repurposed_structures:unlimited_count")) {
+                            object.addProperty("count", Math.round(object.getAsJsonPrimitive("count").getAsInt() * 1.3F));
+                        }
+                    }
+                },
+                true
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:worldgen/structure_set/mineshafts") || rl.toString().startsWith("repurposed_structures:worldgen/structure_set/mineshafts"),
+                "Increase mineshaft spawn rate",
+                context -> context.getFile().getAsJsonObject()
+                        .getAsJsonObject("placement").addProperty("frequency",
+                                context.getFile().getAsJsonObject().getAsJsonObject("placement")
+                                        .getAsJsonPrimitive("frequency").getAsFloat() * 1.5F
+                        ),
+                true
+        );
     }
 }
