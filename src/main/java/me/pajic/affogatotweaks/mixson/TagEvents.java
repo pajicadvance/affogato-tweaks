@@ -78,11 +78,12 @@ public class TagEvents {
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
                 rl -> rl.toString().equals("minecraft:tags/enchantment/on_random_loot"),
-                "Remove curses from random loot",
+                "Remove curses and frost walker from random loot",
                 context -> {
                     JsonArray values = context.getFile().getAsJsonObject().getAsJsonArray("values");
                     values.remove(new JsonPrimitive("minecraft:binding_curse"));
                     values.remove(new JsonPrimitive("minecraft:vanishing_curse"));
+                    values.remove(new JsonPrimitive("minecraft:frost_walker"));
                 },
                 true
         );

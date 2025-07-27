@@ -284,6 +284,39 @@ public class LootTableEvents {
         );
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:loot_table/chests/igloo_chest") || rl.toString().equals("minecraft:loot_table/chests/ancient_city_ice_box"),
+                "Distribute frost walker enchantment to igloo and ice box chests",
+                context -> {
+                    JsonElement pool = JsonParser.parseString("""
+                    {
+                      "rolls": 1,
+                      "entries": [
+                        {
+                          "type": "minecraft:item",
+                          "name": "minecraft:book",
+                          "functions": [
+                            {
+                              "function": "minecraft:enchant_randomly",
+                              "options": "minecraft:frost_walker"
+                            }
+                          ]
+                        }
+                      ],
+                      "conditions": [
+                        {
+                          "condition": "minecraft:random_chance"
+                        }
+                      ]
+                    }
+                    """).deepCopy();
+                    pool.getAsJsonObject().getAsJsonArray("conditions").get(0).getAsJsonObject()
+                            .addProperty("chance", context.getResourceId().getPath().endsWith("igloo_chest.json") ? 0.5 : 1.0);
+                    context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
+                },
+                true
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
                 rl -> rl.toString().equals("minecraft:loot_table/entities/elder_guardian"),
                 "Distribute trident enchantments to elder guardian drops",
                 context -> {
