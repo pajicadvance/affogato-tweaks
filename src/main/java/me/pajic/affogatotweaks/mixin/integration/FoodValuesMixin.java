@@ -1,6 +1,7 @@
 package me.pajic.affogatotweaks.mixin.integration;
 
 import com.moulberry.mixinconstraints.annotations.IfModLoaded;
+import me.pajic.affogatotweaks.values.NutritionValues;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -25,8 +26,8 @@ public class FoodValuesMixin {
     )
     private static void buffCakeSlice(CallbackInfo ci) {
         CAKE_SLICE = (new FoodProperties.Builder())
-                .nutrition(3)
-                .saturationModifier(0.3F)
+                .nutrition(NutritionValues.CAKE_SLICE.leftInt())
+                .saturationModifier(NutritionValues.CAKE_SLICE.rightFloat())
                 .fast()
                 .effect(new MobEffectInstance(
                         MobEffects.MOVEMENT_SPEED,

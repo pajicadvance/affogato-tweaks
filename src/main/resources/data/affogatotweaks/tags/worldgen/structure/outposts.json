@@ -1,5 +1,6 @@
 {
   "values": [
-    "minecraft:pillager_outpost"
+    "minecraft:pillager_outpost",
+    "#repurposed_structures:collections/outposts"
   ]
 }

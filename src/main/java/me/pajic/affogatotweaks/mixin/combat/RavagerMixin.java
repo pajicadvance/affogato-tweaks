@@ -1,6 +1,7 @@
 package me.pajic.affogatotweaks.mixin.combat;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import me.pajic.affogatotweaks.values.MobValues;
 import net.minecraft.world.entity.monster.Ravager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,7 +17,7 @@ public class RavagerMixin {
             )
     )
     private static double modifyFollowRange(double original) {
-        return 16;
+        return MobValues.RAVAGER_FOLLOW_RANGE;
     }
 
     @ModifyExpressionValue(

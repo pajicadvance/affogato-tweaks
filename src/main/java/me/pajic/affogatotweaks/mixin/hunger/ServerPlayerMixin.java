@@ -26,7 +26,7 @@ public abstract class ServerPlayerMixin extends Player {
             )
     )
     private float sprintExhaustion(float original) {
-        return ExhaustionValues.sprint();
+        return ExhaustionValues.SPRINT;
     }
 
     @ModifyExpressionValue(
@@ -38,7 +38,7 @@ public abstract class ServerPlayerMixin extends Player {
             )
     )
     private float sneakExhaustion(float original) {
-        return ExhaustionValues.sneak();
+        return ExhaustionValues.SNEAK;
     }
 
     @ModifyExpressionValue(
@@ -50,7 +50,7 @@ public abstract class ServerPlayerMixin extends Player {
             )
     )
     private float swimExhaustion(float original) {
-        return ExhaustionValues.swimFast();
+        return ExhaustionValues.SWIM_FAST;
     }
 
     @ModifyExpressionValue(
@@ -62,7 +62,7 @@ public abstract class ServerPlayerMixin extends Player {
             )
     )
     private float walkUnderwaterExhaustion(float original) {
-        return ExhaustionValues.swimSlow();
+        return ExhaustionValues.SWIM_SLOW;
     }
 
     @ModifyExpressionValue(
@@ -74,7 +74,7 @@ public abstract class ServerPlayerMixin extends Player {
             )
     )
     private float walkOnWaterExhaustion(float original) {
-        return ExhaustionValues.swimSlow();
+        return ExhaustionValues.SWIM_SLOW;
     }
 
     @Inject(
@@ -85,7 +85,7 @@ public abstract class ServerPlayerMixin extends Player {
             )
     )
     private void climbExhaustion(double dx, double dy, double dz, CallbackInfo ci) {
-        causeFoodExhaustion(ExhaustionValues.climb() * Math.round(dy * 100) * 0.01F);
+        causeFoodExhaustion(ExhaustionValues.CLIMB * Math.round(dy * 100) * 0.01F);
     }
 
     @Inject(
@@ -96,6 +96,6 @@ public abstract class ServerPlayerMixin extends Player {
             )
     )
     private void crawlExhaustion(double dx, double dy, double dz, CallbackInfo ci) {
-        if (isVisuallyCrawling()) causeFoodExhaustion(ExhaustionValues.crawl() * Math.round((float) Math.sqrt(dx * dx + dz * dz) * 100.0F) * 0.01F);
+        if (isVisuallyCrawling()) causeFoodExhaustion(ExhaustionValues.CRAWL * Math.round((float) Math.sqrt(dx * dx + dz * dz) * 100.0F) * 0.01F);
     }
 }

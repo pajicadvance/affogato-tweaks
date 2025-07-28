@@ -1,19 +1,11 @@
 package me.pajic.affogatotweaks;
 
-import me.emafire003.dev.custombrewrecipes.CustomBrewRecipeRegister;
 import me.pajic.affogatotweaks.mixson.MixsonInitializer;
+import me.pajic.affogatotweaks.potion.ModPotions;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
-import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.core.component.DataComponentMap;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionContents;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.levelgen.structure.Structure;
 
 public class Main implements ModInitializer {
@@ -27,46 +19,12 @@ public class Main implements ModInitializer {
     public void onInitialize() {
         // data patches
         MixsonInitializer.init();
+        // potions
+        ModPotions.init();
         // guide book
         /*LavenderBookItem.registerForBook(
                 ResourceLocation.fromNamespaceAndPath(MOD_ID, "affogato_guide"),
                 new Item.Properties().stacksTo(1)
         );*/
-        // xp bottle brewing recipe
-        CustomBrewRecipeRegister.registerCustomRecipeWithComponents(
-                Items.SPLASH_POTION,
-                Items.EMERALD,
-                Items.EXPERIENCE_BOTTLE,
-                DataComponentMap.builder().set(
-                        DataComponents.POTION_CONTENTS,
-                        new PotionContents(Potions.AWKWARD)
-                ).build(),
-                null,
-                null
-        );
-        // farmer's delight cake recipe and gravel cutting recipe
-        if (FabricLoader.getInstance().isModLoaded("farmersdelight"))
-            FabricLoader.getInstance().getModContainer(Main.MOD_ID).ifPresent(modContainer ->
-                    ResourceManagerHelper.registerBuiltinResourcePack(
-                            ResourceLocation.fromNamespaceAndPath(MOD_ID, "fd_compat"),
-                            modContainer, ResourcePackActivationType.ALWAYS_ENABLED
-                    )
-            );
-        // handle rs outposts for reworked raids
-        if (FabricLoader.getInstance().isModLoaded("repurposed_structures"))
-            FabricLoader.getInstance().getModContainer(Main.MOD_ID).ifPresent(modContainer ->
-                    ResourceManagerHelper.registerBuiltinResourcePack(
-                            ResourceLocation.fromNamespaceAndPath(MOD_ID, "rs_compat"),
-                            modContainer, ResourcePackActivationType.ALWAYS_ENABLED
-                    )
-            );
-        // inmis smithing recipe for blazing backpack
-        if (FabricLoader.getInstance().isModLoaded("inmis"))
-            FabricLoader.getInstance().getModContainer(Main.MOD_ID).ifPresent(modContainer ->
-                    ResourceManagerHelper.registerBuiltinResourcePack(
-                            ResourceLocation.fromNamespaceAndPath(MOD_ID, "inmis_compat"),
-                            modContainer, ResourcePackActivationType.ALWAYS_ENABLED
-                    )
-            );
     }
 }

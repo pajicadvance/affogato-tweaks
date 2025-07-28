@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import me.pajic.affogatotweaks.values.WorldgenValues;
 import net.ramixin.mixson.inline.Mixson;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class WorldgenDataEvents {
                 "Increase max ancient debris vein size and allow air exposure",
                 context -> {
                     context.getFile().getAsJsonObject().getAsJsonObject("config").addProperty("discard_chance_on_air_exposure", 0);
-                    context.getFile().getAsJsonObject().getAsJsonObject("config").addProperty("size", 6);
+                    context.getFile().getAsJsonObject().getAsJsonObject("config").addProperty("size", WorldgenValues.ANCIENT_DEBRIS_SIZE);
                 },
                 true
         );
@@ -73,7 +74,7 @@ public class WorldgenDataEvents {
                 context -> context.getFile().getAsJsonObject()
                         .getAsJsonObject("config").addProperty("size", Math.round(
                                 context.getFile().getAsJsonObject().getAsJsonObject("config")
-                                        .getAsJsonPrimitive("size").getAsInt() * 1.2F)),
+                                        .getAsJsonPrimitive("size").getAsInt() * WorldgenValues.ORE_SIZE_MULT)),
                 true
         ));
         Mixson.registerEvent(
@@ -86,7 +87,7 @@ public class WorldgenDataEvents {
                         JsonObject object = element.getAsJsonObject();
                         String type = object.getAsJsonPrimitive("type").getAsString();
                         if (type.equals("minecraft:count") || type.equals("repurposed_structures:unlimited_count")) {
-                            object.addProperty("count", Math.round(object.getAsJsonPrimitive("count").getAsInt() * 1.3F));
+                            object.addProperty("count", Math.round(object.getAsJsonPrimitive("count").getAsInt() * WorldgenValues.DUNGEON_CHANCE_MULT));
                         }
                     }
                 },
@@ -99,7 +100,7 @@ public class WorldgenDataEvents {
                 context -> context.getFile().getAsJsonObject()
                         .getAsJsonObject("placement").addProperty("frequency",
                                 context.getFile().getAsJsonObject().getAsJsonObject("placement")
-                                        .getAsJsonPrimitive("frequency").getAsFloat() * 1.5F
+                                        .getAsJsonPrimitive("frequency").getAsFloat() * WorldgenValues.MINESHAFT_CHANCE_MULT
                         ),
                 true
         );

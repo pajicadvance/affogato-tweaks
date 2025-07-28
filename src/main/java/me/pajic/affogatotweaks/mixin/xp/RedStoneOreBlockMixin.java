@@ -1,5 +1,6 @@
 package me.pajic.affogatotweaks.mixin.xp;
 
+import me.pajic.affogatotweaks.values.XpValues;
 import net.minecraft.world.level.block.RedStoneOreBlock;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,7 +18,7 @@ public class RedStoneOreBlockMixin {
             )
     )
     private void setRedstoneOreXpDropAmount(Args args) {
-        args.set(0, 3);
-        args.set(1, 7);
+        args.set(0, XpValues.REDSTONE.leftInt());
+        args.set(1, XpValues.REDSTONE.rightInt());
     }
 }

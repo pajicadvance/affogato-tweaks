@@ -23,7 +23,7 @@ public abstract class PlayerMixin {
             )
     )
     private float jumpSprintExhaustion(float original) {
-        return ExhaustionValues.jumpSprint();
+        return ExhaustionValues.JUMP_SPRINT;
     }
 
     @ModifyArg(
@@ -35,7 +35,7 @@ public abstract class PlayerMixin {
             )
     )
     private float jumpExhaustion(float original) {
-        return ExhaustionValues.jump();
+        return ExhaustionValues.JUMP;
     }
 
     @ModifyArg(
@@ -46,7 +46,7 @@ public abstract class PlayerMixin {
             )
     )
     private float attackExhaustion(float original) {
-        return ExhaustionValues.attack();
+        return ExhaustionValues.ATTACK;
     }
 
     @ModifyArg(
@@ -57,7 +57,7 @@ public abstract class PlayerMixin {
             )
     )
     private float takeDamageExhaustion(float exhaustion) {
-        return exhaustion == 0.1F ? ExhaustionValues.takeDamage() : exhaustion;
+        return exhaustion == 0.1F ? ExhaustionValues.TAKE_DAMAGE : exhaustion;
     }
 
     @Inject(
@@ -68,6 +68,6 @@ public abstract class PlayerMixin {
             )
     )
     private void blockAttackExhaustion(float damageAmount, CallbackInfo ci) {
-        causeFoodExhaustion(ExhaustionValues.blockAttack());
+        causeFoodExhaustion(ExhaustionValues.BLOCK_ATTACK);
     }
 }

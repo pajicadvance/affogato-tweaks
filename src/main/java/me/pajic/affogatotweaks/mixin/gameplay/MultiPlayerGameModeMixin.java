@@ -1,6 +1,7 @@
 package me.pajic.affogatotweaks.mixin.gameplay;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import me.pajic.affogatotweaks.values.MiscValues;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,6 +17,6 @@ public class MultiPlayerGameModeMixin {
             )
     )
     private int reduceDestroyDelay(int value) {
-        return 2;
+        return MiscValues.MINING_DELAY_TICKS;
     }
 }

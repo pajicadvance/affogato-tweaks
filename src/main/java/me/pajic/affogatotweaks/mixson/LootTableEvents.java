@@ -4,39 +4,10 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import it.unimi.dsi.fastutil.objects.*;
+import me.pajic.affogatotweaks.values.LootValues;
 import net.ramixin.mixson.inline.Mixson;
 
-import java.util.Map;
-
 public class LootTableEvents {
-    private static final Object2IntMap<String> REPLACEMENT_MAP = new Object2IntArrayMap<>(Map.ofEntries(
-            Map.entry("minecraft:diamond_helmet", 5),
-            Map.entry("minecraft:diamond_chestplate", 8),
-            Map.entry("minecraft:diamond_leggings", 7),
-            Map.entry("minecraft:diamond_boots", 4),
-            Map.entry("minecraft:diamond_pickaxe", 3),
-            Map.entry("minecraft:diamond_axe", 3),
-            Map.entry("minecraft:diamond_shovel", 1),
-            Map.entry("minecraft:diamond_sword", 2),
-            Map.entry("minecraft:diamond_hoe", 2),
-            Map.entry("minecraft:iron_helmet", 5),
-            Map.entry("minecraft:iron_chestplate", 8),
-            Map.entry("minecraft:iron_leggings", 7),
-            Map.entry("minecraft:iron_boots", 4),
-            Map.entry("minecraft:iron_pickaxe", 3),
-            Map.entry("minecraft:iron_axe", 3),
-            Map.entry("minecraft:iron_shovel", 1),
-            Map.entry("minecraft:iron_sword", 2),
-            Map.entry("minecraft:iron_hoe", 2),
-            Map.entry("farmersdelight:diamond_knife", 1),
-            Map.entry("farmersdelight:iron_knife", 1)
-    ));
-    private static final Object2DoubleMap<String> TOTEM_MAP = new Object2DoubleArrayMap<>(Map.ofEntries(
-            Map.entry("jungle_temple", 0.5),
-            Map.entry("pillager_outpost", 0.75),
-            Map.entry("woodland_mansion", 1.0)
-    ));
     public static void register() {
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -50,7 +21,7 @@ public class LootTableEvents {
                         pool.getAsJsonObject().getAsJsonArray("entries").forEach(entry -> {
                             if (entry.getAsJsonObject().has("name")) {
                                 String itemName = entry.getAsJsonObject().getAsJsonPrimitive("name").getAsString();
-                                if (REPLACEMENT_MAP.containsKey(itemName)) {
+                                if (LootValues.TOOL_TO_MATERIAL_AMOUNT.containsKey(itemName)) {
                                     JsonElement replacementEntry = JsonParser.parseString("""
                                     {
                                       "type": "minecraft:item",
@@ -65,7 +36,7 @@ public class LootTableEvents {
                                             itemName.contains("diamond") ? "minecraft:diamond" : "minecraft:iron_ingot"
                                     );
                                     replacementEntry.getAsJsonObject().getAsJsonArray("functions").get(0).getAsJsonObject()
-                                            .addProperty("count", REPLACEMENT_MAP.getInt(itemName));
+                                            .addProperty("count", LootValues.TOOL_TO_MATERIAL_AMOUNT.getInt(itemName));
                                     updatedEntries.add(replacementEntry);
                                 }
                                 else updatedEntries.add(entry);
@@ -110,12 +81,14 @@ public class LootTableEvents {
                       ],
                       "conditions": [
                         {
-                          "condition": "minecraft:random_chance",
-                          "chance": 0.08
+                          "condition": "minecraft:random_chance"
                         }
                       ]
                     }
                     """).deepCopy();
+                    pool.getAsJsonObject()
+                            .getAsJsonArray("conditions").get(0).getAsJsonObject()
+                            .addProperty("chance", LootValues.TRIAL_EXPLORER_MAP_CHANCE);
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
                 true
@@ -133,9 +106,17 @@ public class LootTableEvents {
                           "type": "minecraft:item",
                           "name": "minecraft:globe_banner_pattern"
                         }
+                      ],
+                      "conditions": [
+                        {
+                          "condition": "minecraft:random_chance"
+                        }
                       ]
                     }
                     """).deepCopy();
+                    pool.getAsJsonObject()
+                            .getAsJsonArray("conditions").get(0).getAsJsonObject()
+                            .addProperty("chance", LootValues.GLOBE_BANNER_PATTERN_CHANCE);
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
                 true
@@ -171,12 +152,14 @@ public class LootTableEvents {
                       ],
                       "conditions": [
                         {
-                          "condition": "minecraft:random_chance",
-                          "chance": 0.33
+                          "condition": "minecraft:random_chance"
                         }
                       ]
                     }
                     """).deepCopy();
+                    pool.getAsJsonObject()
+                            .getAsJsonArray("conditions").get(0).getAsJsonObject()
+                            .addProperty("chance", LootValues.WOODLAND_EXPLORER_MAP_CHANCE);
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
                 true
@@ -212,17 +195,19 @@ public class LootTableEvents {
                       ],
                       "conditions": [
                         {
-                          "condition": "minecraft:random_chance",
-                          "chance": 0.5
+                          "condition": "minecraft:random_chance"
                         }
                       ]
                     }
                     """).deepCopy();
+                    pool.getAsJsonObject()
+                            .getAsJsonArray("conditions").get(0).getAsJsonObject()
+                            .addProperty("chance", LootValues.OCEAN_EXPLORER_MAP_CHANCE);
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
                 true
         );
-        TOTEM_MAP.forEach((key, value) -> Mixson.registerEvent(
+        LootValues.TOTEM_LOCATION_CHANCE.forEach((key, value) -> Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
                 rl -> rl.toString().equals("minecraft:loot_table/chests/" + key),
                 "Distribute Totem of Undying to loot chests",
@@ -274,12 +259,14 @@ public class LootTableEvents {
                       ],
                       "conditions": [
                         {
-                          "condition": "minecraft:random_chance",
-                          "chance": 0.5
+                          "condition": "minecraft:random_chance"
                         }
                       ]
                     }
                     """).deepCopy();
+                    pool.getAsJsonObject()
+                            .getAsJsonArray("conditions").get(0).getAsJsonObject()
+                            .addProperty("chance", LootValues.CURSE_ENCHANTED_BOOK_CHANCE);
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
                 true
@@ -312,7 +299,8 @@ public class LootTableEvents {
                     }
                     """).deepCopy();
                     pool.getAsJsonObject().getAsJsonArray("conditions").get(0).getAsJsonObject()
-                            .addProperty("chance", context.getResourceId().getPath().endsWith("igloo_chest.json") ? 0.5 : 1.0);
+                            .addProperty("chance", context.getResourceId().getPath().endsWith("igloo_chest.json") ?
+                                    LootValues.FROST_WALKER_IGLOO_CHANCE : LootValues.FROST_WALKER_ICE_BOX_CHANCE);
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
                 true
@@ -390,18 +378,21 @@ public class LootTableEvents {
                             if (entry.getAsJsonObject().has("name") && entry.getAsJsonObject().get("name").getAsString().equals("minecraft:apple")) {
                                 updatedEntries = entries.deepCopy();
                                 updatedEntries.remove(entry);
-                                updatedEntries.add(JsonParser.parseString("""
+                                JsonElement e = JsonParser.parseString("""
                                 {
                                   "type": "minecraft:item",
                                   "name": "minecraft:apple",
                                   "conditions": [
                                     {
-                                      "condition": "minecraft:random_chance",
-                                      "chance": 0.025
+                                      "condition": "minecraft:random_chance"
                                     }
                                   ]
                                 }
-                                """).deepCopy());
+                                """).deepCopy();
+                                e.getAsJsonObject()
+                                        .getAsJsonArray("conditions").get(0).getAsJsonObject()
+                                        .addProperty("chance", LootValues.APPLE_DROP_CHANCE);
+                                updatedEntries.add(e);
                                 break;
                             }
                         }

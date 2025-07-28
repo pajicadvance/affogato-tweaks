@@ -2,6 +2,7 @@ package me.pajic.affogatotweaks.mixin.combat;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
+import me.pajic.affogatotweaks.values.MiscValues;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -20,7 +21,7 @@ public class LivingEntityMixin {
             )
     )
     private double modifyVisibilityWhenDiscrete(double original) {
-        return 0.375;
+        return MiscValues.SNEAK_RANGE_REDUCTION_MULT;
     }
 
     @ModifyArg(

@@ -1,6 +1,7 @@
 package me.pajic.affogatotweaks.mixin.worldgen;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import me.pajic.affogatotweaks.values.WorldgenValues;
 import net.minecraft.world.level.levelgen.feature.ScatteredOreFeature;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,6 +17,6 @@ public class ScatteredOreFeatureMixin {
             )
     )
     private int setMinimumAncientDebrisAmount(int original) {
-        return Math.max(original, 3);
+        return Math.max(original, WorldgenValues.ANCIENT_DEBRIS_MIN_AMOUNT);
     }
 }

@@ -17,6 +17,6 @@ public class BlockMixin {
             )
     )
     private float blockBreakExhaustion(float original) {
-        return ExhaustionValues.breakBlock();
+        return ExhaustionValues.BREAK_BLOCK;
     }
 }

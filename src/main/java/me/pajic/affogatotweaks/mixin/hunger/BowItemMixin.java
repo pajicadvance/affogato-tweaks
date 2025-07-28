@@ -23,7 +23,7 @@ public class BowItemMixin {
     )
     private void bowExhaustion(ItemStack stack, Level level, LivingEntity livingEntity, int timeCharged, CallbackInfo ci) {
         if (livingEntity instanceof Player player && !level.isClientSide) {
-            player.causeFoodExhaustion(ExhaustionValues.drawRangedWeapon());
+            player.causeFoodExhaustion(ExhaustionValues.DRAW_RANGED_WEAPON);
         }
     }
 }

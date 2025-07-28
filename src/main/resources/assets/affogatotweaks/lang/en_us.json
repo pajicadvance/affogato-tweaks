@@ -1,1 +1,8 @@
-{}
+{
+  "item.minecraft.potion.effect.vitality": "Potion of Vitality",
+  "item.minecraft.splash_potion.effect.vitality": "Splash Potion of Vitality",
+  "item.minecraft.lingering_potion.effect.vitality": "Lingering Potion of Vitality",
+  "item.minecraft.potion.effect.revitalization": "Potion of Revitalization",
+  "item.minecraft.splash_potion.effect.revitalization": "Splash Potion of Revitalization",
+  "item.minecraft.lingering_potion.effect.revitalization": "Lingering Potion of Revitalization"
+}

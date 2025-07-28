@@ -1,6 +1,7 @@
 package me.pajic.affogatotweaks.mixin.food;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import me.pajic.affogatotweaks.values.MiscValues;
 import net.minecraft.world.food.FoodProperties;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,6 +19,6 @@ public class FoodPropertiesBuilderMixin {
     private float modifyEatSpeed(float original) {
         // normal speed 3.2
         // fast speed 2.4
-        return original + 1.6F;
+        return original + MiscValues.EAT_TIME_INCREASE;
     }
 }

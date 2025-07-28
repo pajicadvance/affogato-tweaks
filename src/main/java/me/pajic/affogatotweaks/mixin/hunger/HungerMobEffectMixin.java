@@ -17,6 +17,6 @@ public class HungerMobEffectMixin {
             )
     )
     private float hungerEffectTickExhaustion(float original) {
-        return ExhaustionValues.hungerEffectTick();
+        return ExhaustionValues.HUNGER_EFFECT_TICK;
     }
 }

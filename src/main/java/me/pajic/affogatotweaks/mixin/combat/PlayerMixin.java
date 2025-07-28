@@ -1,6 +1,7 @@
 package me.pajic.affogatotweaks.mixin.combat;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import me.pajic.affogatotweaks.values.MiscValues;
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,6 +17,6 @@ public class PlayerMixin {
             )
     )
     private float reduceBlockThreshold(float original) {
-        return 1.0F;
+        return MiscValues.SHIELD_BLOCK_DAMAGE_THRESHOLD;
     }
 }

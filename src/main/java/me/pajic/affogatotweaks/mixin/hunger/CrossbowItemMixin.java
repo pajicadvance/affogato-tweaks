@@ -24,7 +24,7 @@ public class CrossbowItemMixin {
     )
     private static void crossbowExhaustion(Level level, LivingEntity livingEntity, Holder<SoundEvent> holder, CallbackInfo ci) {
         if (livingEntity instanceof Player player && !level.isClientSide) {
-            player.causeFoodExhaustion(ExhaustionValues.drawRangedWeapon());
+            player.causeFoodExhaustion(ExhaustionValues.DRAW_RANGED_WEAPON);
         }
     }
 }

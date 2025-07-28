@@ -17,7 +17,7 @@ public class ItemMixin {
     @WrapMethod(method = "releaseUsing")
     private void throwWeaponExhaustion(ItemStack stack, Level level, LivingEntity livingEntity, int timeCharged, Operation<Void> original) {
         if (livingEntity instanceof Player player && !level.isClientSide && stack.is(ItemTags.AXES)) {
-            player.causeFoodExhaustion(ExhaustionValues.throwWeapon());
+            player.causeFoodExhaustion(ExhaustionValues.THROW_WEAPON);
         }
         original.call(stack, level, livingEntity, timeCharged);
     }

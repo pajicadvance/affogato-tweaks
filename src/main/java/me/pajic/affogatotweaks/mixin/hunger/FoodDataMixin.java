@@ -18,6 +18,6 @@ public class FoodDataMixin {
             )
     )
     private float naturalHealingExhaustion(float original) {
-        return ExhaustionValues.naturalHealing();
+        return ExhaustionValues.NATURAL_HEALING;
     }
 }

@@ -1,6 +1,7 @@
 package me.pajic.affogatotweaks.mixin.combat;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import me.pajic.affogatotweaks.values.MobValues;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Monster;
@@ -29,7 +30,7 @@ public abstract class ZombieMixin extends Monster {
             )
     )
     private static double modifyFollowRange(double original) {
-        return 12;
+        return MobValues.ZOMBIE_FOLLOW_RANGE;
     }
 
     @ModifyExpressionValue(

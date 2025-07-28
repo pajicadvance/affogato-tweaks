@@ -1,5 +1,6 @@
 package me.pajic.affogatotweaks.mixin.gameplay;
 
+import me.pajic.affogatotweaks.values.MiscValues;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
@@ -20,7 +21,7 @@ public class AbstractFurnaceBlockEntityMixin {
             constant = @Constant(intValue = 2400)
     )
     private static int setBlazeRodFuelTime(int constant) {
-        return 3200;
+        return MiscValues.BLAZE_ROD_FUEL_TIME;
     }
 
     @Redirect(

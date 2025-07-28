@@ -1,6 +1,7 @@
 package me.pajic.affogatotweaks.mixin.combat;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import me.pajic.affogatotweaks.values.MobValues;
 import net.minecraft.world.entity.monster.Blaze;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,6 +17,6 @@ public class BlazeMixin {
             )
     )
     private static double modifyFollowRange(double original) {
-        return 32;
+        return MobValues.BLAZE_FOLLOW_RANGE;
     }
 }

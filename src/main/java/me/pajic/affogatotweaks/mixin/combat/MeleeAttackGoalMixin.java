@@ -1,5 +1,6 @@
 package me.pajic.affogatotweaks.mixin.combat;
 
+import me.pajic.affogatotweaks.values.MobValues;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.monster.EnderMan;
@@ -22,7 +23,7 @@ public class MeleeAttackGoalMixin {
             )
     )
     private int reduceAttackSpeed1(int original) {
-        return mob instanceof EnderMan ? 40 : original;
+        return mob instanceof EnderMan ? MobValues.ENDERMAN_ATTACK_DELAY : original;
     }
 
     @ModifyArg(
@@ -33,6 +34,6 @@ public class MeleeAttackGoalMixin {
             )
     )
     private int reduceAttackSpeed2(int original) {
-        return mob instanceof EnderMan ? 40 : original;
+        return mob instanceof EnderMan ? MobValues.ENDERMAN_ATTACK_DELAY : original;
     }
 }
