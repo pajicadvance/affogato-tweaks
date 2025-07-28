@@ -22,6 +22,7 @@
     "gameplay.AbstractFurnaceBlockEntityMixin",
     "gameplay.BlocksMixin",
     "gameplay.InventoryMixin",
+    "gameplay.TridentItemMixin",
     "gameplay.ZombieMixin",
     "gameplay.ZombieVillagerMixin",
     "hunger.BlockMixin",

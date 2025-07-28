@@ -23,7 +23,7 @@ public class ModPotions {
             ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "absorption"),
             new Potion(
                     "absorption",
-                    new MobEffectInstance(MobEffects.ABSORPTION, 1200, 0)
+                    new MobEffectInstance(MobEffects.ABSORPTION, 2400, 0)
             )
     );
     public static final Potion LONG_ABSORPTION = Registry.register(
@@ -31,7 +31,7 @@ public class ModPotions {
             ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "long_absorption"),
             new Potion(
                     "absorption",
-                    new MobEffectInstance(MobEffects.ABSORPTION, 2400, 0)
+                    new MobEffectInstance(MobEffects.ABSORPTION, 4800, 0)
             )
     );
     public static final Potion STRONG_ABSORPTION = Registry.register(
@@ -39,7 +39,7 @@ public class ModPotions {
             ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "strong_absorption"),
             new Potion(
                     "absorption",
-                    new MobEffectInstance(MobEffects.ABSORPTION, 600, 1)
+                    new MobEffectInstance(MobEffects.ABSORPTION, 1200, 1)
             )
     );
     public static final Potion LIFE_ELIXIR = Registry.register(
