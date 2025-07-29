@@ -23,7 +23,8 @@ public class RecipeEvents {
             "inmis:recipe/blazing_backpack",
             "inmis:recipe/ender_pouch",
             "minecraft:recipe/cake",
-            "farmersdelight:recipe/cake_from_milk_bottle"
+            "farmersdelight:recipe/cake_from_milk_bottle",
+            "farmersdelight:recipe/cutting/gravel"
     );
     public static void register() {
         Mixson.registerEvent(
