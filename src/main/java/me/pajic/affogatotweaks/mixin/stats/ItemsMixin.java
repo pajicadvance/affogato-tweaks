@@ -11,6 +11,8 @@ import net.minecraft.world.item.Rarity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.ModifyArgs;
+import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 @Mixin(Items.class)
 public abstract class ItemsMixin {
@@ -160,24 +162,26 @@ public abstract class ItemsMixin {
 
     @Definition(id = "createAttributes", method = "Lnet/minecraft/world/item/HoeItem;createAttributes(Lnet/minecraft/world/item/Tier;FF)Lnet/minecraft/world/item/component/ItemAttributeModifiers;")
     @Definition(id = "DIAMOND", field = "Lnet/minecraft/world/item/Tiers;DIAMOND:Lnet/minecraft/world/item/Tiers;")
-    @Expression("createAttributes(DIAMOND, ?, @(?))")
-    @ModifyExpressionValue(
+    @Expression("createAttributes(DIAMOND, ?, ?)")
+    @ModifyArgs(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
     )
-    private static float setDiamondHoeAttackSpeed(float original) {
-        return StatValues.HOE_ATTACK_SPEED;
+    private static void setDiamondHoeStats(Args args) {
+        args.set(1, -StatValues.DIAMOND_DAMAGE);
+        args.set(2, StatValues.HOE_ATTACK_SPEED);
     }
 
     @Definition(id = "createAttributes", method = "Lnet/minecraft/world/item/HoeItem;createAttributes(Lnet/minecraft/world/item/Tier;FF)Lnet/minecraft/world/item/component/ItemAttributeModifiers;")
     @Definition(id = "NETHERITE", field = "Lnet/minecraft/world/item/Tiers;NETHERITE:Lnet/minecraft/world/item/Tiers;")
-    @Expression("createAttributes(NETHERITE, ?, @(?))")
-    @ModifyExpressionValue(
+    @Expression("createAttributes(NETHERITE, ?, ?)")
+    @ModifyArgs(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
     )
-    private static float setNetheriteHoeAttackSpeed(float original) {
-        return StatValues.HOE_ATTACK_SPEED;
+    private static void setNetheriteHoeStats(Args args) {
+        args.set(1, -StatValues.NETHERITE_DAMAGE);
+        args.set(2, StatValues.HOE_ATTACK_SPEED);
     }
 
     @Definition(id = "createAttributes", method = "Lnet/minecraft/world/item/SwordItem;createAttributes(Lnet/minecraft/world/item/Tier;IF)Lnet/minecraft/world/item/component/ItemAttributeModifiers;")

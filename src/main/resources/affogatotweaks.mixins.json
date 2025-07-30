@@ -1,6 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
+  "mixinextras": {"minVersion": "0.5.0"},
   "package": "me.pajic.affogatotweaks.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
@@ -34,8 +35,9 @@
     "hunger.PlayerMixin",
     "hunger.ServerPlayerMixin",
     "hunger.TridentItemMixin",
-    "integration.FoodValuesMixin",
-    "integration.InmisClothConfigMixin",
+    "integration.appleskin.FoodHelperMixin",
+    "integration.farmersdelight.FoodValuesMixin",
+    "integration.inmis.InmisClothConfigMixin",
     "nightvision.FlowerBlockMixin",
     "nightvision.PotionBrewingMixin",
     "nightvision.SetStewEffectFunctionMixin",
