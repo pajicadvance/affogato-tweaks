@@ -1,7 +1,9 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "mixinextras": {"minVersion": "0.5.0"},
+  "mixinextras": {
+    "minVersion": "0.5.0"
+  },
   "package": "me.pajic.affogatotweaks.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
@@ -53,6 +55,7 @@
     "raid.RaidsMixin",
     "raid.ServerLevelMixin",
     "raid.VindicatorMixin",
+    "stats.ArmorItemMixin",
     "stats.ArmorItemTypeMixin",
     "stats.ArmorMaterialsMixin",
     "stats.ItemsMixin",

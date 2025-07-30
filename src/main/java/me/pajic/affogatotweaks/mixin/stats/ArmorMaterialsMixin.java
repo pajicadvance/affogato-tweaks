@@ -1,7 +1,6 @@
 package me.pajic.affogatotweaks.mixin.stats;
 
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import me.pajic.affogatotweaks.values.ArmorValues;
+import me.pajic.affogatotweaks.values.ArmorDefenseValues;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterials;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,7 +20,7 @@ public class ArmorMaterialsMixin {
     )
     private static void setNetheriteArmorValues(EnumMap<ArmorItem.Type, Integer> map, CallbackInfo ci) {
         ci.cancel();
-        map.putAll(ArmorValues.NETHERITE_ARMOR);
+        map.putAll(ArmorDefenseValues.NETHERITE_ARMOR);
     }
 
     @Inject(
@@ -31,7 +30,7 @@ public class ArmorMaterialsMixin {
     )
     private static void setGoldArmorValues(EnumMap<ArmorItem.Type, Integer> map, CallbackInfo ci) {
         ci.cancel();
-        map.putAll(ArmorValues.GOLD_ARMOR);
+        map.putAll(ArmorDefenseValues.GOLD_ARMOR);
     }
 
     @Inject(
@@ -41,7 +40,7 @@ public class ArmorMaterialsMixin {
     )
     private static void setIronArmorValues(EnumMap<ArmorItem.Type, Integer> map, CallbackInfo ci) {
         ci.cancel();
-        map.putAll(ArmorValues.IRON_ARMOR);
+        map.putAll(ArmorDefenseValues.IRON_ARMOR);
     }
 
     @Inject(
@@ -51,7 +50,7 @@ public class ArmorMaterialsMixin {
     )
     private static void setChainArmorValues(EnumMap<ArmorItem.Type, Integer> map, CallbackInfo ci) {
         ci.cancel();
-        map.putAll(ArmorValues.IRON_ARMOR);
+        map.putAll(ArmorDefenseValues.IRON_ARMOR);
     }
 
     @Inject(
@@ -61,28 +60,6 @@ public class ArmorMaterialsMixin {
     )
     private static void setLeatherArmorValues(EnumMap<ArmorItem.Type, Integer> map, CallbackInfo ci) {
         ci.cancel();
-        map.putAll(ArmorValues.LEATHER_ARMOR);
-    }
-
-    @ModifyExpressionValue(
-            method = "<clinit>",
-            at = @At(
-                    value = "CONSTANT",
-                    args = "floatValue=2.0F"
-            )
-    )
-    private static float setDiamondToughness(float constant) {
-        return ArmorValues.DIAMOND_TOUGHNESS;
-    }
-
-    @ModifyExpressionValue(
-            method = "<clinit>",
-            at = @At(
-                    value = "CONSTANT",
-                    args = "floatValue=3.0F"
-            )
-    )
-    private static float setNetheriteToughness(float constant) {
-        return ArmorValues.NETHERITE_TOUGHNESS;
+        map.putAll(ArmorDefenseValues.LEATHER_ARMOR);
     }
 }
