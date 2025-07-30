@@ -1,5 +1,9 @@
 package me.pajic.affogatotweaks.mixin.gameplay;
 
+import com.llamalad7.mixinextras.expression.Definition;
+import com.llamalad7.mixinextras.expression.Expression;
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import me.pajic.affogatotweaks.values.MiscValues;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -7,50 +11,49 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Constant;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.Map;
 
 @Mixin(AbstractFurnaceBlockEntity.class)
 public class AbstractFurnaceBlockEntityMixin {
 
-    @ModifyConstant(
+    @Definition(id = "BLAZE_ROD", field = "Lnet/minecraft/world/item/Items;BLAZE_ROD:Lnet/minecraft/world/item/Item;")
+    @Expression("?(?, BLAZE_ROD, @(?))")
+    @ModifyExpressionValue(
             method = "getFuel",
-            constant = @Constant(intValue = 2400)
+            at = @At("MIXINEXTRAS:EXPRESSION")
     )
     private static int setBlazeRodFuelTime(int constant) {
         return MiscValues.BLAZE_ROD_FUEL_TIME;
     }
 
-    @Redirect(
+    @Definition(id = "DRIED_KELP_BLOCK", field = "Lnet/minecraft/world/level/block/Blocks;DRIED_KELP_BLOCK:Lnet/minecraft/world/level/block/Block;")
+    @Expression("?(?, DRIED_KELP_BLOCK, ?)")
+    @WrapWithCondition(
             method = "getFuel",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity;add(Ljava/util/Map;Lnet/minecraft/world/level/ItemLike;I)V",
-                    ordinal = 27
-            )
+            at = @At("MIXINEXTRAS:EXPRESSION")
     )
-    private static void removeDriedKelpBlockFuel(Map<Item, Integer> map, ItemLike item, int burnTime) {}
+    private static boolean removeDriedKelpBlockFuel(Map<Item, Integer> map, ItemLike item, int burnTime) {
+        return false;
+    }
 
-    @Redirect(
+    @Definition(id = "WOOL_CARPETS", field = "Lnet/minecraft/tags/ItemTags;WOOL_CARPETS:Lnet/minecraft/tags/TagKey;")
+    @Expression("?(?, WOOL_CARPETS, ?)")
+    @WrapWithCondition(
             method = "getFuel",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity;add(Ljava/util/Map;Lnet/minecraft/tags/TagKey;I)V",
-                    ordinal = 17
-            )
+            at = @At("MIXINEXTRAS:EXPRESSION")
     )
-    private static void removeCarpetFuel(Map<Item, Integer> fuelTimes, TagKey<Item> tag, int fuelTime) {}
+    private static boolean removeCarpetFuel(Map<Item, Integer> fuelTimes, TagKey<Item> tag, int fuelTime) {
+        return false;
+    }
 
-    @Redirect(
+    @Definition(id = "WOOL", field = "Lnet/minecraft/tags/ItemTags;WOOL:Lnet/minecraft/tags/TagKey;")
+    @Expression("?(?, WOOL, ?)")
+    @WrapWithCondition(
             method = "getFuel",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity;add(Ljava/util/Map;Lnet/minecraft/tags/TagKey;I)V",
-                    ordinal = 14
-            )
+            at = @At("MIXINEXTRAS:EXPRESSION")
     )
-    private static void removeWoolFuel(Map<Item, Integer> fuelTimes, TagKey<Item> tag, int fuelTime) {}
+    private static boolean removeWoolFuel(Map<Item, Integer> fuelTimes, TagKey<Item> tag, int fuelTime) {
+        return false;
+    }
 }

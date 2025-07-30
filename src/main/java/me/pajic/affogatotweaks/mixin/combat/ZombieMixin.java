@@ -20,7 +20,7 @@ public abstract class ZombieMixin extends Monster {
         super(entityType, level);
     }
 
-    @Unique int soundTimer = 0;
+    @Unique private int soundTimer = 0;
 
     @ModifyExpressionValue(
             method = "createAttributes",

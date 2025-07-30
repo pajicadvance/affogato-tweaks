@@ -18,7 +18,10 @@ public class ArmorItemTypeMixin {
 
     @Shadow @Mutable @Final private int durability;
 
-    @Inject(method = "<init>", at = @At("RETURN"))
+    @Inject(
+            method = "<init>",
+            at = @At("RETURN")
+    )
     private void setBaseDurabilities(String string, int ordinal, EquipmentSlot slot, int dur, String name, CallbackInfo ci) {
         switch (ordinal) {
             case 0: {

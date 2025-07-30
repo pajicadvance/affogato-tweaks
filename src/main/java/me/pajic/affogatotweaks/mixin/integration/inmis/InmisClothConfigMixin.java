@@ -1,4 +1,4 @@
-package me.pajic.affogatotweaks.mixin.integration;
+package me.pajic.affogatotweaks.mixin.integration.inmis;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.moulberry.mixinconstraints.annotations.IfModLoaded;

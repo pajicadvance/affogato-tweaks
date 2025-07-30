@@ -1,32 +1,55 @@
 package me.pajic.affogatotweaks.mixin.gameplay;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import me.pajic.affogatotweaks.values.MiscValues;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Blocks.class)
 public class BlocksMixin {
 
-    @Inject(method = "method_26152", at = @At("RETURN"), cancellable = true)
-    private static void setTorchLightLevel(BlockState state, CallbackInfoReturnable<Integer> cir) {
-        cir.setReturnValue(MiscValues.TORCH_LIGHT_LEVEL);
+    @ModifyExpressionValue(
+            method = "method_26152",
+            at = @At(
+                    value = "CONSTANT",
+                    args = "intValue=14"
+            )
+    )
+    private static int setTorchLightLevel(int original) {
+        return MiscValues.TORCH_LIGHT_LEVEL;
     }
 
-    @Inject(method = "method_26136", at = @At("RETURN"), cancellable = true)
-    private static void setWallTorchLightLevel(BlockState state, CallbackInfoReturnable<Integer> cir) {
-        cir.setReturnValue(MiscValues.TORCH_LIGHT_LEVEL);
+    @ModifyExpressionValue(
+            method = "method_26136",
+            at = @At(
+                    value = "CONSTANT",
+                    args = "intValue=14"
+            )
+    )
+    private static int setWallTorchLightLevel(int original) {
+        return MiscValues.TORCH_LIGHT_LEVEL;
     }
 
-    @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = 0.98F))
-    private static float setIceSlipperiness(float constant) {
-        return 0.965F;
+    @ModifyExpressionValue(
+            method = "<clinit>",
+            at = @At(
+                    value = "CONSTANT",
+                    args = "floatValue=0.98F"
+            )
+    )
+    private static float setIceSlipperiness(float original) {
+        return MiscValues.ICE_FRICTION;
     }
 
-    @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = 0.989F))
-    private static float setBlueIceSlipperiness(float constant) {
-        return 0.97F;
+    @ModifyExpressionValue(
+            method = "<clinit>",
+            at = @At(
+                    value = "CONSTANT",
+                    args = "floatValue=0.989F"
+            )
+    )
+    private static float setBlueIceSlipperiness(float original) {
+        return MiscValues.BLUE_ICE_FRICTION;
     }
 }

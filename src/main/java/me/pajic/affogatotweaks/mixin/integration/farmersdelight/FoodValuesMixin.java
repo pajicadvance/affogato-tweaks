@@ -1,4 +1,4 @@
-package me.pajic.affogatotweaks.mixin.integration;
+package me.pajic.affogatotweaks.mixin.integration.farmersdelight;
 
 import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import me.pajic.affogatotweaks.values.NutritionValues;

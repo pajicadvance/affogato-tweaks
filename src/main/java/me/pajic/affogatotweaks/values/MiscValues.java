@@ -7,4 +7,6 @@ public class MiscValues {
     public static final int BLAZE_ROD_FUEL_TIME = 3200;
     public static final double SNEAK_RANGE_REDUCTION_MULT = 0.375;
     public static final float SHIELD_BLOCK_DAMAGE_THRESHOLD = 1.0F;
+    public static final float ICE_FRICTION = 0.965F;
+    public static final float BLUE_ICE_FRICTION = 0.97F;
 }

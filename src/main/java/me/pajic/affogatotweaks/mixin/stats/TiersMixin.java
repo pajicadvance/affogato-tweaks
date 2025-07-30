@@ -11,76 +11,55 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.function.Supplier;
 
 @Mixin(Tiers.class)
 public class TiersMixin {
-
     @Shadow @Mutable @Final private float damage;
-
-    @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 59))
-    private static int setWoodDurability(int constant) {
-        return DurabilityValues.WOODEN_TOOL;
-    }
-
-    @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 131))
-    private static int setStoneDurability(int constant) {
-        return DurabilityValues.STONE_TOOL;
-    }
-
-    @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 250))
-    private static int setIronDurability(int constant) {
-        return DurabilityValues.IRON_TOOL;
-    }
-
-    @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 32))
-    private static int setGoldDurability(int constant) {
-        return DurabilityValues.GOLDEN_TOOL;
-    }
-
-    @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 1561))
-    private static int setDiamondDurability(int constant) {
-        return DurabilityValues.DIAMOND_TOOL;
-    }
-
-    @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 2031))
-    private static int setNetheriteDurability(int constant) {
-        return DurabilityValues.NETHERITE_TOOL;
-    }
+    @Shadow @Mutable @Final private int uses;
+    @Shadow @Mutable @Final private float speed;
 
     @Inject(method = "<init>", at = @At("RETURN"))
-    private void modifyAttackDamage(String string, int ordinal, TagKey<Block> incorrectBlockForDrops, int _uses, float speed, float dmg, int enchantmentValue, Supplier<Ingredient> repairIngredient, CallbackInfo ci) {
-        if (ordinal == 3) damage = StatValues.DIAMOND_DAMAGE;
-        if (ordinal == 5) damage = StatValues.NETHERITE_DAMAGE;
-    }
-
-    @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = 8.0F))
-    private static float setDiamondMiningSpeed(float constant) {
-        return StatValues.DIAMOND_MINING_SPEED;
-    }
-
-    @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = 12.0F))
-    private static float setGoldMiningSpeed(float constant) {
-        return StatValues.GOLD_MINING_SPEED;
-    }
-
-    @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = 2.0F, ordinal = 0))
-    private static float setWoodMiningSpeed(float constant) {
-        return StatValues.WOOD_MINING_SPEED;
-    }
-
-    @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = 4.0F, ordinal = 0))
-    private static float setStoneMiningSpeed(float constant) {
-        return StatValues.STONE_MINING_SPEED;
-    }
-
-    @ModifyConstant(method = "<clinit>", constant = @Constant(floatValue = 6.0F))
-    private static float setIronMiningSpeed(float constant) {
-        return StatValues.IRON_MINING_SPEED;
+    private void modifyStats(
+            String string,
+            int ordinal,
+            TagKey<Block> incorrectBlockForDrops,
+            int _uses,
+            float spd,
+            float dmg,
+            int enchantmentValue,
+            Supplier<Ingredient> repairIngredient,
+            CallbackInfo ci
+    ) {
+        switch (ordinal) {
+            case 0:
+                uses = DurabilityValues.WOODEN_TOOL;
+                speed = StatValues.WOOD_MINING_SPEED;
+                break;
+            case 1:
+                uses = DurabilityValues.STONE_TOOL;
+                speed = StatValues.STONE_MINING_SPEED;
+                break;
+            case 2:
+                uses = DurabilityValues.IRON_TOOL;
+                speed = StatValues.IRON_MINING_SPEED;
+                break;
+            case 3:
+                uses = DurabilityValues.DIAMOND_TOOL;
+                speed = StatValues.DIAMOND_MINING_SPEED;
+                damage = StatValues.DIAMOND_DAMAGE;
+                break;
+            case 4:
+                uses = DurabilityValues.GOLDEN_TOOL;
+                speed = StatValues.GOLD_MINING_SPEED;
+                break;
+            case 5:
+                uses = DurabilityValues.NETHERITE_TOOL;
+                damage = StatValues.NETHERITE_DAMAGE;
+                break;
+        }
     }
 }

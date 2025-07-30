@@ -17,8 +17,6 @@ public class FoodPropertiesBuilderMixin {
             )
     )
     private float modifyEatSpeed(float original) {
-        // normal speed 3.2
-        // fast speed 2.4
         return original + MiscValues.EAT_TIME_INCREASE;
     }
 }
