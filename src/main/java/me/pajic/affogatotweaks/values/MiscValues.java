@@ -9,4 +9,5 @@ public class MiscValues {
     public static final float SHIELD_BLOCK_DAMAGE_THRESHOLD = 1.0F;
     public static final float ICE_FRICTION = 0.965F;
     public static final float BLUE_ICE_FRICTION = 0.97F;
+    public static final int BACKPACK_SLOTS_PER_UPGRADE = 7;
 }

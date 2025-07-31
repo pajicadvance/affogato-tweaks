@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import draylar.inmis.config.BackpackInfo;
 import draylar.inmis.config.InmisClothConfig;
+import me.pajic.affogatotweaks.values.MiscValues;
 import net.minecraft.sounds.SoundEvents;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -24,11 +25,11 @@ public class InmisClothConfigMixin {
     )
     private List<BackpackInfo> modifyBackpackInfo(List<BackpackInfo> original) {
         return Arrays.asList(
-                BackpackInfo.of("frayed", 7, 1, false, SoundEvents.ARMOR_EQUIP_LEATHER, true),
-                BackpackInfo.of("plated", 7, 2, false, SoundEvents.ARMOR_EQUIP_IRON),
-                BackpackInfo.of("gilded", 7, 3, false, SoundEvents.ARMOR_EQUIP_GOLD),
-                BackpackInfo.of("bejeweled", 7, 4, false, SoundEvents.ARMOR_EQUIP_DIAMOND),
-                BackpackInfo.of("blazing", 7, 5, true, SoundEvents.ARMOR_EQUIP_NETHERITE)
+                BackpackInfo.of("frayed", MiscValues.BACKPACK_SLOTS_PER_UPGRADE, 1, false, SoundEvents.ARMOR_EQUIP_LEATHER, true),
+                BackpackInfo.of("plated", MiscValues.BACKPACK_SLOTS_PER_UPGRADE, 2, false, SoundEvents.ARMOR_EQUIP_IRON),
+                BackpackInfo.of("gilded", MiscValues.BACKPACK_SLOTS_PER_UPGRADE, 3, false, SoundEvents.ARMOR_EQUIP_GOLD),
+                BackpackInfo.of("bejeweled", MiscValues.BACKPACK_SLOTS_PER_UPGRADE, 4, false, SoundEvents.ARMOR_EQUIP_DIAMOND),
+                BackpackInfo.of("blazing", MiscValues.BACKPACK_SLOTS_PER_UPGRADE, 5, true, SoundEvents.ARMOR_EQUIP_NETHERITE)
         );
     }
 }

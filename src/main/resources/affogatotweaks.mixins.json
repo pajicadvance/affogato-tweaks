@@ -40,6 +40,7 @@
     "integration.appleskin.FoodHelperMixin",
     "integration.farmersdelight.FoodValuesMixin",
     "integration.inmis.InmisClothConfigMixin",
+    "integration.inmis.SmithingMenuMixin",
     "nightvision.FlowerBlockMixin",
     "nightvision.PotionBrewingMixin",
     "nightvision.SetStewEffectFunctionMixin",
