@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import me.pajic.affogatotweaks.Main;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -42,7 +43,7 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
             @Local(ordinal = 4) float netHeadYaw,
             @Local(ordinal = 5) float headPitch
     ) {
-        if (!original && entity instanceof Zombie zombie && zombie.getMaxHealth() > 20) {
+        if (entity instanceof Zombie zombie && zombie.getEntityData().get(Main.IS_LEADER)) {
             float f = zombie.tickCount + partialTick;
             EntityModel<T> entityModel = getModel();
             entityModel.prepareMobModel(entity, limbSwing, limbSwingAmount, partialTick);

@@ -5,6 +5,7 @@ import net.minecraft.world.level.saveddata.maps.MapDecorationTypes;
 import org.apache.commons.lang3.tuple.Pair;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Items;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 public class WanderingTraderPools {
     public static final Pair<VillagerTrades.ItemListing[], Integer> conversionPool = Pair.of(
@@ -69,6 +70,8 @@ public class WanderingTraderPools {
                     new VillagerTrades.ItemsForEmeralds(Items.BEETROOT_SEEDS, 1, 16, 4, 0),
                     new VillagerTrades.ItemsForEmeralds(Items.PUMPKIN_SEEDS, 1, 16, 4, 0),
                     new VillagerTrades.ItemsForEmeralds(Items.MELON_SEEDS, 1, 16, 4, 0),
+                    new VillagerTrades.ItemsForEmeralds(ModItems.CABBAGE_SEEDS.get(), 1, 16, 4, 0),
+                    new VillagerTrades.ItemsForEmeralds(ModItems.TOMATO_SEEDS.get(), 1, 16, 4, 0)
             },
             2
     );
@@ -77,7 +80,9 @@ public class WanderingTraderPools {
                     new VillagerTrades.ItemsForEmeralds(Items.CARROT, 1, 4, 16, 0),
                     new VillagerTrades.ItemsForEmeralds(Items.POTATO, 1, 4, 16, 0),
                     new VillagerTrades.ItemsForEmeralds(Items.CACTUS, 1, 4, 16, 0),
-                    new VillagerTrades.ItemsForEmeralds(Items.COCOA_BEANS, 1, 4, 16, 0)
+                    new VillagerTrades.ItemsForEmeralds(Items.COCOA_BEANS, 1, 4, 16, 0),
+                    new VillagerTrades.ItemsForEmeralds(ModItems.ONION.get(), 1, 4, 16, 0),
+                    new VillagerTrades.ItemsForEmeralds(ModItems.RICE.get(), 1, 4, 16, 0)
             },
             2
     );
