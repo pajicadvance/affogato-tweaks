@@ -9,6 +9,7 @@
   "mixins": [
     "combat.BlazeMixin",
     "combat.DrownedMixin",
+    "combat.HurtByTargetGoalMixin",
     "combat.IllusionerMixin",
     "combat.LivingEntityMixin",
     "combat.MeleeAttackGoalMixin",

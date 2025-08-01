@@ -18,6 +18,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.monster.ZombifiedPiglin;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -42,7 +43,7 @@ public abstract class ZombieMixin extends Monster {
     @WrapMethod(method = "dropCustomDeathLoot")
     private void dropEnchantedBookIfLeader(ServerLevel level, DamageSource damageSource, boolean recentlyHit, Operation<Void> original) {
         original.call(level, damageSource, recentlyHit);
-        if (getMaxHealth() > 20.0) {
+        if (!((Zombie) (Object) this instanceof ZombifiedPiglin) && getMaxHealth() > 20.0) {
             List<Holder<Enchantment>> enchantments = new ArrayList<>();
             level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(EnchantmentTags.ON_RANDOM_LOOT).forEach(enchantments::add);
             Optional<Holder<Enchantment>> optional = Util.getRandomSafe(enchantments, level.random);
