@@ -46,8 +46,8 @@ public abstract class MobMixin extends LivingEntity {
     private void applyEffects(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, SpawnGroupData spawnGroupData, CallbackInfoReturnable<SpawnGroupData> cir) {
         if (!MobSpawnType.isSpawner(spawnType)) {
             MobValues.MOB_EFFECTS.getOrDefault(getType(), Set.of()).forEach(mobEffect -> {
-                float mult = difficulty.getSpecialMultiplier();
-                if (level.getRandom().nextFloat() < 0.1F * mult) {
+                float mult = difficulty.getEffectiveDifficulty();
+                if (level.getRandom().nextFloat() < 0.08F * mult) {
                     int amplifier = Mth.clamp(Math.round(mult / level.getRandom().nextFloat()), 0, MobValues.MAX_EFFECT_AMPLIFIERS.getOrDefault(mobEffect, 0));
                     addEffect(new MobEffectInstance(mobEffect, -1, amplifier));
                     buffLevel += 1 + amplifier;
@@ -55,6 +55,9 @@ public abstract class MobMixin extends LivingEntity {
             });
         }
         if (getMaxHealth() > 20.0F) heal(getMaxHealth());
+        if (buffLevel > 0) {
+            System.out.println("buff level " + buffLevel + " " + getName().getString() + " at " + getX() + " " + getY() + " " + getZ());
+        }
     }
 
     @Inject(
@@ -63,13 +66,13 @@ public abstract class MobMixin extends LivingEntity {
     )
     private void dropRewardsIfBuffed(ServerLevel level, DamageSource damageSource, boolean recentlyHit, CallbackInfo ci) {
         Mob mob = (Mob) (Object) this;
-        if (mob instanceof Zombie zombie && zombie.getEntityData().get(Main.IS_LEADER)) buffLevel += 4;
-        if (buffLevel > 3) {
+        if (mob instanceof Zombie zombie && zombie.getEntityData().get(Main.IS_LEADER)) buffLevel += 3;
+        if (buffLevel > 9) {
             List<Holder<Enchantment>> enchantments = new ArrayList<>();
             level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(EnchantmentTags.ON_RANDOM_LOOT).forEach(enchantments::add);
             Util.getRandomSafe(enchantments, level.random).ifPresent(enchantment -> {
                 int i = ModUtil.calculateNewEnchantmentLevel(
-                        Mth.clamp(buffLevel - 3, enchantment.value().getMinLevel(), enchantment.value().getMaxLevel()),
+                        Mth.clamp(buffLevel - 9, enchantment.value().getMinLevel(), enchantment.value().getMaxLevel()),
                         level.random, 1
                 );
                 ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
@@ -79,7 +82,7 @@ public abstract class MobMixin extends LivingEntity {
         }
         if (buffLevel > 0) {
             ItemStack bottles = new ItemStack(Items.EXPERIENCE_BOTTLE);
-            bottles.setCount(Math.min(buffLevel, 3));
+            bottles.setCount(Mth.clamp(Mth.ceil((float) buffLevel / 3), 1, 3));
             spawnAtLocation(bottles);
         }
     }
