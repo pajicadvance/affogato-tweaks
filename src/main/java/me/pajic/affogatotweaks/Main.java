@@ -4,6 +4,7 @@ import me.pajic.affogatotweaks.effect.StatBoostEffects;
 import me.pajic.affogatotweaks.mixson.MixsonInitializer;
 import me.pajic.affogatotweaks.potion.ModPotions;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 
 public class Main implements ModInitializer {
     public static final String MOD_ID = "affogatotweaks";
+    public static final boolean DEBUG = FabricLoader.getInstance().isDevelopmentEnvironment();
     public static final TagKey<Structure> OUTPOSTS = TagKey.create(
             Registries.STRUCTURE,
             ResourceLocation.fromNamespaceAndPath(MOD_ID, "outposts")

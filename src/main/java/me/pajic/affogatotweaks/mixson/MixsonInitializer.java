@@ -1,12 +1,12 @@
 package me.pajic.affogatotweaks.mixson;
 
-import net.fabricmc.loader.api.FabricLoader;
+import me.pajic.affogatotweaks.Main;
 import net.ramixin.mixson.debug.DebugMode;
 import net.ramixin.mixson.inline.Mixson;
 
 public class MixsonInitializer {
     public static void init() {
-        if (FabricLoader.getInstance().isDevelopmentEnvironment()) Mixson.setDebugMode(DebugMode.EXPORT);
+        if (Main.DEBUG) Mixson.setDebugMode(DebugMode.EXPORT);
         AdvancementDataEvents.register();
         LootTableEvents.register();
         RecipeEvents.register();

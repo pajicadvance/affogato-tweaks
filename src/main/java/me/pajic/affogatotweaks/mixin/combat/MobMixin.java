@@ -55,7 +55,7 @@ public abstract class MobMixin extends LivingEntity {
             });
         }
         if (getMaxHealth() > 20.0F) heal(getMaxHealth());
-        if (buffLevel > 0) {
+        if (Main.DEBUG && buffLevel > 0) {
             System.out.println("buff level " + buffLevel + " " + getName().getString() + " at " + getX() + " " + getY() + " " + getZ());
         }
     }
@@ -66,7 +66,10 @@ public abstract class MobMixin extends LivingEntity {
     )
     private void dropRewardsIfBuffed(ServerLevel level, DamageSource damageSource, boolean recentlyHit, CallbackInfo ci) {
         Mob mob = (Mob) (Object) this;
-        if (mob instanceof Zombie zombie && zombie.getEntityData().get(Main.IS_LEADER)) buffLevel += 3;
+        if (mob instanceof Zombie zombie && zombie.getEntityData().get(Main.IS_LEADER)) {
+            if (Main.DEBUG) System.out.println("Applied leader bonus");
+            buffLevel += 3;
+        }
         if (buffLevel > 9) {
             List<Holder<Enchantment>> enchantments = new ArrayList<>();
             level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(EnchantmentTags.ON_RANDOM_LOOT).forEach(enchantments::add);
