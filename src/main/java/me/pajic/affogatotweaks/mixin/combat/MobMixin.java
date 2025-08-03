@@ -18,6 +18,7 @@ import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import org.spongepowered.asm.mixin.Mixin;
@@ -46,9 +47,9 @@ public abstract class MobMixin extends LivingEntity {
     private void applyEffects(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, SpawnGroupData spawnGroupData, CallbackInfoReturnable<SpawnGroupData> cir) {
         if (!MobSpawnType.isSpawner(spawnType)) {
             MobValues.MOB_EFFECTS.getOrDefault(getType(), Set.of()).forEach(mobEffect -> {
-                float mult = difficulty.getEffectiveDifficulty();
-                if (level.getRandom().nextFloat() < 0.08F * mult) {
-                    int amplifier = Mth.clamp(Math.round(mult / level.getRandom().nextFloat()), 0, MobValues.MAX_EFFECT_AMPLIFIERS.getOrDefault(mobEffect, 0));
+                if (level.getRandom().nextFloat() < 0.1F * difficulty.getEffectiveDifficulty()) {
+                    int maxAmplifier = MobValues.MAX_EFFECT_AMPLIFIERS.getOrDefault(mobEffect, 0);
+                    int amplifier = Mth.clamp(Math.round(difficulty.getSpecialMultiplier() * level.getRandom().nextFloat() * maxAmplifier * maxAmplifier), 0, maxAmplifier);
                     addEffect(new MobEffectInstance(mobEffect, -1, amplifier));
                     buffLevel += 1 + amplifier;
                 }
@@ -65,28 +66,28 @@ public abstract class MobMixin extends LivingEntity {
             at = @At("TAIL")
     )
     private void dropRewardsIfBuffed(ServerLevel level, DamageSource damageSource, boolean recentlyHit, CallbackInfo ci) {
-        Mob mob = (Mob) (Object) this;
-        if (mob instanceof Zombie zombie && zombie.getEntityData().get(Main.IS_LEADER)) {
-            if (Main.DEBUG) System.out.println("Applied leader bonus");
-            buffLevel += 3;
-        }
-        if (buffLevel > 9) {
-            List<Holder<Enchantment>> enchantments = new ArrayList<>();
-            level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(EnchantmentTags.ON_RANDOM_LOOT).forEach(enchantments::add);
-            Util.getRandomSafe(enchantments, level.random).ifPresent(enchantment -> {
-                int i = ModUtil.calculateNewEnchantmentLevel(
-                        Mth.clamp(buffLevel - 9, enchantment.value().getMinLevel(), enchantment.value().getMaxLevel()),
-                        level.random, 1
-                );
-                ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
-                book.enchant(enchantment, i);
-                spawnAtLocation(book);
-            });
-        }
-        if (buffLevel > 0) {
-            ItemStack bottles = new ItemStack(Items.EXPERIENCE_BOTTLE);
-            bottles.setCount(Mth.clamp(Mth.ceil((float) buffLevel / 3), 1, 3));
-            spawnAtLocation(bottles);
+        if (lastHurtByPlayerTime > 0 && level.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)) {
+            Mob mob = (Mob) (Object) this;
+            if (mob instanceof Zombie zombie && zombie.getEntityData().get(Main.IS_LEADER)) {
+                if (Main.DEBUG) System.out.println("Applied leader bonus");
+                buffLevel += 6;
+            }
+            if (buffLevel > 9) {
+                List<Holder<Enchantment>> enchantments = new ArrayList<>();
+                level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(EnchantmentTags.ON_RANDOM_LOOT).forEach(enchantments::add);
+                Util.getRandomSafe(enchantments, level.random).ifPresent(enchantment -> {
+                    int i = ModUtil.calculateNewEnchantmentLevel(
+                            Mth.clamp(buffLevel - 7, enchantment.value().getMinLevel(), enchantment.value().getMaxLevel()),
+                            level.random, 1
+                    );
+                    ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
+                    book.enchant(enchantment, i);
+                    spawnAtLocation(book);
+                });
+            }
+            if (buffLevel > 0) {
+                level.addFreshEntity(new ExperienceOrb(level, getX(), getY(), getZ(), buffLevel * 3));
+            }
         }
     }
 
