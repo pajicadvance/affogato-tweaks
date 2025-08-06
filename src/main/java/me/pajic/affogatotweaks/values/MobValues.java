@@ -21,6 +21,8 @@ public class MobValues {
     public static final int ZOMBIE_ALERT_OTHER_RANGE = 35;
     public static final int DROWNED_TRIDENT_THROW_DELAY = 80;
     public static final int ENDERMAN_ATTACK_DELAY = 40;
+    public static final float BUFFED_MOB_MIN_CHANCE = 0.087F;
+    public static final float BUFFED_MOB_MAX_CHANCE = 0.2F;
 
     public static final Set<Holder<MobEffect>> standardMeleeEffects = Set.of(
             MobEffects.HEALTH_BOOST,

@@ -46,7 +46,7 @@ public abstract class MobMixin extends LivingEntity {
     )
     private void applyEffects(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, SpawnGroupData spawnGroupData, CallbackInfoReturnable<SpawnGroupData> cir) {
         if (!MobSpawnType.isSpawner(spawnType)) {
-            if (level.getRandom().nextFloat() < Mth.lerp(difficulty.getSpecialMultiplier(), 0.087F, 0.2F)) {
+            if (level.getRandom().nextFloat() < Mth.lerp(difficulty.getSpecialMultiplier(), MobValues.BUFFED_MOB_MIN_CHANCE, MobValues.BUFFED_MOB_MAX_CHANCE)) {
                 MobValues.MOB_EFFECTS.getOrDefault(getType(), Set.of()).forEach(mobEffect -> {
                     if (level.getRandom().nextFloat() < 0.1F * difficulty.getEffectiveDifficulty()) {
                         int maxAmplifier = MobValues.MAX_EFFECT_AMPLIFIERS.getOrDefault(mobEffect, 0);
