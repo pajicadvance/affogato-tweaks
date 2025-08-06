@@ -2,6 +2,9 @@ package me.pajic.affogatotweaks.mixin.combat;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.llamalad7.mixinextras.sugar.Cancellable;
 import com.llamalad7.mixinextras.sugar.Local;
 import me.pajic.affogatotweaks.Main;
 import me.pajic.affogatotweaks.values.MobValues;
@@ -26,7 +29,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Zombie.class)
-public abstract class ZombieMixin extends Mob{
+public abstract class ZombieMixin extends Mob {
     protected ZombieMixin(EntityType<? extends Mob> entityType, Level level) {
         super(entityType, level);
     }
@@ -91,8 +94,10 @@ public abstract class ZombieMixin extends Mob{
     private void markLeader(float difficulty, CallbackInfo ci) {
         heal(getMaxHealth()); // fix bug reported in 2021 lol
         entityData.set(Main.IS_LEADER, true);
+        if (Main.DEBUG) System.out.println("leader at " + getX() + " " + getY() + " " + getZ());
     }
 
+    @SuppressWarnings("ConstantConditions")
     @WrapWithCondition(
             method = "finalizeSpawn",
             at = @At(
@@ -108,6 +113,24 @@ public abstract class ZombieMixin extends Mob{
             return false;
         }
         return true;
+    }
+
+    @SuppressWarnings("unchecked")
+    @WrapOperation(
+            method = "hurt",
+            at = @At(
+                    value = "NEW",
+                    target = "(Lnet/minecraft/world/level/Level;)Lnet/minecraft/world/entity/monster/Zombie;"
+            )
+    )
+    private Zombie fixIncorrectReinforcementSpawn(Level level, Operation<Zombie> original, @Cancellable CallbackInfoReturnable<Boolean> cir) {
+        EntityType<? extends Zombie> entityType = (EntityType<? extends Zombie>) getType();
+        Zombie zombie = entityType.create(level);
+        if (zombie == null) {
+            cir.setReturnValue(true);
+            return null;
+        }
+        else return zombie;
     }
 
     @Inject(
