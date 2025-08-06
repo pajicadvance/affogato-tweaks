@@ -21,8 +21,6 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
-import net.minecraft.world.level.dimension.DimensionType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -48,19 +46,16 @@ public abstract class MobMixin extends LivingEntity {
     )
     private void applyEffects(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, SpawnGroupData spawnGroupData, CallbackInfoReturnable<SpawnGroupData> cir) {
         if (!MobSpawnType.isSpawner(spawnType)) {
-            MobValues.MOB_EFFECTS.getOrDefault(getType(), Set.of()).forEach(mobEffect -> {
-                if (level.getRandom().nextFloat() < Mth.lerp(difficulty.getSpecialMultiplier(), 0.085F, 0.25F)) {
-                    Mob mob = (Mob) (Object) this;
-                    Holder<DimensionType> dimension = level.getLevel().dimensionTypeRegistration();
-                    float mult = (dimension.is(BuiltinDimensionTypes.OVERWORLD) && mob.getY() < 0) || dimension.is(BuiltinDimensionTypes.NETHER) ? 0.15F : 0.1F;
-                    if (level.getRandom().nextFloat() < mult * difficulty.getEffectiveDifficulty()) {
+            if (level.getRandom().nextFloat() < Mth.lerp(difficulty.getSpecialMultiplier(), 0.09F, 0.2F)) {
+                MobValues.MOB_EFFECTS.getOrDefault(getType(), Set.of()).forEach(mobEffect -> {
+                    if (level.getRandom().nextFloat() < 0.1F * difficulty.getEffectiveDifficulty()) {
                         int maxAmplifier = MobValues.MAX_EFFECT_AMPLIFIERS.getOrDefault(mobEffect, 0);
                         int amplifier = Mth.clamp(Math.round(difficulty.getSpecialMultiplier() * level.getRandom().nextFloat() * maxAmplifier * maxAmplifier), 0, maxAmplifier);
                         addEffect(new MobEffectInstance(mobEffect, -1, amplifier));
                         buffLevel += 1 + amplifier;
                     }
-                }
-            });
+                });
+            }
         }
         if (getMaxHealth() > 20.0F) heal(getMaxHealth());
         if (Main.DEBUG && buffLevel > 0) {
