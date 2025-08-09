@@ -7,6 +7,10 @@
   "item.minecraft.splash_potion.effect.life_elixir": "Splash Elixir of Life",
   "item.minecraft.lingering_potion.effect.life_elixir": "Lingering Elixir of Life",
   "item.minecraft.tipped_arrow.effect.life_elixir": "Arrow of Elixir of Life",
+  "item.affogatotweaks.copper_nugget": "Copper Nugget",
+
+  "block.affogatotweaks.copper_torch": "Copper Torch",
+  "block.affogatotweaks.copper_wall_torch": "Copper Wall Torch",
 
   "effect.affogatotweaks.attack_knockback": "Knockback Boost",
   "effect.affogatotweaks.knockback_resist": "Knockback Resistance",

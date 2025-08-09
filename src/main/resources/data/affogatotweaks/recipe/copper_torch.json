@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": [
+      {
+        "item": "minecraft:coal"
+      },
+      {
+        "item": "minecraft:charcoal"
+      }
+    ],
+    "N": [
+      {
+        "item": "affogatotweaks:copper_nugget"
+      }
+    ]
+  },
+  "pattern": [
+    "N",
+    "X",
+    "#"
+  ],
+  "result": {
+    "id": "affogatotweaks:copper_torch"
+  }
+}

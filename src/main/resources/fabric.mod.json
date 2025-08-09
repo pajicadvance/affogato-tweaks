@@ -12,6 +12,9 @@
   "entrypoints": {
     "main": [
       "me.pajic.affogatotweaks.Main"
+    ],
+    "client": [
+      "me.pajic.affogatotweaks.ClientMain"
     ]
   },
   "mixins": [

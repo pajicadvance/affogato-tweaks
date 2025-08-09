@@ -1,0 +1,17 @@
+package me.pajic.affogatotweaks;
+
+import me.pajic.affogatotweaks.block.ModBlocks;
+import me.pajic.affogatotweaks.particle.ModParticles;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.minecraft.client.particle.FlameParticle;
+import net.minecraft.client.renderer.RenderType;
+
+public class ClientMain implements ClientModInitializer {
+    @Override
+    public void onInitializeClient() {
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(), ModBlocks.COPPER_TORCH, ModBlocks.COPPER_WALL_TORCH);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.COPPER_FLAME, FlameParticle.Provider::new);
+    }
+}

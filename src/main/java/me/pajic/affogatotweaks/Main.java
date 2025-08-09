@@ -1,7 +1,10 @@
 package me.pajic.affogatotweaks;
 
+import me.pajic.affogatotweaks.block.ModBlocks;
 import me.pajic.affogatotweaks.effect.StatBoostEffects;
+import me.pajic.affogatotweaks.item.ModItems;
 import me.pajic.affogatotweaks.mixson.MixsonInitializer;
+import me.pajic.affogatotweaks.particle.ModParticles;
 import me.pajic.affogatotweaks.potion.ModPotions;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
@@ -25,13 +28,12 @@ public class Main implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        // effects
+        ModParticles.init();
+        ModBlocks.init();
+        ModItems.init();
         StatBoostEffects.init();
-        // potions
         ModPotions.init();
-        // data patches
         MixsonInitializer.init();
-        // guide book
         /*LavenderBookItem.registerForBook(
                 ResourceLocation.fromNamespaceAndPath(MOD_ID, "affogato_guide"),
                 new Item.Properties().stacksTo(1)
