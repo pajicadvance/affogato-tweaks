@@ -9,6 +9,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
@@ -21,7 +22,9 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -38,28 +41,50 @@ public abstract class MobMixin extends LivingEntity {
         super(entityType, level);
     }
 
+    @Shadow @Nullable
+    public abstract <T extends Mob> T convertTo(EntityType<T> entityType, boolean transferInventory);
+
     @Unique private int buffLevel = 0;
+    @Unique private MobSpawnType mobSpawnType = MobSpawnType.SPAWNER;
 
     @Inject(
             method = "finalizeSpawn",
             at = @At("TAIL")
     )
     private void applyEffects(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, SpawnGroupData spawnGroupData, CallbackInfoReturnable<SpawnGroupData> cir) {
-        if (!MobSpawnType.isSpawner(spawnType)) {
-            if (level.getRandom().nextFloat() < Mth.lerp(difficulty.getSpecialMultiplier(), MobValues.BUFFED_MOB_MIN_CHANCE, MobValues.BUFFED_MOB_MAX_CHANCE)) {
-                MobValues.MOB_EFFECTS.getOrDefault(getType(), Set.of()).forEach(mobEffect -> {
-                    if (level.getRandom().nextFloat() < 0.1F * difficulty.getEffectiveDifficulty()) {
+        mobSpawnType = spawnType;
+        Mob mob = (Mob) (Object) this;
+        applyMobEffects(mob, MobValues.MOB_EFFECTS.getOrDefault(mob.getType(), Set.of()), level.getRandom(), difficulty);
+        if (getMaxHealth() > 20.0F) heal(getMaxHealth());
+        if (Main.DEBUG && buffLevel > 0) {
+            System.out.println("buff level " + buffLevel + " " + getName().getString() + " at " + getX() + " " + getY() + " " + getZ());
+        }
+    }
+
+    @Inject(
+            method = "tick",
+            at = @At("HEAD")
+    )
+    private void convertSkeletonToWitherSkeletonInNether(CallbackInfo ci) {
+        if (getType() == EntityType.SKELETON && level().dimension() == Level.NETHER) {
+            Mob mob = convertTo(EntityType.WITHER_SKELETON, true);
+            applyMobEffects(mob, MobValues.standardRangedEffects, level().getRandom(), level().getCurrentDifficultyAt(getOnPos()));
+        }
+    }
+
+    @Unique
+    private void applyMobEffects(Mob mob, Set<Holder<MobEffect>> effects, RandomSource randomSource, DifficultyInstance difficulty) {
+        if (!MobSpawnType.isSpawner(mobSpawnType)) {
+            if (randomSource.nextFloat() < Mth.lerp(difficulty.getSpecialMultiplier(), MobValues.BUFFED_MOB_MIN_CHANCE, MobValues.BUFFED_MOB_MAX_CHANCE)) {
+                effects.forEach(mobEffect -> {
+                    if (randomSource.nextFloat() < 0.1F * difficulty.getEffectiveDifficulty()) {
                         int maxAmplifier = MobValues.MAX_EFFECT_AMPLIFIERS.getOrDefault(mobEffect, 0);
-                        int amplifier = Mth.clamp(Math.round(difficulty.getSpecialMultiplier() * level.getRandom().nextFloat() * maxAmplifier * maxAmplifier), 0, maxAmplifier);
-                        addEffect(new MobEffectInstance(mobEffect, -1, amplifier));
+                        int amplifier = Mth.clamp(Math.round(difficulty.getSpecialMultiplier() * randomSource.nextFloat() * maxAmplifier * maxAmplifier), 0, maxAmplifier);
+                        mob.addEffect(new MobEffectInstance(mobEffect, -1, amplifier));
                         buffLevel += 1 + amplifier;
                     }
                 });
             }
-        }
-        if (getMaxHealth() > 20.0F) heal(getMaxHealth());
-        if (Main.DEBUG && buffLevel > 0) {
-            System.out.println("buff level " + buffLevel + " " + getName().getString() + " at " + getX() + " " + getY() + " " + getZ());
         }
     }
 
