@@ -11,7 +11,20 @@ import net.minecraft.client.renderer.RenderType;
 public class ClientMain implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(), ModBlocks.COPPER_TORCH, ModBlocks.COPPER_WALL_TORCH);
         ParticleFactoryRegistry.getInstance().register(ModParticles.COPPER_FLAME, FlameParticle.Provider::new);
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(),
+                ModBlocks.COPPER_TORCH,
+                ModBlocks.COPPER_WALL_TORCH
+        );
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutoutMipped(),
+                ModBlocks.COPPER_BARS,
+                ModBlocks.EXPOSED_COPPER_BARS,
+                ModBlocks.WEATHERED_COPPER_BARS,
+                ModBlocks.OXIDIZED_COPPER_BARS,
+                ModBlocks.WAXED_COPPER_BARS,
+                ModBlocks.WAXED_EXPOSED_COPPER_BARS,
+                ModBlocks.WAXED_WEATHERED_COPPER_BARS,
+                ModBlocks.WAXED_OXIDIZED_COPPER_BARS
+        );
     }
 }
