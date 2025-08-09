@@ -1,6 +1,7 @@
 package me.pajic.affogatotweaks;
 
 import me.pajic.affogatotweaks.block.ModBlocks;
+import me.pajic.affogatotweaks.mixson.MixsonClientInitializer;
 import me.pajic.affogatotweaks.particle.ModParticles;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -11,6 +12,7 @@ import net.minecraft.client.renderer.RenderType;
 public class ClientMain implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        MixsonClientInitializer.init();
         ParticleFactoryRegistry.getInstance().register(ModParticles.COPPER_FLAME, FlameParticle.Provider::new);
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(),
                 ModBlocks.COPPER_TORCH,
