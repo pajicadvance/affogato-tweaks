@@ -9,6 +9,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
@@ -21,6 +22,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.biome.Biomes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -45,21 +47,33 @@ public abstract class MobMixin extends LivingEntity {
             at = @At("TAIL")
     )
     private void applyEffects(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, SpawnGroupData spawnGroupData, CallbackInfoReturnable<SpawnGroupData> cir) {
+        if (
+                (getType() == EntityType.PIGLIN && getWeaponItem().is(Items.CROSSBOW)) ||
+                (getType() == EntityType.WITHER_SKELETON && level.getBiome(getOnPos()).is(Biomes.SOUL_SAND_VALLEY))
+        ) {
+            applyEffects(MobValues.standardRangedEffects, level.getRandom(), spawnType, difficulty);
+        } else {
+            applyEffects(MobValues.MOB_EFFECTS.getOrDefault(getType(), Set.of()), level.getRandom(), spawnType, difficulty);
+        }
+        if (getMaxHealth() > 20.0F) heal(getMaxHealth());
+        if (Main.DEBUG && buffLevel > 0) {
+            System.out.println("buff level " + buffLevel + " " + getName().getString() + " at " + getX() + " " + getY() + " " + getZ());
+        }
+    }
+
+    @Unique
+    private void applyEffects(Set<Holder<MobEffect>> effects, RandomSource random, MobSpawnType spawnType, DifficultyInstance difficulty) {
         if (!MobSpawnType.isSpawner(spawnType)) {
-            if (level.getRandom().nextFloat() < Mth.lerp(difficulty.getSpecialMultiplier(), MobValues.BUFFED_MOB_MIN_CHANCE, MobValues.BUFFED_MOB_MAX_CHANCE)) {
-                MobValues.MOB_EFFECTS.getOrDefault(getType(), Set.of()).forEach(mobEffect -> {
-                    if (level.getRandom().nextFloat() < 0.1F * difficulty.getEffectiveDifficulty()) {
+            if (random.nextFloat() < Mth.lerp(difficulty.getSpecialMultiplier(), MobValues.BUFFED_MOB_MIN_CHANCE, MobValues.BUFFED_MOB_MAX_CHANCE)) {
+                effects.forEach(mobEffect -> {
+                    if (random.nextFloat() < 0.1F * difficulty.getEffectiveDifficulty()) {
                         int maxAmplifier = MobValues.MAX_EFFECT_AMPLIFIERS.getOrDefault(mobEffect, 0);
-                        int amplifier = Mth.clamp(Math.round(difficulty.getSpecialMultiplier() * level.getRandom().nextFloat() * maxAmplifier * maxAmplifier), 0, maxAmplifier);
+                        int amplifier = Mth.clamp(Math.round(difficulty.getSpecialMultiplier() * random.nextFloat() * maxAmplifier * maxAmplifier), 0, maxAmplifier);
                         addEffect(new MobEffectInstance(mobEffect, -1, amplifier));
                         buffLevel += 1 + amplifier;
                     }
                 });
             }
-        }
-        if (getMaxHealth() > 20.0F) heal(getMaxHealth());
-        if (Main.DEBUG && buffLevel > 0) {
-            System.out.println("buff level " + buffLevel + " " + getName().getString() + " at " + getX() + " " + getY() + " " + getZ());
         }
     }
 

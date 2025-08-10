@@ -7,6 +7,7 @@ import com.google.gson.JsonParser;
 import me.pajic.affogatotweaks.values.WorldgenValues;
 import net.ramixin.mixson.inline.Mixson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WorldgenDataEvents {
@@ -102,6 +103,67 @@ public class WorldgenDataEvents {
                                 context.getFile().getAsJsonObject().getAsJsonObject("placement")
                                         .getAsJsonPrimitive("frequency").getAsFloat() * WorldgenValues.MINESHAFT_CHANCE_MULT
                         ),
+                true
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:worldgen/biome/soul_sand_valley"),
+                "Replace skeletons with wither skeletons in soul sand valleys",
+                context -> {
+                    JsonObject spawnCosts = context.getFile().getAsJsonObject().getAsJsonObject("spawn_costs");
+                    if (spawnCosts.has("minecraft:skeleton")) {
+                        double charge = spawnCosts.getAsJsonObject("minecraft:skeleton").get("charge").getAsDouble();
+                        double energy_budget = spawnCosts.getAsJsonObject("minecraft:skeleton").get("energy_budget").getAsDouble();
+                        spawnCosts.remove("minecraft:skeleton");
+                        JsonObject witherSkeleton = new JsonObject();
+                        witherSkeleton.addProperty("charge", charge);
+                        witherSkeleton.addProperty("energy_budget", energy_budget);
+                        spawnCosts.add("minecraft:wither_skeleton", witherSkeleton);
+                    }
+                    JsonArray monsters = context.getFile().getAsJsonObject().getAsJsonObject("spawners").getAsJsonArray("monster");
+                    List<Integer> idsToRemove = new ArrayList<>();
+                    List<JsonObject> witherSkeletons = new ArrayList<>();
+                    for (int i = 0; i < monsters.size(); i++) {
+                        JsonObject monster = monsters.get(i).getAsJsonObject();
+                        if (monster.get("type").getAsString().equals("minecraft:skeleton")) {
+                            idsToRemove.add(i);
+                            JsonObject witherSkeleton = new JsonObject();
+                            witherSkeleton.addProperty("type", "minecraft:wither_skeleton");
+                            witherSkeleton.addProperty("maxCount", monster.get("maxCount").getAsInt());
+                            witherSkeleton.addProperty("minCount", monster.get("minCount").getAsInt());
+                            witherSkeleton.addProperty("weight", monster.get("weight").getAsInt());
+                            witherSkeletons.add(witherSkeleton);
+                        }
+                    }
+                    idsToRemove.forEach(monsters::remove);
+                    witherSkeletons.forEach(monsters::add);
+                },
+                true
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:worldgen/structure/fortress"),
+                "Replace skeletons with wither skeletons in fortresses",
+                context -> {
+                    JsonArray spawns = context.getFile().getAsJsonObject()
+                            .getAsJsonObject("spawn_overrides")
+                            .getAsJsonObject("monster")
+                            .getAsJsonArray("spawns");
+                    int idToRemove = -1;
+                    int idToUpdate = -1;
+                    int addWeight = 0;
+                    for (int i = 0; i < spawns.size(); i++) {
+                        JsonObject spawn = spawns.get(i).getAsJsonObject();
+                        if (spawn.get("type").getAsString().equals("minecraft:wither_skeleton")) idToUpdate = i;
+                        if (spawn.get("type").getAsString().equals("minecraft:skeleton")) {
+                            idToRemove = i;
+                            addWeight = spawn.get("weight").getAsInt();
+                        }
+                    }
+                    spawns.remove(idToRemove);
+                    JsonObject update = spawns.get(idToUpdate).getAsJsonObject();
+                    update.addProperty("weight", update.get("weight").getAsInt() + addWeight);
+                },
                 true
         );
     }
