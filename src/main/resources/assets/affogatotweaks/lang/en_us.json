@@ -27,5 +27,13 @@
   "block.affogatotweaks.waxed_copper_bars": "Waxed Copper Bars",
   "block.affogatotweaks.waxed_exposed_copper_bars": "Waxed Exposed Copper Bars",
   "block.affogatotweaks.waxed_weathered_copper_bars": "Waxed Weathered Copper Bars",
-  "block.affogatotweaks.waxed_oxidized_copper_bars": "Waxed Oxidized Copper Bars"
+  "block.affogatotweaks.waxed_oxidized_copper_bars": "Waxed Oxidized Copper Bars",
+  "block.affogatotweaks.copper_chain": "Copper Chain",
+  "block.affogatotweaks.exposed_copper_chain": "Exposed Copper Chain",
+  "block.affogatotweaks.weathered_copper_chain": "Weathered Copper Chain",
+  "block.affogatotweaks.oxidized_copper_chain": "Oxidized Copper Chain",
+  "block.affogatotweaks.waxed_copper_chain": "Waxed Copper Chain",
+  "block.affogatotweaks.waxed_exposed_copper_chain": "Waxed Exposed Copper Chain",
+  "block.affogatotweaks.waxed_weathered_copper_chain": "Waxed Weathered Copper Chain",
+  "block.affogatotweaks.waxed_oxidized_copper_chain": "Waxed Oxidized Copper Chain"
 }

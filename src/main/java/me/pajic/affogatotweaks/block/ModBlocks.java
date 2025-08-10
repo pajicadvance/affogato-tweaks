@@ -72,6 +72,48 @@ public class ModBlocks {
     public static final Block WAXED_OXIDIZED_COPPER_BARS = registerModBlock("waxed_oxidized_copper_bars",
             new IronBarsBlock(BlockBehaviour.Properties.ofFullCopy(OXIDIZED_COPPER_BARS))
     );
+    public static final Block COPPER_CHAIN = registerModBlock("copper_chain",
+            new CopperChainBlock(
+                    WeatheringCopper.WeatherState.UNAFFECTED,
+                    BlockBehaviour.Properties.of()
+                            .mapColor(Blocks.COPPER_BLOCK.defaultMapColor())
+                            .forceSolidOn()
+                            .requiresCorrectToolForDrops()
+                            .strength(3.0F, 6.0F)
+                            .sound(SoundType.CHAIN)
+                            .noOcclusion()
+            )
+    );
+    public static final Block EXPOSED_COPPER_CHAIN = registerModBlock("exposed_copper_chain",
+            new CopperChainBlock(
+                    WeatheringCopper.WeatherState.EXPOSED,
+                    BlockBehaviour.Properties.ofFullCopy(COPPER_CHAIN)
+            )
+    );
+    public static final Block WEATHERED_COPPER_CHAIN = registerModBlock("weathered_copper_chain",
+            new CopperChainBlock(
+                    WeatheringCopper.WeatherState.WEATHERED,
+                    BlockBehaviour.Properties.ofFullCopy(COPPER_CHAIN)
+            )
+    );
+    public static final Block OXIDIZED_COPPER_CHAIN = registerModBlock("oxidized_copper_chain",
+            new CopperChainBlock(
+                    WeatheringCopper.WeatherState.OXIDIZED,
+                    BlockBehaviour.Properties.ofFullCopy(COPPER_CHAIN)
+            )
+    );
+    public static final Block WAXED_COPPER_CHAIN = registerModBlock("waxed_copper_chain",
+            new ChainBlock(BlockBehaviour.Properties.ofFullCopy(COPPER_CHAIN))
+    );
+    public static final Block WAXED_EXPOSED_COPPER_CHAIN = registerModBlock("waxed_exposed_copper_chain",
+            new ChainBlock(BlockBehaviour.Properties.ofFullCopy(EXPOSED_COPPER_CHAIN))
+    );
+    public static final Block WAXED_WEATHERED_COPPER_CHAIN = registerModBlock("waxed_weathered_copper_chain",
+            new ChainBlock(BlockBehaviour.Properties.ofFullCopy(WEATHERED_COPPER_CHAIN))
+    );
+    public static final Block WAXED_OXIDIZED_COPPER_CHAIN = registerModBlock("waxed_oxidized_copper_chain",
+            new ChainBlock(BlockBehaviour.Properties.ofFullCopy(OXIDIZED_COPPER_CHAIN))
+    );
 
     private static Block registerModBlock(String name, Block block) {
         return Registry.register(
@@ -81,13 +123,27 @@ public class ModBlocks {
         );
     }
 
+    private static void addOxidizableBlockSet(
+            Block base, Block exposed, Block weathered, Block oxidized,
+            Block waxedBase, Block waxedExposed, Block waxedWeathered, Block waxedOxidized
+    ) {
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(base, exposed);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(exposed, weathered);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(weathered, oxidized);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(base, waxedBase);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(exposed, waxedExposed);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(weathered, waxedWeathered);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(oxidized, waxedOxidized);
+    }
+
     public static void init() {
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(COPPER_BARS, EXPOSED_COPPER_BARS);
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(EXPOSED_COPPER_BARS, WEATHERED_COPPER_BARS);
-        OxidizableBlocksRegistry.registerOxidizableBlockPair(WEATHERED_COPPER_BARS, OXIDIZED_COPPER_BARS);
-        OxidizableBlocksRegistry.registerWaxableBlockPair(COPPER_BARS, WAXED_COPPER_BARS);
-        OxidizableBlocksRegistry.registerWaxableBlockPair(EXPOSED_COPPER_BARS, WAXED_EXPOSED_COPPER_BARS);
-        OxidizableBlocksRegistry.registerWaxableBlockPair(WEATHERED_COPPER_BARS, WAXED_WEATHERED_COPPER_BARS);
-        OxidizableBlocksRegistry.registerWaxableBlockPair(OXIDIZED_COPPER_BARS, WAXED_OXIDIZED_COPPER_BARS);
+        addOxidizableBlockSet(
+                COPPER_BARS, EXPOSED_COPPER_BARS, WEATHERED_COPPER_BARS, OXIDIZED_COPPER_BARS,
+                WAXED_COPPER_BARS, WAXED_EXPOSED_COPPER_BARS, WAXED_WEATHERED_COPPER_BARS, WAXED_OXIDIZED_COPPER_BARS
+        );
+        addOxidizableBlockSet(
+                COPPER_CHAIN, EXPOSED_COPPER_CHAIN, WEATHERED_COPPER_CHAIN, OXIDIZED_COPPER_CHAIN,
+                WAXED_COPPER_CHAIN, WAXED_EXPOSED_COPPER_CHAIN, WAXED_WEATHERED_COPPER_CHAIN, WAXED_OXIDIZED_COPPER_CHAIN
+        );
     }
 }

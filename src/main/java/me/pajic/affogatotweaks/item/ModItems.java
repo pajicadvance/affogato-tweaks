@@ -40,6 +40,30 @@ public class ModItems {
     public static final Item WAXED_OXIDIZED_COPPER_BARS = registerModItem("waxed_oxidized_copper_bars",
             new BlockItem(ModBlocks.WAXED_OXIDIZED_COPPER_BARS, new Item.Properties())
     );
+    public static final Item COPPER_CHAIN = registerModItem("copper_chain",
+            new BlockItem(ModBlocks.COPPER_CHAIN, new Item.Properties())
+    );
+    public static final Item EXPOSED_COPPER_CHAIN = registerModItem("exposed_copper_chain",
+            new BlockItem(ModBlocks.EXPOSED_COPPER_CHAIN, new Item.Properties())
+    );
+    public static final Item WEATHERED_COPPER_CHAIN = registerModItem("weathered_copper_chain",
+            new BlockItem(ModBlocks.WEATHERED_COPPER_CHAIN, new Item.Properties())
+    );
+    public static final Item OXIDIZED_COPPER_CHAIN = registerModItem("oxidized_copper_chain",
+            new BlockItem(ModBlocks.OXIDIZED_COPPER_CHAIN, new Item.Properties())
+    );
+    public static final Item WAXED_COPPER_CHAIN = registerModItem("waxed_copper_chain",
+            new BlockItem(ModBlocks.WAXED_COPPER_CHAIN, new Item.Properties())
+    );
+    public static final Item WAXED_EXPOSED_COPPER_CHAIN = registerModItem("waxed_exposed_copper_chain",
+            new BlockItem(ModBlocks.WAXED_EXPOSED_COPPER_CHAIN, new Item.Properties())
+    );
+    public static final Item WAXED_WEATHERED_COPPER_CHAIN = registerModItem("waxed_weathered_copper_chain",
+            new BlockItem(ModBlocks.WAXED_WEATHERED_COPPER_CHAIN, new Item.Properties())
+    );
+    public static final Item WAXED_OXIDIZED_COPPER_CHAIN = registerModItem("waxed_oxidized_copper_chain",
+            new BlockItem(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN, new Item.Properties())
+    );
 
     private static Item registerModItem(String name, Item item) {
         return Registry.register(
@@ -56,11 +80,15 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(entries ->
                 entries.addBefore(Items.IRON_NUGGET, COPPER_NUGGET)
         );
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries ->
-                entries.addBefore(Items.COPPER_DOOR,
-                        COPPER_BARS, EXPOSED_COPPER_BARS, WEATHERED_COPPER_BARS, OXIDIZED_COPPER_BARS,
-                        WAXED_COPPER_BARS, WAXED_EXPOSED_COPPER_BARS, WAXED_WEATHERED_COPPER_BARS, WAXED_OXIDIZED_COPPER_BARS
-                )
-        );
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
+            entries.addBefore(Items.COPPER_DOOR,
+                    COPPER_BARS, EXPOSED_COPPER_BARS, WEATHERED_COPPER_BARS, OXIDIZED_COPPER_BARS,
+                    WAXED_COPPER_BARS, WAXED_EXPOSED_COPPER_BARS, WAXED_WEATHERED_COPPER_BARS, WAXED_OXIDIZED_COPPER_BARS
+            );
+            entries.addAfter(Items.WAXED_OXIDIZED_COPPER_BULB,
+                    COPPER_CHAIN, EXPOSED_COPPER_CHAIN, WEATHERED_COPPER_CHAIN, OXIDIZED_COPPER_CHAIN,
+                    WAXED_COPPER_CHAIN, WAXED_EXPOSED_COPPER_CHAIN, WAXED_WEATHERED_COPPER_CHAIN, WAXED_OXIDIZED_COPPER_CHAIN
+            );
+        });
     }
 }
