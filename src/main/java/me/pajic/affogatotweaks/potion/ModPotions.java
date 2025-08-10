@@ -53,10 +53,36 @@ public class ModPotions {
                     new MobEffectInstance(MobEffects.ABSORPTION, 2400, 3)
             )
     );
+    public static final Potion DECAY = Registry.register(
+            BuiltInRegistries.POTION,
+            ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "decay"),
+            new Potion(
+                    "decay",
+                    new MobEffectInstance(MobEffects.WITHER, 800, 0)
+            )
+    );
+    public static final Potion LONG_DECAY = Registry.register(
+            BuiltInRegistries.POTION,
+            ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "long_decay"),
+            new Potion(
+                    "decay",
+                    new MobEffectInstance(MobEffects.WITHER, 1200, 0)
+            )
+    );
+    public static final Potion STRONG_DECAY = Registry.register(
+            BuiltInRegistries.POTION,
+            ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "strong_decay"),
+            new Potion(
+                    "decay",
+                    new MobEffectInstance(MobEffects.WITHER, 400, 1)
+            )
+    );
 
     public static boolean isLifeElixir(ItemStack stack) {
         PotionContents potionContents = stack.get(DataComponents.POTION_CONTENTS);
-        return potionContents != null && potionContents.potion().orElse(Potions.WATER).is(ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "life_elixir"));
+        return potionContents != null && potionContents.potion().orElse(Potions.WATER).is(
+                ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "life_elixir")
+        );
     }
 
     public static void init() {
@@ -80,6 +106,21 @@ public class ModPotions {
                     Potions.AWKWARD,
                     Ingredient.of(Items.ENCHANTED_GOLDEN_APPLE),
                     BuiltInRegistries.POTION.wrapAsHolder(LIFE_ELIXIR)
+            );
+            builder.registerPotionRecipe(
+                    Potions.AWKWARD,
+                    Ingredient.of(Items.WITHER_ROSE),
+                    BuiltInRegistries.POTION.wrapAsHolder(DECAY)
+            );
+            builder.registerPotionRecipe(
+                    BuiltInRegistries.POTION.wrapAsHolder(DECAY),
+                    Ingredient.of(Items.REDSTONE),
+                    BuiltInRegistries.POTION.wrapAsHolder(LONG_DECAY)
+            );
+            builder.registerPotionRecipe(
+                    BuiltInRegistries.POTION.wrapAsHolder(DECAY),
+                    Ingredient.of(Items.GLOWSTONE_DUST),
+                    BuiltInRegistries.POTION.wrapAsHolder(STRONG_DECAY)
             );
         });
         CustomBrewRecipeRegister.registerCustomRecipeWithComponents(
