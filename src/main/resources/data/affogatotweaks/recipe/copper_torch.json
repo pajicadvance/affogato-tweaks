@@ -20,9 +20,8 @@
     ]
   },
   "pattern": [
-    "N",
-    "X",
-    "#"
+    "XN",
+    "# "
   ],
   "result": {
     "id": "affogatotweaks:copper_torch"
