@@ -3,6 +3,7 @@ package me.pajic.affogatotweaks.item;
 import me.pajic.affogatotweaks.Main;
 import me.pajic.affogatotweaks.block.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -10,6 +11,12 @@ import net.minecraft.world.item.*;
 
 public class ModItems {
     public static final Item COPPER_NUGGET = registerModItem("copper_nugget",
+            new Item(new Item.Properties())
+    );
+    public static final Item COAL_NUGGET = registerModItem("coal_nugget",
+            new Item(new Item.Properties())
+    );
+    public static final Item CHARCOAL_NUGGET = registerModItem("charcoal_nugget",
             new Item(new Item.Properties())
     );
     public static final Item COPPER_TORCH = registerModItem("copper_torch",
@@ -118,6 +125,8 @@ public class ModItems {
     }
 
     public static void init() {
+        FuelRegistry.INSTANCE.add(COAL_NUGGET, 200);
+        FuelRegistry.INSTANCE.add(CHARCOAL_NUGGET, 200);
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
             entries.addAfter(Items.TORCH, COPPER_TORCH);
             entries.addAfter(Items.SOUL_LANTERN,
@@ -125,9 +134,11 @@ public class ModItems {
                     WAXED_COPPER_LANTERN, WAXED_EXPOSED_COPPER_LANTERN, WAXED_WEATHERED_COPPER_LANTERN, WAXED_OXIDIZED_COPPER_LANTERN
             );
         });
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(entries ->
-                entries.addBefore(Items.IRON_NUGGET, COPPER_NUGGET)
-        );
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(entries -> {
+            entries.addBefore(Items.IRON_NUGGET, COPPER_NUGGET);
+            entries.addAfter(Items.COAL, COAL_NUGGET);
+            entries.addAfter(Items.CHARCOAL, CHARCOAL_NUGGET);
+        });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
             entries.addBefore(Items.COPPER_DOOR,
                     COPPER_BARS, EXPOSED_COPPER_BARS, WEATHERED_COPPER_BARS, OXIDIZED_COPPER_BARS,

@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "copper_ingot",
+  "group": "charcoal",
   "key": {
     "#": {
-      "item": "affogatotweaks:copper_nugget"
+      "item": "affogatotweaks:charcoal_nugget"
     }
   },
   "pattern": [
     "###",
-    "###",
+    "# #",
     "###"
   ],
   "result": {
-    "id": "minecraft:copper_ingot"
+    "id": "minecraft:charcoal"
   }
 }

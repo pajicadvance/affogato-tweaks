@@ -7,10 +7,10 @@
     },
     "X": [
       {
-        "item": "minecraft:coal"
+        "item": "affogatotweaks:coal_nugget"
       },
       {
-        "item": "minecraft:charcoal"
+        "item": "affogatotweaks:charcoal_nugget"
       }
     ],
     "N": [
