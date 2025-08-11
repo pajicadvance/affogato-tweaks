@@ -1,4 +1,4 @@
-package me.pajic.affogatotweaks.mixin.gameplay;
+package me.pajic.affogatotweaks.mixin.combat;
 
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import net.minecraft.util.RandomSource;

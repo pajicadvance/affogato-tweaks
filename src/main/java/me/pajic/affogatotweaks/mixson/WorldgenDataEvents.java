@@ -7,7 +7,6 @@ import com.google.gson.JsonParser;
 import me.pajic.affogatotweaks.values.WorldgenValues;
 import net.ramixin.mixson.inline.Mixson;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class WorldgenDataEvents {
@@ -121,22 +120,21 @@ public class WorldgenDataEvents {
                         spawnCosts.add("minecraft:wither_skeleton", witherSkeleton);
                     }
                     JsonArray monsters = context.getFile().getAsJsonObject().getAsJsonObject("spawners").getAsJsonArray("monster");
-                    List<Integer> idsToRemove = new ArrayList<>();
-                    List<JsonObject> witherSkeletons = new ArrayList<>();
+                    int idToRemove = -1;
+                    JsonObject witherSkeleton = new JsonObject();
                     for (int i = 0; i < monsters.size(); i++) {
                         JsonObject monster = monsters.get(i).getAsJsonObject();
                         if (monster.get("type").getAsString().equals("minecraft:skeleton")) {
-                            idsToRemove.add(i);
-                            JsonObject witherSkeleton = new JsonObject();
+                            idToRemove = i;
                             witherSkeleton.addProperty("type", "minecraft:wither_skeleton");
                             witherSkeleton.addProperty("maxCount", monster.get("maxCount").getAsInt());
                             witherSkeleton.addProperty("minCount", monster.get("minCount").getAsInt());
                             witherSkeleton.addProperty("weight", monster.get("weight").getAsInt());
-                            witherSkeletons.add(witherSkeleton);
+                            break;
                         }
                     }
-                    idsToRemove.forEach(monsters::remove);
-                    witherSkeletons.forEach(monsters::add);
+                    if (idToRemove != -1) monsters.remove(idToRemove);
+                    if (!witherSkeleton.isEmpty()) monsters.add(witherSkeleton);
                 },
                 true
         );
@@ -160,9 +158,40 @@ public class WorldgenDataEvents {
                             addWeight = spawn.get("weight").getAsInt();
                         }
                     }
-                    spawns.remove(idToRemove);
-                    JsonObject update = spawns.get(idToUpdate).getAsJsonObject();
-                    update.addProperty("weight", update.get("weight").getAsInt() + addWeight);
+                    if (idToRemove != -1) spawns.remove(idToRemove);
+                    if (idToUpdate != -1) {
+                        JsonObject update = spawns.get(idToUpdate).getAsJsonObject();
+                        update.addProperty("weight", update.get("weight").getAsInt() + addWeight);
+                    }
+                },
+                true
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:worldgen/biome/jungle"),
+                "Fix ocelots being counted as monsters during spawning",
+                context -> {
+                    JsonArray monsters = context.getFile().getAsJsonObject()
+                            .getAsJsonObject("spawners")
+                            .getAsJsonArray("monster");
+                    JsonArray creatures = context.getFile().getAsJsonObject()
+                            .getAsJsonObject("spawners")
+                            .getAsJsonArray("creature");
+                    int idToRemove = -1;
+                    JsonObject ocelot = new JsonObject();
+                    for (int i = 0; i < monsters.size(); i++) {
+                        JsonObject monster = monsters.get(i).getAsJsonObject();
+                        if (monster.get("type").getAsString().equals("minecraft:ocelot")) {
+                            idToRemove = i;
+                            ocelot.addProperty("type", "minecraft:ocelot");
+                            ocelot.addProperty("maxCount", monster.get("maxCount").getAsInt());
+                            ocelot.addProperty("minCount", monster.get("minCount").getAsInt());
+                            ocelot.addProperty("weight", monster.get("weight").getAsInt());
+                            break;
+                        }
+                    }
+                    if (idToRemove != -1) monsters.remove(idToRemove);
+                    if (!ocelot.isEmpty()) creatures.add(ocelot);
                 },
                 true
         );

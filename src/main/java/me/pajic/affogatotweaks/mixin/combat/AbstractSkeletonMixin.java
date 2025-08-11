@@ -1,4 +1,4 @@
-package me.pajic.affogatotweaks.mixin.gameplay;
+package me.pajic.affogatotweaks.mixin.combat;
 
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
