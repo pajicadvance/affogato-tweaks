@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "affogatotweaks:block/oxidized_copper_lantern"
+    },
+    "hanging=true": {
+      "model": "affogatotweaks:block/oxidized_copper_lantern_hanging"
+    }
+  }
+}

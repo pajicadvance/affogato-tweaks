@@ -42,5 +42,13 @@
   "block.affogatotweaks.waxed_lightning_rod": "Waxed Lightning Rod",
   "block.affogatotweaks.waxed_exposed_lightning_rod": "Waxed Exposed Lightning Rod",
   "block.affogatotweaks.waxed_weathered_lightning_rod": "Waxed Weathered Lightning Rod",
-  "block.affogatotweaks.waxed_oxidized_lightning_rod": "Waxed Oxidized Lightning Rod"
+  "block.affogatotweaks.waxed_oxidized_lightning_rod": "Waxed Oxidized Lightning Rod",
+  "block.affogatotweaks.copper_lantern": "Copper Lantern",
+  "block.affogatotweaks.exposed_copper_lantern": "Exposed Copper Lantern",
+  "block.affogatotweaks.weathered_copper_lantern": "Weathered Copper Lantern",
+  "block.affogatotweaks.oxidized_copper_lantern": "Oxidized Copper Lantern",
+  "block.affogatotweaks.waxed_copper_lantern": "Waxed Copper Lantern",
+  "block.affogatotweaks.waxed_exposed_copper_lantern": "Waxed Exposed Copper Lantern",
+  "block.affogatotweaks.waxed_weathered_copper_lantern": "Waxed Weathered Copper Lantern",
+  "block.affogatotweaks.waxed_oxidized_copper_lantern": "Waxed Oxidized Copper Lantern"
 }

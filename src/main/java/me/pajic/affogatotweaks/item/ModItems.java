@@ -84,6 +84,30 @@ public class ModItems {
     public static final Item WAXED_OXIDIZED_LIGHTNING_ROD = registerModItem("waxed_oxidized_lightning_rod",
             new BlockItem(ModBlocks.WAXED_OXIDIZED_LIGHTNING_ROD, new Item.Properties())
     );
+    public static final Item COPPER_LANTERN = registerModItem("copper_lantern",
+            new BlockItem(ModBlocks.COPPER_LANTERN, new Item.Properties())
+    );
+    public static final Item EXPOSED_COPPER_LANTERN = registerModItem("exposed_copper_lantern",
+            new BlockItem(ModBlocks.EXPOSED_COPPER_LANTERN, new Item.Properties())
+    );
+    public static final Item WEATHERED_COPPER_LANTERN = registerModItem("weathered_copper_lantern",
+            new BlockItem(ModBlocks.WEATHERED_COPPER_LANTERN, new Item.Properties())
+    );
+    public static final Item OXIDIZED_COPPER_LANTERN = registerModItem("oxidized_copper_lantern",
+            new BlockItem(ModBlocks.OXIDIZED_COPPER_LANTERN, new Item.Properties())
+    );
+    public static final Item WAXED_COPPER_LANTERN = registerModItem("waxed_copper_lantern",
+            new BlockItem(ModBlocks.WAXED_COPPER_LANTERN, new Item.Properties())
+    );
+    public static final Item WAXED_EXPOSED_COPPER_LANTERN = registerModItem("waxed_exposed_copper_lantern",
+            new BlockItem(ModBlocks.WAXED_EXPOSED_COPPER_LANTERN, new Item.Properties())
+    );
+    public static final Item WAXED_WEATHERED_COPPER_LANTERN = registerModItem("waxed_weathered_copper_lantern",
+            new BlockItem(ModBlocks.WAXED_WEATHERED_COPPER_LANTERN, new Item.Properties())
+    );
+    public static final Item WAXED_OXIDIZED_COPPER_LANTERN = registerModItem("waxed_oxidized_copper_lantern",
+            new BlockItem(ModBlocks.WAXED_OXIDIZED_COPPER_LANTERN, new Item.Properties())
+    );
 
     private static Item registerModItem(String name, Item item) {
         return Registry.register(
@@ -94,9 +118,13 @@ public class ModItems {
     }
 
     public static void init() {
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries ->
-                entries.addAfter(Items.TORCH, COPPER_TORCH)
-        );
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
+            entries.addAfter(Items.TORCH, COPPER_TORCH);
+            entries.addAfter(Items.SOUL_LANTERN,
+                    COPPER_LANTERN, EXPOSED_COPPER_LANTERN, WEATHERED_COPPER_LANTERN, OXIDIZED_COPPER_LANTERN,
+                    WAXED_COPPER_LANTERN, WAXED_EXPOSED_COPPER_LANTERN, WAXED_WEATHERED_COPPER_LANTERN, WAXED_OXIDIZED_COPPER_LANTERN
+            );
+        });
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(entries ->
                 entries.addBefore(Items.IRON_NUGGET, COPPER_NUGGET)
         );

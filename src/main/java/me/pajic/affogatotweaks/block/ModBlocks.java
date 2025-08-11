@@ -143,6 +143,50 @@ public class ModBlocks {
     public static final Block WAXED_OXIDIZED_LIGHTNING_ROD = registerModBlock("waxed_oxidized_lightning_rod",
             new LightningRodBlock(BlockBehaviour.Properties.ofFullCopy(OXIDIZED_LIGHTNING_ROD))
     );
+    public static final Block COPPER_LANTERN = registerModBlock("copper_lantern",
+            new CopperLanternBlock(
+                    WeatheringCopper.WeatherState.UNAFFECTED,
+                    BlockBehaviour.Properties.of()
+                            .mapColor(Blocks.COPPER_BLOCK.defaultMapColor())
+                            .forceSolidOn()
+                            .requiresCorrectToolForDrops()
+                            .strength(3.5F)
+                            .sound(SoundType.LANTERN)
+                            .lightLevel(blockState -> 15)
+                            .noOcclusion()
+                            .pushReaction(PushReaction.DESTROY)
+            )
+    );
+    public static final Block EXPOSED_COPPER_LANTERN = registerModBlock("exposed_copper_lantern",
+            new CopperLanternBlock(
+                    WeatheringCopper.WeatherState.EXPOSED,
+                    BlockBehaviour.Properties.ofFullCopy(COPPER_LANTERN).lightLevel(blockState -> 13)
+            )
+    );
+    public static final Block WEATHERED_COPPER_LANTERN = registerModBlock("weathered_copper_lantern",
+            new CopperLanternBlock(
+                    WeatheringCopper.WeatherState.WEATHERED,
+                    BlockBehaviour.Properties.ofFullCopy(COPPER_LANTERN).lightLevel(blockState -> 11)
+            )
+    );
+    public static final Block OXIDIZED_COPPER_LANTERN = registerModBlock("oxidized_copper_lantern",
+            new CopperLanternBlock(
+                    WeatheringCopper.WeatherState.OXIDIZED,
+                    BlockBehaviour.Properties.ofFullCopy(COPPER_LANTERN).lightLevel(blockState -> 9)
+            )
+    );
+    public static final Block WAXED_COPPER_LANTERN = registerModBlock("waxed_copper_lantern",
+            new LanternBlock(BlockBehaviour.Properties.ofFullCopy(COPPER_LANTERN))
+    );
+    public static final Block WAXED_EXPOSED_COPPER_LANTERN = registerModBlock("waxed_exposed_copper_lantern",
+            new LanternBlock(BlockBehaviour.Properties.ofFullCopy(EXPOSED_COPPER_LANTERN))
+    );
+    public static final Block WAXED_WEATHERED_COPPER_LANTERN = registerModBlock("waxed_weathered_copper_lantern",
+            new LanternBlock(BlockBehaviour.Properties.ofFullCopy(WEATHERED_COPPER_LANTERN))
+    );
+    public static final Block WAXED_OXIDIZED_COPPER_LANTERN = registerModBlock("waxed_oxidized_copper_lantern",
+            new LanternBlock(BlockBehaviour.Properties.ofFullCopy(OXIDIZED_COPPER_LANTERN))
+    );
 
     private static Block registerModBlock(String name, Block block) {
         return Registry.register(
@@ -177,6 +221,10 @@ public class ModBlocks {
         addOxidizableBlockSet(
                 Blocks.LIGHTNING_ROD, EXPOSED_LIGHTNING_ROD, WEATHERED_LIGHTNING_ROD, OXIDIZED_LIGHTNING_ROD,
                 WAXED_LIGHTNING_ROD, WAXED_EXPOSED_LIGHTNING_ROD, WAXED_WEATHERED_LIGHTNING_ROD, WAXED_OXIDIZED_LIGHTNING_ROD
+        );
+        addOxidizableBlockSet(
+                COPPER_LANTERN, EXPOSED_COPPER_LANTERN, WEATHERED_COPPER_LANTERN, OXIDIZED_COPPER_LANTERN,
+                WAXED_COPPER_LANTERN, WAXED_EXPOSED_COPPER_LANTERN, WAXED_WEATHERED_COPPER_LANTERN, WAXED_OXIDIZED_COPPER_LANTERN
         );
     }
 }

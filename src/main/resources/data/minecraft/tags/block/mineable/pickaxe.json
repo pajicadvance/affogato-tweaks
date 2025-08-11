@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+    "#affogatotweaks:lightning_rod_variants",
+    "affogatotweaks:copper_lantern",
+    "affogatotweaks:exposed_copper_lantern",
+    "affogatotweaks:weathered_copper_lantern",
+    "affogatotweaks:oxidized_copper_lantern",
+    "affogatotweaks:waxed_copper_lantern",
+    "affogatotweaks:waxed_exposed_copper_lantern",
+    "affogatotweaks:waxed_weathered_copper_lantern",
+    "affogatotweaks:waxed_oxidized_copper_lantern",
+    "affogatotweaks:copper_bars",
+    "affogatotweaks:exposed_copper_bars",
+    "affogatotweaks:weathered_copper_bars",
+    "affogatotweaks:oxidized_copper_bars",
+    "affogatotweaks:waxed_copper_bars",
+    "affogatotweaks:waxed_exposed_copper_bars",
+    "affogatotweaks:waxed_weathered_copper_bars",
+    "affogatotweaks:waxed_oxidized_copper_bars",
+    "affogatotweaks:copper_chain",
+    "affogatotweaks:exposed_copper_chain",
+    "affogatotweaks:weathered_copper_chain",
+    "affogatotweaks:oxidized_copper_chain",
+    "affogatotweaks:waxed_copper_chain",
+    "affogatotweaks:waxed_exposed_copper_chain",
+    "affogatotweaks:waxed_weathered_copper_chain",
+    "affogatotweaks:waxed_oxidized_copper_chain"
+  ]
+}

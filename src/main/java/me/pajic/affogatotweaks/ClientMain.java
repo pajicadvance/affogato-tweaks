@@ -17,7 +17,9 @@ public class ClientMain implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(),
                 ModBlocks.COPPER_TORCH, ModBlocks.COPPER_WALL_TORCH,
                 ModBlocks.EXPOSED_LIGHTNING_ROD, ModBlocks.WEATHERED_LIGHTNING_ROD, ModBlocks.OXIDIZED_LIGHTNING_ROD,
-                ModBlocks.WAXED_LIGHTNING_ROD, ModBlocks.WAXED_EXPOSED_LIGHTNING_ROD, ModBlocks.WAXED_WEATHERED_LIGHTNING_ROD, ModBlocks.WAXED_OXIDIZED_LIGHTNING_ROD
+                ModBlocks.WAXED_LIGHTNING_ROD, ModBlocks.WAXED_EXPOSED_LIGHTNING_ROD, ModBlocks.WAXED_WEATHERED_LIGHTNING_ROD, ModBlocks.WAXED_OXIDIZED_LIGHTNING_ROD,
+                ModBlocks.COPPER_LANTERN, ModBlocks.EXPOSED_COPPER_LANTERN, ModBlocks.WEATHERED_COPPER_LANTERN, ModBlocks.OXIDIZED_COPPER_LANTERN,
+                ModBlocks.WAXED_COPPER_LANTERN, ModBlocks.WAXED_EXPOSED_COPPER_LANTERN, ModBlocks.WAXED_WEATHERED_COPPER_LANTERN, ModBlocks.WAXED_OXIDIZED_COPPER_LANTERN
         );
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutoutMipped(),
                 ModBlocks.COPPER_BARS, ModBlocks.EXPOSED_COPPER_BARS, ModBlocks.WEATHERED_COPPER_BARS, ModBlocks.OXIDIZED_COPPER_BARS,
