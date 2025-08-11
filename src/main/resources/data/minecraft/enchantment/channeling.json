@@ -39,7 +39,7 @@
               "condition": "minecraft:location_check",
               "predicate": {
                 "block": {
-                  "blocks": "#affogatotweaks:lightning_rods"
+                  "blocks": "#affogatotweaks:all_lightning_rods"
                 },
                 "can_see_sky": true
               }

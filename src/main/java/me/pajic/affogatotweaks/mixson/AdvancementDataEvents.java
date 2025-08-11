@@ -39,7 +39,6 @@ public class AdvancementDataEvents {
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
                 rl ->
-                        rl.toString().equals("minecraft:advancement/story/cure_zombie_villager") ||
                         rl.toString().equals("minecraft:advancement/adventure/hero_of_the_village") ||
                         rl.toString().equals("minecraft:advancement/adventure/trade") ||
                         rl.toString().equals("minecraft:advancement/adventure/trade_at_world_height") ||
