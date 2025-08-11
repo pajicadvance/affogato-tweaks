@@ -1,0 +1,290 @@
+{
+  "item.pickup.affogatotweaks.copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.exposed_copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.weathered_copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.oxidized_copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.waxed_copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.waxed_exposed_copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.waxed_weathered_copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.waxed_oxidized_copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.exposed_copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.weathered_copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.oxidized_copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.waxed_copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.waxed_exposed_copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.waxed_weathered_copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.waxed_oxidized_copper_chain": {
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.exposed_copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.weathered_copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.oxidized_copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.waxed_copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.waxed_exposed_copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.waxed_weathered_copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.place.affogatotweaks.waxed_oxidized_copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.exposed_copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.weathered_copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.oxidized_copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.waxed_copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.waxed_exposed_copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.waxed_weathered_copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.affogatotweaks.waxed_oxidized_copper_lantern": {
+    "sounds": [
+      {
+        "name": "minecraft:block.lantern.place",
+        "volume": 0.6,
+        "pitch": 1.7,
+        "type": "event"
+      }
+    ]
+  }
+}

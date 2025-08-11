@@ -14,6 +14,7 @@ public class LanguageEvents {
                     context.getFile().getAsJsonObject().addProperty("stat.minecraft.interact_with_stonecutter", "Interactions with Blockcutter");
                     context.getFile().getAsJsonObject().addProperty("subtitles.ui.stonecutter.take_result", "Blockcutter used");
                     context.getFile().getAsJsonObject().addProperty("block.minecraft.chain", "Iron Chain");
+                    context.getFile().getAsJsonObject().addProperty("block.minecraft.lantern", "Iron Lantern");
                 },
                 false
         );
