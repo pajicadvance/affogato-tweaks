@@ -1,0 +1,53 @@
+{
+  "type": "palette",
+  "priority": 100,
+  "displayName": "Copper Chain",
+  "items": [
+    "affogatotweaks:copper_chain",
+    "affogatotweaks:exposed_copper_chain",
+    "affogatotweaks:weathered_copper_chain",
+    "affogatotweaks:oxidized_copper_chain",
+    "affogatotweaks:waxed_copper_chain",
+    "affogatotweaks:waxed_exposed_copper_chain",
+    "affogatotweaks:waxed_weathered_copper_chain",
+    "affogatotweaks:waxed_oxidized_copper_chain"
+  ],
+  "shortcuts": [
+    {
+      "type": "link",
+      "target": "itemswapper:v2/copper/copper_trapdoor"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/copper/copper_grate"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/copper/copper_door"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/copper/copper_bulbs"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/copper/copper_chains"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/copper/copper_bars"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/copper/copper_lanterns"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/copper/lightning_rods"
+    },
+    {
+      "type": "link",
+      "target": "itemswapper:v2/copper/honeycomb_type"
+    }
+  ]
+}

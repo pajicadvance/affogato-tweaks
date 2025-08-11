@@ -1,6 +1,7 @@
 package me.pajic.affogatotweaks;
 
 import me.pajic.affogatotweaks.block.ModBlocks;
+import me.pajic.affogatotweaks.datapack.ModDatapacks;
 import me.pajic.affogatotweaks.effect.StatBoostEffects;
 import me.pajic.affogatotweaks.item.ModItems;
 import me.pajic.affogatotweaks.mixson.MixsonInitializer;
@@ -17,11 +18,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.monster.Zombie;
 
 public class Main implements ModInitializer {
+    public static final String MOD_ID = "affogatotweaks";
     public static final boolean DEBUG = FabricLoader.getInstance().isDevelopmentEnvironment();
     public static EntityDataAccessor<Boolean> IS_LEADER = SynchedEntityData.defineId(Zombie.class, EntityDataSerializers.BOOLEAN);
 
     @Override
     public void onInitialize() {
+        ModDatapacks.init();
         ModTags.init();
         ModParticles.init();
         ModBlocks.init();
@@ -37,6 +40,6 @@ public class Main implements ModInitializer {
     }
 
     public static ResourceLocation withModNamespace(String path) {
-        return ResourceLocation.fromNamespaceAndPath("affogatotweaks", path);
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 }

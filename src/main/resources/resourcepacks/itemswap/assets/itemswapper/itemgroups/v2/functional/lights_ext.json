@@ -1,0 +1,8 @@
+{
+  "type": "paletteModification",
+  "target": "itemswapper:v2/functional/lights",
+  "addItems": [
+    "affogatotweaks:copper_torch",
+    "affogatotweaks:copper_lantern"
+  ]
+}
