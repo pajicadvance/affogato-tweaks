@@ -15,7 +15,9 @@ public class ClientMain implements ClientModInitializer {
         MixsonClientInitializer.init();
         ParticleFactoryRegistry.getInstance().register(ModParticles.COPPER_FLAME, FlameParticle.Provider::new);
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(),
-                ModBlocks.COPPER_TORCH, ModBlocks.COPPER_WALL_TORCH
+                ModBlocks.COPPER_TORCH, ModBlocks.COPPER_WALL_TORCH,
+                ModBlocks.EXPOSED_LIGHTNING_ROD, ModBlocks.WEATHERED_LIGHTNING_ROD, ModBlocks.OXIDIZED_LIGHTNING_ROD,
+                ModBlocks.WAXED_LIGHTNING_ROD, ModBlocks.WAXED_EXPOSED_LIGHTNING_ROD, ModBlocks.WAXED_WEATHERED_LIGHTNING_ROD, ModBlocks.WAXED_OXIDIZED_LIGHTNING_ROD
         );
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutoutMipped(),
                 ModBlocks.COPPER_BARS, ModBlocks.EXPOSED_COPPER_BARS, ModBlocks.WEATHERED_COPPER_BARS, ModBlocks.OXIDIZED_COPPER_BARS,

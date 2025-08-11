@@ -7,7 +7,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.ItemStack;
@@ -20,7 +19,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 public class ModPotions {
     public static final Potion ABSORPTION = Registry.register(
             BuiltInRegistries.POTION,
-            ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "absorption"),
+            Main.withModNamespace("absorption"),
             new Potion(
                     "absorption",
                     new MobEffectInstance(MobEffects.ABSORPTION, 2400, 0)
@@ -28,7 +27,7 @@ public class ModPotions {
     );
     public static final Potion LONG_ABSORPTION = Registry.register(
             BuiltInRegistries.POTION,
-            ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "long_absorption"),
+            Main.withModNamespace("long_absorption"),
             new Potion(
                     "absorption",
                     new MobEffectInstance(MobEffects.ABSORPTION, 4800, 0)
@@ -36,7 +35,7 @@ public class ModPotions {
     );
     public static final Potion STRONG_ABSORPTION = Registry.register(
             BuiltInRegistries.POTION,
-            ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "strong_absorption"),
+            Main.withModNamespace("strong_absorption"),
             new Potion(
                     "absorption",
                     new MobEffectInstance(MobEffects.ABSORPTION, 1200, 1)
@@ -44,7 +43,7 @@ public class ModPotions {
     );
     public static final Potion LIFE_ELIXIR = Registry.register(
             BuiltInRegistries.POTION,
-            ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "life_elixir"),
+            Main.withModNamespace("life_elixir"),
             new Potion(
                     "life_elixir",
                     new MobEffectInstance(MobEffects.REGENERATION, 400, 1),
@@ -55,7 +54,7 @@ public class ModPotions {
     );
     public static final Potion DECAY = Registry.register(
             BuiltInRegistries.POTION,
-            ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "decay"),
+            Main.withModNamespace("decay"),
             new Potion(
                     "decay",
                     new MobEffectInstance(MobEffects.WITHER, 800, 0)
@@ -63,7 +62,7 @@ public class ModPotions {
     );
     public static final Potion LONG_DECAY = Registry.register(
             BuiltInRegistries.POTION,
-            ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "long_decay"),
+            Main.withModNamespace("long_decay"),
             new Potion(
                     "decay",
                     new MobEffectInstance(MobEffects.WITHER, 1200, 0)
@@ -71,7 +70,7 @@ public class ModPotions {
     );
     public static final Potion STRONG_DECAY = Registry.register(
             BuiltInRegistries.POTION,
-            ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "strong_decay"),
+            Main.withModNamespace("strong_decay"),
             new Potion(
                     "decay",
                     new MobEffectInstance(MobEffects.WITHER, 400, 1)
@@ -81,7 +80,7 @@ public class ModPotions {
     public static boolean isLifeElixir(ItemStack stack) {
         PotionContents potionContents = stack.get(DataComponents.POTION_CONTENTS);
         return potionContents != null && potionContents.potion().orElse(Potions.WATER).is(
-                ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, "life_elixir")
+                Main.withModNamespace("life_elixir")
         );
     }
 

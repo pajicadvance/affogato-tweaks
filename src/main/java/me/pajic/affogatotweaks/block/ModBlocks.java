@@ -6,7 +6,6 @@ import me.pajic.affogatotweaks.values.MiscValues;
 import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.PushReaction;
@@ -114,11 +113,41 @@ public class ModBlocks {
     public static final Block WAXED_OXIDIZED_COPPER_CHAIN = registerModBlock("waxed_oxidized_copper_chain",
             new ChainBlock(BlockBehaviour.Properties.ofFullCopy(OXIDIZED_COPPER_CHAIN))
     );
+    public static final Block EXPOSED_LIGHTNING_ROD = registerModBlock("exposed_lightning_rod",
+            new WeatheringLightningRodBlock(
+                    WeatheringCopper.WeatherState.EXPOSED,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHTNING_ROD)
+            )
+    );
+    public static final Block WEATHERED_LIGHTNING_ROD = registerModBlock("weathered_lightning_rod",
+            new WeatheringLightningRodBlock(
+                    WeatheringCopper.WeatherState.WEATHERED,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHTNING_ROD)
+            )
+    );
+    public static final Block OXIDIZED_LIGHTNING_ROD = registerModBlock("oxidized_lightning_rod",
+            new WeatheringLightningRodBlock(
+                    WeatheringCopper.WeatherState.OXIDIZED,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHTNING_ROD)
+            )
+    );
+    public static final Block WAXED_LIGHTNING_ROD = registerModBlock("waxed_lightning_rod",
+            new LightningRodBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHTNING_ROD))
+    );
+    public static final Block WAXED_EXPOSED_LIGHTNING_ROD = registerModBlock("waxed_exposed_lightning_rod",
+            new LightningRodBlock(BlockBehaviour.Properties.ofFullCopy(EXPOSED_LIGHTNING_ROD))
+    );
+    public static final Block WAXED_WEATHERED_LIGHTNING_ROD = registerModBlock("waxed_weathered_lightning_rod",
+            new LightningRodBlock(BlockBehaviour.Properties.ofFullCopy(WEATHERED_LIGHTNING_ROD))
+    );
+    public static final Block WAXED_OXIDIZED_LIGHTNING_ROD = registerModBlock("waxed_oxidized_lightning_rod",
+            new LightningRodBlock(BlockBehaviour.Properties.ofFullCopy(OXIDIZED_LIGHTNING_ROD))
+    );
 
     private static Block registerModBlock(String name, Block block) {
         return Registry.register(
                 BuiltInRegistries.BLOCK,
-                ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, name),
+                Main.withModNamespace(name),
                 block
         );
     }
@@ -144,6 +173,10 @@ public class ModBlocks {
         addOxidizableBlockSet(
                 COPPER_CHAIN, EXPOSED_COPPER_CHAIN, WEATHERED_COPPER_CHAIN, OXIDIZED_COPPER_CHAIN,
                 WAXED_COPPER_CHAIN, WAXED_EXPOSED_COPPER_CHAIN, WAXED_WEATHERED_COPPER_CHAIN, WAXED_OXIDIZED_COPPER_CHAIN
+        );
+        addOxidizableBlockSet(
+                Blocks.LIGHTNING_ROD, EXPOSED_LIGHTNING_ROD, WEATHERED_LIGHTNING_ROD, OXIDIZED_LIGHTNING_ROD,
+                WAXED_LIGHTNING_ROD, WAXED_EXPOSED_LIGHTNING_ROD, WAXED_WEATHERED_LIGHTNING_ROD, WAXED_OXIDIZED_LIGHTNING_ROD
         );
     }
 }

@@ -35,5 +35,12 @@
   "block.affogatotweaks.waxed_copper_chain": "Waxed Copper Chain",
   "block.affogatotweaks.waxed_exposed_copper_chain": "Waxed Exposed Copper Chain",
   "block.affogatotweaks.waxed_weathered_copper_chain": "Waxed Weathered Copper Chain",
-  "block.affogatotweaks.waxed_oxidized_copper_chain": "Waxed Oxidized Copper Chain"
+  "block.affogatotweaks.waxed_oxidized_copper_chain": "Waxed Oxidized Copper Chain",
+  "block.affogatotweaks.exposed_lightning_rod": "Exposed Lightning Rod",
+  "block.affogatotweaks.weathered_lightning_rod": "Weathered Lightning Rod",
+  "block.affogatotweaks.oxidized_lightning_rod": "Oxidized Lightning Rod",
+  "block.affogatotweaks.waxed_lightning_rod": "Waxed Lightning Rod",
+  "block.affogatotweaks.waxed_exposed_lightning_rod": "Waxed Exposed Lightning Rod",
+  "block.affogatotweaks.waxed_weathered_lightning_rod": "Waxed Weathered Lightning Rod",
+  "block.affogatotweaks.waxed_oxidized_lightning_rod": "Waxed Oxidized Lightning Rod"
 }

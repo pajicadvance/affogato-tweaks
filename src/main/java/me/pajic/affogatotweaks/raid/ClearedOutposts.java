@@ -1,6 +1,6 @@
 package me.pajic.affogatotweaks.raid;
 
-import me.pajic.affogatotweaks.Main;
+import me.pajic.affogatotweaks.tag.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -34,7 +34,7 @@ public class ClearedOutposts extends SavedData {
     }
 
     public static boolean isPillagerOutpost(ServerLevel level, BlockPos center) {
-        BlockPos pos = level.findNearestMapStructure(Main.OUTPOSTS, center, 1, false);
+        BlockPos pos = level.findNearestMapStructure(ModTags.OUTPOSTS, center, 1, false);
         return pos != null && center.distToCenterSqr(pos.getX(), center.getY(), pos.getZ()) < 2304;
     }
 

@@ -6,31 +6,27 @@ import me.pajic.affogatotweaks.item.ModItems;
 import me.pajic.affogatotweaks.mixson.MixsonInitializer;
 import me.pajic.affogatotweaks.particle.ModParticles;
 import me.pajic.affogatotweaks.potion.ModPotions;
+import me.pajic.affogatotweaks.poi.ModPoiTypes;
+import me.pajic.affogatotweaks.tag.ModTags;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.monster.Zombie;
-import net.minecraft.world.level.levelgen.structure.Structure;
 
 public class Main implements ModInitializer {
-    public static final String MOD_ID = "affogatotweaks";
     public static final boolean DEBUG = FabricLoader.getInstance().isDevelopmentEnvironment();
-    public static final TagKey<Structure> OUTPOSTS = TagKey.create(
-            Registries.STRUCTURE,
-            ResourceLocation.fromNamespaceAndPath(MOD_ID, "outposts")
-    );
     public static EntityDataAccessor<Boolean> IS_LEADER = SynchedEntityData.defineId(Zombie.class, EntityDataSerializers.BOOLEAN);
 
     @Override
     public void onInitialize() {
+        ModTags.init();
         ModParticles.init();
         ModBlocks.init();
         ModItems.init();
+        ModPoiTypes.init();
         StatBoostEffects.init();
         ModPotions.init();
         MixsonInitializer.init();
@@ -38,5 +34,9 @@ public class Main implements ModInitializer {
                 ResourceLocation.fromNamespaceAndPath(MOD_ID, "affogato_guide"),
                 new Item.Properties().stacksTo(1)
         );*/
+    }
+
+    public static ResourceLocation withModNamespace(String path) {
+        return ResourceLocation.fromNamespaceAndPath("affogatotweaks", path);
     }
 }

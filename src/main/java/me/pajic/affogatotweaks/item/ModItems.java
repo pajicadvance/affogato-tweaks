@@ -6,7 +6,6 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 
 public class ModItems {
@@ -64,11 +63,32 @@ public class ModItems {
     public static final Item WAXED_OXIDIZED_COPPER_CHAIN = registerModItem("waxed_oxidized_copper_chain",
             new BlockItem(ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN, new Item.Properties())
     );
+    public static final Item EXPOSED_LIGHTNING_ROD = registerModItem("exposed_lightning_rod",
+            new BlockItem(ModBlocks.EXPOSED_LIGHTNING_ROD, new Item.Properties())
+    );
+    public static final Item WEATHERED_LIGHTNING_ROD = registerModItem("weathered_lightning_rod",
+            new BlockItem(ModBlocks.WEATHERED_LIGHTNING_ROD, new Item.Properties())
+    );
+    public static final Item OXIDIZED_LIGHTNING_ROD = registerModItem("oxidized_lightning_rod",
+            new BlockItem(ModBlocks.OXIDIZED_LIGHTNING_ROD, new Item.Properties())
+    );
+    public static final Item WAXED_LIGHTNING_ROD = registerModItem("waxed_lightning_rod",
+            new BlockItem(ModBlocks.WAXED_LIGHTNING_ROD, new Item.Properties())
+    );
+    public static final Item WAXED_EXPOSED_LIGHTNING_ROD = registerModItem("waxed_exposed_lightning_rod",
+            new BlockItem(ModBlocks.WAXED_EXPOSED_LIGHTNING_ROD, new Item.Properties())
+    );
+    public static final Item WAXED_WEATHERED_LIGHTNING_ROD = registerModItem("waxed_weathered_lightning_rod",
+            new BlockItem(ModBlocks.WAXED_WEATHERED_LIGHTNING_ROD, new Item.Properties())
+    );
+    public static final Item WAXED_OXIDIZED_LIGHTNING_ROD = registerModItem("waxed_oxidized_lightning_rod",
+            new BlockItem(ModBlocks.WAXED_OXIDIZED_LIGHTNING_ROD, new Item.Properties())
+    );
 
     private static Item registerModItem(String name, Item item) {
         return Registry.register(
                 BuiltInRegistries.ITEM,
-                ResourceLocation.fromNamespaceAndPath(Main.MOD_ID, name),
+                Main.withModNamespace(name),
                 item
         );
     }
@@ -90,5 +110,11 @@ public class ModItems {
                     WAXED_COPPER_CHAIN, WAXED_EXPOSED_COPPER_CHAIN, WAXED_WEATHERED_COPPER_CHAIN, WAXED_OXIDIZED_COPPER_CHAIN
             );
         });
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.REDSTONE_BLOCKS).register(entries ->
+                entries.addAfter(Items.LIGHTNING_ROD,
+                        EXPOSED_LIGHTNING_ROD, WEATHERED_LIGHTNING_ROD, OXIDIZED_LIGHTNING_ROD,
+                        WAXED_LIGHTNING_ROD, WAXED_EXPOSED_LIGHTNING_ROD, WAXED_WEATHERED_LIGHTNING_ROD, WAXED_OXIDIZED_LIGHTNING_ROD
+                )
+        );
     }
 }

@@ -11,6 +11,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -23,7 +24,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class CopperChainBlock extends RotatedPillarBlock implements WeatheringCopper {
+public class CopperChainBlock extends RotatedPillarBlock implements WeatheringCopper, SimpleWaterloggedBlock {
     public static final MapCodec<CopperChainBlock> CODEC = RecordCodecBuilder.mapCodec(
             instance -> instance.group(WeatheringCopper.WeatherState.CODEC.fieldOf("weathering_state").forGetter(CopperChainBlock::getAge), propertiesCodec())
                     .apply(instance, CopperChainBlock::new)
