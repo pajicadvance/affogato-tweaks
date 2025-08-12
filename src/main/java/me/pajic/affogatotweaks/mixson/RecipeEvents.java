@@ -9,10 +9,12 @@ import java.util.Set;
 public class RecipeEvents {
     private static final Set<String> REMOVED_RECIPES = Set.of(
             "storagedrawers:recipe/obsidian_storage_upgrade",
+            "storagedrawers:recipe/copper_storage_upgrade",
             "storagedrawers:recipe/iron_storage_upgrade",
             "storagedrawers:recipe/gold_storage_upgrade",
             "storagedrawers:recipe/diamond_storage_upgrade",
             "storagedrawers:recipe/emerald_storage_upgrade",
+            "storagedrawers:recipe/netherite_storage_upgrade",
             "storagedrawers:recipe/void_upgrade",
             "storagedrawers:recipe/conversion_upgrade",
             "storagedrawers:recipe/illumination_upgrade",
