@@ -11,7 +11,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 
 @IfModLoaded("iris")
 @Mixin(value = ShaderPackSelectionList.class, remap = false)
@@ -23,8 +22,8 @@ public class ShaderPackSelectionListMixin {
     @WrapMethod(method = "addPackEntry")
     private void filter(int index, String name, Operation<Void> original) {
         try {
-            if (ShaderLock.shaderAllowed(name)) original.call(index, name);
-        } catch (IOException | NoSuchAlgorithmException e) {
+            if (ShaderLock.isShaderAllowed(name)) original.call(index, name);
+        } catch (IOException e) {
             LOGGER.error("Unable to check if shader is allowed", e);
         }
     }

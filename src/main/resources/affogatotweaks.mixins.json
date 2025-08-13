@@ -63,6 +63,7 @@
     "raid.RaidsMixin",
     "raid.ServerLevelMixin",
     "raid.VindicatorMixin",
+    "shaderlock.IrisConfigMixin",
     "stats.ArmorItemMixin",
     "stats.ArmorItemTypeMixin",
     "stats.ArmorMaterialsMixin",
