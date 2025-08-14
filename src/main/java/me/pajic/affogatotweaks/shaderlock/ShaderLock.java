@@ -35,10 +35,10 @@ public class ShaderLock {
                     try (Stream<Path> fileStream1 = Files.walk(shaderPackPath)) {
                         fileStream1.forEach(path -> {
                             try {
-                                String fileName = path.toString().substring(path.toString().lastIndexOf(File.separator) + 1);
-                                File f = path.toFile();
-                                if (!fileName.startsWith(".") && !f.isDirectory()) {
-                                    fileHashes.put(shaderPackPath.relativize(path).toString(), SHA256.calculateSHA256(path.toFile()));
+                                File file = path.toFile();
+                                String fileName = file.getName();
+                                if (!fileName.startsWith(".") && !file.isDirectory()) {
+                                    fileHashes.put(SHA256.calculateSHA256(path.toFile()), fileName);
                                 }
                             } catch (IOException | NoSuchAlgorithmException e) {
                                 LOGGER.error("Failed to process shader file", e);
@@ -50,7 +50,7 @@ public class ShaderLock {
                     SHADERS.put(shaderPackName, fileHashes);
                 } else if (shaderPack.isFile() && shaderPackName.endsWith(".zip")) {
                     try {
-                        SHADERS.put(shaderPackName, Map.of(shaderPackName, SHA256.calculateSHA256(shaderPack)));
+                        SHADERS.put(shaderPackName, Map.of(SHA256.calculateSHA256(shaderPack), shaderPackName));
                     } catch (IOException | NoSuchAlgorithmException e) {
                         LOGGER.error("Failed to process shader archive", e);
                     }
@@ -66,7 +66,7 @@ public class ShaderLock {
                 GSON.toJson(SHADERS.get(name), fw);
                 fw.flush();
             }
-        if (is != null) {
+        if (is != null && SHADERS.containsKey(name)) {
             return SHADERS.get(name).equals(GSON.fromJson(new InputStreamReader(is), new TypeToken<Map<String, String>>() {}.getType()));
         }
         return false;
