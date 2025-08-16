@@ -37,12 +37,18 @@ public abstract class AbstractSkeletonMixin extends Mob {
             SpawnGroupData spawnGroupData,
             CallbackInfoReturnable<SpawnGroupData> cir
     ) {
-        if (
-                getType() == EntityType.WITHER_SKELETON &&
-                level.getBiome(getOnPos()).is(Biomes.SOUL_SAND_VALLEY) &&
-                (spawnType == MobSpawnType.NATURAL || spawnType == MobSpawnType.SPAWN_EGG)
-        ) {
-            setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
+        if (getType() == EntityType.WITHER_SKELETON) {
+            if (
+                    level.getBiome(getOnPos()).is(Biomes.SOUL_SAND_VALLEY) &&
+                    (spawnType == MobSpawnType.NATURAL || spawnType == MobSpawnType.SPAWN_EGG)
+            ) {
+                setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
+            } else if (
+                    spawnType == MobSpawnType.STRUCTURE &&
+                    level.getRandom().nextFloat() < 0.2F
+            ) {
+                setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
+            }
         }
     }
 }

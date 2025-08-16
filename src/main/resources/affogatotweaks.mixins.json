@@ -33,6 +33,7 @@
     "gameplay.InventoryMixin",
     "gameplay.LightningBoltMixin",
     "gameplay.NetherBiomesMixin",
+    "gameplay.NetherFortressStructureMixin",
     "gameplay.ServerLevelMixin",
     "gameplay.TridentItemMixin",
     "hunger.BlockMixin",
