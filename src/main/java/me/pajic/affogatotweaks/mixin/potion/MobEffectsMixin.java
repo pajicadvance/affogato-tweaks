@@ -15,7 +15,7 @@ public class MobEffectsMixin {
                     args = "intValue=2445989"
             )
     )
-    private static int changeAbsorptionColorToGold(int original) {
-        return 0xEFBF04;
+    private static int changeAbsorptionColor(int original) {
+        return 0xFEE342;
     }
 }
