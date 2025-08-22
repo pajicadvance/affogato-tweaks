@@ -41,39 +41,41 @@ public abstract class MobMixin extends LivingEntity {
     }
 
     @Unique private int buffLevel = 0;
+    @Unique private boolean shouldDropRewards = false;
 
     @Inject(
             method = "finalizeSpawn",
             at = @At("TAIL")
     )
     private void applyEffects(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, SpawnGroupData spawnGroupData, CallbackInfoReturnable<SpawnGroupData> cir) {
-        if (
-                (getType() == EntityType.PIGLIN && getWeaponItem().is(Items.CROSSBOW)) ||
-                (getType() == EntityType.WITHER_SKELETON && level.getBiome(getOnPos()).is(Biomes.SOUL_SAND_VALLEY))
-        ) {
-            applyEffects(MobValues.standardRangedEffects, level.getRandom(), spawnType, difficulty);
-        } else {
-            applyEffects(MobValues.MOB_EFFECTS.getOrDefault(getType(), Set.of()), level.getRandom(), spawnType, difficulty);
-        }
-        if (getMaxHealth() > 20.0F) heal(getMaxHealth());
-        if (Main.DEBUG && buffLevel > 0) {
-            System.out.println("buff level " + buffLevel + " " + getName().getString() + " at " + getX() + " " + getY() + " " + getZ());
+        if (!MobSpawnType.isSpawner(spawnType)) {
+            shouldDropRewards = true;
+            if (
+                    (getType() == EntityType.PIGLIN && getWeaponItem().is(Items.CROSSBOW)) ||
+                    (getType() == EntityType.WITHER_SKELETON && level.getBiome(getOnPos()).is(Biomes.SOUL_SAND_VALLEY))
+            ) {
+                applyEffects(MobValues.standardRangedEffects, level.getRandom(), difficulty);
+            } else {
+                applyEffects(MobValues.MOB_EFFECTS.getOrDefault(getType(), Set.of()), level.getRandom(), difficulty);
+            }
+            if (getMaxHealth() > 20.0F) heal(getMaxHealth());
+            if (Main.DEBUG && buffLevel > 0) {
+                System.out.println("buff level " + buffLevel + " " + getName().getString() + " at " + getX() + " " + getY() + " " + getZ());
+            }
         }
     }
 
     @Unique
-    private void applyEffects(Set<Holder<MobEffect>> effects, RandomSource random, MobSpawnType spawnType, DifficultyInstance difficulty) {
-        if (!MobSpawnType.isSpawner(spawnType)) {
-            if (random.nextFloat() < Mth.lerp(difficulty.getSpecialMultiplier(), MobValues.BUFFED_MOB_MIN_CHANCE, MobValues.BUFFED_MOB_MAX_CHANCE)) {
-                effects.forEach(mobEffect -> {
-                    if (random.nextFloat() < 0.1F * difficulty.getEffectiveDifficulty()) {
-                        int maxAmplifier = MobValues.MAX_EFFECT_AMPLIFIERS.getOrDefault(mobEffect, 0);
-                        int amplifier = Mth.clamp(Math.round(difficulty.getSpecialMultiplier() * random.nextFloat() * maxAmplifier * maxAmplifier), 0, maxAmplifier);
-                        addEffect(new MobEffectInstance(mobEffect, -1, amplifier));
-                        buffLevel += 1 + amplifier;
-                    }
-                });
-            }
+    private void applyEffects(Set<Holder<MobEffect>> effects, RandomSource random, DifficultyInstance difficulty) {
+        if (random.nextFloat() < Mth.lerp(difficulty.getSpecialMultiplier(), MobValues.BUFFED_MOB_MIN_CHANCE, MobValues.BUFFED_MOB_MAX_CHANCE)) {
+            effects.forEach(mobEffect -> {
+                if (random.nextFloat() < 0.1F * difficulty.getEffectiveDifficulty()) {
+                    int maxAmplifier = MobValues.MAX_EFFECT_AMPLIFIERS.getOrDefault(mobEffect, 0);
+                    int amplifier = Mth.clamp(Math.round(difficulty.getSpecialMultiplier() * random.nextFloat() * maxAmplifier * maxAmplifier), 0, maxAmplifier);
+                    addEffect(new MobEffectInstance(mobEffect, -1, amplifier));
+                    buffLevel += 1 + amplifier;
+                }
+            });
         }
     }
 
@@ -82,14 +84,19 @@ public abstract class MobMixin extends LivingEntity {
             at = @At("TAIL")
     )
     private void dropRewardsIfBuffed(ServerLevel level, DamageSource damageSource, boolean recentlyHit, CallbackInfo ci) {
-        if (lastHurtByPlayerTime > 0 && level.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)) {
+        if (shouldDropRewards && lastHurtByPlayerTime > 0 && level.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)) {
             int maxBuffLevel = 0;
             for (Holder<MobEffect> mobEffect : MobValues.MOB_EFFECTS.getOrDefault(getType(), Set.of())) {
                 maxBuffLevel += 1 + MobValues.MAX_EFFECT_AMPLIFIERS.getOrDefault(mobEffect, 0);
             }
             Mob mob = (Mob) (Object) this;
             if (mob instanceof Zombie zombie && zombie.getEntityData().get(Main.IS_LEADER)) buffLevel += 6;
-            mob.getArmorSlots().forEach(armorSlot -> {if (!armorSlot.isEmpty()) buffLevel++;});
+            for (ItemStack armorSlot : mob.getArmorSlots()) {
+                if (!armorSlot.isEmpty()) {
+                    buffLevel++;
+                    maxBuffLevel++;
+                }
+            }
             int buffLevelThreshold = Math.round(maxBuffLevel * (2F / 3));
             if (Main.DEBUG) System.out.println("max " + maxBuffLevel + " threshold " + buffLevelThreshold + " current " + buffLevel);
             if (buffLevel > buffLevelThreshold) {
@@ -114,6 +121,7 @@ public abstract class MobMixin extends LivingEntity {
     )
     private void saveMobBuffLevel(CompoundTag compound, CallbackInfo ci) {
         compound.putInt("BuffLevel", buffLevel);
+        compound.putBoolean("ShouldDropRewards", shouldDropRewards);
     }
 
     @Inject(
@@ -122,5 +130,6 @@ public abstract class MobMixin extends LivingEntity {
     )
     private void loadMobBuffLevel(CompoundTag compound, CallbackInfo ci) {
         buffLevel = compound.getInt("BuffLevel");
+        shouldDropRewards = compound.getBoolean("ShouldDropRewards");
     }
 }
