@@ -33,6 +33,7 @@
     "gameplay.HoglinMixin",
     "gameplay.InventoryMixin",
     "gameplay.LightningBoltMixin",
+    "gameplay.LightningRodBlockMixin",
     "gameplay.MobMixin",
     "gameplay.NetherBiomesMixin",
     "gameplay.NetherFortressStructureMixin",
