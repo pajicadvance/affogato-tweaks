@@ -51,7 +51,7 @@ public class ShaderLock {
                     } catch (IOException e) {
                         LOGGER.error("Failed to process shader directory", e);
                     }
-                    fileHashes.sort(Comparator.comparing(ObjectObjectImmutablePair::right));
+                    fileHashes.sort(Comparator.comparing((ObjectObjectImmutablePair<String, String> p) -> p.right()).thenComparing(p -> p.left()));
                     SHADERS.put(shaderPackName, fileHashes);
                 } else if (shaderPack.isFile() && shaderPackName.endsWith(".zip")) {
                     try {

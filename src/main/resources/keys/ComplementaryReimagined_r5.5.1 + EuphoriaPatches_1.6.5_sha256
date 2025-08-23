@@ -184,11 +184,11 @@
     "right": "composite.fsh"
   },
   {
-    "left": "db3c2ad93c83c87a765f22c1e442d3656729f243f0116aef94acdfd0018eb0be",
+    "left": "4913549a8f6d3de4a825715a09fd66193b1737c0318d5a62341a80a1f2d946d4",
     "right": "composite.fsh"
   },
   {
-    "left": "4913549a8f6d3de4a825715a09fd66193b1737c0318d5a62341a80a1f2d946d4",
+    "left": "db3c2ad93c83c87a765f22c1e442d3656729f243f0116aef94acdfd0018eb0be",
     "right": "composite.fsh"
   },
   {
@@ -200,15 +200,15 @@
     "right": "composite.glsl"
   },
   {
-    "left": "a7ced6577379ddd7ae085aba78c51ee1171cc4291076a08402bdcaa5b8f6cccf",
-    "right": "composite.vsh"
-  },
-  {
     "left": "5079ae1107daaffeefa59c73ba5cf772ce0cf8d812d211e0916d3be053826e13",
     "right": "composite.vsh"
   },
   {
     "left": "730b590147f87d54b4e3fda060273cdc3e5f1e537e320b62f14db7d0a1cf8141",
+    "right": "composite.vsh"
+  },
+  {
+    "left": "a7ced6577379ddd7ae085aba78c51ee1171cc4291076a08402bdcaa5b8f6cccf",
     "right": "composite.vsh"
   },
   {
@@ -232,10 +232,6 @@
     "right": "composite2.glsl"
   },
   {
-    "left": "efd92c8fb096557c39c248eef88eb80b111569509ccdfd37abd826de2134ca64",
-    "right": "composite2.vsh"
-  },
-  {
     "left": "2d7a610966d8ea182a1bb0d56d6f0766becb49480f65b4342bb227ea4261030b",
     "right": "composite2.vsh"
   },
@@ -244,11 +240,15 @@
     "right": "composite2.vsh"
   },
   {
-    "left": "6399cad51dbea7a7b11086f62f707a5760b96931efa94bc1f05f771fdf09fb34",
-    "right": "composite3.fsh"
+    "left": "efd92c8fb096557c39c248eef88eb80b111569509ccdfd37abd826de2134ca64",
+    "right": "composite2.vsh"
   },
   {
     "left": "2adeecf3b590f19148565cd52528063bf958a99a1dd06785783b5387807daaa9",
+    "right": "composite3.fsh"
+  },
+  {
+    "left": "6399cad51dbea7a7b11086f62f707a5760b96931efa94bc1f05f771fdf09fb34",
     "right": "composite3.fsh"
   },
   {
@@ -264,6 +264,10 @@
     "right": "composite3.glsl"
   },
   {
+    "left": "930805494e345490642ad17bde4c1f16e0ab1fcdb2c621ea9a548730b5d7c264",
+    "right": "composite3.vsh"
+  },
+  {
     "left": "be5b6dcbde18a77fe5313a5768abeef223f78c991eac2cc38c43d475b311d2bd",
     "right": "composite3.vsh"
   },
@@ -272,19 +276,15 @@
     "right": "composite3.vsh"
   },
   {
-    "left": "930805494e345490642ad17bde4c1f16e0ab1fcdb2c621ea9a548730b5d7c264",
-    "right": "composite3.vsh"
-  },
-  {
-    "left": "5ef8ff0f6b6f8823667e8cac5da949d84fe6ef27935c16925aecefcd9f123f70",
-    "right": "composite4.fsh"
-  },
-  {
     "left": "1690bbd43a9fd3200a076ee908e65d0411e463978d620efa921b3e54b2022e59",
     "right": "composite4.fsh"
   },
   {
     "left": "21c3c8a51a75a041e3f2f3e876f64c7813d3411d863eaa7a476f2ef13e9105ee",
+    "right": "composite4.fsh"
+  },
+  {
+    "left": "5ef8ff0f6b6f8823667e8cac5da949d84fe6ef27935c16925aecefcd9f123f70",
     "right": "composite4.fsh"
   },
   {
@@ -304,15 +304,15 @@
     "right": "composite4.vsh"
   },
   {
-    "left": "fb1b58a23d4eb2e43d7aaadb347a2225e977ab618de261d01198fcc3eb075715",
-    "right": "composite5.fsh"
-  },
-  {
     "left": "8ec2d24db0523a977a00a5eff037e392ca48666a28bd9ef5ba7db5d26b5b6bf9",
     "right": "composite5.fsh"
   },
   {
     "left": "c0192588bb08f6239881aa4dafc3ac68e9adb71958861076ba1b746e1825f0dc",
+    "right": "composite5.fsh"
+  },
+  {
+    "left": "fb1b58a23d4eb2e43d7aaadb347a2225e977ab618de261d01198fcc3eb075715",
     "right": "composite5.fsh"
   },
   {
@@ -324,7 +324,7 @@
     "right": "composite5.glsl"
   },
   {
-    "left": "f87d7e1480659b576bf2d114f2ce119fe7ed1c7286b34d0c23cb4513fdca9bce",
+    "left": "6733277d54b9c982c522d232546ba1f8ef206cdaa60a012459bcf7b0e272e030",
     "right": "composite5.vsh"
   },
   {
@@ -332,12 +332,8 @@
     "right": "composite5.vsh"
   },
   {
-    "left": "6733277d54b9c982c522d232546ba1f8ef206cdaa60a012459bcf7b0e272e030",
+    "left": "f87d7e1480659b576bf2d114f2ce119fe7ed1c7286b34d0c23cb4513fdca9bce",
     "right": "composite5.vsh"
-  },
-  {
-    "left": "f6cc7abff796b7ab687cab5775c3d37db57f9771cec622b06193601b8d9604b9",
-    "right": "composite6.fsh"
   },
   {
     "left": "1a81d1b0a2bf7356f8b42eb5842e6821dc76e21266fe2ab846fa31af00b24b93",
@@ -345,6 +341,10 @@
   },
   {
     "left": "c4a6ad129cc129d1b060955a544494351232aca35fbfa55239e81bdb8f788a87",
+    "right": "composite6.fsh"
+  },
+  {
+    "left": "f6cc7abff796b7ab687cab5775c3d37db57f9771cec622b06193601b8d9604b9",
     "right": "composite6.fsh"
   },
   {
@@ -368,11 +368,11 @@
     "right": "composite7.fsh"
   },
   {
-    "left": "fae1e1e49cd84e0bae0f28bb69e151186cf2f50d22aaa9c1d088384647e72583",
+    "left": "f3ba0a7a1b79e3bb78ab5dae1adf4cfe0910f3dccddc029728c22f0e304ac133",
     "right": "composite7.fsh"
   },
   {
-    "left": "f3ba0a7a1b79e3bb78ab5dae1adf4cfe0910f3dccddc029728c22f0e304ac133",
+    "left": "fae1e1e49cd84e0bae0f28bb69e151186cf2f50d22aaa9c1d088384647e72583",
     "right": "composite7.fsh"
   },
   {
@@ -384,19 +384,19 @@
     "right": "composite7.vsh"
   },
   {
-    "left": "e472077e1da91a41fd104716cc8fece93ea9315392d7c970976b9e86a0e19e21",
-    "right": "composite7.vsh"
-  },
-  {
     "left": "b9d0aed97ef625a89019eb62ff4bb780ce6ea3a048afdc96bb1203a81b730161",
     "right": "composite7.vsh"
   },
   {
-    "left": "2423580e99d7e684ac5ffdabf3bb55cb1a9fccd59abe2fe6b3223eadec462189",
-    "right": "composite8.fsh"
+    "left": "e472077e1da91a41fd104716cc8fece93ea9315392d7c970976b9e86a0e19e21",
+    "right": "composite7.vsh"
   },
   {
     "left": "22751ada33a2d2c12b98a3d21a86b1a39b2c56dfa34219bd08d9ddc951d67f7d",
+    "right": "composite8.fsh"
+  },
+  {
+    "left": "2423580e99d7e684ac5ffdabf3bb55cb1a9fccd59abe2fe6b3223eadec462189",
     "right": "composite8.fsh"
   },
   {
@@ -408,20 +408,16 @@
     "right": "composite8.glsl"
   },
   {
-    "left": "86a871c24ae5f9faf00d2a0eeadf0eaef2a45f2fd98523bbe44d497c83b94fff",
+    "left": "42100c4725c187f6097aa01c7378585f270f406282f5869488ab0319c8a47869",
     "right": "composite8.vsh"
   },
   {
-    "left": "42100c4725c187f6097aa01c7378585f270f406282f5869488ab0319c8a47869",
+    "left": "86a871c24ae5f9faf00d2a0eeadf0eaef2a45f2fd98523bbe44d497c83b94fff",
     "right": "composite8.vsh"
   },
   {
     "left": "a6b935dc3f27a9b489eac29117004578fe25487c263a8fbe60cebd02ee2086ad",
     "right": "composite8.vsh"
-  },
-  {
-    "left": "9a25d3c538baa11ff6c6c9d93b7121b06ce1da836e6b798ece9f81bc2ee6ed84",
-    "right": "composite9.fsh"
   },
   {
     "left": "23dfb13ef22a33d904f0fcf6317f4dc0d01b74bcf771a2dab6f702e625de1540",
@@ -432,8 +428,16 @@
     "right": "composite9.fsh"
   },
   {
+    "left": "9a25d3c538baa11ff6c6c9d93b7121b06ce1da836e6b798ece9f81bc2ee6ed84",
+    "right": "composite9.fsh"
+  },
+  {
     "left": "0d90626628a4e859687b00b2383a60e2d5ddf4284fc580c289045b8032e0df0f",
     "right": "composite9.glsl"
+  },
+  {
+    "left": "13c2953f211980b0d29e0c7143a2568da003a1aaa2205f42f9805775ce72558d",
+    "right": "composite9.vsh"
   },
   {
     "left": "1b6b89c73567e5e6be475020fc54ef665d341b35e354fdd199d02d0da64c2c12",
@@ -441,10 +445,6 @@
   },
   {
     "left": "5997649ee23f38130133facfd7aede14b3658387b5bd9f9d313858ad93ea4aa0",
-    "right": "composite9.vsh"
-  },
-  {
-    "left": "13c2953f211980b0d29e0c7143a2568da003a1aaa2205f42f9805775ce72558d",
     "right": "composite9.vsh"
   },
   {
@@ -504,7 +504,7 @@
     "right": "deepslate.glsl"
   },
   {
-    "left": "ba74cea53ea240fef0858d9f898d2d3a5e18017cabff5eda4fb7e93ddd22e2db",
+    "left": "765473c0ee46489763ab7e323b4e128b383f2b645b0d02fbc08e859e612a217d",
     "right": "deferred1.fsh"
   },
   {
@@ -512,7 +512,7 @@
     "right": "deferred1.fsh"
   },
   {
-    "left": "765473c0ee46489763ab7e323b4e128b383f2b645b0d02fbc08e859e612a217d",
+    "left": "ba74cea53ea240fef0858d9f898d2d3a5e18017cabff5eda4fb7e93ddd22e2db",
     "right": "deferred1.fsh"
   },
   {
@@ -524,15 +524,15 @@
     "right": "deferred1.glsl"
   },
   {
-    "left": "f3546299ae73d8f6157fc720b75fa29073ebeab589b32d94469c665b83d633d4",
-    "right": "deferred1.vsh"
-  },
-  {
     "left": "1eacc1cdef97d5c207d7bc11a4d0fb1100514f3775ed12f9f1c2e922afffa532",
     "right": "deferred1.vsh"
   },
   {
     "left": "d95408080dd559e50c36724e0896f519c3ec20a667b977cc0426b3c64ca45c0e",
+    "right": "deferred1.vsh"
+  },
+  {
+    "left": "f3546299ae73d8f6157fc720b75fa29073ebeab589b32d94469c665b83d633d4",
     "right": "deferred1.vsh"
   },
   {
@@ -556,7 +556,7 @@
     "right": "dh_terrain.glsl"
   },
   {
-    "left": "c4dca286140e005d7f42362d512c3445f4dd518bce32c2ab283e6613a7448e5c",
+    "left": "2a197eef1f327c3fe2f2124ecbda6c665ff9c2525388058514d13e4039c583d0",
     "right": "dh_terrain.vsh"
   },
   {
@@ -564,11 +564,11 @@
     "right": "dh_terrain.vsh"
   },
   {
-    "left": "2a197eef1f327c3fe2f2124ecbda6c665ff9c2525388058514d13e4039c583d0",
+    "left": "c4dca286140e005d7f42362d512c3445f4dd518bce32c2ab283e6613a7448e5c",
     "right": "dh_terrain.vsh"
   },
   {
-    "left": "ba26ddb1f53cb4b037edb5af44b50d4fa95f770e10150bd696419ad097b8a8ae",
+    "left": "3a4e06aaa098a9bf840b0fa6ccb43a813c8f58cdf02bdb21b0a9db44326de782",
     "right": "dh_water.fsh"
   },
   {
@@ -576,7 +576,7 @@
     "right": "dh_water.fsh"
   },
   {
-    "left": "3a4e06aaa098a9bf840b0fa6ccb43a813c8f58cdf02bdb21b0a9db44326de782",
+    "left": "ba26ddb1f53cb4b037edb5af44b50d4fa95f770e10150bd696419ad097b8a8ae",
     "right": "dh_water.fsh"
   },
   {
@@ -584,7 +584,7 @@
     "right": "dh_water.glsl"
   },
   {
-    "left": "d23405861221b8808f48373f66b9e35b189ea163893c7ab55d897a89bdc99f47",
+    "left": "5bbdea9280de93478973b257983537efb2dcf03cd23f9e12d9bdb544190c2122",
     "right": "dh_water.vsh"
   },
   {
@@ -592,7 +592,7 @@
     "right": "dh_water.vsh"
   },
   {
-    "left": "5bbdea9280de93478973b257983537efb2dcf03cd23f9e12d9bdb544190c2122",
+    "left": "d23405861221b8808f48373f66b9e35b189ea163893c7ab55d897a89bdc99f47",
     "right": "dh_water.vsh"
   },
   {
@@ -684,11 +684,11 @@
     "right": "entity.properties"
   },
   {
-    "left": "5cc38cff4aef0909347ca622b939699b751a04491f570641b2e4e85c676c1cb0",
+    "left": "597477d66777dc7393522812d98781b834065deac168b617e32342bc640d3f2c",
     "right": "entityMaterials.glsl"
   },
   {
-    "left": "597477d66777dc7393522812d98781b834065deac168b617e32342bc640d3f2c",
+    "left": "5cc38cff4aef0909347ca622b939699b751a04491f570641b2e4e85c676c1cb0",
     "right": "entityMaterials.glsl"
   },
   {
@@ -748,15 +748,15 @@
     "right": "euphoria_patches.png.mcmeta"
   },
   {
-    "left": "e3403360509fcc39221c872b25146cb6949bee3188ad055ea3fe6b88f97b95ad",
-    "right": "final.fsh"
-  },
-  {
     "left": "8e89dcd1f96b8f26d9206fb9c455d5e5ccd1f6cf86b4ad9cbc91737d393274ba",
     "right": "final.fsh"
   },
   {
     "left": "c198f9405b88acc405cf1740cf73cbe72e4bc01f9338b3c02b65401113354c27",
+    "right": "final.fsh"
+  },
+  {
+    "left": "e3403360509fcc39221c872b25146cb6949bee3188ad055ea3fe6b88f97b95ad",
     "right": "final.fsh"
   },
   {
@@ -768,11 +768,11 @@
     "right": "final.glsl"
   },
   {
-    "left": "3b76097f35e44744919e513bc5654ebbc06b032b93a5b29b6dea36bb9d9a05a9",
+    "left": "328062773e29d5b3852090b608e1c0b40b2d5a2fe9b8d7850cde2b6586046202",
     "right": "final.vsh"
   },
   {
-    "left": "328062773e29d5b3852090b608e1c0b40b2d5a2fe9b8d7850cde2b6586046202",
+    "left": "3b76097f35e44744919e513bc5654ebbc06b032b93a5b29b6dea36bb9d9a05a9",
     "right": "final.vsh"
   },
   {
@@ -788,10 +788,6 @@
     "right": "fxaa.glsl"
   },
   {
-    "left": "9ab1ebf4a50e43e96f5eb4257109d46f28a1be8a585e41a31740d088ae0653ee",
-    "right": "gbuffers_armor_glint.fsh"
-  },
-  {
     "left": "272af5abba939819cef823a680aebe1388bbe8c002d0ee284cf5979ddb8fc9fa",
     "right": "gbuffers_armor_glint.fsh"
   },
@@ -800,11 +796,15 @@
     "right": "gbuffers_armor_glint.fsh"
   },
   {
+    "left": "9ab1ebf4a50e43e96f5eb4257109d46f28a1be8a585e41a31740d088ae0653ee",
+    "right": "gbuffers_armor_glint.fsh"
+  },
+  {
     "left": "b27a254f3a04ad31f5639b8fe3d043e88966d7baa508ccd4f150bb4bac2c7ffe",
     "right": "gbuffers_armor_glint.glsl"
   },
   {
-    "left": "e7bd9ce4538efb63b48d6c0f5001c0e5eaa5d8f28388c348694c912feff8f74a",
+    "left": "311156f0053d4405db37d953a4b3fd89e8100de24644b713a17f6727e1598078",
     "right": "gbuffers_armor_glint.vsh"
   },
   {
@@ -812,7 +812,7 @@
     "right": "gbuffers_armor_glint.vsh"
   },
   {
-    "left": "311156f0053d4405db37d953a4b3fd89e8100de24644b713a17f6727e1598078",
+    "left": "e7bd9ce4538efb63b48d6c0f5001c0e5eaa5d8f28388c348694c912feff8f74a",
     "right": "gbuffers_armor_glint.vsh"
   },
   {
@@ -832,10 +832,6 @@
     "right": "gbuffers_basic.glsl"
   },
   {
-    "left": "fdc6618d6ac0056737f711aa786fc6b3be7d16a088438cc74e016cdb9f050247",
-    "right": "gbuffers_basic.vsh"
-  },
-  {
     "left": "60645ccd76d6f314461bd56880d249f903e0e440c7fbc3da22fc3900aedcdab9",
     "right": "gbuffers_basic.vsh"
   },
@@ -844,11 +840,15 @@
     "right": "gbuffers_basic.vsh"
   },
   {
-    "left": "36bae87ed41643853f4f7bdb7ef81ec603b9b7c3cff2701fac026b07b85276ae",
-    "right": "gbuffers_beaconbeam.fsh"
+    "left": "fdc6618d6ac0056737f711aa786fc6b3be7d16a088438cc74e016cdb9f050247",
+    "right": "gbuffers_basic.vsh"
   },
   {
     "left": "3002068fb867e383328979250eacf26cdd2f2884bb358ddf5f9cf6eb2b0cb86b",
+    "right": "gbuffers_beaconbeam.fsh"
+  },
+  {
+    "left": "36bae87ed41643853f4f7bdb7ef81ec603b9b7c3cff2701fac026b07b85276ae",
     "right": "gbuffers_beaconbeam.fsh"
   },
   {
@@ -860,15 +860,15 @@
     "right": "gbuffers_beaconbeam.glsl"
   },
   {
-    "left": "d7145f68d0ea197caf4834fbbaff9353575db5f681765437ecc91c3f532f1436",
-    "right": "gbuffers_beaconbeam.vsh"
-  },
-  {
     "left": "6665a728d85547234e8d27fafcd6b2d8041238e632fcf663385196a50e06dbb2",
     "right": "gbuffers_beaconbeam.vsh"
   },
   {
     "left": "768be9c7a23f046579603eb2f1d8ec4379d5745b798fd6e7dd92e1b2ac10fc5b",
+    "right": "gbuffers_beaconbeam.vsh"
+  },
+  {
+    "left": "d7145f68d0ea197caf4834fbbaff9353575db5f681765437ecc91c3f532f1436",
     "right": "gbuffers_beaconbeam.vsh"
   },
   {
@@ -888,7 +888,7 @@
     "right": "gbuffers_block.glsl"
   },
   {
-    "left": "fcc629bf45da4e6953a81b7dccb988b1b116e429c889d427a6b104e5dd340ad5",
+    "left": "bd8df9bb3403eedcc88baa7c27241dff319d8e8027a8b3c593d1c6639e872f36",
     "right": "gbuffers_block.vsh"
   },
   {
@@ -896,12 +896,8 @@
     "right": "gbuffers_block.vsh"
   },
   {
-    "left": "bd8df9bb3403eedcc88baa7c27241dff319d8e8027a8b3c593d1c6639e872f36",
+    "left": "fcc629bf45da4e6953a81b7dccb988b1b116e429c889d427a6b104e5dd340ad5",
     "right": "gbuffers_block.vsh"
-  },
-  {
-    "left": "a8b3b9df93cdb3dd1556bae1fc01a73f4f7a18749e641c296980edee586a635b",
-    "right": "gbuffers_clouds.fsh"
   },
   {
     "left": "3a0a5cc6e9b58088696dbf713d05180225f9d795f68cd663ad6f06eee906cdc0",
@@ -909,6 +905,10 @@
   },
   {
     "left": "7f4ff63219caa509f46e70cbf826a7db6942f7ebc8582134fde5720eadeb1f9c",
+    "right": "gbuffers_clouds.fsh"
+  },
+  {
+    "left": "a8b3b9df93cdb3dd1556bae1fc01a73f4f7a18749e641c296980edee586a635b",
     "right": "gbuffers_clouds.fsh"
   },
   {
@@ -920,12 +920,16 @@
     "right": "gbuffers_clouds.vsh"
   },
   {
+    "left": "807b889a642e626ea1e11dc4d21beb3b2be36d4fe8c871fbf86066754505c670",
+    "right": "gbuffers_clouds.vsh"
+  },
+  {
     "left": "9f52bef9794f7696d20f21d87f1966d2c0265b0d5e373b1e6a0b02876e83f016",
     "right": "gbuffers_clouds.vsh"
   },
   {
-    "left": "807b889a642e626ea1e11dc4d21beb3b2be36d4fe8c871fbf86066754505c670",
-    "right": "gbuffers_clouds.vsh"
+    "left": "4d92959d6e205e930a96ec9cb35182a7b8cc1ef7e16dc1148951298a5afdf4fb",
+    "right": "gbuffers_damagedblock.fsh"
   },
   {
     "left": "64f8deb6db2c412b272b5de9cbd99e68f3fd86edd27ebef7304bd3212b13313c",
@@ -936,12 +940,12 @@
     "right": "gbuffers_damagedblock.fsh"
   },
   {
-    "left": "4d92959d6e205e930a96ec9cb35182a7b8cc1ef7e16dc1148951298a5afdf4fb",
-    "right": "gbuffers_damagedblock.fsh"
-  },
-  {
     "left": "bc8002720ebbbd64274d76b30cbaf273eb2ef60b3986c0f0ec12a97a02a83d23",
     "right": "gbuffers_damagedblock.glsl"
+  },
+  {
+    "left": "425828dd29fcd3aeb6ca6aa8786a8f9f0ba21c1d138ebeceda08504a43793d93",
+    "right": "gbuffers_damagedblock.vsh"
   },
   {
     "left": "7d34cd1622050303f47327bb8d02cd05bff723b8c3b930e98e0a6d28beb25cb6",
@@ -952,11 +956,7 @@
     "right": "gbuffers_damagedblock.vsh"
   },
   {
-    "left": "425828dd29fcd3aeb6ca6aa8786a8f9f0ba21c1d138ebeceda08504a43793d93",
-    "right": "gbuffers_damagedblock.vsh"
-  },
-  {
-    "left": "e4ea21a627829c6b156b771107e8e93f067c882a3b355800c996901dbb223920",
+    "left": "667cdaa4ea324fa334ec713a04f6c3212276e8571ee1d4dd09b0aaef886f16ab",
     "right": "gbuffers_entities.fsh"
   },
   {
@@ -964,16 +964,12 @@
     "right": "gbuffers_entities.fsh"
   },
   {
-    "left": "667cdaa4ea324fa334ec713a04f6c3212276e8571ee1d4dd09b0aaef886f16ab",
+    "left": "e4ea21a627829c6b156b771107e8e93f067c882a3b355800c996901dbb223920",
     "right": "gbuffers_entities.fsh"
   },
   {
     "left": "fa4a21673fb3b51e64d69d96cfd6e397bb1d311c7fd713fb41cc790f09604d61",
     "right": "gbuffers_entities.glsl"
-  },
-  {
-    "left": "e4ad41ff1475bb113dc5d0b10cc5627fbe270125174ef371974645c82f376a35",
-    "right": "gbuffers_entities.vsh"
   },
   {
     "left": "52f7fc5beeb0df33972a803024aa1290efc892754a462668095bc946401e498b",
@@ -984,16 +980,24 @@
     "right": "gbuffers_entities.vsh"
   },
   {
-    "left": "5b886b66feaf381eb47753c9a1aca320a69f067b7a079c182a1e95f56a55ae8f",
-    "right": "gbuffers_entities_glowing.fsh"
+    "left": "e4ad41ff1475bb113dc5d0b10cc5627fbe270125174ef371974645c82f376a35",
+    "right": "gbuffers_entities.vsh"
   },
   {
     "left": "17be1d7aa46fb8d5a4a0e768be61e8775cad92324bee205794e9822da31824da",
     "right": "gbuffers_entities_glowing.fsh"
   },
   {
+    "left": "5b886b66feaf381eb47753c9a1aca320a69f067b7a079c182a1e95f56a55ae8f",
+    "right": "gbuffers_entities_glowing.fsh"
+  },
+  {
     "left": "9ef577558410886de2ee7ae9d9585aa953c106d691e36586aaf6dc17f0d79204",
     "right": "gbuffers_entities_glowing.fsh"
+  },
+  {
+    "left": "1698b9b31f40c1e9f0bfdd293a33c6ba3ef7c4d13cffdc4d0b8dc42a02ffcd25",
+    "right": "gbuffers_entities_glowing.vsh"
   },
   {
     "left": "b854a4555543bd8082b71870d1c857e217395ca0276a4f2fa6cc2834d4aec3ca",
@@ -1004,19 +1008,15 @@
     "right": "gbuffers_entities_glowing.vsh"
   },
   {
-    "left": "1698b9b31f40c1e9f0bfdd293a33c6ba3ef7c4d13cffdc4d0b8dc42a02ffcd25",
-    "right": "gbuffers_entities_glowing.vsh"
-  },
-  {
-    "left": "bfcf030d32a2802e8edf4634a16a0110b8ea9e454de52dd86dfd3876bc55441e",
-    "right": "gbuffers_hand.fsh"
-  },
-  {
     "left": "9ae7ca25a9bb007b100a0db3ec9f7db6d54f3c11e6c27c348b0adfab566869d9",
     "right": "gbuffers_hand.fsh"
   },
   {
     "left": "9e7fb8083b9599fe5497f244194fab0e55eb8a43905dbae2ecbcbc4f81e35e39",
+    "right": "gbuffers_hand.fsh"
+  },
+  {
+    "left": "bfcf030d32a2802e8edf4634a16a0110b8ea9e454de52dd86dfd3876bc55441e",
     "right": "gbuffers_hand.fsh"
   },
   {
@@ -1040,11 +1040,11 @@
     "right": "gbuffers_lightning.fsh"
   },
   {
-    "left": "cbace5537a84d46c2ad0ff9a43e0d011c8cdffe0fb9a503d3470ed96f6663506",
+    "left": "696db452d7257a9e7ebe147668f7da7a3cf59b97fc80c5871ff1a9571fb87a8b",
     "right": "gbuffers_lightning.fsh"
   },
   {
-    "left": "696db452d7257a9e7ebe147668f7da7a3cf59b97fc80c5871ff1a9571fb87a8b",
+    "left": "cbace5537a84d46c2ad0ff9a43e0d011c8cdffe0fb9a503d3470ed96f6663506",
     "right": "gbuffers_lightning.fsh"
   },
   {
@@ -1052,7 +1052,7 @@
     "right": "gbuffers_lightning.glsl"
   },
   {
-    "left": "89772ee3b136fd97fcab5769ac221d55b940ff14cbe1c850bfef93da3a7928ea",
+    "left": "6a0280909830c7c078e098e45cc9529c3aa1107b402fe17fb843a9334105f684",
     "right": "gbuffers_lightning.vsh"
   },
   {
@@ -1060,8 +1060,12 @@
     "right": "gbuffers_lightning.vsh"
   },
   {
-    "left": "6a0280909830c7c078e098e45cc9529c3aa1107b402fe17fb843a9334105f684",
+    "left": "89772ee3b136fd97fcab5769ac221d55b940ff14cbe1c850bfef93da3a7928ea",
     "right": "gbuffers_lightning.vsh"
+  },
+  {
+    "left": "1aff8003bb3faa95a4b066d226b604e348a23d5596e3c2316506da4c50368d4a",
+    "right": "gbuffers_line.fsh"
   },
   {
     "left": "3abba981e1b742cfd738d8d323a5c457bb9e811aef81ce55526fcf5772438843",
@@ -1072,8 +1076,8 @@
     "right": "gbuffers_line.fsh"
   },
   {
-    "left": "1aff8003bb3faa95a4b066d226b604e348a23d5596e3c2316506da4c50368d4a",
-    "right": "gbuffers_line.fsh"
+    "left": "0e6cf3a18bccfc40ff025e0c70a0d92f1d8c3c693828bc88cf0180933701e693",
+    "right": "gbuffers_line.vsh"
   },
   {
     "left": "2a366483233b9c443b7ac73a6b27e9de5208f0555e397f0843517c128d39d52f",
@@ -1084,19 +1088,15 @@
     "right": "gbuffers_line.vsh"
   },
   {
-    "left": "0e6cf3a18bccfc40ff025e0c70a0d92f1d8c3c693828bc88cf0180933701e693",
-    "right": "gbuffers_line.vsh"
-  },
-  {
     "left": "1652db0b6f44a14f891d7219efbc39e3fb8dbd684752f88003c5382148c65b07",
     "right": "gbuffers_skybasic.fsh"
   },
   {
-    "left": "f36b86314a1ff8bee3ee741fd2de67ab12f406b421bbbf77ae94f8c4ad0de865",
+    "left": "7ebd58151c96b32b622a715a809e2de361ed8c9f7ccc8988b611bd3423d2b8d0",
     "right": "gbuffers_skybasic.fsh"
   },
   {
-    "left": "7ebd58151c96b32b622a715a809e2de361ed8c9f7ccc8988b611bd3423d2b8d0",
+    "left": "f36b86314a1ff8bee3ee741fd2de67ab12f406b421bbbf77ae94f8c4ad0de865",
     "right": "gbuffers_skybasic.fsh"
   },
   {
@@ -1132,7 +1132,7 @@
     "right": "gbuffers_skytextured.glsl"
   },
   {
-    "left": "84568a7596408c9475bec4c8194374684876269aea6db8b55b2f12402e2cd46d",
+    "left": "07c56c404d10a7a878cc97f5ce4815e0b7cd0ce02f595f9e558513aba0fc0656",
     "right": "gbuffers_skytextured.vsh"
   },
   {
@@ -1140,8 +1140,12 @@
     "right": "gbuffers_skytextured.vsh"
   },
   {
-    "left": "07c56c404d10a7a878cc97f5ce4815e0b7cd0ce02f595f9e558513aba0fc0656",
+    "left": "84568a7596408c9475bec4c8194374684876269aea6db8b55b2f12402e2cd46d",
     "right": "gbuffers_skytextured.vsh"
+  },
+  {
+    "left": "0265f14d49add14932ec360ad377cebad46460456926ddf45bde1ea89c84c817",
+    "right": "gbuffers_spidereyes.fsh"
   },
   {
     "left": "2d7644f07b71ef9410cbfc57365a9e53f4284b466765e516a0515fbacd0035b9",
@@ -1152,15 +1156,11 @@
     "right": "gbuffers_spidereyes.fsh"
   },
   {
-    "left": "0265f14d49add14932ec360ad377cebad46460456926ddf45bde1ea89c84c817",
-    "right": "gbuffers_spidereyes.fsh"
-  },
-  {
     "left": "d7dccc13f7b673cc25b674876ae2efff620a362a6cb391ba562aaf0f236a211c",
     "right": "gbuffers_spidereyes.glsl"
   },
   {
-    "left": "8fa982dc39a03f0ccad71ec645bcd357300021789eac26ec2e13a1df155cda91",
+    "left": "351006474e6265445fee1bf0ce5991a3c63b3f2d8430c06268f84dbc0db2d896",
     "right": "gbuffers_spidereyes.vsh"
   },
   {
@@ -1168,7 +1168,7 @@
     "right": "gbuffers_spidereyes.vsh"
   },
   {
-    "left": "351006474e6265445fee1bf0ce5991a3c63b3f2d8430c06268f84dbc0db2d896",
+    "left": "8fa982dc39a03f0ccad71ec645bcd357300021789eac26ec2e13a1df155cda91",
     "right": "gbuffers_spidereyes.vsh"
   },
   {
@@ -1188,10 +1188,6 @@
     "right": "gbuffers_terrain.glsl"
   },
   {
-    "left": "c904199f8cabe527602b7210c5af66ed674eb35390e1f373ef370c0ac0a8b574",
-    "right": "gbuffers_terrain.vsh"
-  },
-  {
     "left": "19d53fc835cd03b2dadf2c1dd47b424db0acdb30d59004997b30bd5e1d4382c4",
     "right": "gbuffers_terrain.vsh"
   },
@@ -1200,15 +1196,19 @@
     "right": "gbuffers_terrain.vsh"
   },
   {
+    "left": "c904199f8cabe527602b7210c5af66ed674eb35390e1f373ef370c0ac0a8b574",
+    "right": "gbuffers_terrain.vsh"
+  },
+  {
+    "left": "32679bc8e53fbae101e1600a8a8f916e31656065a8399d13370bafa000bec46d",
+    "right": "gbuffers_textured.fsh"
+  },
+  {
     "left": "4834debabe6c73c3a985e9ebdde4da497b627659942624cd42b47e2f67657694",
     "right": "gbuffers_textured.fsh"
   },
   {
     "left": "639ca025197675cb750299107ebd7d9e32d740ec4a6864646f65a06a58a9faad",
-    "right": "gbuffers_textured.fsh"
-  },
-  {
-    "left": "32679bc8e53fbae101e1600a8a8f916e31656065a8399d13370bafa000bec46d",
     "right": "gbuffers_textured.fsh"
   },
   {
@@ -1228,7 +1228,7 @@
     "right": "gbuffers_textured.vsh"
   },
   {
-    "left": "bd986e253b1858a0c0b8502830199c630e7098345a65153ac798e61b8660261d",
+    "left": "20406eddb92d8b933171c7428a0426063cc95cc2424532157899bf27c4b1ae24",
     "right": "gbuffers_water.fsh"
   },
   {
@@ -1236,7 +1236,7 @@
     "right": "gbuffers_water.fsh"
   },
   {
-    "left": "20406eddb92d8b933171c7428a0426063cc95cc2424532157899bf27c4b1ae24",
+    "left": "bd986e253b1858a0c0b8502830199c630e7098345a65153ac798e61b8660261d",
     "right": "gbuffers_water.fsh"
   },
   {
@@ -1248,11 +1248,11 @@
     "right": "gbuffers_water.vsh"
   },
   {
-    "left": "e93b3cbef8afe23a5dc47ef62b523b6ea3a93c39e4a8523cb114b57982aefd43",
+    "left": "b32566b0cee0bc6a7ade17c43d0b6f5ebf4c65d038df5a2c1bf9c3145471855e",
     "right": "gbuffers_water.vsh"
   },
   {
-    "left": "b32566b0cee0bc6a7ade17c43d0b6f5ebf4c65d038df5a2c1bf9c3145471855e",
+    "left": "e93b3cbef8afe23a5dc47ef62b523b6ea3a93c39e4a8523cb114b57982aefd43",
     "right": "gbuffers_water.vsh"
   },
   {
@@ -1260,11 +1260,11 @@
     "right": "gbuffers_weather.fsh"
   },
   {
-    "left": "7e12dbe049a4e9c9b870253208f88eac59b87a956d577c5de24e31b852f30d54",
+    "left": "71d3c28b2925f315b483a2a2af64436e91166ab776b8631a812ff5037d9e7482",
     "right": "gbuffers_weather.fsh"
   },
   {
-    "left": "71d3c28b2925f315b483a2a2af64436e91166ab776b8631a812ff5037d9e7482",
+    "left": "7e12dbe049a4e9c9b870253208f88eac59b87a956d577c5de24e31b852f30d54",
     "right": "gbuffers_weather.fsh"
   },
   {
@@ -1272,15 +1272,15 @@
     "right": "gbuffers_weather.glsl"
   },
   {
+    "left": "db96a6ed0e8ab3a83eae2f5ba47afbd198457c577cd56d7559ac65d4050d1961",
+    "right": "gbuffers_weather.vsh"
+  },
+  {
     "left": "dbb2e116e5d0d1c9972cbcdec33119b90a5c6c97aa65a2579e366791a4a6e9a4",
     "right": "gbuffers_weather.vsh"
   },
   {
     "left": "ec413b395b72b8f87e63844971333e8f377517123ffe7a4d9f6045a3af61bd59",
-    "right": "gbuffers_weather.vsh"
-  },
-  {
-    "left": "db96a6ed0e8ab3a83eae2f5ba47afbd198457c577cd56d7559ac65d4050d1961",
     "right": "gbuffers_weather.vsh"
   },
   {
@@ -1372,11 +1372,11 @@
     "right": "lensFlare.glsl"
   },
   {
-    "left": "c6d28accacf95fdfcfd96dcf03b6059b5f523e2764c496987908d258a6ee509d",
+    "left": "8ec43bb472242d3e75d9aa6d825e53f6c28a57c474b2768cda362d2734f0ad6a",
     "right": "lightAndAmbientColors.glsl"
   },
   {
-    "left": "8ec43bb472242d3e75d9aa6d825e53f6c28a57c474b2768cda362d2734f0ad6a",
+    "left": "c6d28accacf95fdfcfd96dcf03b6059b5f523e2764c496987908d258a6ee509d",
     "right": "lightAndAmbientColors.glsl"
   },
   {
@@ -1392,19 +1392,19 @@
     "right": "mainClouds.glsl"
   },
   {
-    "left": "b6b70f60c604d201ade8a1fcffce87b89d0e73aec7de4d168cbd4fa93eb6950c",
-    "right": "mainFog.glsl"
-  },
-  {
     "left": "9d8d827a97b1df2c8ef9396718191219541187c744f08421d8aec25de8d822fa",
     "right": "mainFog.glsl"
   },
   {
-    "left": "e5a34bd3f1bf086c05142f7072ba6168c9beca2281e9ceffde5c9d522d414c80",
-    "right": "mainLighting.glsl"
+    "left": "b6b70f60c604d201ade8a1fcffce87b89d0e73aec7de4d168cbd4fa93eb6950c",
+    "right": "mainFog.glsl"
   },
   {
     "left": "37e3f2d36ff55f29a7905d526a757260ab602a0d6060d1c2f2157e8c1072c9d5",
+    "right": "mainLighting.glsl"
+  },
+  {
+    "left": "e5a34bd3f1bf086c05142f7072ba6168c9beca2281e9ceffde5c9d522d414c80",
     "right": "mainLighting.glsl"
   },
   {
@@ -1648,6 +1648,10 @@
     "right": "shaders.properties"
   },
   {
+    "left": "4890e939dc6c9cb74e45a608c09e68337c0f2ca4f144d190747258b4ea4b6337",
+    "right": "shadow.fsh"
+  },
+  {
     "left": "d9507bffc55e4ca4f67bd2e9610608ca9d249ccb4552168c5188aa98974fcef6",
     "right": "shadow.fsh"
   },
@@ -1656,12 +1660,12 @@
     "right": "shadow.fsh"
   },
   {
-    "left": "4890e939dc6c9cb74e45a608c09e68337c0f2ca4f144d190747258b4ea4b6337",
-    "right": "shadow.fsh"
-  },
-  {
     "left": "0b21db480a8d526e214d64e08d1899ab78e267dcfbb31584dadf04ad61c6bc42",
     "right": "shadow.glsl"
+  },
+  {
+    "left": "1ac230670f346eb77c014631a77977e08743ad29d6e6420ce8709bd8685135fd",
+    "right": "shadow.vsh"
   },
   {
     "left": "79bc0bee32baf8073f58dfef36929d76735d167f98756275a7aa91184fc91baa",
@@ -1672,16 +1676,8 @@
     "right": "shadow.vsh"
   },
   {
-    "left": "1ac230670f346eb77c014631a77977e08743ad29d6e6420ce8709bd8685135fd",
-    "right": "shadow.vsh"
-  },
-  {
     "left": "bacdd85dd406bbf221f050cd1ef700a31172d19e1fe32526641b6c9a48559625",
     "right": "shadowSampling.glsl"
-  },
-  {
-    "left": "dfa953edad6cd1b36ff3d91181f89f6072494fee1094013812c087a30e1379d3",
-    "right": "shadowcomp.csh"
   },
   {
     "left": "3ba948891f3e9d2c7fcd3683f1f75cf51ce6a4a93faf3a2cb279badb90c9004f",
@@ -1692,15 +1688,19 @@
     "right": "shadowcomp.csh"
   },
   {
+    "left": "dfa953edad6cd1b36ff3d91181f89f6072494fee1094013812c087a30e1379d3",
+    "right": "shadowcomp.csh"
+  },
+  {
     "left": "36155bca9bbcb082a004d29ec7138863ab0b966a3305d052b10a42747234c6a1",
     "right": "shadowcomp.glsl"
   },
   {
-    "left": "f7a30ea44684cd3934fb98becc0dc02b48a7b195a4da259eb6d747a1a1369db8",
+    "left": "e308cfbba5c5fe03dc1356beee492f9e6af6ee83baa14c6b9f28d3f47803fd9f",
     "right": "shockwave.glsl"
   },
   {
-    "left": "e308cfbba5c5fe03dc1356beee492f9e6af6ee83baa14c6b9f28d3f47803fd9f",
+    "left": "f7a30ea44684cd3934fb98becc0dc02b48a7b195a4da259eb6d747a1a1369db8",
     "right": "shockwave.glsl"
   },
   {
