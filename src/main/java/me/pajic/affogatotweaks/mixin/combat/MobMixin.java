@@ -1,6 +1,7 @@
 package me.pajic.affogatotweaks.mixin.combat;
 
 import me.pajic.affogatotweaks.Main;
+import me.pajic.affogatotweaks.util.MobBuffLevelAccess;
 import me.pajic.affogatotweaks.values.MobValues;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
@@ -35,7 +36,7 @@ import java.util.List;
 import java.util.Set;
 
 @Mixin(Mob.class)
-public abstract class MobMixin extends LivingEntity {
+public abstract class MobMixin extends LivingEntity implements MobBuffLevelAccess {
     protected MobMixin(EntityType<? extends LivingEntity> entityType, Level level) {
         super(entityType, level);
     }
@@ -113,6 +114,11 @@ public abstract class MobMixin extends LivingEntity {
                 level.addFreshEntity(new ExperienceOrb(level, getX(), getY(), getZ(), buffLevel * 3));
             }
         }
+    }
+
+    @Override
+    public int at$getBuffLevel() {
+        return buffLevel;
     }
 
     @Inject(

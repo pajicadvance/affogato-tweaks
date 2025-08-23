@@ -82,7 +82,8 @@
     "xp.EnderDragonMixin",
     "xp.FishingHookMixin",
     "xp.LivingEntityMixin",
-    "xp.RedStoneOreBlockMixin"
+    "xp.RedStoneOreBlockMixin",
+    "xp.CatalystListenerMixin"
   ],
   "client": [
     "difficulty.WorldCreationUiStateMixin",
