@@ -71,6 +71,7 @@ dependencies {
     modRuntimeOnly "maven.modrinth:repurposed-structures-fabric:7.5.17+1.21.1-fabric"
     modRuntimeOnly "maven.modrinth:worldedit:7.3.8"
     modRuntimeOnly "maven.modrinth:extrasoundsforge:1.4-fabric,1.21.1"
+    modImplementation "maven.modrinth:eating-animation:1.9.72"
     modRuntimeOnly "org.antlr:antlr4-runtime:4.13.1"
     modRuntimeOnly "io.github.douira:glsl-transformer:2.0.1"
     modRuntimeOnly "org.anarres:jcpp:1.4.14"

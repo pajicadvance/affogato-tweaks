@@ -7,6 +7,7 @@ import me.pajic.affogatotweaks.shaderlock.ShaderLock;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.renderer.RenderType;
 
@@ -30,10 +31,12 @@ public class ClientMain implements ClientModInitializer {
                 ModBlocks.COPPER_CHAIN, ModBlocks.EXPOSED_COPPER_CHAIN, ModBlocks.WEATHERED_COPPER_CHAIN, ModBlocks.OXIDIZED_COPPER_CHAIN,
                 ModBlocks.WAXED_COPPER_CHAIN, ModBlocks.WAXED_EXPOSED_COPPER_CHAIN, ModBlocks.WAXED_WEATHERED_COPPER_CHAIN, ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN
         );
-        try {
-            ShaderLock.init();
-        } catch (IOException e) {
-            ShaderLock.LOGGER.error("Error while initializing ShaderLock", e);
+        if (FabricLoader.getInstance().isModLoaded("iris")) {
+            try {
+                ShaderLock.init();
+            } catch (IOException e) {
+                ShaderLock.LOGGER.error("Error while initializing ShaderLock", e);
+            }
         }
     }
 }

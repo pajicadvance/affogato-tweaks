@@ -49,6 +49,7 @@
     "hunger.ServerPlayerMixin",
     "hunger.TridentItemMixin",
     "integration.appleskin.FoodHelperMixin",
+    "integration.eatinganim.EatingAnimationClientModMixin",
     "integration.farmersdelight.FoodValuesMixin",
     "integration.inmis.InmisClothConfigMixin",
     "integration.inmis.SmithingMenuMixin",
@@ -79,11 +80,11 @@
     "trade.WanderingTraderMixin",
     "worldgen.ScatteredOreFeatureMixin",
     "xp.BlocksMixin",
+    "xp.CatalystListenerMixin",
     "xp.EnderDragonMixin",
     "xp.FishingHookMixin",
     "xp.LivingEntityMixin",
-    "xp.RedStoneOreBlockMixin",
-    "xp.CatalystListenerMixin"
+    "xp.RedStoneOreBlockMixin"
   ],
   "client": [
     "difficulty.WorldCreationUiStateMixin",
