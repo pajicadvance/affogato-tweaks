@@ -79,6 +79,7 @@
     "trade.WanderingTraderMixin",
     "worldgen.ScatteredOreFeatureMixin",
     "xp.BlocksMixin",
+    "xp.EnderDragonMixin",
     "xp.FishingHookMixin",
     "xp.LivingEntityMixin",
     "xp.RedStoneOreBlockMixin"
