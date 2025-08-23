@@ -28,8 +28,8 @@ public class MobMixin {
             )
     )
     private boolean animalPickupFood(Mob instance, ItemEntity itemEntity) {
-        if (instance instanceof Animal animal && animal.isFood(itemEntity.getItem())) {
-            if (!animal.isInLove()) {
+        if (instance instanceof Animal animal) {
+            if (!animal.isInLove() && animal.isFood(itemEntity.getItem())) {
                 ItemStack itemStack = itemEntity.getItem();
                 animal.onItemPickup(itemEntity);
                 animal.take(itemEntity, 1);
