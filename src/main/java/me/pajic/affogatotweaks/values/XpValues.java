@@ -21,9 +21,7 @@ public class XpValues {
             Map.entry("minecraft:copper_ingot", 1.0),
             Map.entry("minecraft:netherite_scrap", 10.0),
             Map.entry("minecraft:iron_nugget", 1.0),
-            Map.entry("minecraft:gold_nugget", 1.0),
-            Map.entry("minecraft:terracotta", 1.6),
-            Map.entry("minecraft:brick", 0.4)
+            Map.entry("minecraft:gold_nugget", 1.0)
     ));
     public static final Object2DoubleMap<String> RECIPE_INPUT_TO_XP = new Object2DoubleArrayMap<>(Map.ofEntries(
             Map.entry("minecraft:raw_gold", 3.0),
