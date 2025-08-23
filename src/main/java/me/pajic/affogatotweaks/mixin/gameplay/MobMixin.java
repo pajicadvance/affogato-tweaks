@@ -16,8 +16,10 @@ public class MobMixin {
 
     @WrapMethod(method = "canHoldItem")
     private boolean allowAnimalFoodPickup(ItemStack stack, Operation<Boolean> original) {
-        return (Mob) (Object) this instanceof Animal animal && !animal.isBaby() && animal.getAge() == 0 && animal.canFallInLove() ?
-                animal.isFood(stack) : original.call(stack);
+        if ((Mob) (Object) this instanceof Animal animal) {
+            return !animal.isBaby() && animal.getAge() == 0 && animal.canFallInLove() && animal.isFood(stack);
+        }
+        return original.call(stack);
     }
 
     @WrapWithCondition(
@@ -28,8 +30,8 @@ public class MobMixin {
             )
     )
     private boolean animalPickupFood(Mob instance, ItemEntity itemEntity) {
-        if (instance instanceof Animal animal) {
-            if (!animal.isInLove() && animal.isFood(itemEntity.getItem())) {
+        if (instance instanceof Animal animal && animal.isFood(itemEntity.getItem())) {
+            if (!animal.isInLove()) {
                 ItemStack itemStack = itemEntity.getItem();
                 animal.onItemPickup(itemEntity);
                 animal.take(itemEntity, 1);
@@ -40,5 +42,11 @@ public class MobMixin {
             return false;
         }
         return true;
+    }
+
+    @WrapMethod(method = "canReplaceCurrentItem")
+    private boolean preventBadCheck(ItemStack candidate, ItemStack existing, Operation<Boolean> original) {
+        if ((Mob) (Object) this instanceof Animal animal && animal.isFood(candidate)) return false;
+        return original.call(candidate, existing);
     }
 }

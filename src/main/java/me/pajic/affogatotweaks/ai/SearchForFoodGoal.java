@@ -14,11 +14,13 @@ public class SearchForFoodGoal<T extends Animal> extends Goal {
     private final double speedModifier;
     private final float within;
     @Nullable private ItemEntity target;
+    private final boolean pickupAllowedByDefault;
 
     public SearchForFoodGoal(T animal, double speedModifier, float within) {
         this.animal = animal;
         this.speedModifier = speedModifier;
         this.within = within;
+        pickupAllowedByDefault = animal.canPickUpLoot();
     }
 
     @Override
@@ -54,13 +56,13 @@ public class SearchForFoodGoal<T extends Animal> extends Goal {
 
     @Override
     public void start() {
-        animal.setCanPickUpLoot(true);
+        if (!pickupAllowedByDefault) animal.setCanPickUpLoot(true);
         animal.getNavigation().moveTo(target, speedModifier);
     }
 
     @Override
     public void stop() {
         target = null;
-        animal.setCanPickUpLoot(false);
+        if (!pickupAllowedByDefault) animal.setCanPickUpLoot(false);
     }
 }
