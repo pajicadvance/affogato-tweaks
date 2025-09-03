@@ -5,9 +5,7 @@
     "icon": "minecraft:diamond",
     "items": [
         "minecraft:coal",
-        "affogatotweaks:coal_nugget",
         "minecraft:charcoal",
-        "affogatotweaks:charcoal_nugget",
         "minecraft:redstone",
         "minecraft:gold_nugget",
         "minecraft:gold_ingot",
