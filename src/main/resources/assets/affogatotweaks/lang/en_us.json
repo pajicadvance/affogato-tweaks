@@ -1,17 +1,4 @@
 {
-  "item.minecraft.potion.effect.absorption": "Potion of Absorption",
-  "item.minecraft.splash_potion.effect.absorption": "Splash Potion of Absorption",
-  "item.minecraft.lingering_potion.effect.absorption": "Lingering Potion of Absorption",
-  "item.minecraft.tipped_arrow.effect.absorption": "Arrow of Absorption",
-  "item.minecraft.potion.effect.life_elixir": "Elixir of Life",
-  "item.minecraft.splash_potion.effect.life_elixir": "Splash Elixir of Life",
-  "item.minecraft.lingering_potion.effect.life_elixir": "Lingering Elixir of Life",
-  "item.minecraft.tipped_arrow.effect.life_elixir": "Arrow of Elixir of Life",
-  "item.minecraft.potion.effect.decay": "Potion of Decay",
-  "item.minecraft.splash_potion.effect.decay": "Splash Potion of Decay",
-  "item.minecraft.lingering_potion.effect.decay": "Lingering Potion of Decay",
-  "item.minecraft.tipped_arrow.effect.decay": "Arrow of Decay",
-
   "effect.affogatotweaks.attack_knockback": "Knockback Boost",
   "effect.affogatotweaks.knockback_resist": "Knockback Resistance",
   "effect.affogatotweaks.follow_range": "Farsight",
