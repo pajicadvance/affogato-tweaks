@@ -24,10 +24,6 @@ public class Main implements ModInitializer {
         ModItems.init();
         ModPoiTypes.init();
         MixsonInitializer.init();
-        /*LavenderBookItem.registerForBook(
-                ResourceLocation.fromNamespaceAndPath(MOD_ID, "affogato_guide"),
-                new Item.Properties().stacksTo(1)
-        );*/
     }
 
     public static ResourceLocation withModNamespace(String path) {

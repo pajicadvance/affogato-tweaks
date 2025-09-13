@@ -59,7 +59,6 @@
     "raid.RaidsMixin",
     "raid.ServerLevelMixin",
     "raid.VindicatorMixin",
-    "shaderlock.IrisConfigMixin",
     "stats.ArmorItemMixin",
     "stats.ArmorItemTypeMixin",
     "stats.ArmorMaterialsMixin",
@@ -77,9 +76,7 @@
     "xp.RedStoneOreBlockMixin"
   ],
   "client": [
-    "difficulty.WorldCreationUiStateMixin",
-    "shaderlock.ClientMainMixin",
-    "shaderlock.ShaderPackSelectionListMixin"
+    "difficulty.WorldCreationUiStateMixin"
   ],
   "injectors": {
     "defaultRequire": 1
