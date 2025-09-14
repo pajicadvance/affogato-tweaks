@@ -7,10 +7,10 @@
     },
     "X": [
       {
-        "item": "affogatotweaks:coal_nugget"
+        "item": "coalnuggets:coal_nugget"
       },
       {
-        "item": "affogatotweaks:charcoal_nugget"
+        "item": "coalnuggets:charcoal_nugget"
       }
     ],
     "N": [
