@@ -15,6 +15,9 @@
     ],
     "client": [
       "me.pajic.affogatotweaks.ClientMain"
+    ],
+    "emi": [
+      "me.pajic.affogatotweaks.EMIPlugin"
     ]
   },
   "mixins": [

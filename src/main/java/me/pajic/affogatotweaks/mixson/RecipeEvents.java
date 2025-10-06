@@ -1,33 +1,12 @@
 package me.pajic.affogatotweaks.mixson;
 
 import com.google.gson.JsonElement;
+import me.pajic.affogatotweaks.values.MiscValues;
 import me.pajic.affogatotweaks.values.XpValues;
 import net.ramixin.mixson.inline.Mixson;
 
-import java.util.Set;
-
 public class RecipeEvents {
-    private static final Set<String> REMOVED_RECIPES = Set.of(
-            "storagedrawers:recipe/obsidian_storage_upgrade",
-            "storagedrawers:recipe/copper_storage_upgrade",
-            "storagedrawers:recipe/iron_storage_upgrade",
-            "storagedrawers:recipe/gold_storage_upgrade",
-            "storagedrawers:recipe/diamond_storage_upgrade",
-            "storagedrawers:recipe/emerald_storage_upgrade",
-            "storagedrawers:recipe/netherite_storage_upgrade",
-            "storagedrawers:recipe/void_upgrade",
-            "storagedrawers:recipe/conversion_upgrade",
-            "storagedrawers:recipe/illumination_upgrade",
-            "storagedrawers:recipe/portability_upgrade",
-            "inmis:recipe/baby_backpack",
-            "inmis:recipe/endless_backpack",
-            "inmis:recipe/withered_backpack",
-            "inmis:recipe/blazing_backpack",
-            "inmis:recipe/ender_pouch",
-            "minecraft:recipe/cake",
-            "farmersdelight:recipe/cake_from_milk_bottle",
-            "farmersdelight:recipe/cutting/gravel"
-    );
+
     public static void register() {
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -57,7 +36,7 @@ public class RecipeEvents {
                 },
                 true
         );
-        REMOVED_RECIPES.forEach(s -> Mixson.registerEvent(
+        MiscValues.REMOVED_RECIPES.forEach(s -> Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
                 rl -> rl.toString().equals(s),
                 "Remove recipes",

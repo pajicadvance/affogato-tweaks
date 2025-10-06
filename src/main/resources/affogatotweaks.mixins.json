@@ -26,6 +26,7 @@
     "gameplay.AbstractFurnaceBlockEntityMixin",
     "gameplay.AnimalMixin",
     "gameplay.BlocksMixin",
+    "gameplay.CreativeModeTabMixin",
     "gameplay.HoglinMixin",
     "gameplay.InventoryMixin",
     "gameplay.LightningBoltMixin",
