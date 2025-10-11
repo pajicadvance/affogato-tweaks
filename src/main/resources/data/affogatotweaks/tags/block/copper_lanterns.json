@@ -1,5 +1,4 @@
 {
-  "replace": false,
   "values": [
     "affogatotweaks:copper_lantern",
     "affogatotweaks:exposed_copper_lantern",
@@ -8,8 +7,6 @@
     "affogatotweaks:waxed_copper_lantern",
     "affogatotweaks:waxed_exposed_copper_lantern",
     "affogatotweaks:waxed_weathered_copper_lantern",
-    "affogatotweaks:waxed_oxidized_copper_lantern",
-    "auroraslanterns:amethyst_lantern",
-    "auroraslanterns:redstone_lantern"
+    "affogatotweaks:waxed_oxidized_copper_lantern"
   ]
 }

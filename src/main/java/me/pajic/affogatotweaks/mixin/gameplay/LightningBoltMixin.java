@@ -28,6 +28,7 @@ public abstract class LightningBoltMixin extends Entity {
     @WrapMethod(method = "powerLightningRod")
     private void redirectStrikeMethod(Operation<Void> original) {
         BlockPos blockPos = getStrikePosition();
+        //noinspection resource
         BlockState blockState = level().getBlockState(blockPos);
         if (blockState.is(ModTags.LIGHTNING_ROD_VARIANTS)) {
             ((WeatheringLightningRodBlock) blockState.getBlock()).onLightningStrike(blockState, level(), blockPos);

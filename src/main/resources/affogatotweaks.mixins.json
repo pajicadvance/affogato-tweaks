@@ -49,6 +49,8 @@
     "integration.farmersdelight.FoodValuesMixin",
     "integration.inmis.InmisClothConfigMixin",
     "integration.inmis.SmithingMenuMixin",
+    "integration.mousetweaks.MainMixin",
+    "integration.sereneseasons.ModClientMixin",
     "nightvision.FlowerBlockMixin",
     "nightvision.PotionBrewingMixin",
     "nightvision.SetStewEffectFunctionMixin",
@@ -78,7 +80,8 @@
     "xp.RedStoneOreBlockMixin"
   ],
   "client": [
-    "difficulty.WorldCreationUiStateMixin"
+    "difficulty.WorldCreationUiStateMixin",
+    "integration.notes.SelectNoteScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

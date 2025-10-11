@@ -1,6 +1,7 @@
 package me.pajic.affogatotweaks.mixin.integration.inmis;
 
 import com.llamalad7.mixinextras.sugar.Local;
+import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import draylar.inmis.Inmis;
 import draylar.inmis.item.component.BackpackComponent;
 import me.pajic.affogatotweaks.values.MiscValues;
@@ -13,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@IfModLoaded("inmis")
 @Mixin(SmithingMenu.class)
 public class SmithingMenuMixin {
 

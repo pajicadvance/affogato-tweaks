@@ -30,6 +30,7 @@ public class SearchForFoodGoal<T extends Animal> extends Goal {
                     horse.isVehicle() || horse.isPassenger() || !horse.isTamed() || horse.getHealth() < horse.getMaxHealth()
             )) return false;
             if (animal instanceof TamableAnimal tamableAnimal && !tamableAnimal.isTame()) return false;
+            //noinspection resource
             List<ItemEntity> nearbyFoods = animal.level().getEntitiesOfClass(
                     ItemEntity.class,
                     animal.getBoundingBox().inflate(16, 4, 16),
@@ -51,6 +52,7 @@ public class SearchForFoodGoal<T extends Animal> extends Goal {
 
     @Override
     public boolean canContinueToUse() {
+        //noinspection DataFlowIssue
         return !animal.getNavigation().isDone() && target.isAlive() && target.distanceToSqr(animal) < within * within;
     }
 
