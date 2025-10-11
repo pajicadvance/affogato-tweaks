@@ -6,12 +6,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.IronBarsBlock;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
-public class CopperBarsBlock extends IronBarsBlock implements WeatheringCopper, SimpleWaterloggedBlock {
+public class CopperBarsBlock extends IronBarsBlock implements WeatheringCopper {
     public static final MapCodec<CopperBarsBlock> CODEC = RecordCodecBuilder.mapCodec(
             instance -> instance.group(WeatheringCopper.WeatherState.CODEC.fieldOf("weathering_state").forGetter(CopperBarsBlock::getAge), propertiesCodec())
                     .apply(instance, CopperBarsBlock::new)
