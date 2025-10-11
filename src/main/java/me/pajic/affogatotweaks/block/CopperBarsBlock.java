@@ -16,7 +16,6 @@ public class CopperBarsBlock extends IronBarsBlock implements WeatheringCopper, 
             instance -> instance.group(WeatheringCopper.WeatherState.CODEC.fieldOf("weathering_state").forGetter(CopperBarsBlock::getAge), propertiesCodec())
                     .apply(instance, CopperBarsBlock::new)
     );
-
     private final WeatherState weatherState;
 
     @Override
