@@ -14,6 +14,7 @@
     "combat.IllusionerMixin",
     "combat.LivingEntityMixin",
     "combat.MeleeAttackGoalMixin",
+    "combat.MobMixin",
     "combat.PillagerMixin",
     "combat.PlayerMixin",
     "combat.RavagerMixin",

@@ -12,7 +12,7 @@ public class LootTableEvents {
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
                 rl -> rl.getPath().startsWith("loot_table/chests/"),
-                "Replace tools and armor in loot chests with materials",
+                "Replace tools and armor in loot chests with materials and distribute copper horse armor",
                 context -> {
                     JsonArray updatedPools = new JsonArray();
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").forEach(pool -> {
@@ -21,7 +21,15 @@ public class LootTableEvents {
                         pool.getAsJsonObject().getAsJsonArray("entries").forEach(entry -> {
                             if (entry.getAsJsonObject().has("name")) {
                                 String itemName = entry.getAsJsonObject().getAsJsonPrimitive("name").getAsString();
-                                if (LootValues.TOOL_TO_MATERIAL_AMOUNT.containsKey(itemName)) {
+                                if (itemName.equals("minecraft:iron_horse_armor")) {
+                                    JsonObject copperHorseArmor = new JsonObject();
+                                    copperHorseArmor.addProperty("type", "minecraft:item");
+                                    copperHorseArmor.addProperty("name", "affogatotweaks:copper_horse_armor");
+                                    copperHorseArmor.addProperty("weight", 15);
+                                    updatedEntries.add(copperHorseArmor);
+                                    updatedEntries.add(entry);
+                                }
+                                else if (LootValues.TOOL_TO_MATERIAL_AMOUNT.containsKey(itemName)) {
                                     JsonElement replacementEntry = JsonParser.parseString("""
                                     {
                                       "type": "minecraft:item",
