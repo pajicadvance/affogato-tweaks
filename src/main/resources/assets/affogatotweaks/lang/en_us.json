@@ -1,5 +1,15 @@
 {
   "item.affogatotweaks.copper_nugget": "Copper Nugget",
+  "item.affogatotweaks.copper_helmet": "Copper Helmet",
+  "item.affogatotweaks.copper_chestplate": "Copper Chestplate",
+  "item.affogatotweaks.copper_leggings": "Copper Leggings",
+  "item.affogatotweaks.copper_boots": "Copper Boots",
+  "item.affogatotweaks.copper_horse_armor": "Copper Horse Armor",
+  "item.affogatotweaks.copper_pickaxe": "Copper Pickaxe",
+  "item.affogatotweaks.copper_shovel": "Copper Shovel",
+  "item.affogatotweaks.copper_axe": "Copper Axe",
+  "item.affogatotweaks.copper_hoe": "Copper Hoe",
+  "item.affogatotweaks.copper_sword": "Copper Sword",
 
   "block.affogatotweaks.copper_torch": "Copper Torch",
   "block.affogatotweaks.copper_wall_torch": "Copper Wall Torch",
@@ -58,6 +68,12 @@
   "subtitles.ui.stonecutter.take_result": "Blockcutter used",
   "block.minecraft.chain": "Iron Chain",
   "block.minecraft.lantern": "Iron Lantern",
+
+  "text.affogatotweaks.exposed": "Exposed %s",
+  "text.affogatotweaks.weathered": "Weathered %s",
+  "text.affogatotweaks.oxidized": "Oxidized %s",
+  "text.affogatotweaks.waxed": "Waxed %s",
+  "tag.item.affogatotweaks.oxidizable": "Oxidizable",
 
   "lore.minecraft.lantern": "A block that emits more light than a torch. It can be hung from the ceiling, hung on a wall, or placed on the ground.",
   "lore.minecraft.stonecutter": "A workstation used to craft building blocks. The job site of Masons.",

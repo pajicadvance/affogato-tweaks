@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "affogatotweaks:item/copper_sword"
+  },
+  "overrides": [
+    {
+      "model": "affogatotweaks:item/exposed_copper_sword",
+      "predicate": {
+        "affogatotweaks:oxidation": 0.25
+      }
+    },
+    {
+      "model": "affogatotweaks:item/weathered_copper_sword",
+      "predicate": {
+        "affogatotweaks:oxidation": 0.75
+      }
+    },
+    {
+      "model": "affogatotweaks:item/oxidized_copper_sword",
+      "predicate": {
+        "affogatotweaks:oxidation": 1
+      }
+    }
+  ]
+}

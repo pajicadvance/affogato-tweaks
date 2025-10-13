@@ -33,7 +33,7 @@ public class LootTableEvents {
                                     }""").deepCopy();
                                     replacementEntry.getAsJsonObject().addProperty(
                                             "name",
-                                            itemName.contains("diamond") ? "minecraft:diamond" : "minecraft:iron_ingot"
+                                            itemName.contains("diamond") ? "minecraft:diamond" : itemName.contains("iron") ? "minecraft:iron_ingot" : "minecraft:cobblestone"
                                     );
                                     replacementEntry.getAsJsonObject().getAsJsonArray("functions").get(0).getAsJsonObject()
                                             .addProperty("count", LootValues.TOOL_TO_MATERIAL_AMOUNT.getInt(itemName));

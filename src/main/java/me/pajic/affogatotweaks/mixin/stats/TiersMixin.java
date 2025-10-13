@@ -18,7 +18,6 @@ import java.util.function.Supplier;
 
 @Mixin(Tiers.class)
 public class TiersMixin {
-    @Shadow @Mutable @Final private float damage;
     @Shadow @Mutable @Final private int uses;
     @Shadow @Mutable @Final private float speed;
 
@@ -50,7 +49,6 @@ public class TiersMixin {
             case 3:
                 uses = DurabilityValues.DIAMOND_TOOL;
                 speed = StatValues.DIAMOND_MINING_SPEED;
-                damage = StatValues.DIAMOND_DAMAGE;
                 break;
             case 4:
                 uses = DurabilityValues.GOLDEN_TOOL;
@@ -58,7 +56,7 @@ public class TiersMixin {
                 break;
             case 5:
                 uses = DurabilityValues.NETHERITE_TOOL;
-                damage = StatValues.NETHERITE_DAMAGE;
+                speed = StatValues.NETHERITE_MINING_SPEED;
                 break;
         }
     }

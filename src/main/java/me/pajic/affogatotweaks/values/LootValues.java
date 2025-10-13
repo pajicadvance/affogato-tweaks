@@ -28,7 +28,12 @@ public class LootValues {
             Map.entry("minecraft:iron_sword", 2),
             Map.entry("minecraft:iron_hoe", 2),
             Map.entry("farmersdelight:diamond_knife", 1),
-            Map.entry("farmersdelight:iron_knife", 1)
+            Map.entry("farmersdelight:iron_knife", 1),
+            Map.entry("minecraft:stone_pickaxe", 3),
+            Map.entry("minecraft:stone_shovel", 1),
+            Map.entry("minecraft:stone_sword", 2),
+            Map.entry("minecraft:stone_axe", 3),
+            Map.entry("minecraft:stone_hoe", 2)
     ));
     public static final Object2DoubleMap<String> TOTEM_LOCATION_CHANCE = new Object2DoubleArrayMap<>(Map.ofEntries(
             Map.entry("jungle_temple", 0.5),

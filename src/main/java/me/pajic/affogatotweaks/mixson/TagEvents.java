@@ -33,6 +33,15 @@ public class TagEvents {
         );
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:tags/block/needs_stone_tool"),
+                "Allow mining copper ore with wood tools",
+                context ->
+                        context.getFile().getAsJsonObject().getAsJsonArray("values")
+                                .remove(new JsonPrimitive("minecraft:copper_ore")),
+                true
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
                 rl -> rl.toString().equals("minecraft:tags/block/needs_diamond_tool"),
                 "Allow mining obsidian with iron tools",
                 context -> {

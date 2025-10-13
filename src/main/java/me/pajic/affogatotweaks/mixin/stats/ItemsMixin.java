@@ -168,7 +168,6 @@ public abstract class ItemsMixin {
             at = @At("MIXINEXTRAS:EXPRESSION")
     )
     private static void setDiamondHoeStats(Args args) {
-        args.set(1, -StatValues.DIAMOND_DAMAGE);
         args.set(2, StatValues.HOE_ATTACK_SPEED);
     }
 
@@ -180,7 +179,6 @@ public abstract class ItemsMixin {
             at = @At("MIXINEXTRAS:EXPRESSION")
     )
     private static void setNetheriteHoeStats(Args args) {
-        args.set(1, -StatValues.NETHERITE_DAMAGE);
         args.set(2, StatValues.HOE_ATTACK_SPEED);
     }
 

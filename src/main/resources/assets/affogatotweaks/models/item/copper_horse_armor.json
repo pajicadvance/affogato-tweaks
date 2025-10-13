@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "affogatotweaks:item/copper_horse_armor"
+  },
+  "overrides": [
+    {
+      "model": "affogatotweaks:item/exposed_copper_horse_armor",
+      "predicate": {
+        "affogatotweaks:oxidation": 0.25
+      }
+    },
+    {
+      "model": "affogatotweaks:item/weathered_copper_horse_armor",
+      "predicate": {
+        "affogatotweaks:oxidation": 0.75
+      }
+    },
+    {
+      "model": "affogatotweaks:item/oxidized_copper_horse_armor",
+      "predicate": {
+        "affogatotweaks:oxidation": 1
+      }
+    }
+  ]
+}

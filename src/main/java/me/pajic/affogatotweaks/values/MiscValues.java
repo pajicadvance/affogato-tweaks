@@ -37,7 +37,12 @@ public class MiscValues {
             "friendsandfoes:waxed_oxidized_lightning_rod",
             "friendsandfoes:exposed_lightning_rod",
             "friendsandfoes:weathered_lightning_rod",
-            "friendsandfoes:oxidized_lightning_rod"
+            "friendsandfoes:oxidized_lightning_rod",
+            "minecraft:stone_pickaxe",
+            "minecraft:stone_shovel",
+            "minecraft:stone_sword",
+            "minecraft:stone_axe",
+            "minecraft:stone_hoe"
     );
 
     public static final Set<String> REMOVED_RECIPES = Set.of(
@@ -61,6 +66,11 @@ public class MiscValues {
             "farmersdelight:recipe/cake_from_milk_bottle",
             "farmersdelight:recipe/cutting/gravel",
             "friendsandfoes:recipe/wildfire_crown",
-            "friendsandfoes:recipe/waxed_lightning_rod"
+            "friendsandfoes:recipe/waxed_lightning_rod",
+            "minecraft:stone_pickaxe",
+            "minecraft:stone_shovel",
+            "minecraft:stone_sword",
+            "minecraft:stone_axe",
+            "minecraft:stone_hoe"
     );
 }

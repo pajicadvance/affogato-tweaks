@@ -1,0 +1,296 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "affogatotweaks:item/copper_leggings"
+  },
+  "overrides": [
+    {
+      "model": "affogatotweaks:item/exposed_copper_leggings",
+      "predicate": {
+        "affogatotweaks:oxidation": 0.25
+      }
+    },
+    {
+      "model": "affogatotweaks:item/weathered_copper_leggings",
+      "predicate": {
+        "affogatotweaks:oxidation": 0.75
+      }
+    },
+    {
+      "model": "affogatotweaks:item/oxidized_copper_leggings",
+      "predicate": {
+        "affogatotweaks:oxidation": 1
+      }
+    },
+    {
+      "model": "affogatotweaks:item/copper_leggings_quartz_trim",
+      "predicate": {
+        "trim_type": 0.1
+      }
+    },
+    {
+      "model": "affogatotweaks:item/copper_leggings_iron_trim",
+      "predicate": {
+        "trim_type": 0.2
+      }
+    },
+    {
+      "model": "affogatotweaks:item/copper_leggings_netherite_trim",
+      "predicate": {
+        "trim_type": 0.3
+      }
+    },
+    {
+      "model": "affogatotweaks:item/copper_leggings_redstone_trim",
+      "predicate": {
+        "trim_type": 0.4
+      }
+    },
+    {
+      "model": "affogatotweaks:item/copper_leggings_copper_trim",
+      "predicate": {
+        "trim_type": 0.5
+      }
+    },
+    {
+      "model": "affogatotweaks:item/copper_leggings_gold_trim",
+      "predicate": {
+        "trim_type": 0.6
+      }
+    },
+    {
+      "model": "affogatotweaks:item/copper_leggings_emerald_trim",
+      "predicate": {
+        "trim_type": 0.7
+      }
+    },
+    {
+      "model": "affogatotweaks:item/copper_leggings_diamond_trim",
+      "predicate": {
+        "trim_type": 0.8
+      }
+    },
+    {
+      "model": "affogatotweaks:item/copper_leggings_lapis_trim",
+      "predicate": {
+        "trim_type": 0.9
+      }
+    },
+    {
+      "model": "affogatotweaks:item/copper_leggings_amethyst_trim",
+      "predicate": {
+        "trim_type": 1.0
+      }
+    },
+    {
+      "model": "affogatotweaks:item/exposed_copper_leggings_quartz_trim",
+      "predicate": {
+        "trim_type": 0.1,
+        "affogatotweaks:oxidation": 0.25
+      }
+    },
+    {
+      "model": "affogatotweaks:item/exposed_copper_leggings_iron_trim",
+      "predicate": {
+        "trim_type": 0.2,
+        "affogatotweaks:oxidation": 0.25
+      }
+    },
+    {
+      "model": "affogatotweaks:item/exposed_copper_leggings_netherite_trim",
+      "predicate": {
+        "trim_type": 0.3,
+        "affogatotweaks:oxidation": 0.25
+      }
+    },
+    {
+      "model": "affogatotweaks:item/exposed_copper_leggings_redstone_trim",
+      "predicate": {
+        "trim_type": 0.4,
+        "affogatotweaks:oxidation": 0.25
+      }
+    },
+    {
+      "model": "affogatotweaks:item/exposed_copper_leggings_copper_trim",
+      "predicate": {
+        "trim_type": 0.5,
+        "affogatotweaks:oxidation": 0.25
+      }
+    },
+    {
+      "model": "affogatotweaks:item/exposed_copper_leggings_gold_trim",
+      "predicate": {
+        "trim_type": 0.6,
+        "affogatotweaks:oxidation": 0.25
+      }
+    },
+    {
+      "model": "affogatotweaks:item/exposed_copper_leggings_emerald_trim",
+      "predicate": {
+        "trim_type": 0.7,
+        "affogatotweaks:oxidation": 0.25
+      }
+    },
+    {
+      "model": "affogatotweaks:item/exposed_copper_leggings_diamond_trim",
+      "predicate": {
+        "trim_type": 0.8,
+        "affogatotweaks:oxidation": 0.25
+      }
+    },
+    {
+      "model": "affogatotweaks:item/exposed_copper_leggings_lapis_trim",
+      "predicate": {
+        "trim_type": 0.9,
+        "affogatotweaks:oxidation": 0.25
+      }
+    },
+    {
+      "model": "affogatotweaks:item/exposed_copper_leggings_amethyst_trim",
+      "predicate": {
+        "trim_type": 1.0,
+        "affogatotweaks:oxidation": 0.25
+      }
+    },
+    {
+      "model": "affogatotweaks:item/weathered_copper_leggings_quartz_trim",
+      "predicate": {
+        "trim_type": 0.1,
+        "affogatotweaks:oxidation": 0.75
+      }
+    },
+    {
+      "model": "affogatotweaks:item/weathered_copper_leggings_iron_trim",
+      "predicate": {
+        "trim_type": 0.2,
+        "affogatotweaks:oxidation": 0.75
+      }
+    },
+    {
+      "model": "affogatotweaks:item/weathered_copper_leggings_netherite_trim",
+      "predicate": {
+        "trim_type": 0.3,
+        "affogatotweaks:oxidation": 0.75
+      }
+    },
+    {
+      "model": "affogatotweaks:item/weathered_copper_leggings_redstone_trim",
+      "predicate": {
+        "trim_type": 0.4,
+        "affogatotweaks:oxidation": 0.75
+      }
+    },
+    {
+      "model": "affogatotweaks:item/weathered_copper_leggings_copper_trim",
+      "predicate": {
+        "trim_type": 0.5,
+        "affogatotweaks:oxidation": 0.75
+      }
+    },
+    {
+      "model": "affogatotweaks:item/weathered_copper_leggings_gold_trim",
+      "predicate": {
+        "trim_type": 0.6,
+        "affogatotweaks:oxidation": 0.75
+      }
+    },
+    {
+      "model": "affogatotweaks:item/weathered_copper_leggings_emerald_trim",
+      "predicate": {
+        "trim_type": 0.7,
+        "affogatotweaks:oxidation": 0.75
+      }
+    },
+    {
+      "model": "affogatotweaks:item/weathered_copper_leggings_diamond_trim",
+      "predicate": {
+        "trim_type": 0.8,
+        "affogatotweaks:oxidation": 0.75
+      }
+    },
+    {
+      "model": "affogatotweaks:item/weathered_copper_leggings_lapis_trim",
+      "predicate": {
+        "trim_type": 0.9,
+        "affogatotweaks:oxidation": 0.75
+      }
+    },
+    {
+      "model": "affogatotweaks:item/weathered_copper_leggings_amethyst_trim",
+      "predicate": {
+        "trim_type": 1.0,
+        "affogatotweaks:oxidation": 0.75
+      }
+    },
+    {
+      "model": "affogatotweaks:item/oxidized_copper_leggings_quartz_trim",
+      "predicate": {
+        "trim_type": 0.1,
+        "affogatotweaks:oxidation": 1
+      }
+    },
+    {
+      "model": "affogatotweaks:item/oxidized_copper_leggings_iron_trim",
+      "predicate": {
+        "trim_type": 0.2,
+        "affogatotweaks:oxidation": 1
+      }
+    },
+    {
+      "model": "affogatotweaks:item/oxidized_copper_leggings_netherite_trim",
+      "predicate": {
+        "trim_type": 0.3,
+        "affogatotweaks:oxidation": 1
+      }
+    },
+    {
+      "model": "affogatotweaks:item/oxidized_copper_leggings_redstone_trim",
+      "predicate": {
+        "trim_type": 0.4,
+        "affogatotweaks:oxidation": 1
+      }
+    },
+    {
+      "model": "affogatotweaks:item/oxidized_copper_leggings_copper_trim",
+      "predicate": {
+        "trim_type": 0.5,
+        "affogatotweaks:oxidation": 1
+      }
+    },
+    {
+      "model": "affogatotweaks:item/oxidized_copper_leggings_gold_trim",
+      "predicate": {
+        "trim_type": 0.6,
+        "affogatotweaks:oxidation": 1
+      }
+    },
+    {
+      "model": "affogatotweaks:item/oxidized_copper_leggings_emerald_trim",
+      "predicate": {
+        "trim_type": 0.7,
+        "affogatotweaks:oxidation": 1
+      }
+    },
+    {
+      "model": "affogatotweaks:item/oxidized_copper_leggings_diamond_trim",
+      "predicate": {
+        "trim_type": 0.8,
+        "affogatotweaks:oxidation": 1
+      }
+    },
+    {
+      "model": "affogatotweaks:item/oxidized_copper_leggings_lapis_trim",
+      "predicate": {
+        "trim_type": 0.9,
+        "affogatotweaks:oxidation": 1
+      }
+    },
+    {
+      "model": "affogatotweaks:item/oxidized_copper_leggings_amethyst_trim",
+      "predicate": {
+        "trim_type": 1.0,
+        "affogatotweaks:oxidation": 1
+      }
+    }
+  ]
+}

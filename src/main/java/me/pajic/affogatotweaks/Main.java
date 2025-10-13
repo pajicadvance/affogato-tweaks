@@ -1,6 +1,7 @@
 package me.pajic.affogatotweaks;
 
 import me.pajic.affogatotweaks.block.ModBlocks;
+import me.pajic.affogatotweaks.oxidation.OxidationData;
 import me.pajic.affogatotweaks.datapack.ModDatapacks;
 import me.pajic.affogatotweaks.item.ModItems;
 import me.pajic.affogatotweaks.mixson.MixsonInitializer;
@@ -19,6 +20,7 @@ public class Main implements ModInitializer {
     public void onInitialize() {
         ModDatapacks.init();
         ModTags.init();
+        OxidationData.init();
         ModParticles.init();
         ModBlocks.init();
         ModItems.init();

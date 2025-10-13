@@ -286,5 +286,225 @@
         "type": "event"
       }
     ]
+  },
+  "item.pickup.affogatotweaks.copper_helmet": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.pickup.affogatotweaks.copper_chestplate": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.pickup.affogatotweaks.copper_leggings": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.pickup.affogatotweaks.copper_boots": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.pickup.affogatotweaks.copper_horse_armor": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.pickup.affogatotweaks.copper_pickaxe": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.pickup.affogatotweaks.copper_axe": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.pickup.affogatotweaks.copper_hoe": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.pickup.affogatotweaks.copper_shovel": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.pickup.affogatotweaks.copper_sword": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.place.affogatotweaks.copper_helmet": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.place.affogatotweaks.copper_chestplate": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.place.affogatotweaks.copper_leggings": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.place.affogatotweaks.copper_boots": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.place.affogatotweaks.copper_horse_armor": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.place.affogatotweaks.copper_pickaxe": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.place.affogatotweaks.copper_axe": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.place.affogatotweaks.copper_hoe": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.place.affogatotweaks.copper_shovel": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
+  },
+  "item.place.affogatotweaks.copper_sword": {
+    "sounds": [
+      {
+        "name": "minecraft:item.armor.equip_iron",
+        "volume": 0.2,
+        "pitch": 1.4,
+        "type": "event"
+      }
+    ],
+    "replace": true
   }
 }

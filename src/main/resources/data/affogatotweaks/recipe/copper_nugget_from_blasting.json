@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": [
+    {
+      "item": "affogatotweaks:copper_pickaxe"
+    },
+    {
+      "item": "affogatotweaks:copper_shovel"
+    },
+    {
+      "item": "affogatotweaks:copper_axe"
+    },
+    {
+      "item": "affogatotweaks:copper_hoe"
+    },
+    {
+      "item": "affogatotweaks:copper_sword"
+    },
+    {
+      "item": "affogatotweaks:copper_helmet"
+    },
+    {
+      "item": "affogatotweaks:copper_chestplate"
+    },
+    {
+      "item": "affogatotweaks:copper_leggings"
+    },
+    {
+      "item": "affogatotweaks:copper_boots"
+    },
+    {
+      "item": "affogatotweaks:copper_horse_armor"
+    }
+  ],
+  "result": {
+    "id": "affogatotweaks:copper_nugget"
+  }
+}

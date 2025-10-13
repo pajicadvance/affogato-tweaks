@@ -1,14 +1,13 @@
 package me.pajic.affogatotweaks.values;
 
 public class StatValues {
-    public static final float DIAMOND_DAMAGE = 4.0F;
-    public static final float NETHERITE_DAMAGE = 3.0F;
-
     public static final float WOOD_MINING_SPEED = 3.0F;
-    public static final float STONE_MINING_SPEED = 5.0F;
+    public static final float STONE_MINING_SPEED = 4.0F;
+    public static final float COPPER_MINING_SPEED = 5.0F;
     public static final float IRON_MINING_SPEED = 7.0F;
     public static final float GOLD_MINING_SPEED = 20.0F;
-    public static final float DIAMOND_MINING_SPEED = 11.0F;
+    public static final float DIAMOND_MINING_SPEED = 9.0F;
+    public static final float NETHERITE_MINING_SPEED = 11.0F;
 
     public static final float AXE_ATTACK_SPEED = -3.5F;
     public static final float HOE_ATTACK_SPEED = -2.0F;

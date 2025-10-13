@@ -14,6 +14,16 @@ import java.util.EnumMap;
 public class ArmorMaterialsMixin {
 
     @Inject(
+            method = "method_48405",
+            at = @At("HEAD"),
+            cancellable = true
+    )
+    private static void setArmadilloArmorValues(EnumMap<ArmorItem.Type, Integer> map, CallbackInfo ci) {
+        ci.cancel();
+        map.putAll(ArmorDefenseValues.ARMADILLO_ARMOR);
+    }
+
+    @Inject(
             method = "method_48406",
             at = @At("HEAD"),
             cancellable = true
@@ -21,6 +31,16 @@ public class ArmorMaterialsMixin {
     private static void setNetheriteArmorValues(EnumMap<ArmorItem.Type, Integer> map, CallbackInfo ci) {
         ci.cancel();
         map.putAll(ArmorDefenseValues.NETHERITE_ARMOR);
+    }
+
+    @Inject(
+            method = "method_48408",
+            at = @At("HEAD"),
+            cancellable = true
+    )
+    private static void setDiamondArmorValues(EnumMap<ArmorItem.Type, Integer> map, CallbackInfo ci) {
+        ci.cancel();
+        map.putAll(ArmorDefenseValues.DIAMOND_ARMOR);
     }
 
     @Inject(

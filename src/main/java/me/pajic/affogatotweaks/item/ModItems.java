@@ -2,11 +2,26 @@ package me.pajic.affogatotweaks.item;
 
 import me.pajic.affogatotweaks.Main;
 import me.pajic.affogatotweaks.block.ModBlocks;
+import me.pajic.affogatotweaks.values.ArmorBonusValues;
+import me.pajic.affogatotweaks.values.ArmorDefenseValues;
+import me.pajic.affogatotweaks.values.DurabilityValues;
+import me.pajic.affogatotweaks.values.StatValues;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.Util;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.EnumMap;
+import java.util.List;
 
 public class ModItems {
     public static final Item COPPER_NUGGET = registerModItem("copper_nugget",
@@ -109,6 +124,103 @@ public class ModItems {
             new BlockItem(ModBlocks.WAXED_OXIDIZED_COPPER_LANTERN, new Item.Properties())
     );
 
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static final Holder<ArmorMaterial> COPPER = Registry.registerForHolder(
+            BuiltInRegistries.ARMOR_MATERIAL,
+            Main.withModNamespace("copper"),
+            new ArmorMaterial(
+                    Util.make(new EnumMap(ArmorItem.Type.class), enumMap -> {
+                        enumMap.put(ArmorItem.Type.BOOTS, ArmorDefenseValues.COPPER_ARMOR.getOrDefault(ArmorItem.Type.BOOTS, 1));
+                        enumMap.put(ArmorItem.Type.LEGGINGS, ArmorDefenseValues.COPPER_ARMOR.getOrDefault(ArmorItem.Type.LEGGINGS, 1));
+                        enumMap.put(ArmorItem.Type.CHESTPLATE, ArmorDefenseValues.COPPER_ARMOR.getOrDefault(ArmorItem.Type.CHESTPLATE, 1));
+                        enumMap.put(ArmorItem.Type.HELMET, ArmorDefenseValues.COPPER_ARMOR.getOrDefault(ArmorItem.Type.HELMET, 1));
+                        enumMap.put(ArmorItem.Type.BODY, ArmorDefenseValues.COPPER_ARMOR.getOrDefault(ArmorItem.Type.BODY, 1));}
+                    ),
+                    8, SoundEvents.ARMOR_EQUIP_IRON, () -> Ingredient.of(Items.COPPER_INGOT),
+                    List.of(new ArmorMaterial.Layer(Main.withModNamespace("copper"))),
+                    0, ArmorBonusValues.KNOCKBACK_RESIST.getOrDefault(ArmorMaterials.GOLD, 0)
+            )
+    );
+    public static final Tier COPPER_TIER = new Tier() {
+        @Override
+        public int getUses() {
+            return DurabilityValues.COPPER_TOOL;
+        }
+
+        @Override
+        public float getSpeed() {
+            return StatValues.COPPER_MINING_SPEED;
+        }
+
+        @Override
+        public float getAttackDamageBonus() {
+            return 1.0F;
+        }
+
+        @Override
+        public @NotNull TagKey<Block> getIncorrectBlocksForDrops() {
+            return BlockTags.INCORRECT_FOR_STONE_TOOL;
+        }
+
+        @Override
+        public int getEnchantmentValue() {
+            return 13;
+        }
+
+        @Override
+        public @NotNull Ingredient getRepairIngredient() {
+            return Ingredient.of(Items.COPPER_INGOT);
+        }
+    };
+    public static final Item COPPER_PICKAXE = registerModItem("copper_pickaxe",
+            new PickaxeItem(COPPER_TIER, new Item.Properties().attributes(
+                    PickaxeItem.createAttributes(COPPER_TIER, 1.0F, -2.8F))
+            )
+    );
+    public static final Item COPPER_AXE = registerModItem("copper_axe",
+            new AxeItem(COPPER_TIER, new Item.Properties().attributes(
+                    AxeItem.createAttributes(COPPER_TIER, 7.0F, StatValues.AXE_ATTACK_SPEED))
+            )
+    );
+    public static final Item COPPER_SWORD = registerModItem("copper_sword",
+            new SwordItem(COPPER_TIER, new Item.Properties().attributes(
+                    SwordItem.createAttributes(COPPER_TIER, 3, -2.4F))
+            )
+    );
+    public static final Item COPPER_SHOVEL = registerModItem("copper_shovel",
+            new ShovelItem(COPPER_TIER, new Item.Properties().attributes(
+                    ShovelItem.createAttributes(COPPER_TIER, 1.5F, -3.0F))
+            )
+    );
+    public static final Item COPPER_HOE = registerModItem("copper_hoe",
+            new HoeItem(COPPER_TIER, new Item.Properties().attributes(
+                    HoeItem.createAttributes(COPPER_TIER, -1.0F, StatValues.HOE_ATTACK_SPEED))
+            )
+    );
+    public static final Item COPPER_HELMET = registerModItem("copper_helmet",
+            new ArmorItem(COPPER, ArmorItem.Type.HELMET, new Item.Properties().durability(
+                    ArmorItem.Type.HELMET.getDurability(DurabilityValues.COPPER_ARMOR_MULT))
+            )
+    );
+    public static final Item COPPER_CHESTPLATE = registerModItem("copper_chestplate",
+            new ArmorItem(COPPER, ArmorItem.Type.CHESTPLATE, new Item.Properties().durability(
+                    ArmorItem.Type.CHESTPLATE.getDurability(DurabilityValues.COPPER_ARMOR_MULT))
+            )
+    );
+    public static final Item COPPER_LEGGINGS = registerModItem("copper_leggings",
+            new ArmorItem(COPPER, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(
+                    ArmorItem.Type.LEGGINGS.getDurability(DurabilityValues.COPPER_ARMOR_MULT))
+            )
+    );
+    public static final Item COPPER_BOOTS = registerModItem("copper_boots",
+            new ArmorItem(COPPER, ArmorItem.Type.BOOTS, new Item.Properties().durability(
+                    ArmorItem.Type.BOOTS.getDurability(DurabilityValues.COPPER_ARMOR_MULT))
+            )
+    );
+    public static final Item COPPER_HORSE_ARMOR = registerModItem("copper_horse_armor",
+            new AnimalArmorItem(COPPER, AnimalArmorItem.BodyType.EQUESTRIAN,false, new Item.Properties().stacksTo(1))
+    );
+
     private static Item registerModItem(String name, Item item) {
         return Registry.register(
                 BuiltInRegistries.ITEM,
@@ -144,5 +256,14 @@ public class ModItems {
                         WAXED_LIGHTNING_ROD, WAXED_EXPOSED_LIGHTNING_ROD, WAXED_WEATHERED_LIGHTNING_ROD, WAXED_OXIDIZED_LIGHTNING_ROD
                 )
         );
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries ->
+                entries.addAfter(Items.WOODEN_HOE, COPPER_SHOVEL, COPPER_PICKAXE, COPPER_AXE, COPPER_HOE)
+        );
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register(entries -> {
+            entries.addAfter(Items.WOODEN_AXE, COPPER_AXE);
+            entries.addAfter(Items.WOODEN_SWORD, COPPER_SWORD);
+            entries.addAfter(Items.LEATHER_HORSE_ARMOR, COPPER_HORSE_ARMOR);
+            entries.addAfter(Items.LEATHER_BOOTS, COPPER_HELMET, COPPER_CHESTPLATE, COPPER_LEGGINGS, COPPER_BOOTS);
+        });
     }
 }

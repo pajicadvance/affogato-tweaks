@@ -8,6 +8,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "combat.BlazeMixin",
+    "combat.CombatRulesMixin",
     "combat.DrownedMixin",
     "combat.HurtByTargetGoalMixin",
     "combat.IllusionerMixin",
@@ -16,6 +17,7 @@
     "combat.PillagerMixin",
     "combat.PlayerMixin",
     "combat.RavagerMixin",
+    "combat.WitherSkeletonMixin",
     "combat.ZombieMixin",
     "difficulty.DedicatedServerPropertiesMixin",
     "food.CakeBlockMixin",
@@ -25,6 +27,7 @@
     "food.PlayerMixin",
     "gameplay.AbstractFurnaceBlockEntityMixin",
     "gameplay.AnimalMixin",
+    "gameplay.AttributeMixin",
     "gameplay.BlocksMixin",
     "gameplay.CreativeModeTabMixin",
     "gameplay.HoglinMixin",
@@ -54,6 +57,9 @@
     "nightvision.FlowerBlockMixin",
     "nightvision.PotionBrewingMixin",
     "nightvision.SetStewEffectFunctionMixin",
+    "oxidation.ItemEntityMixin",
+    "oxidation.ItemMixin",
+    "oxidation.ItemStackMixin",
     "raid.BadOmenMobEffectMixin",
     "raid.ChunkGeneratorMixin",
     "raid.NaturalSpawnerMixin",
@@ -81,7 +87,10 @@
   ],
   "client": [
     "difficulty.WorldCreationUiStateMixin",
-    "integration.notes.SelectNoteScreenMixin"
+    "gameplay.GuiMixin",
+    "integration.notes.SelectNoteScreenMixin",
+    "oxidation.HorseArmorLayerMixin",
+    "oxidation.HumanoidArmorLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
