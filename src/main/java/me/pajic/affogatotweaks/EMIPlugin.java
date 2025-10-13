@@ -5,11 +5,20 @@ import dev.emi.emi.EmiUtil;
 import dev.emi.emi.api.EmiInitRegistry;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
+import dev.emi.emi.api.recipe.EmiCraftingRecipe;
+import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.recipe.EmiAnvilRecipe;
+import me.pajic.affogatotweaks.oxidation.OxidationData;
+import me.pajic.affogatotweaks.oxidation.OxidationUtil;
 import me.pajic.affogatotweaks.values.MiscValues;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+
+import java.util.List;
 
 public class EMIPlugin implements EmiPlugin {
 
@@ -20,7 +29,6 @@ public class EMIPlugin implements EmiPlugin {
                         MiscValues.HIDDEN_ITEMS.contains(BuiltInRegistries.ITEM.getKey(stack.getItemStack().getItem()).toString())
                 )
         );
-
     }
 
     @Override
@@ -45,5 +53,37 @@ public class EMIPlugin implements EmiPlugin {
                                 "/" + EmiUtil.subId(Items.BREEZE_ROD)
                 )
         ));
+        EmiPort.getItemRegistry().getTagOrEmpty(OxidationData.OXIDIZABLE).forEach(itemHolder -> {
+            Item item = itemHolder.value();
+            EmiStack itemStack = EmiStack.of(item);
+            ItemStack waxedItem = new ItemStack(item);
+            EmiIngredient axes = EmiIngredient.of(ItemTags.AXES);
+            EmiStack honeycomb = EmiStack.of(Items.HONEYCOMB);
+            waxedItem.set(OxidationData.WAXED, true);
+            EmiStack waxedItemStack = EmiStack.of(waxedItem);
+
+            registry.addRecipe(new EmiCraftingRecipe(
+                    List.of(itemStack, honeycomb), waxedItemStack,
+                    Main.withModNamespace("/item_waxing/" + EmiUtil.subId(item))
+            ));
+            registry.addRecipe(new EmiCraftingRecipe(
+                    List.of(waxedItemStack, axes), itemStack,
+                    Main.withModNamespace("/item_axing/" + EmiUtil.subId(item))
+            ));
+
+            for (int i = 1; i <= 3; i++) {
+                ItemStack currentStage = new ItemStack(item);
+                OxidationUtil.incrementItemOxidation(currentStage, i);
+                ItemStack updatedStage = new ItemStack(item);
+                if (i > 1) OxidationUtil.incrementItemOxidation(updatedStage, i - 1);
+                EmiStack currentStageStack = EmiStack.of(currentStage);
+                EmiStack updatedStageStack = EmiStack.of(updatedStage);
+
+                registry.addRecipe(new EmiCraftingRecipe(
+                        List.of(currentStageStack, axes), updatedStageStack,
+                        Main.withModNamespace("/item_axing/" + EmiUtil.subId(item) + "_stage_" + i)
+                ));
+            }
+        });
     }
 }
