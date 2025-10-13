@@ -67,10 +67,11 @@ public class MiscValues {
             "farmersdelight:recipe/cutting/gravel",
             "friendsandfoes:recipe/wildfire_crown",
             "friendsandfoes:recipe/waxed_lightning_rod",
-            "minecraft:stone_pickaxe",
-            "minecraft:stone_shovel",
-            "minecraft:stone_sword",
-            "minecraft:stone_axe",
-            "minecraft:stone_hoe"
+            "minecraft:recipe/stone_pickaxe",
+            "minecraft:recipe/stone_shovel",
+            "minecraft:recipe/stone_sword",
+            "minecraft:recipe/stone_axe",
+            "minecraft:recipe/stone_hoe",
+            "vshorses:recipe/horseshoe"
     );
 }

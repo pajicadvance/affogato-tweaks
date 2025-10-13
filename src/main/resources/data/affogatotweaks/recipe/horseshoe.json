@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "c": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "pattern": [
+    "c c",
+    "c c",
+    "ccc"
+  ],
+  "result": {
+    "id": "vshorses:horseshoe",
+    "count": 1
+  }
+}

@@ -2,14 +2,14 @@
   "type": "listModification",
   "target": "itemswapper:v2/tools",
   "addItems": [
+    "affogatotweaks:copper_pickaxe",
+    "affogatotweaks:copper_shovel",
+    "affogatotweaks:copper_axe",
+    "affogatotweaks:copper_hoe",
     "farmersdelight:flint_knife",
     "farmersdelight:iron_knife",
     "farmersdelight:golden_knife",
     "farmersdelight:diamond_knife",
-    "farmersdelight:netherite_knife",
-    "affogatotweaks:copper_hoe",
-    "affogatotweaks:copper_shovel",
-    "affogatotweaks:copper_pickaxe",
-    "affogatotweaks:copper_axe"
+    "farmersdelight:netherite_knife"
   ]
 }
