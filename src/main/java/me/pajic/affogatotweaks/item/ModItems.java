@@ -1,21 +1,28 @@
 package me.pajic.affogatotweaks.item;
 
+import me.emafire003.dev.custombrewrecipes.CustomBrewRecipeRegister;
 import me.pajic.affogatotweaks.Main;
 import me.pajic.affogatotweaks.block.ModBlocks;
 import me.pajic.affogatotweaks.values.ArmorBonusValues;
 import me.pajic.affogatotweaks.values.ArmorDefenseValues;
 import me.pajic.affogatotweaks.values.DurabilityValues;
 import me.pajic.affogatotweaks.values.StatValues;
+import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.Util;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
@@ -218,7 +225,10 @@ public class ModItems {
             )
     );
     public static final Item COPPER_HORSE_ARMOR = registerModItem("copper_horse_armor",
-            new AnimalArmorItem(COPPER, AnimalArmorItem.BodyType.EQUESTRIAN,false, new Item.Properties().stacksTo(1))
+            new AnimalArmorItem(COPPER, AnimalArmorItem.BodyType.EQUESTRIAN,false, FabricLoader.getInstance().isModLoaded("vshorses") ?
+                    new Item.Properties().durability(ArmorItem.Type.BODY.getDurability(DurabilityValues.COPPER_ARMOR_MULT)).stacksTo(1) :
+                    new Item.Properties().stacksTo(1)
+            )
     );
 
     private static Item registerModItem(String name, Item item) {
@@ -230,6 +240,24 @@ public class ModItems {
     }
 
     public static void init() {
+        if (FabricLoader.getInstance().isModLoaded("vshorses")) DefaultItemComponentEvents.MODIFY.register(context -> context.modify(
+                item -> item instanceof AnimalArmorItem aai && aai.getBodyType() == AnimalArmorItem.BodyType.EQUESTRIAN && item.components().has(DataComponents.MAX_DAMAGE),
+                (builder, item) -> {
+                    int multiplier = DurabilityValues.ARMOR_DURABILITY_MULTS.getOrDefault(((AnimalArmorItem) item).getMaterial(), 0);
+                    if (multiplier > 0) builder.set(DataComponents.MAX_DAMAGE, ArmorItem.Type.BODY.getDurability(multiplier));
+                }
+        ));
+        CustomBrewRecipeRegister.registerCustomRecipeWithComponents(
+                Items.SPLASH_POTION,
+                Items.EMERALD,
+                Items.EXPERIENCE_BOTTLE,
+                DataComponentMap.builder().set(
+                        DataComponents.POTION_CONTENTS,
+                        new PotionContents(Potions.AWKWARD)
+                ).build(),
+                null,
+                null
+        );
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
             entries.addAfter(Items.TORCH, COPPER_TORCH);
             entries.addAfter(Items.SOUL_LANTERN,

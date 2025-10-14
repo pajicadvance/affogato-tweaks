@@ -9,6 +9,7 @@ import dev.emi.emi.api.recipe.EmiCraftingRecipe;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.recipe.EmiAnvilRecipe;
+import dev.emi.emi.recipe.EmiBrewingRecipe;
 import me.pajic.affogatotweaks.oxidation.OxidationData;
 import me.pajic.affogatotweaks.oxidation.OxidationUtil;
 import me.pajic.affogatotweaks.values.MiscValues;
@@ -51,6 +52,16 @@ public class EMIPlugin implements EmiPlugin {
                         "/" + "anvil/repairing/material" +
                                 "/" + EmiUtil.subId(Items.MACE) +
                                 "/" + EmiUtil.subId(Items.BREEZE_ROD)
+                )
+        ));
+        registry.addRecipe(new EmiBrewingRecipe(
+                EmiStack.of(Items.SPLASH_POTION),
+                EmiStack.of(Items.EMERALD),
+                EmiStack.of(Items.EXPERIENCE_BOTTLE),
+                EmiPort.id(
+                        "emi",
+                        "/" + "brewing/item" +
+                                "/" + EmiUtil.subId(Items.EXPERIENCE_BOTTLE)
                 )
         ));
         EmiPort.getItemRegistry().getTagOrEmpty(OxidationData.OXIDIZABLE).forEach(itemHolder -> {
