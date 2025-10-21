@@ -18,6 +18,6 @@ public class AttributeMixin {
             at = @At("MIXINEXTRAS:EXPRESSION")
     )
     private static double increaseArmorCap(double original) {
-        return ArmorDefenseValues.MAX_ARMOR;
+        return 20 * ArmorDefenseValues.MAX_ARMOR_MULT;
     }
 }

@@ -7,7 +7,7 @@ import net.minecraft.world.item.ArmorItem;
 import java.util.Map;
 
 public class ArmorDefenseValues {
-    public static final float MAX_ARMOR = 40F;
+    public static final float MAX_ARMOR_MULT = 2F;
 
     public static final Object2IntMap<ArmorItem.Type> LEATHER_ARMOR = new Object2IntArrayMap<>(Map.of(
             ArmorItem.Type.HELMET, 2,

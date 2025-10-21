@@ -9,7 +9,6 @@ import net.minecraft.world.item.ArmorMaterials;
 import java.util.Map;
 
 public class ArmorBonusValues {
-    public static final float BASE_TOUGHNESS = 1.0F;
 
     public static final Object2FloatMap<Holder<ArmorMaterial>> TOUGHNESS = new Object2FloatArrayMap<>(Map.of(
             ArmorMaterials.DIAMOND, 2.0F,

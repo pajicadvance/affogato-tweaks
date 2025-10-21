@@ -77,6 +77,7 @@ dependencies {
     modRuntimeOnly "maven.modrinth:worldedit:7.3.8"
     modRuntimeOnly "maven.modrinth:extrasoundsforge:1.4-fabric,1.21.1"
     modRuntimeOnly "maven.modrinth:chalk:2.2.5+1.21.1"
+    modRuntimeOnly "maven.modrinth:rearm:2.3.5+1.21.1-fabric"
     modRuntimeOnly "com.github.MCLegoMan:releasetypeutils:2.1.0"
     modRuntimeOnly "com.github.MCLegoMan:fabric-simplelibs:2.0.0-Fabric"
 }

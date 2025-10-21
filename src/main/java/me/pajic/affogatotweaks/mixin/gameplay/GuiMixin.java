@@ -17,6 +17,6 @@ public class GuiMixin {
             )
     )
     private static int scaleArmorBar(int original) {
-        return Math.round(original / (ArmorDefenseValues.MAX_ARMOR / 20));
+        return Math.round(original / ArmorDefenseValues.MAX_ARMOR_MULT);
     }
 }
