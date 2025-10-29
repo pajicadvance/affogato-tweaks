@@ -1,8 +1,6 @@
 package me.pajic.affogatotweaks.mixin.combat;
 
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import me.pajic.affogatotweaks.values.MiscValues;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -12,17 +10,6 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
-
-    @ModifyExpressionValue(
-            method = "getVisibilityPercent",
-            at = @At(
-                    value = "CONSTANT",
-                    args = "doubleValue=0.8"
-            )
-    )
-    private double modifyVisibilityWhenDiscrete(double original) {
-        return MiscValues.SNEAK_RANGE_REDUCTION_MULT;
-    }
 
     @ModifyArg(
             method = "hurt",

@@ -3,8 +3,6 @@ package me.pajic.affogatotweaks.item;
 import me.emafire003.dev.custombrewrecipes.CustomBrewRecipeRegister;
 import me.pajic.affogatotweaks.Main;
 import me.pajic.affogatotweaks.block.ModBlocks;
-import me.pajic.affogatotweaks.values.ArmorBonusValues;
-import me.pajic.affogatotweaks.values.ArmorDefenseValues;
 import me.pajic.affogatotweaks.values.DurabilityValues;
 import me.pajic.affogatotweaks.values.StatValues;
 import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
@@ -137,15 +135,15 @@ public class ModItems {
             Main.withModNamespace("copper"),
             new ArmorMaterial(
                     Util.make(new EnumMap(ArmorItem.Type.class), enumMap -> {
-                        enumMap.put(ArmorItem.Type.BOOTS, ArmorDefenseValues.COPPER_ARMOR.getOrDefault(ArmorItem.Type.BOOTS, 1));
-                        enumMap.put(ArmorItem.Type.LEGGINGS, ArmorDefenseValues.COPPER_ARMOR.getOrDefault(ArmorItem.Type.LEGGINGS, 1));
-                        enumMap.put(ArmorItem.Type.CHESTPLATE, ArmorDefenseValues.COPPER_ARMOR.getOrDefault(ArmorItem.Type.CHESTPLATE, 1));
-                        enumMap.put(ArmorItem.Type.HELMET, ArmorDefenseValues.COPPER_ARMOR.getOrDefault(ArmorItem.Type.HELMET, 1));
-                        enumMap.put(ArmorItem.Type.BODY, ArmorDefenseValues.COPPER_ARMOR.getOrDefault(ArmorItem.Type.BODY, 1));}
-                    ),
+                        enumMap.put(ArmorItem.Type.BOOTS, 1);
+                        enumMap.put(ArmorItem.Type.LEGGINGS, 3);
+                        enumMap.put(ArmorItem.Type.CHESTPLATE, 4);
+                        enumMap.put(ArmorItem.Type.HELMET, 2);
+                        enumMap.put(ArmorItem.Type.BODY, 4);
+                    }),
                     8, SoundEvents.ARMOR_EQUIP_IRON, () -> Ingredient.of(Items.COPPER_INGOT),
                     List.of(new ArmorMaterial.Layer(Main.withModNamespace("copper"))),
-                    0, ArmorBonusValues.KNOCKBACK_RESIST.getOrDefault(ArmorMaterials.GOLD, 0)
+                    0, 0
             )
     );
     public static final Tier COPPER_TIER = new Tier() {
