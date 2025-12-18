@@ -1,0 +1,95 @@
+plugins {
+    id 'fabric-loom' version '1.14-SNAPSHOT'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/affogato_core.accesswidener")
+}
+
+repositories {
+    maven { url = "https://maven.parchmentmc.org" }
+    maven { url = "https://maven.terraformersmc.com/" }
+    maven { url = "https://maven.fzzyhmstrs.me/" }
+    maven { url = "https://jitpack.io" }
+    maven { url = "https://maven.blamejared.com/" }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.layered() {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${project.parchment_version}@zip")
+    }
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+    modImplementation "me.fzzyhmstrs:fzzy_config:${project.fzzy_version}"
+    include(implementation("com.moulberry:mixinconstraints:${project.mixinconstraints_version}"))
+    modImplementation(include("com.github.ramixin:mixson-fabric:${project.mixson_version}")) {
+        exclude group: "net.fabricmc.fabric-api", module: "fabric-api"
+    }
+
+    modCompileOnly "mezz.jei:jei-1.21.11-fabric:27.0.0.1"
+    modCompileOnly "maven.modrinth:farmers-delight-refabricated:1.21.11-3.4.2"
+    modCompileOnly "maven.modrinth:appleskin:3.0.7+mc1.21.11"
+    modCompileOnly "maven.modrinth:notes:1.21.10-2.1.1-fabric"
+    modCompileOnly "maven.modrinth:serene-seasons:21.11.0.0-fabric,1.21.11"
+    modCompileOnly "maven.modrinth:repurposed-structures-fabric:7.6.0+1.21.11-fabric"
+    modCompileOnly "maven.modrinth:glitchcore:21.11.0.2-fabric,1.21.11"
+    modRuntimeOnly("com.github.Chocohead:Fabric-ASM:v2.3") {
+        exclude group: "net.fabricmc.fabric-api", module: "fabric-api"
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "minecraft_version", project.minecraft_version
+    inputs.property "loader_version", project.loader_version
+    filteringCharset "UTF-8"
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version,
+                "minecraft_version": project.minecraft_version,
+                "loader_version": project.loader_version
+    }
+}
+
+def targetJavaVersion = 21
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        it.options.release.set(targetJavaVersion)
+    }
+}
+
+java {
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+    withSourcesJar()
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.archivesBaseName}" }
+    }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "P": "minecraft:paper",
+    "S": "minecraft:string",
+    "B": "minecraft:slime_ball"
+  },
+  "pattern": [
+    "BS",
+    "P "
+  ],
+  "result": {
+    "id": "minecraft:name_tag"
+  }
+}

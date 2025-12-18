@@ -1,0 +1,5 @@
+accessWidener v2 named
+
+accessible class net/minecraft/world/effect/BadOmenMobEffect
+accessible class net/minecraft/world/entity/raid/Raid$RaidStatus
+accessible class net/minecraft/world/effect/HungerMobEffect

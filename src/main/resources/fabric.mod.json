@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "affogato_core",
+  "version": "${version}",
+  "name": "Affogato Core",
+  "description": "Core mod for my modpack providing utilities, patches and tweaks",
+  "authors": ["pajic"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "me.pajic.affogato_core.ClientMain"
+    ],
+    "main": [
+      "me.pajic.affogato_core.Main"
+    ],
+    "jei_mod_plugin": [
+      "me.pajic.affogato_core.JEIPlugin"
+    ]
+  },
+  "mixins": [
+    "affogato_core.mixins.json"
+  ],
+  "accessWidener": "affogato_core.accesswidener",
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}",
+    "fzzy_config": "*"
+  }
+}
