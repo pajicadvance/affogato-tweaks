@@ -1,13 +1,17 @@
 package me.pajic.affogato_core.mixin.trade;
 
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import me.pajic.affogato_core.Main;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.npc.wanderingtrader.WanderingTrader;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(WanderingTrader.class)
 public class WanderingTraderMixin {
@@ -23,14 +27,15 @@ public class WanderingTraderMixin {
         return !Main.CONFIG.features.villagerNuke.get();
     }
 
-    @ModifyExpressionValue(
+    @Inject(
             method = "mobInteract",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/item/trading/MerchantOffers;isEmpty()Z"
-            )
+                    target = "Lnet/minecraft/world/entity/npc/wanderingtrader/WanderingTrader;setTradingPlayer(Lnet/minecraft/world/entity/player/Player;)V"
+            ),
+            cancellable = true
     )
-    private boolean cancelTrading(boolean original) {
-        return !Main.CONFIG.features.allowWanderingTraderTrading.get() || original;
+    private void cancelTrading(Player player, InteractionHand interactionHand, CallbackInfoReturnable<InteractionResult> cir) {
+        if (!Main.CONFIG.features.allowWanderingTraderTrading.get()) cir.setReturnValue(InteractionResult.CONSUME);
     }
 }

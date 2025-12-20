@@ -1,5 +1,6 @@
 plugins {
     id 'fabric-loom' version '1.14-SNAPSHOT'
+    id "me.modmuss50.mod-publish-plugin" version "0.8.4"
 }
 
 version = project.mod_version
@@ -34,10 +35,7 @@ repositories {
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings loom.layered() {
-        officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-${project.parchment_version}@zip")
-    }
+    mappings loom.layered() { officialMojangMappings() }
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
@@ -91,5 +89,21 @@ java {
 jar {
     from("LICENSE") {
         rename { "${it}_${project.archivesBaseName}" }
+    }
+}
+
+publishMods {
+    file = remapJar.archiveFile
+    changelog = file(getRootDir().path + "/CHANGELOG.md").text
+    type = STABLE
+    modLoaders.add("fabric")
+    displayName = project.mod_version + " for " + project.minecraft_version
+
+    modrinth {
+        accessToken = providers.environmentVariable("MR_KEY")
+        projectId = "Q8yzjHI3"
+        minecraftVersions.add(project.minecraft_version)
+        requires("fabric-api", "fzzy-config")
+        optional("modmenu")
     }
 }
