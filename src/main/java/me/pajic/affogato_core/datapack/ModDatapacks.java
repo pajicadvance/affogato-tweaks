@@ -43,6 +43,12 @@ public class ModDatapacks {
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
             }
+            if (CompatFlags.MASTERCUTTER_LOADED && CompatFlags.WILDER_WILD_LOADED) ResourceManagerHelper.registerBuiltinResourcePack(
+                    Main.id("wwcutter"),
+                    modContainer,
+                    Component.literal("Mastercutter recipes for Wilder Wild"),
+                    ResourcePackActivationType.ALWAYS_ENABLED
+            );
         });
     }
 }
