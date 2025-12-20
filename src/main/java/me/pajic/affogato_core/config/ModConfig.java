@@ -217,6 +217,8 @@ public class ModConfig extends Config {
         public ValidatedDouble globeBannerPatternChance = new ValidatedDouble(1, 1, 0);
         public ValidatedBoolean maceEnchantmentsInOminousVaults = new ValidatedBoolean(true);
         public ValidatedBoolean tridentEnchantmentsFromElderGuardians = new ValidatedBoolean(true);
+        public ValidatedBoolean frostWalkerOnlyInIgloosAndIceBox = new ValidatedBoolean(true);
+        public ValidatedBoolean cursesOnlyInDesertPyramids = new ValidatedBoolean(true);
     }
 
     public static class Worldgen extends ConfigSection {

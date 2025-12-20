@@ -1,9 +1,6 @@
 package me.pajic.affogato_core.mixson;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import me.pajic.affogato_core.Main;
 import me.pajic.affogato_core.util.LootEntryReplacement;
 import net.ramixin.mixson.inline.Mixson;
@@ -361,6 +358,41 @@ public class LootTableEvents {
                     }
                     """).deepCopy();
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
+                },
+                false
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:tags/enchantment/non_treasure"),
+                "Remove enchantments from non treasure tag",
+                context -> {
+                    JsonArray values = context.getFile().getAsJsonObject().getAsJsonArray("values");
+                    if (Main.CONFIG.loot.maceEnchantmentsInOminousVaults.get()) {
+                        values.remove(new JsonPrimitive("minecraft:density"));
+                        values.remove(new JsonPrimitive("minecraft:breach"));
+                    }
+                    if (Main.CONFIG.loot.tridentEnchantmentsFromElderGuardians.get()) {
+                        values.remove(new JsonPrimitive("minecraft:loyalty"));
+                        values.remove(new JsonPrimitive("minecraft:impaling"));
+                        values.remove(new JsonPrimitive("minecraft:riptide"));
+                        values.remove(new JsonPrimitive("minecraft:channeling"));
+                    }
+                },
+                false
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("minecraft:tags/enchantment/on_random_loot"),
+                "Remove enchantments from random loot tag",
+                context -> {
+                    JsonArray values = context.getFile().getAsJsonObject().getAsJsonArray("values");
+                    if (Main.CONFIG.loot.frostWalkerOnlyInIgloosAndIceBox.get()) {
+                        values.remove(new JsonPrimitive("minecraft:frost_walker"));
+                    }
+                    if (Main.CONFIG.loot.cursesOnlyInDesertPyramids.get()) {
+                        values.remove(new JsonPrimitive("minecraft:binding_curse"));
+                        values.remove(new JsonPrimitive("minecraft:vanishing_curse"));
+                    }
                 },
                 false
         );
