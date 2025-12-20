@@ -26,7 +26,7 @@ public class WorldgenDataEvents {
                     });
                     context.getFile().getAsJsonObject().add("elements", updatedElements);
                 },
-                true
+                false
         );
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -36,7 +36,7 @@ public class WorldgenDataEvents {
                     context.getFile().getAsJsonObject().getAsJsonObject("config").addProperty("discard_chance_on_air_exposure", 0);
                     context.getFile().getAsJsonObject().getAsJsonObject("config").addProperty("size", Main.CONFIG.worldgen.ancientDebrisSize.get());
                 },
-                true
+                false
         );
         if (Main.CONFIG.worldgen.removeAncientDebrisHeightLimit.get()) Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -65,7 +65,7 @@ public class WorldgenDataEvents {
                             }"""));
                     context.getFile().getAsJsonObject().add("placement", updatedPlacement);
                 },
-                true
+                false
         );
         ORE.forEach(ore -> Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -75,7 +75,7 @@ public class WorldgenDataEvents {
                         .getAsJsonObject("config").addProperty("size", Math.round(
                                 context.getFile().getAsJsonObject().getAsJsonObject("config")
                                         .getAsJsonPrimitive("size").getAsInt() * Main.CONFIG.worldgen.oreSizeMult.get())),
-                true
+                false
         ));
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -91,7 +91,7 @@ public class WorldgenDataEvents {
                         }
                     }
                 },
-                true
+                false
         );
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -102,7 +102,7 @@ public class WorldgenDataEvents {
                                 context.getFile().getAsJsonObject().getAsJsonObject("placement")
                                         .getAsJsonPrimitive("frequency").getAsFloat() * Main.CONFIG.worldgen.mineshaftChanceMult.get()
                         ),
-                true
+                false
         );
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -131,7 +131,7 @@ public class WorldgenDataEvents {
                     if (idToRemove != -1) monsters.remove(idToRemove);
                     if (!ocelot.isEmpty()) creatures.add(ocelot);
                 },
-                true
+                false
         );
     }
 }

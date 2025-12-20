@@ -2,6 +2,7 @@ package me.pajic.affogato_core.mixson;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonPrimitive;
+import me.pajic.affogato_core.CompatFlags;
 import me.pajic.affogato_core.Main;
 import net.ramixin.mixson.inline.Mixson;
 
@@ -18,7 +19,7 @@ public class TagEvents {
                     values.add("minecraft:diorite");
                     values.add("minecraft:tuff");
                 },
-                true
+                false
         );
         if (Main.CONFIG.misc.ironMinesObsidian.get()) {
             Mixson.registerEvent(
@@ -31,7 +32,7 @@ public class TagEvents {
                         values.add("minecraft:crying_obsidian");
                         values.add("minecraft:respawn_anchor");
                     },
-                    true
+                    false
             );
             Mixson.registerEvent(
                     Mixson.DEFAULT_PRIORITY,
@@ -43,7 +44,7 @@ public class TagEvents {
                         values.remove(new JsonPrimitive("minecraft:crying_obsidian"));
                         values.remove(new JsonPrimitive("minecraft:respawn_anchor"));
                     },
-                    true
+                    false
             );
         }
         if (Main.CONFIG.features.stoneToolNuke.get()) Mixson.registerEvent(
@@ -53,7 +54,23 @@ public class TagEvents {
                 context ->
                         context.getFile().getAsJsonObject().getAsJsonArray("values")
                                 .remove(new JsonPrimitive("minecraft:copper_ore")),
-                true
+                false
+        );
+        if (CompatFlags.SERENE_WILD_LOADED) Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().startsWith("sereneseasons:tags/") && (rl.getPath().contains("autumn_crops") || rl.getPath().contains("unbreakable_infertile_crops")),
+                "Patch Serene Wild tags for newer versions",
+                context -> {
+                    JsonArray values = context.getFile().getAsJsonObject().getAsJsonArray("values");
+                    JsonPrimitive p = new JsonPrimitive("wilderwild:maple_sapling");
+                    if (values.contains(p)) {
+                        values.remove(p);
+                        values.add("wilderwild:yellow_maple_sapling");
+                        values.add("wilderwild:orange_maple_sapling");
+                        values.add("wilderwild:red_maple_sapling");
+                    }
+                },
+                false
         );
     }
 }

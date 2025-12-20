@@ -44,14 +44,14 @@ public class RecipeEvents {
                         }
                     }
                 },
-                true
+                false
         );
         Main.CONFIG.removedRecipes.get().forEach(s -> Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
                 rl -> rl.toString().equals(s),
                 "Remove recipes",
                 context -> context.markForDeletion(true),
-                true
+                false
         ));
         if (CompatFlags.FD_LOADED && Main.CONFIG.features.affogatoRecipeEdits.get()) Main.CONFIG.removedRecipes.get().forEach(s ->
                 Mixson.registerEvent(
@@ -59,7 +59,7 @@ public class RecipeEvents {
                         rl -> rl.toString().equals("minecraft:recipe/cake"),
                         "Remove cake recipe",
                         context -> context.markForDeletion(true),
-                        true
+                        false
                 )
         );
         if (Main.CONFIG.features.stoneToolNuke.get()) STONE_TOOLS.forEach(s -> Mixson.registerEvent(
@@ -67,7 +67,7 @@ public class RecipeEvents {
                 rl -> rl.toString().equals(s),
                 "Remove recipes",
                 context -> context.markForDeletion(true),
-                true
+                false
         ));
     }
 }

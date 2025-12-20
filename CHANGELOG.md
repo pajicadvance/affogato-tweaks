@@ -1,0 +1,1 @@
+- Fix wandering trader mixin crash

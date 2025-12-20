@@ -5,4 +5,5 @@ import net.fabricmc.loader.api.FabricLoader;
 public class CompatFlags {
     public static final boolean FD_LOADED = FabricLoader.getInstance().isModLoaded("farmersdelight");
     public static final boolean ITEMSWAPPER_LOADED = FabricLoader.getInstance().isModLoaded("itemswapper");
+    public static final boolean SERENE_WILD_LOADED = FabricLoader.getInstance().isModLoaded("serenewild");
 }

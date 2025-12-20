@@ -47,7 +47,7 @@ public class LootTableEvents {
                     });
                     context.getFile().getAsJsonObject().add("pools", updatedPools);
                 },
-                true
+                false
         );
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -90,7 +90,7 @@ public class LootTableEvents {
                             .addProperty("chance", Main.CONFIG.loot.trialExplorerMapChance.get());
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
-                true
+                false
         );
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -118,7 +118,7 @@ public class LootTableEvents {
                             .addProperty("chance", Main.CONFIG.loot.globeBannerPatternChance.get());
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
-                true
+                false
         );
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -161,7 +161,7 @@ public class LootTableEvents {
                             .addProperty("chance", Main.CONFIG.loot.woodlandExplorerMapChance.get());
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
-                true
+                false
         );
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -204,7 +204,7 @@ public class LootTableEvents {
                             .addProperty("chance", Main.CONFIG.loot.oceanExplorerMapChance.get());
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
-                true
+                false
         );
         Main.CONFIG.loot.totemMap.get().forEach((key, value) -> Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -234,7 +234,7 @@ public class LootTableEvents {
                             .addProperty("chance", value);
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
-                true
+                false
         ));
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -268,7 +268,7 @@ public class LootTableEvents {
                             .addProperty("chance", Main.CONFIG.loot.curseEnchantedBookChance.get());
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
-                true
+                false
         );
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -302,7 +302,7 @@ public class LootTableEvents {
                                     Main.CONFIG.loot.frostWalkerIglooChance.get() : Main.CONFIG.loot.frostWalkerIceBoxChance.get());
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
-                true
+                false
         );
         if (Main.CONFIG.loot.tridentEnchantmentsFromElderGuardians.get()) Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -333,7 +333,7 @@ public class LootTableEvents {
                     """).deepCopy();
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
-                true
+                false
         );
         if (Main.CONFIG.loot.maceEnchantmentsInOminousVaults.get()) Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -362,7 +362,7 @@ public class LootTableEvents {
                     """).deepCopy();
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 },
-                true
+                false
         );
         Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -401,7 +401,7 @@ public class LootTableEvents {
                         }
                     }
                 },
-                true
+                false
         );
     }
 }

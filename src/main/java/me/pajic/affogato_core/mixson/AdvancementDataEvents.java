@@ -15,7 +15,7 @@ public class AdvancementDataEvents {
                         .getAsJsonObject("conditions")
                         .getAsJsonObject("effects")
                         .remove("minecraft:night_vision"),
-                true
+                false
         );
         if (Main.CONFIG.features.villagerNuke.get()) {
             Mixson.registerEvent(
@@ -28,14 +28,14 @@ public class AdvancementDataEvents {
                             .getAsJsonObject("conditions")
                             .getAsJsonObject("effects")
                             .remove("minecraft:hero_of_the_village"),
-                    true
+                    false
             );
             Mixson.registerEvent(
                     Mixson.DEFAULT_PRIORITY,
                     rl -> rl.toString().equals("minecraft:advancement/adventure/summon_iron_golem"),
                     "Change summon iron golem advancement prerequisite",
                     context -> context.getFile().getAsJsonObject().addProperty("parent", "minecraft:adventure/root"),
-                    true
+                    false
             );
             Mixson.registerEvent(
                     Mixson.DEFAULT_PRIORITY,
@@ -47,7 +47,7 @@ public class AdvancementDataEvents {
                                     rl.toString().equals("minecraft:advancement/adventure/lightning_rod_with_villager_no_fire"),
                     "Disable village related advancements",
                     context -> context.markForDeletion(true),
-                    true
+                    false
             );
             Mixson.registerEvent(
                     Mixson.DEFAULT_PRIORITY,
@@ -57,7 +57,7 @@ public class AdvancementDataEvents {
                         context.getFile().getAsJsonObject().addProperty("advancements.adventure.voluntary_exile.description", "Kill a raid captain.");
                         context.getFile().getAsJsonObject().addProperty("advancements.adventure.summon_iron_golem.description", "Summon an Iron Golem");
                     },
-                    true
+                    false
             );
         }
     }
