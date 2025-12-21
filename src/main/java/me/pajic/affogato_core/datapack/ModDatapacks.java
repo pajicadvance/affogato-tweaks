@@ -37,18 +37,26 @@ public class ModDatapacks {
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
                 if (CompatFlags.FD_LOADED) ResourceManagerHelper.registerBuiltinResourcePack(
-                        Main.id("fd_cake_recipe"),
+                        Main.id("fd_integration"),
                         modContainer,
-                        Component.literal("Farmer's Delight vanilla cake recipe"),
+                        Component.literal("Farmer's Delight Affogato integration"),
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
             }
-            if (CompatFlags.MASTERCUTTER_LOADED && CompatFlags.WILDER_WILD_LOADED) ResourceManagerHelper.registerBuiltinResourcePack(
-                    Main.id("wwcutter"),
-                    modContainer,
-                    Component.literal("Mastercutter recipes for Wilder Wild"),
-                    ResourcePackActivationType.ALWAYS_ENABLED
-            );
+            if (CompatFlags.WILDER_WILD_LOADED) {
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        Main.id("wilderwild_typo_fix"),
+                        modContainer,
+                        Component.literal("Fix typo in model json"),
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                );
+                if (CompatFlags.MASTERCUTTER_LOADED) ResourceManagerHelper.registerBuiltinResourcePack(
+                        Main.id("wwcutter"),
+                        modContainer,
+                        Component.literal("Mastercutter recipes for Wilder Wild"),
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                );
+            }
         });
     }
 }

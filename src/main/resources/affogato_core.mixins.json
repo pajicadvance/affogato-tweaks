@@ -31,6 +31,7 @@
     "gameplay.FuelValuesMixin",
     "gameplay.HoglinMixin",
     "gameplay.InventoryMixin",
+    "gameplay.MapItemMixin",
     "gameplay.MobMixin",
     "gameplay.ReplaceDiskMixin",
     "gameplay.TridentItemMixin",

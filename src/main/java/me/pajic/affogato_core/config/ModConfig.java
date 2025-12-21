@@ -120,6 +120,7 @@ public class ModConfig extends Config {
         public ValidatedBoolean animalsLookForFood = new ValidatedBoolean(true);
         public ValidatedBoolean hardDifficultyDefault = new ValidatedBoolean(true);
         public ValidatedBoolean holdingAnvilAppliesSlowness = new ValidatedBoolean(true);
+        public ValidatedBoolean alwaysUpdateMaps = new ValidatedBoolean(true);
         public ValidatedBoolean noRiptideInRain = new ValidatedBoolean(true);
         public ValidatedBoolean affogatoBlockLootTableEdits = new ValidatedBoolean(true);
         public ValidatedBoolean affogatoEntityLootTableEdits = new ValidatedBoolean(true);
@@ -288,6 +289,7 @@ public class ModConfig extends Config {
         public ValidatedBoolean frostWalkerEarlyTrigger = new ValidatedBoolean(true);
         public ValidatedBoolean ironMinesObsidian = new ValidatedBoolean(true);
         public ValidatedBoolean moreStoneTypesInStoneCraftingRecipes = new ValidatedBoolean(true);
+        public ValidatedBoolean nullscapeEndAmbienceEdits = new ValidatedBoolean(true);
     }
 
     public static class Debug extends ConfigSection {

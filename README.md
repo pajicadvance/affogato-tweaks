@@ -34,7 +34,7 @@ Tools and utilities:
 - ... and a bunch of other miscellaneous tweaks too specific to list here.
 
 Affogato-specific features:
-- Affogato Block Loot Table Edits: Prevents gravel from dropping flint (obtained by shoveling gravel on the Farmer's Delight cutting table instead), increases the drop chance of jungle leaves, and increases the amount of quartz dropped from quartz ore.
+- Affogato Block Loot Table Edits: Increases the drop chance of jungle leaves and increases the amount of quartz dropped from quartz ore. If Farmer's Delight is present, prevents gravel from dropping flint (obtained by shoveling gravel on the Farmer's Delight cutting table instead).
 - Affogato Entity Loot Table Edits: Increases mob loot drop chances and quantities across the board to account for the removal of Looting.
 - Affogato Recipe Edits: Reduces the amount of iron and gold required in recipes using them to account for the removal of Fortune. Adds recipes for name tags, glowstone dust, and crying obsidian. Changes the empty map recipe to be much cheaper. If Farmer's Delight is present, reworks vanilla cake recipe to use Farmer's Delight ingredients, and makes shoveling gravel on the cutting table always drop flint.
 - Affogato Wandering Trader Trades: Replaces wandering trader trades with custom trades.

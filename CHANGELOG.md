@@ -1,1 +1,4 @@
-- Fix wandering trader mixin crash
+- Added model fix and Mastercutter compat for Wilder Wild
+- Tweaked enchantment redistribution options
+- Added fog and ambient light edits for Nullscape biomes
+- Added option to always update maps in the player's inventory

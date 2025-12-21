@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import me.pajic.affogato_core.CompatFlags;
 import me.pajic.affogato_core.Main;
 import net.ramixin.mixson.inline.Mixson;
 
@@ -11,6 +12,10 @@ import java.util.List;
 
 public class WorldgenDataEvents {
     private static final List<String> ORE = List.of("coal", "copper", "diamond", "emerald", "gold", "iron", "lapis", "nether_gold", "quartz", "redstone");
+    private static final List<String> END_BIOMES = List.of(
+            "minecraft:end_barrens", "minecraft:end_highlands", "minecraft:end_midlands", "minecraft:small_end_islands", "minecraft:the_end",
+            "nullscape:crystal_peaks", "nullscape:shadowlands", "nullscape:void_barrens"
+    );
     public static void register() {
         if (Main.CONFIG.features.villagerNuke.get()) Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -133,5 +138,39 @@ public class WorldgenDataEvents {
                 },
                 false
         );
+        if (CompatFlags.NULLSCAPE_LOADED && Main.CONFIG.misc.nullscapeEndAmbienceEdits.get()) {
+            END_BIOMES.forEach(s -> {
+                String[] split = s.split(":");
+                Mixson.registerEvent(
+                        Mixson.DEFAULT_PRIORITY,
+                        rl -> rl.toString().equals(split[0] + ":worldgen/biome/" + split[1]),
+                        "Fix Nullscape biome fog",
+                        context -> {
+                            if (context.getFile().getAsJsonObject().has("attributes")) {
+                                JsonObject attributes = context.getFile().getAsJsonObject().getAsJsonObject("attributes");
+                                attributes.remove("minecraft:visual/fog_color");
+                                attributes.remove("minecraft:visual/water_fog_color");
+                                attributes.remove("minecraft:visual/sky_color");
+                            }
+                            context.getFile().getAsJsonObject().remove("effects");
+                            JsonObject effects = new JsonObject();
+                            effects.addProperty("water_color", "#3f76e4");
+                            context.getFile().getAsJsonObject().add("effects", effects);
+                        },
+                        false
+                );
+            });
+            Mixson.registerEvent(
+                    Mixson.DEFAULT_PRIORITY,
+                    rl -> rl.toString().equals("minecraft:dimension_type/the_end"),
+                    "Fix End ambient light with Nullscape",
+                    context -> {
+                        context.getFile().getAsJsonObject().addProperty("ambient_light", 0.25);
+                        context.getFile().getAsJsonObject().getAsJsonObject("attributes")
+                                .addProperty("minecraft:visual/sky_light_color", "#e580ff");
+                    },
+                    false
+            );
+        }
     }
 }
