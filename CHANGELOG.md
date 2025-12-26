@@ -1,4 +1,9 @@
-- Added model fix and Mastercutter compat for Wilder Wild
-- Tweaked enchantment redistribution options
-- Added fog and ambient light edits for Nullscape biomes
-- Added option to always update maps in the player's inventory
+- Added feature "Affogato Early Game Changes"
+  - Hides wooden and stone tools and removes their recipes
+  - Adds flint tools (replaces wooden tools)
+  - Increases flint drop chance from gravel blocks
+  - Allows copper ore to be mined with flint tools
+  - Adjusts the "Getting an Upgrade" advancement to be triggered by a copper pickaxe instead of a stone pickaxe
+  - Gives wither skeletons golden swords instead of stone swords
+- Removed feature "Stone Tool Nuke" (now a part of "Affogato Early Game Changes")
+- Removed Wilder Wild model fix (fixed in main mod)

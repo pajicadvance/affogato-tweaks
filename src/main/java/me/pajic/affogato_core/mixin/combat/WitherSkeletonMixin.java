@@ -20,6 +20,6 @@ public class WitherSkeletonMixin {
             index = 1
     )
     private ItemStack changeSwordType(ItemStack original) {
-        return Main.CONFIG.features.stoneToolNuke.get() ? new ItemStack(Items.GOLDEN_SWORD) : original;
+        return Main.CONFIG.features.affogatoEarlyGameChanges.get() ? new ItemStack(Items.GOLDEN_SWORD) : original;
     }
 }

@@ -18,12 +18,17 @@ import java.util.Set;
 @Mixin(CreativeModeTab.class)
 public class CreativeModeTabMixin {
 
-    @Unique private static final List<String> STONE_TOOLS = List.of(
+    @Unique private static final List<String> TOOLS = List.of(
             "minecraft:stone_pickaxe",
             "minecraft:stone_shovel",
             "minecraft:stone_sword",
             "minecraft:stone_axe",
-            "minecraft:stone_hoe"
+            "minecraft:stone_hoe",
+            "minecraft:wooden_pickaxe",
+            "minecraft:wooden_shovel",
+            "minecraft:wooden_sword",
+            "minecraft:wooden_axe",
+            "minecraft:wooden_hoe"
     );
 
     @Shadow private Collection<ItemStack> displayItems;
@@ -43,8 +48,8 @@ public class CreativeModeTabMixin {
         items.removeIf(stack ->
                 Main.CONFIG.hiddenItems.get().contains(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString())
         );
-        if (Main.CONFIG.features.stoneToolNuke.get()) items.removeIf(stack ->
-                STONE_TOOLS.contains(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString())
+        if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) items.removeIf(stack ->
+                TOOLS.contains(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString())
         );
     }
 }

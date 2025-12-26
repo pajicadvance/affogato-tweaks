@@ -9,12 +9,17 @@ import java.util.List;
 
 public class RecipeEvents {
 
-    private static final List<String> STONE_TOOLS = List.of(
+    private static final List<String> TOOLS = List.of(
             "minecraft:recipe/stone_pickaxe",
             "minecraft:recipe/stone_shovel",
             "minecraft:recipe/stone_sword",
             "minecraft:recipe/stone_axe",
-            "minecraft:recipe/stone_hoe"
+            "minecraft:recipe/stone_hoe",
+            "minecraft:recipe/wooden_pickaxe",
+            "minecraft:recipe/wooden_shovel",
+            "minecraft:recipe/wooden_sword",
+            "minecraft:recipe/wooden_axe",
+            "minecraft:recipe/wooden_hoe"
     );
 
     public static void register() {
@@ -62,7 +67,7 @@ public class RecipeEvents {
                         false
                 )
         );
-        if (Main.CONFIG.features.stoneToolNuke.get()) STONE_TOOLS.forEach(s -> Mixson.registerEvent(
+        if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) TOOLS.forEach(s -> Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
                 rl -> rl.toString().equals(s),
                 "Remove recipes",

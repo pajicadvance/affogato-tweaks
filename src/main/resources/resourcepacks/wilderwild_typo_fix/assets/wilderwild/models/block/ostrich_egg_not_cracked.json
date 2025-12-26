@@ -1,8 +1,0 @@
-{
-  "parent": "wilderwild:block/template_ostrich_egg",
-	"textures": {
-		"top": "wilderwild:block/ostrich_egg_not_cracked_top",
-		"side": "wilderwild:block/ostrich_egg_not_cracked_side",
-		"bottom": "wilderwild:block/ostrich_egg_not_cracked_bottom"
-	}
-}

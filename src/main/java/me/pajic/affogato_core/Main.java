@@ -3,19 +3,16 @@ package me.pajic.affogato_core;
 import me.fzzyhmstrs.fzzy_config.api.ConfigApiJava;
 import me.pajic.affogato_core.config.ModConfig;
 import me.pajic.affogato_core.datapack.ModDatapacks;
+import me.pajic.affogato_core.item.ModItems;
 import me.pajic.affogato_core.mixson.MixsonInitializer;
 import me.pajic.affogato_core.util.ToolMaterialId;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
-import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
+import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
+import net.fabricmc.fabric.api.resource.v1.pack.PackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.damagesource.DamageType;
-import net.minecraft.world.level.levelgen.structure.Structure;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,25 +23,17 @@ public class Main implements ModInitializer {
     public static final boolean DEBUG = FabricLoader.getInstance().isDevelopmentEnvironment();
     public static ModConfig CONFIG = ConfigApiJava.registerAndLoadConfig(ModConfig::new);
 
-    public static final TagKey<Structure> OUTPOSTS = TagKey.create(
-            Registries.STRUCTURE,
-            id("outposts")
-    );
-    public static final TagKey<DamageType> NO_EAT_CANCEL = TagKey.create(
-            Registries.DAMAGE_TYPE,
-            id("no_eat_cancel")
-    );
-
     @Override
     public void onInitialize() {
         MixsonInitializer.init();
+        ModItems.init();
         ModDatapacks.init();
         if (CompatFlags.ITEMSWAPPER_LOADED) FabricLoader.getInstance().getModContainer(Main.MOD_ID).ifPresent(modContainer ->
-                ResourceManagerHelper.registerBuiltinResourcePack(
+                ResourceLoader.registerBuiltinPack(
                         Main.id("itemswap"),
                         modContainer,
                         Component.literal("ItemSwapper addon for Affogato"),
-                        ResourcePackActivationType.ALWAYS_ENABLED
+                        PackActivationType.ALWAYS_ENABLED
                 )
         );
         ClientLifecycleEvents.CLIENT_STARTED.register(client -> {

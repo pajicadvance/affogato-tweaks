@@ -6,7 +6,6 @@ Features:
 - Villager Nuke: Disables villager trading and makes all villages spawn as their abandoned variants. Wandering traders can be excluded from this.
 - Raid Rework: Raids start in outposts instead of villages and winning the raid will prevent the outpost from spawning any more pillagers. Pairs well with Villager Nuke. Can support modded outposts by adding them to the `affogatotweaks:outposts` tag.
 - Night Vision Nuke: Makes night vision unobtainable in survival by removing the recipe and preventing suspicious stew from getting the effect.
-- Stone Tool Nuke: Makes stone tools unobtainable in survival, allows mining copper with wood pickaxes and replaces the stone swords on wither skeletons with golden swords.
 - Animals Look For Food: Allows animals to move towards and eat their preferred food item from the ground when it's dropped nearby.
 - Hard Difficulty Default: Difficulty on create world screen defaults to Hard and freshly created servers default to Hard in server.properties.
 - Holding Anvil Applies Slowness: Constantly applies a heavy slowness effect while holding an anvil.
@@ -34,7 +33,14 @@ Tools and utilities:
 - ... and a bunch of other miscellaneous tweaks too specific to list here.
 
 Affogato-specific features:
-- Affogato Block Loot Table Edits: Increases the drop chance of jungle leaves and increases the amount of quartz dropped from quartz ore. If Farmer's Delight is present, prevents gravel from dropping flint (obtained by shoveling gravel on the Farmer's Delight cutting table instead).
+- Affogato Early Game Changes:
+  - Hides wooden and stone tools and removes their recipes.
+  - Adds flint tools (replaces wooden tools).
+  - Increases flint drop chance from gravel blocks.
+  - Allows copper ore to be mined with flint tools.
+  - Adjusts the "Getting an Upgrade" advancement to be triggered by a copper pickaxe instead of a stone pickaxe.
+  - Gives wither skeletons golden swords instead of stone swords.
+- Affogato Block Loot Table Edits: Increases the drop chance of jungle leaves and increases the amount of quartz dropped from quartz ore.
 - Affogato Entity Loot Table Edits: Increases mob loot drop chances and quantities across the board to account for the removal of Looting.
 - Affogato Recipe Edits: Reduces the amount of iron and gold required in recipes using them to account for the removal of Fortune. Adds recipes for name tags, glowstone dust, and crying obsidian. Changes the empty map recipe to be much cheaper. If Farmer's Delight is present, reworks vanilla cake recipe to use Farmer's Delight ingredients, and makes shoveling gravel on the cutting table always drop flint.
 - Affogato Wandering Trader Trades: Replaces wandering trader trades with custom trades.

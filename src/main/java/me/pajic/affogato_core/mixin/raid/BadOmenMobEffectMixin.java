@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import me.pajic.affogato_core.Main;
 import me.pajic.affogato_core.raid.ServerLevelAccess;
+import me.pajic.affogato_core.tag.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -23,7 +24,7 @@ public class BadOmenMobEffectMixin {
     )
     private boolean raidStartsInPillagerOutpost(boolean original, @Local(argsOnly = true) ServerLevel level, @Local ServerPlayer player) {
         if (Main.CONFIG.features.raidRework.get()) {
-            BlockPos pos = level.findNearestMapStructure(Main.OUTPOSTS, player.getOnPos(), 1, false);
+            BlockPos pos = level.findNearestMapStructure(ModTags.OUTPOSTS, player.getOnPos(), 1, false);
             if (pos != null && player.distanceToSqr(pos.getX(), player.getY(), pos.getZ()) < 1024) {
                 ((ServerLevelAccess) level).affogatotweaks$getClearedOutposts().addClearedOutpost(pos);
                 return true;

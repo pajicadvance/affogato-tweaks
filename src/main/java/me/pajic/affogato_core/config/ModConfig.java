@@ -116,12 +116,12 @@ public class ModConfig extends Config {
         public ValidatedBoolean allowWanderingTraderTrading = new ValidatedBoolean(true);
         public ValidatedBoolean raidRework = new ValidatedBoolean(true);
         public ValidatedBoolean nightVisionNuke = new ValidatedBoolean(true);
-        public ValidatedBoolean stoneToolNuke = new ValidatedBoolean(true);
         public ValidatedBoolean animalsLookForFood = new ValidatedBoolean(true);
         public ValidatedBoolean hardDifficultyDefault = new ValidatedBoolean(true);
         public ValidatedBoolean holdingAnvilAppliesSlowness = new ValidatedBoolean(true);
         public ValidatedBoolean alwaysUpdateMaps = new ValidatedBoolean(true);
         public ValidatedBoolean noRiptideInRain = new ValidatedBoolean(true);
+        public ValidatedBoolean affogatoEarlyGameChanges = new ValidatedBoolean(true);
         public ValidatedBoolean affogatoBlockLootTableEdits = new ValidatedBoolean(true);
         public ValidatedBoolean affogatoEntityLootTableEdits = new ValidatedBoolean(true);
         public ValidatedBoolean affogatoRecipeEdits = new ValidatedBoolean(true);

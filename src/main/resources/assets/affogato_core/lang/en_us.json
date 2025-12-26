@@ -3,6 +3,13 @@
   "biome.nullscape.shadowlands": "Shadowlands",
   "biome.nullscape.void_barrens": "Void Barrens",
 
+  "item.affogato_core.flint_pickaxe": "Flint Pickaxe",
+  "item.affogato_core.flint_shovel": "Flint Shovel",
+  "item.affogato_core.flint_axe": "Flint Axe",
+  "item.affogato_core.flint_hoe": "Flint Hoe",
+  "item.affogato_core.flint_sword": "Flint Sword",
+
+  "tag.item.affogato_core.flint_tool_materials": "Flint Tool Materials",
   "tag.item.farmersdelight.drinks": "Drinks",
   "tag.item.farmersdelight.feasts": "Feasts",
   "tag.item.farmersdelight.meals": "Meals",

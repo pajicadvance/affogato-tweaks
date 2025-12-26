@@ -47,10 +47,10 @@ public class TagEvents {
                     false
             );
         }
-        if (Main.CONFIG.features.stoneToolNuke.get()) Mixson.registerEvent(
+        if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
                 rl -> rl.toString().equals("minecraft:tags/block/needs_stone_tool"),
-                "Allow mining copper ore with wood tools",
+                "Allow mining copper ore with flint tools",
                 context ->
                         context.getFile().getAsJsonObject().getAsJsonArray("values")
                                 .remove(new JsonPrimitive("minecraft:copper_ore")),

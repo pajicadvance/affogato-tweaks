@@ -5,6 +5,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import me.pajic.affogato_core.Main;
 import me.pajic.affogato_core.raid.ChunkGeneratorAccess;
 import me.pajic.affogato_core.raid.ServerLevelAccess;
+import me.pajic.affogato_core.tag.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
@@ -33,9 +34,9 @@ public class ChunkGeneratorMixin implements ChunkGeneratorAccess {
     private boolean noPillagersIfOutpostCleared(boolean original, @Local Structure structure, @Local(argsOnly = true) StructureManager manager, @Local(argsOnly = true) BlockPos pos) {
         if (Main.CONFIG.features.raidRework.get()) {
             Registry<Structure> lookup = manager.registryAccess().lookupOrThrow(Registries.STRUCTURE);
-            Optional<HolderSet.Named<Structure>> opt = lookup.get(Main.OUTPOSTS);
+            Optional<HolderSet.Named<Structure>> opt = lookup.get(ModTags.OUTPOSTS);
             if (opt.isPresent() && opt.get().stream().anyMatch(holder -> holder.is(lookup.getKey(structure)))) {
-                BlockPos outpostPos = serverLevel.findNearestMapStructure(Main.OUTPOSTS, pos, 1, false);
+                BlockPos outpostPos = serverLevel.findNearestMapStructure(ModTags.OUTPOSTS, pos, 1, false);
                 return outpostPos != null && !((ServerLevelAccess) serverLevel).affogatotweaks$getClearedOutposts().isOutpostCleared(outpostPos);
             }
         }
