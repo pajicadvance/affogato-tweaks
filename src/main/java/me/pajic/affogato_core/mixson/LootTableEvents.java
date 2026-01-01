@@ -396,44 +396,5 @@ public class LootTableEvents {
                 },
                 false
         );
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:loot_table/blocks/oak_leaves") || rl.toString().equals("minecraft:loot_table/blocks/dark_oak_leaves"),
-                "Increase apple drop chance",
-                context -> {
-                    JsonArray pools = context.getFile().getAsJsonObject().getAsJsonArray("pools");
-                    for (JsonElement pool : pools) {
-                        JsonArray updatedEntries = new JsonArray();
-                        JsonArray entries = pool.getAsJsonObject().getAsJsonArray("entries");
-                        for (JsonElement entry : entries) {
-                            if (entry.getAsJsonObject().has("name") && entry.getAsJsonObject().get("name").getAsString().equals("minecraft:apple")) {
-                                updatedEntries = entries.deepCopy();
-                                updatedEntries.remove(entry);
-                                JsonElement e = JsonParser.parseString("""
-                                {
-                                  "type": "minecraft:item",
-                                  "name": "minecraft:apple",
-                                  "conditions": [
-                                    {
-                                      "condition": "minecraft:random_chance"
-                                    }
-                                  ]
-                                }
-                                """).deepCopy();
-                                e.getAsJsonObject()
-                                        .getAsJsonArray("conditions").get(0).getAsJsonObject()
-                                        .addProperty("chance", Main.CONFIG.loot.appleDropChance.get());
-                                updatedEntries.add(e);
-                                break;
-                            }
-                        }
-                        if (!updatedEntries.isEmpty()) {
-                            pool.getAsJsonObject().add("entries", updatedEntries);
-                            break;
-                        }
-                    }
-                },
-                false
-        );
     }
 }

@@ -35,13 +35,20 @@ Tools and utilities:
 Affogato-specific features:
 - Affogato Early Game Changes:
   - Hides wooden and stone tools and removes their recipes.
+  - Requires using an axe for getting drops from logs.
   - Adds flint tools (replaces wooden tools).
-  - Increases flint drop chance from gravel blocks.
   - Allows copper ore to be mined with flint tools.
   - Adjusts the "Getting an Upgrade" advancement to be triggered by a copper pickaxe instead of a stone pickaxe.
   - Gives wither skeletons golden swords instead of stone swords.
-- Affogato Block Loot Table Edits: Increases the drop chance of jungle leaves and increases the amount of quartz dropped from quartz ore.
-- Affogato Entity Loot Table Edits: Increases mob loot drop chances and quantities across the board to account for the removal of Looting.
+- Affogato Block Loot Table Edits: 
+  - Increases flint drop chance from gravel blocks.
+  - Increases stick drop chance from leaves.
+  - Increases jungle sapling drop chance from jungle leaves.
+  - Increases apple drop chance from leaves which drop them.
+  - Increases the amount of quartz dropped from quartz ore.
+- Affogato Entity Loot Table Edits: 
+  - Increases mob loot drop chances and quantities across the board to account for the removal of Looting.
+  - Removes mob drops which most resource farms rely on.
 - Affogato Recipe Edits: Reduces the amount of iron and gold required in recipes using them to account for the removal of Fortune. Adds recipes for name tags, glowstone dust, and crying obsidian. Changes the empty map recipe to be much cheaper. If Farmer's Delight is present, reworks vanilla cake recipe to use Farmer's Delight ingredients, and makes shoveling gravel on the cutting table always drop flint.
 - Affogato Wandering Trader Trades: Replaces wandering trader trades with custom trades.
 - Affogato ItemSwapper Addon: Reworks some lists and palettes and adds support for items from several mods.

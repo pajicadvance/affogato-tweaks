@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": [
+     "traverse:fir_sign"
+  ],
+  "result": {
+    "id": "traverse:fir_planks",
+    "count": 2
+  }
+}

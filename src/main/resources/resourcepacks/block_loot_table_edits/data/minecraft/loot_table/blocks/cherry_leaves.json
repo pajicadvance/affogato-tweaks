@@ -37,7 +37,7 @@
                   ]
                 }
               ],
-              "name": "minecraft:jungle_leaves"
+              "name": "minecraft:cherry_leaves"
             },
             {
               "type": "minecraft:item",
@@ -56,7 +56,7 @@
                   "enchantment": "minecraft:fortune"
                 }
               ],
-              "name": "minecraft:jungle_sapling"
+              "name": "minecraft:cherry_sapling"
             }
           ]
         }
@@ -125,5 +125,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "minecraft:blocks/jungle_leaves"
+  "random_sequence": "minecraft:blocks/cherry_leaves"
 }

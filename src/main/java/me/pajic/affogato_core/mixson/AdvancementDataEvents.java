@@ -41,10 +41,10 @@ public class AdvancementDataEvents {
                     Mixson.DEFAULT_PRIORITY,
                     rl ->
                             rl.toString().equals("minecraft:advancement/adventure/hero_of_the_village") ||
-                                    rl.toString().equals("minecraft:advancement/adventure/trade") ||
-                                    rl.toString().equals("minecraft:advancement/adventure/trade_at_world_height") ||
-                                    rl.toString().equals("minecraft:advancement/adventure/very_very_frightening") ||
-                                    rl.toString().equals("minecraft:advancement/adventure/lightning_rod_with_villager_no_fire"),
+                            rl.toString().equals("minecraft:advancement/adventure/trade") ||
+                            rl.toString().equals("minecraft:advancement/adventure/trade_at_world_height") ||
+                            rl.toString().equals("minecraft:advancement/adventure/very_very_frightening") ||
+                            rl.toString().equals("minecraft:advancement/adventure/lightning_rod_with_villager_no_fire"),
                     "Disable village related advancements",
                     context -> context.markForDeletion(true),
                     false
@@ -54,7 +54,7 @@ public class AdvancementDataEvents {
                     rl -> rl.toString().equals("minecraft:lang/en_us"),
                     "Remove village references in advancement text",
                     context -> {
-                        context.getFile().getAsJsonObject().addProperty("advancements.adventure.voluntary_exile.description", "Kill a raid captain.");
+                        context.getFile().getAsJsonObject().addProperty("advancements.adventure.voluntary_exile.description", "Kill a raid captain. Maybe consider staying away from outposts for the time being...");
                         context.getFile().getAsJsonObject().addProperty("advancements.adventure.summon_iron_golem.description", "Summon an Iron Golem");
                     },
                     false

@@ -37,7 +37,7 @@
                   ]
                 }
               ],
-              "name": "minecraft:jungle_leaves"
+              "name": "wilderwild:willow_leaves"
             },
             {
               "type": "minecraft:item",
@@ -56,7 +56,7 @@
                   "enchantment": "minecraft:fortune"
                 }
               ],
-              "name": "minecraft:jungle_sapling"
+              "name": "wilderwild:willow_sapling"
             }
           ]
         }
@@ -102,7 +102,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.1
+              "chance": 0.125
             }
           ],
           "functions": [
@@ -124,6 +124,5 @@
       ],
       "rolls": 1.0
     }
-  ],
-  "random_sequence": "minecraft:blocks/jungle_leaves"
+  ]
 }

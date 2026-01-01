@@ -33,6 +33,7 @@
     "gameplay.InventoryMixin",
     "gameplay.MapItemMixin",
     "gameplay.MobMixin",
+    "gameplay.PlayerMixin",
     "gameplay.ReplaceDiskMixin",
     "gameplay.TridentItemMixin",
     "hunger.BlockMixin",

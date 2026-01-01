@@ -37,7 +37,7 @@
                   ]
                 }
               ],
-              "name": "minecraft:jungle_leaves"
+              "name": "minecraft:azalea_leaves"
             },
             {
               "type": "minecraft:item",
@@ -56,7 +56,7 @@
                   "enchantment": "minecraft:fortune"
                 }
               ],
-              "name": "minecraft:jungle_sapling"
+              "name": "minecraft:azalea"
             }
           ]
         }
@@ -102,7 +102,7 @@
           "conditions": [
             {
               "condition": "minecraft:random_chance",
-              "chance": 0.1
+              "chance": 0.125
             }
           ],
           "functions": [
@@ -125,5 +125,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "minecraft:blocks/jungle_leaves"
+  "random_sequence": "minecraft:blocks/azalea_leaves"
 }

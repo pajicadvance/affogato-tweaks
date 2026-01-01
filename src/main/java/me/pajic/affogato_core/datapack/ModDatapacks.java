@@ -51,12 +51,20 @@ public class ModDatapacks {
                         PackActivationType.ALWAYS_ENABLED
                 );
             }
-            if (CompatFlags.MASTERCUTTER_LOADED && CompatFlags.WILDER_WILD_LOADED) ResourceLoader.registerBuiltinPack(
-                    Main.id("wwcutter"),
-                    modContainer,
-                    Component.literal("Mastercutter recipes for Wilder Wild"),
-                    PackActivationType.ALWAYS_ENABLED
-            );
+            if (CompatFlags.MASTERCUTTER_LOADED) {
+                if (CompatFlags.WILDER_WILD_LOADED) ResourceLoader.registerBuiltinPack(
+                        Main.id("wwcutter"),
+                        modContainer,
+                        Component.literal("Mastercutter recipes for Wilder Wild"),
+                        PackActivationType.ALWAYS_ENABLED
+                );
+                if (CompatFlags.TRAVERSE_LOADED) ResourceLoader.registerBuiltinPack(
+                        Main.id("traversecutter"),
+                        modContainer,
+                        Component.literal("Mastercutter recipes for Traverse"),
+                        PackActivationType.ALWAYS_ENABLED
+                );
+            }
         });
     }
 }

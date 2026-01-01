@@ -1,9 +1,3 @@
-- Added feature "Affogato Early Game Changes"
-  - Hides wooden and stone tools and removes their recipes
-  - Adds flint tools (replaces wooden tools)
-  - Increases flint drop chance from gravel blocks
-  - Allows copper ore to be mined with flint tools
-  - Adjusts the "Getting an Upgrade" advancement to be triggered by a copper pickaxe instead of a stone pickaxe
-  - Gives wither skeletons golden swords instead of stone swords
-- Removed feature "Stone Tool Nuke" (now a part of "Affogato Early Game Changes")
-- Removed Wilder Wild model fix (fixed in main mod)
+- Affogato Early Game Changes: An axe is now required to get drops from logs
+- Affogato Block Loot Table Edits: Increased stick drop chance from leaves
+- Added Mastercutter recipes for Fir wood from Traverse

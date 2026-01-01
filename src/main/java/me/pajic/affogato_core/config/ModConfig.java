@@ -214,7 +214,6 @@ public class ModConfig extends Config {
         public ValidatedDouble curseEnchantedBookChance = new ValidatedDouble(0.5, 1, 0);
         public ValidatedDouble frostWalkerIglooChance = new ValidatedDouble(0.5, 1, 0);
         public ValidatedDouble frostWalkerIceBoxChance = new ValidatedDouble(1, 1, 0);
-        public ValidatedDouble appleDropChance = new ValidatedDouble(0.025, 1, 0);
         public ValidatedDouble globeBannerPatternChance = new ValidatedDouble(1, 1, 0);
         public ValidatedBoolean maceEnchantmentsInOminousVaults = new ValidatedBoolean(true);
         public ValidatedBoolean tridentEnchantmentsFromElderGuardians = new ValidatedBoolean(true);
