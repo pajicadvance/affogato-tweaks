@@ -22,21 +22,22 @@ public class ModItems {
             0, 15, ModTags.FLINT_TOOL_MATERIALS
     );
 
-    public static final Item FLINT_PICKAXE = registerFlintToolItem(
+    public static final Item FLINT_PICKAXE = registerEarlyGameChangesItem(
             "flint_pickaxe", new Item.Properties().pickaxe(FLINT, 1.0F, -2.8F)
     );
-    public static final Item FLINT_AXE = registerFlintToolItem(
+    public static final Item FLINT_AXE = registerEarlyGameChangesItem(
             "flint_axe", new Item.Properties().axe(FLINT, 6.0F, -3.2F)
     );
-    public static final Item FLINT_SWORD = registerFlintToolItem(
+    public static final Item FLINT_SWORD = registerEarlyGameChangesItem(
             "flint_sword", new Item.Properties().sword(FLINT, 3.0F, -2.4F)
     );
-    public static final Item FLINT_SHOVEL = registerFlintToolItem(
+    public static final Item FLINT_SHOVEL = registerEarlyGameChangesItem(
             "flint_shovel", new Item.Properties().shovel(FLINT, 1.5F, -3.0F)
     );
-    public static final Item FLINT_HOE = registerFlintToolItem(
+    public static final Item FLINT_HOE = registerEarlyGameChangesItem(
             "flint_hoe", new Item.Properties().hoe(FLINT, 0.0F, -3.0F)
     );
+    public static final Item FLINT_AXE_HEAD = registerEarlyGameChangesItem("flint_axe_head", new Item.Properties());
 
     public static void init() {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries ->
@@ -48,7 +49,11 @@ public class ModItems {
         });
     }
 
-    private static Item registerFlintToolItem(String name, Item.Properties properties) {
-        return Registry.register(BuiltInRegistries.ITEM, Main.id(name), new FlintToolItem(properties, name));
+    private static Item registerEarlyGameChangesItem(String name, Item.Properties properties) {
+        return registerModItem(name, properties, Main.CONFIG.features.affogatoEarlyGameChanges.get());
+    }
+
+    private static Item registerModItem(String name, Item.Properties properties, boolean enabled) {
+        return Registry.register(BuiltInRegistries.ITEM, Main.id(name), new ModItem(properties, name, enabled));
     }
 }

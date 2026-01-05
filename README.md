@@ -37,6 +37,7 @@ Affogato-specific features:
   - Hides wooden and stone tools and removes their recipes.
   - Requires using an axe for getting drops from logs.
   - Adds flint tools (replaces wooden tools).
+  - Flint axe has a recipe path that can be crafted in a 2x2 grid.
   - Allows copper ore to be mined with flint tools.
   - Adjusts the "Getting an Upgrade" advancement to be triggered by a copper pickaxe instead of a stone pickaxe.
   - Gives wither skeletons golden swords instead of stone swords.

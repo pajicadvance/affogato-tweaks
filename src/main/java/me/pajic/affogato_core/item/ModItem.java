@@ -7,14 +7,17 @@ import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Item;
 import org.jspecify.annotations.NonNull;
 
-public class FlintToolItem extends Item {
+public class ModItem extends Item {
 
-    public FlintToolItem(Properties properties, String name) {
+    private final boolean enabled;
+
+    public ModItem(Properties properties, String name, boolean enabled) {
         super(properties.setId(ResourceKey.create(Registries.ITEM, Main.id(name))));
+        this.enabled = enabled;
     }
 
     @Override
     public boolean isEnabled(@NonNull FeatureFlagSet featureFlagSet) {
-        return Main.CONFIG.features.affogatoEarlyGameChanges.get();
+        return enabled;
     }
 }

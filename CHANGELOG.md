@@ -1,1 +1,1 @@
-- Fixed crash on server.
+- Affogato Early Game Changes: Added method to craft flint axe without a crafting table (yes I overlooked this.)
