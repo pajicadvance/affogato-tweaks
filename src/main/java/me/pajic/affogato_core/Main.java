@@ -5,9 +5,7 @@ import me.pajic.affogato_core.config.ModConfig;
 import me.pajic.affogato_core.datapack.ModDatapacks;
 import me.pajic.affogato_core.item.ModItems;
 import me.pajic.affogato_core.mixson.MixsonInitializer;
-import me.pajic.affogato_core.util.ToolMaterialId;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
 import net.fabricmc.fabric.api.resource.v1.pack.PackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -36,12 +34,6 @@ public class Main implements ModInitializer {
                         PackActivationType.ALWAYS_ENABLED
                 )
         );
-        ClientLifecycleEvents.CLIENT_STARTED.register(client -> {
-            if (Main.CONFIG.debug.logMaterialIds.get()) {
-                LOGGER.info("Material IDs:");
-                ToolMaterialId.MATERIAL_IDS.forEach(LOGGER::info);
-            }
-        });
     }
 
     public static Identifier id(String path) {

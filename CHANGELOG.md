@@ -1,3 +1,1 @@
-- Affogato Early Game Changes: An axe is now required to get drops from logs
-- Affogato Block Loot Table Edits: Increased stick drop chance from leaves
-- Added Mastercutter recipes for Fir wood from Traverse
+- Fixed crash on server.
