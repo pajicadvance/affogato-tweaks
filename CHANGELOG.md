@@ -1,1 +1,1 @@
-- Affogato Early Game Changes: Added method to craft flint axe without a crafting table (yes I overlooked this.)
+- Added support for Reliable Recipe Viewer.

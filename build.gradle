@@ -20,6 +20,7 @@ repositories {
     maven { url = "https://maven.fzzyhmstrs.me/" }
     maven { url = "https://jitpack.io" }
     maven { url = "https://maven.blamejared.com/" }
+    maven { url = "https://maven.cassian.cc" }
     exclusiveContent {
         forRepository {
             maven {
@@ -46,6 +47,7 @@ dependencies {
     }
 
     modImplementation "mezz.jei:jei-1.21.11-fabric:27.3.0.12"
+    modImplementation "cc.cassian.rrv:reliable-recipe-viewer-fabric:6.3.3+${project.minecraft_version}"
     modCompileOnly "maven.modrinth:farmers-delight-refabricated:1.21.11-3.4.2"
     modCompileOnly "maven.modrinth:appleskin:3.0.7+mc1.21.11"
     modCompileOnly "maven.modrinth:notes:1.21.10-2.1.1-fabric"

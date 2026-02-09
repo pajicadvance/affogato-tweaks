@@ -1,5 +1,6 @@
-package me.pajic.affogato_core;
+package me.pajic.affogato_core.plugin;
 
+import me.pajic.affogato_core.Main;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
