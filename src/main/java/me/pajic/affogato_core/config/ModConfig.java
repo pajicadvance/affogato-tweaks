@@ -116,7 +116,6 @@ public class ModConfig extends Config {
         public ValidatedBoolean allowWanderingTraderTrading = new ValidatedBoolean(true);
         public ValidatedBoolean raidRework = new ValidatedBoolean(true);
         public ValidatedBoolean nightVisionNuke = new ValidatedBoolean(true);
-        public ValidatedBoolean animalsLookForFood = new ValidatedBoolean(true);
         public ValidatedBoolean hardDifficultyDefault = new ValidatedBoolean(true);
         public ValidatedBoolean holdingAnvilAppliesSlowness = new ValidatedBoolean(true);
         public ValidatedBoolean alwaysUpdateMaps = new ValidatedBoolean(true);

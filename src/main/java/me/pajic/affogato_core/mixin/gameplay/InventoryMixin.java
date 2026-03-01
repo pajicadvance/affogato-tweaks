@@ -9,6 +9,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.GameType;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -20,7 +21,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class InventoryMixin {
 
     @Shadow @Final public Player player;
-
     @Shadow @Final private NonNullList<ItemStack> items;
 
     @Inject(
@@ -31,8 +31,11 @@ public class InventoryMixin {
             )
     )
     private void applySlownessIfAnvilInInventory(CallbackInfo ci, @Local int i) {
-        if (Main.CONFIG.features.holdingAnvilAppliesSlowness.get() && items.get(i).is(Items.ANVIL)) {
-            player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 20, 4));
+        if (Main.CONFIG.features.holdingAnvilAppliesSlowness.get()) {
+            GameType gameType = player.gameMode();
+            if (gameType != null && gameType.isSurvival() && items.get(i).is(Items.ANVIL)) {
+                player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 20, 4));
+            }
         }
     }
 }

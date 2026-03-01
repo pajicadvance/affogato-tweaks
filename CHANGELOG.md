@@ -1,1 +1,2 @@
-- Added support for Reliable Recipe Viewer.
+- Removed animalsLookForFood, now part of MiscTweaks.
+- Apply anvil slowness effect in survival only.
