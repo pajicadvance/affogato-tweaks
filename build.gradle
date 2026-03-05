@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.14-SNAPSHOT'
+    id 'fabric-loom' version '1.15-SNAPSHOT'
     id "me.modmuss50.mod-publish-plugin" version "0.8.4"
 }
 
@@ -46,8 +46,6 @@ dependencies {
         exclude group: "net.fabricmc.fabric-api", module: "fabric-api"
     }
 
-    modImplementation "mezz.jei:jei-1.21.11-fabric:27.3.0.12"
-    modImplementation "cc.cassian.rrv:reliable-recipe-viewer-fabric:6.3.3+${project.minecraft_version}"
     modCompileOnly "maven.modrinth:farmers-delight-refabricated:1.21.11-3.4.2"
     modCompileOnly "maven.modrinth:appleskin:3.0.7+mc1.21.11"
     modCompileOnly "maven.modrinth:notes:1.21.10-2.1.1-fabric"

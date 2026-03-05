@@ -9,7 +9,7 @@ import java.util.List;
 
 public class RecipeEvents {
 
-    private static final List<String> TOOLS = List.of(
+    private static final List<String> EARLY_GAME_DISABLED_TOOLS = List.of(
             "minecraft:recipe/stone_pickaxe",
             "minecraft:recipe/stone_shovel",
             "minecraft:recipe/stone_sword",
@@ -67,7 +67,7 @@ public class RecipeEvents {
                         false
                 )
         );
-        if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) TOOLS.forEach(s -> Mixson.registerEvent(
+        if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) EARLY_GAME_DISABLED_TOOLS.forEach(s -> Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
                 rl -> rl.toString().equals(s),
                 "Remove recipes",

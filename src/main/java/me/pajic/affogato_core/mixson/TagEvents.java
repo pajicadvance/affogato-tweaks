@@ -6,7 +6,23 @@ import me.pajic.affogato_core.CompatFlags;
 import me.pajic.affogato_core.Main;
 import net.ramixin.mixson.inline.Mixson;
 
+import java.util.List;
+
 public class TagEvents {
+
+    private static final List<String> EARLY_GAME_DISABLED_TOOLS = List.of(
+            "minecraft:stone_pickaxe",
+            "minecraft:stone_shovel",
+            "minecraft:stone_sword",
+            "minecraft:stone_axe",
+            "minecraft:stone_hoe",
+            "minecraft:wooden_pickaxe",
+            "minecraft:wooden_shovel",
+            "minecraft:wooden_sword",
+            "minecraft:wooden_axe",
+            "minecraft:wooden_hoe"
+    );
+
     public static void register() {
         if (Main.CONFIG.misc.moreStoneTypesInStoneCraftingRecipes.get()) Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
@@ -69,6 +85,20 @@ public class TagEvents {
                         values.add("wilderwild:orange_maple_sapling");
                         values.add("wilderwild:red_maple_sapling");
                     }
+                },
+                false
+        );
+        Mixson.registerEvent(
+                Mixson.DEFAULT_PRIORITY,
+                rl -> rl.toString().equals("c:tags/item/hidden_from_recipe_viewers"),
+                "Hide disabled items from recipe viewers",
+                context -> {
+                    Main.CONFIG.hiddenItems.get().forEach(s ->
+                            context.getFile().getAsJsonObject().getAsJsonArray("values").add(s)
+                    );
+                    if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) EARLY_GAME_DISABLED_TOOLS.forEach(s ->
+                            context.getFile().getAsJsonObject().getAsJsonArray("values").add(s)
+                    );
                 },
                 false
         );

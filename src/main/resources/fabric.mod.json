@@ -15,12 +15,6 @@
     ],
     "main": [
       "me.pajic.affogato_core.Main"
-    ],
-    "jei_mod_plugin": [
-      "me.pajic.affogato_core.plugin.JEIPlugin"
-    ],
-    "rrv_client": [
-      "me.pajic.affogato_core.plugin.RRVPlugin"
     ]
   },
   "mixins": [

@@ -1,11 +1,11 @@
 {
-  "parent": "minecraft:story/cutting_edge",
+  "parent": "minecraft:story/mine_stone",
   "criteria": {
-    "get_stone": {
+    "get_copper": {
       "conditions": {
         "items": [
           {
-            "items": "#minecraft:stone_tool_materials"
+            "items": "minecraft:copper_ingot"
           }
         ]
       },
@@ -14,19 +14,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.story.mine_stone.description"
+      "translate": "advancements.story.copper_ingot.description"
     },
     "icon": {
       "count": 1,
-      "id": "minecraft:cobblestone"
+      "id": "minecraft:copper_ingot"
     },
     "title": {
-      "translate": "advancements.story.mine_stone.title"
+      "translate": "advancements.story.copper_ingot.title"
     }
   },
   "requirements": [
     [
-      "get_stone"
+      "get_copper"
     ]
   ],
   "sends_telemetry_event": true

@@ -1,2 +1,9 @@
-- Removed animalsLookForFood, now part of MiscTweaks.
-- Apply anvil slowness effect in survival only.
+- Added option to generate loot chests at random locations inside monuments and mansions.
+  - These chests have unique themed loot tables for each structure.
+  - The chests are placed in different locations every time the structure is generated.
+  - Chests that would be placed as usual are untouched and have vanilla loot tables.
+- Affogato Early Game Changes:
+  - Added a bunch of new advancements related to progression to the Minecraft tab.
+  - The root Minecraft advancement and the recipes for the flint axe and flint axe head are now unlocked from the start.
+- Recipe viewer item hiding now uses the `c:hidden_from_recipe_viewers` tag instead of mod plugins.
+- Blacklisted `starve` damage type from cancelling the eating animation.

@@ -1,11 +1,11 @@
 {
-  "parent": "minecraft:story/cutting_edge",
+  "parent": "minecraft:story/root",
   "criteria": {
-    "get_stone": {
+    "get_flint_axe": {
       "conditions": {
         "items": [
           {
-            "items": "#minecraft:stone_tool_materials"
+            "items": "affogato_core:flint_axe"
           }
         ]
       },
@@ -14,19 +14,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.story.mine_stone.description"
+      "translate": "advancements.story.cutting_edge.description"
     },
     "icon": {
       "count": 1,
-      "id": "minecraft:cobblestone"
+      "id": "affogato_core:flint_axe"
     },
     "title": {
-      "translate": "advancements.story.mine_stone.title"
+      "translate": "advancements.story.cutting_edge.title"
     }
   },
   "requirements": [
     [
-      "get_stone"
+      "get_flint_axe"
     ]
   ],
   "sends_telemetry_event": true

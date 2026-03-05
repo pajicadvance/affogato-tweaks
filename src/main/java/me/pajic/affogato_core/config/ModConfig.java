@@ -12,6 +12,7 @@ import me.fzzyhmstrs.fzzy_config.validation.misc.ValidatedString;
 import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedDouble;
 import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedFloat;
 import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedInt;
+import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedNumber;
 import me.pajic.affogato_core.Main;
 import me.pajic.affogato_core.util.LootEntryReplacement;
 import me.pajic.affogato_core.util.ToolMaterialId;
@@ -227,6 +228,10 @@ public class ModConfig extends Config {
         public ValidatedInt ancientDebrisSize = new ValidatedInt(6);
         public ValidatedInt ancientDebrisMinAmount = new ValidatedInt(3);
         public ValidatedBoolean removeAncientDebrisHeightLimit = new ValidatedBoolean(true);
+        public ValidatedBoolean addRandomChestsToMansions = new ValidatedBoolean(true);
+        public ValidatedFloat mansionRandomChestChance = new ValidatedFloat(0.008F, 1.0F, 0F, ValidatedNumber.WidgetType.TEXTBOX);
+        public ValidatedBoolean addRandomChestsToMonuments = new ValidatedBoolean(true);
+        public ValidatedFloat monumentRandomChestChance = new ValidatedFloat(0.004F, 1.0F, 0F, ValidatedNumber.WidgetType.TEXTBOX);
     }
 
     public static class Experience extends ConfigSection {

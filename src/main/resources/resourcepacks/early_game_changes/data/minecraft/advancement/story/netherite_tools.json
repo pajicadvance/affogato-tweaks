@@ -1,11 +1,11 @@
 {
-  "parent": "minecraft:story/cutting_edge",
+  "parent": "minecraft:story/diamond_tools",
   "criteria": {
-    "get_stone": {
+    "netherite_pickaxe": {
       "conditions": {
         "items": [
           {
-            "items": "#minecraft:stone_tool_materials"
+            "items": "minecraft:netherite_pickaxe"
           }
         ]
       },
@@ -14,19 +14,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.story.mine_stone.description"
+      "translate": "advancements.story.netherite_tools.description"
     },
     "icon": {
       "count": 1,
-      "id": "minecraft:cobblestone"
+      "id": "minecraft:netherite_pickaxe"
     },
     "title": {
-      "translate": "advancements.story.mine_stone.title"
+      "translate": "advancements.story.netherite_tools.title"
     }
   },
   "requirements": [
     [
-      "get_stone"
+      "netherite_pickaxe"
     ]
   ],
   "sends_telemetry_event": true

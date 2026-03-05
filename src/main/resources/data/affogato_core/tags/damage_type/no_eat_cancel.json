@@ -1,11 +1,10 @@
 {
   "values": [
     "minecraft:in_fire",
-    "minecraft:campfire",
     "minecraft:on_fire",
-    "minecraft:hot_floor",
-    "minecraft:magic",
+    "minecraft:in_wall",
     "minecraft:wither",
-    "minecraft:freeze"
+    "minecraft:freeze",
+    "minecraft:starve"
   ]
 }

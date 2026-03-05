@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:story/mine_stone",
+  "parent": "minecraft:story/copper_ingot",
   "criteria": {
     "copper_pickaxe": {
       "conditions": {
