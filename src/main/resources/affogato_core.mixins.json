@@ -25,6 +25,7 @@
     "food.ConsumableBuilderMixin",
     "food.FoodDataMixin",
     "food.PlayerMixin",
+    "gameplay.AmbientMoodSettingsMixin",
     "gameplay.BlocksMixin",
     "gameplay.CreativeModeTabMixin",
     "gameplay.FuelValuesMixin",

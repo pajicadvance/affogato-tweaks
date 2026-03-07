@@ -1,6 +1,7 @@
 package me.pajic.affogato_core.mixson;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import me.pajic.affogato_core.CompatFlags;
 import me.pajic.affogato_core.Main;
@@ -93,12 +94,18 @@ public class TagEvents {
                 rl -> rl.toString().equals("c:tags/item/hidden_from_recipe_viewers"),
                 "Hide disabled items from recipe viewers",
                 context -> {
-                    Main.CONFIG.hiddenItems.get().forEach(s ->
-                            context.getFile().getAsJsonObject().getAsJsonArray("values").add(s)
-                    );
-                    if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) EARLY_GAME_DISABLED_TOOLS.forEach(s ->
-                            context.getFile().getAsJsonObject().getAsJsonArray("values").add(s)
-                    );
+                    Main.CONFIG.hiddenItems.get().forEach(s -> {
+                        JsonObject o = new JsonObject();
+                        o.addProperty("id", s);
+                        o.addProperty("required", false);
+                        context.getFile().getAsJsonObject().getAsJsonArray("values").add(o);
+                    });
+                    if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) EARLY_GAME_DISABLED_TOOLS.forEach(s -> {
+                        JsonObject o = new JsonObject();
+                        o.addProperty("id", s);
+                        o.addProperty("required", false);
+                        context.getFile().getAsJsonObject().getAsJsonArray("values").add(o);
+                    });
                 },
                 false
         );

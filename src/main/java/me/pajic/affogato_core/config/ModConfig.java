@@ -293,6 +293,7 @@ public class ModConfig extends Config {
         public ValidatedBoolean ironMinesObsidian = new ValidatedBoolean(true);
         public ValidatedBoolean moreStoneTypesInStoneCraftingRecipes = new ValidatedBoolean(true);
         public ValidatedBoolean nullscapeEndAmbienceEdits = new ValidatedBoolean(true);
+        public ValidatedInt caveAmbientSoundFrequency = new ValidatedInt(1200, Integer.MAX_VALUE, 1);
     }
 
     public static class Debug extends ConfigSection {
