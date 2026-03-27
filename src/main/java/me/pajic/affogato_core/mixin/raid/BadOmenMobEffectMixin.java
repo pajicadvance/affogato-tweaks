@@ -22,7 +22,7 @@ public class BadOmenMobEffectMixin {
                     target = "Lnet/minecraft/server/level/ServerLevel;isVillage(Lnet/minecraft/core/BlockPos;)Z"
             )
     )
-    private boolean raidStartsInPillagerOutpost(boolean original, @Local(argsOnly = true) ServerLevel level, @Local ServerPlayer player) {
+    private boolean raidStartsInPillagerOutpost(boolean original, @Local(argsOnly = true) ServerLevel level, @Local(name = "player") ServerPlayer player) {
         if (Main.CONFIG.features.raidRework.get()) {
             BlockPos pos = level.findNearestMapStructure(ModTags.OUTPOSTS, player.getOnPos(), 1, false);
             if (pos != null && player.distanceToSqr(pos.getX(), player.getY(), pos.getZ()) < 1024) {

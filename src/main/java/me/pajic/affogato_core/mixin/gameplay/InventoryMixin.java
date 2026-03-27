@@ -30,7 +30,7 @@ public class InventoryMixin {
                     target = "Lnet/minecraft/world/item/ItemStack;inventoryTick(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/EquipmentSlot;)V"
             )
     )
-    private void applySlownessIfAnvilInInventory(CallbackInfo ci, @Local int i) {
+    private void applySlownessIfAnvilInInventory(CallbackInfo ci, @Local(name = "i") int i) {
         if (Main.CONFIG.features.holdingAnvilAppliesSlowness.get()) {
             GameType gameType = player.gameMode();
             if (gameType != null && gameType.isSurvival() && items.get(i).is(Items.ANVIL)) {

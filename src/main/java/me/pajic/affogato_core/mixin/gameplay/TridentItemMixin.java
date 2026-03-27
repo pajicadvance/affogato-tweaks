@@ -18,7 +18,7 @@ public class TridentItemMixin {
                     target = "Lnet/minecraft/world/entity/player/Player;isInWaterOrRain()Z"
             )
     )
-    private boolean noRiptideInRain(boolean original, @Local Player player) {
+    private boolean noRiptideInRain(boolean original, @Local(name = "player") Player player) {
         return Main.CONFIG.features.noRiptideInRain.get() ? player.isInWater() : original;
     }
 }

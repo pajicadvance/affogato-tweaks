@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClearedOutposts extends SavedData {
+
     private final List<BlockPos> outposts = new ArrayList<>();
     public static final Codec<ClearedOutposts> CODEC = RecordCodecBuilder.create(
             instance -> instance.group(
@@ -21,7 +22,7 @@ public class ClearedOutposts extends SavedData {
             ).apply(instance, ClearedOutposts::new)
     );
     public static final SavedDataType<ClearedOutposts> TYPE = new SavedDataType<>(
-            "cleared_outposts",
+            Main.id("cleared_outposts"),
             ClearedOutposts::new,
             CODEC,
             DataFixTypes.LEVEL

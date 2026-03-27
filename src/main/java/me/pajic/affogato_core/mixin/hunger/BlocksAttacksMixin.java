@@ -30,7 +30,7 @@ public class BlocksAttacksMixin {
             InteractionHand hand,
             float damage,
             CallbackInfo ci,
-            @Local Player player
+            @Local(name = "player") Player player
     ) {
         player.causeFoodExhaustion(Main.CONFIG.exhaustionValues.blockAttack.get());
     }

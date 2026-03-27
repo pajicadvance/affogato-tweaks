@@ -61,7 +61,8 @@ public abstract class ItemsMixin {
     @Definition(id = "component", method = "Lnet/minecraft/world/item/Item$Properties;component(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Lnet/minecraft/world/item/Item$Properties;")
     @Definition(id = "repairable", method = "Lnet/minecraft/world/item/Item$Properties;repairable(Lnet/minecraft/tags/TagKey;)Lnet/minecraft/world/item/Item$Properties;")
     @Definition(id = "equippableUnswappable", method = "Lnet/minecraft/world/item/Item$Properties;equippableUnswappable(Lnet/minecraft/world/entity/EquipmentSlot;)Lnet/minecraft/world/item/Item$Properties;")
-    @Expression("registerItem(?, ShieldItem::new, new Properties().durability(@(?)).component(?, ?).repairable(?).equippableUnswappable(?).component(?, ?).component(?, ?))")
+    @Definition(id = "delayedComponent", method = "Lnet/minecraft/world/item/Item$Properties;delayedComponent(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/core/component/DataComponentInitializers$SingleComponentInitializer;)Lnet/minecraft/world/item/Item$Properties;")
+    @Expression("registerItem(?, ShieldItem::new, new Properties().durability(@(?)).component(?, ?).repairable(?).equippableUnswappable(?).delayedComponent(?, ?).component(?, ?))")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")

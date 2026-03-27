@@ -11,8 +11,8 @@ public class ModItem extends Item {
 
     private final boolean enabled;
 
-    public ModItem(Properties properties, String name, boolean enabled) {
-        super(properties.setId(ResourceKey.create(Registries.ITEM, Main.id(name))));
+    public ModItem(Properties properties, String id, boolean enabled) {
+        super(properties.setId(ResourceKey.create(Registries.ITEM, Main.id(id))));
         this.enabled = enabled;
     }
 

@@ -1,9 +1,9 @@
-package me.pajic.affogato_core.mixson;
+package me.pajic.affogato_core.mixson.events;
 
 import com.google.gson.JsonElement;
 import me.pajic.affogato_core.CompatFlags;
 import me.pajic.affogato_core.Main;
-import net.ramixin.mixson.inline.Mixson;
+import me.pajic.affogato_core.mixson.MixsonHelper;
 
 import java.util.List;
 
@@ -23,10 +23,9 @@ public class RecipeEvents {
     );
 
     public static void register() {
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.getPath().startsWith("recipe/") && !rl.getNamespace().equals("emi"),
+        MixsonHelper.registerMultiJson(
                 "Modify smelting and blasting recipe XP rewards",
+                index -> index.id().getPath().startsWith("recipe/") && !index.id().getNamespace().equals("emi"),
                 context -> {
                     String type = context.getFile().getAsJsonObject().getAsJsonPrimitive("type").getAsString();
                     if (context.getFile().getAsJsonObject().has("experience")) {
@@ -48,31 +47,22 @@ public class RecipeEvents {
                             }
                         }
                     }
-                },
-                false
+                }
         );
-        Main.CONFIG.removedRecipes.get().forEach(s -> Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals(s),
+        Main.CONFIG.removedRecipes.get().forEach(s -> MixsonHelper.registerSingleJson(
                 "Remove recipes",
-                context -> context.markForDeletion(true),
-                false
+                s,
+                context -> context.markForDeletion(true)
         ));
-        if (CompatFlags.FD_LOADED && Main.CONFIG.features.affogatoRecipeEdits.get()) Main.CONFIG.removedRecipes.get().forEach(s ->
-                Mixson.registerEvent(
-                        Mixson.DEFAULT_PRIORITY,
-                        rl -> rl.toString().equals("minecraft:recipe/cake"),
-                        "Remove cake recipe",
-                        context -> context.markForDeletion(true),
-                        false
-                )
+        if (CompatFlags.FD_LOADED && Main.CONFIG.features.affogatoRecipeEdits.get()) MixsonHelper.registerSingleJson(
+                "Remove cake recipe",
+                "minecraft:recipe/cake",
+                context -> context.markForDeletion(true)
         );
-        if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) EARLY_GAME_DISABLED_TOOLS.forEach(s -> Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals(s),
+        if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) EARLY_GAME_DISABLED_TOOLS.forEach(s -> MixsonHelper.registerSingleJson(
                 "Remove recipes",
-                context -> context.markForDeletion(true),
-                false
+                s,
+                context -> context.markForDeletion(true)
         ));
     }
 }

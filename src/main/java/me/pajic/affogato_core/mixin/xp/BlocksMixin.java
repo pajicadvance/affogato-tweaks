@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 public class BlocksMixin {
 
     @ModifyArgs(
-            method = "method_63397",
+            method = "lambda$static$23",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/util/valueproviders/UniformInt;of(II)Lnet/minecraft/util/valueproviders/UniformInt;"
@@ -23,7 +23,7 @@ public class BlocksMixin {
     }
 
     @ModifyArgs(
-            method = "method_63396",
+            method = "lambda$static$24",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/util/valueproviders/UniformInt;of(II)Lnet/minecraft/util/valueproviders/UniformInt;"
@@ -35,7 +35,7 @@ public class BlocksMixin {
     }
 
     @ModifyArgs(
-            method = "method_63395",
+            method = "lambda$static$25",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/util/valueproviders/UniformInt;of(II)Lnet/minecraft/util/valueproviders/UniformInt;"
@@ -47,7 +47,7 @@ public class BlocksMixin {
     }
 
     @ModifyArgs(
-            method = "method_63442",
+            method = "lambda$static$37",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/util/valueproviders/UniformInt;of(II)Lnet/minecraft/util/valueproviders/UniformInt;"
@@ -59,7 +59,7 @@ public class BlocksMixin {
     }
 
     @ModifyArgs(
-            method = "method_63441",
+            method = "lambda$static$38",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/util/valueproviders/UniformInt;of(II)Lnet/minecraft/util/valueproviders/UniformInt;"
@@ -71,7 +71,7 @@ public class BlocksMixin {
     }
 
     @ModifyArgs(
-            method = "method_63419",
+            method = "lambda$static$67",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/util/valueproviders/UniformInt;of(II)Lnet/minecraft/util/valueproviders/UniformInt;"
@@ -83,7 +83,7 @@ public class BlocksMixin {
     }
 
     @ModifyArgs(
-            method = "method_63418",
+            method = "lambda$static$68",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/util/valueproviders/UniformInt;of(II)Lnet/minecraft/util/valueproviders/UniformInt;"
@@ -95,7 +95,7 @@ public class BlocksMixin {
     }
 
     @ModifyArgs(
-            method = "method_63290",
+            method = "lambda$static$174",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/util/valueproviders/UniformInt;of(II)Lnet/minecraft/util/valueproviders/UniformInt;"
@@ -107,7 +107,7 @@ public class BlocksMixin {
     }
 
     @ModifyArgs(
-            method = "method_63289",
+            method = "lambda$static$175",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/util/valueproviders/UniformInt;of(II)Lnet/minecraft/util/valueproviders/UniformInt;"
@@ -119,7 +119,7 @@ public class BlocksMixin {
     }
 
     @ModifyArgs(
-            method = "method_63235",
+            method = "lambda$static$231",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/util/valueproviders/UniformInt;of(II)Lnet/minecraft/util/valueproviders/UniformInt;"

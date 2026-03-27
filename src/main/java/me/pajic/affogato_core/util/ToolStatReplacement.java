@@ -6,6 +6,7 @@ import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedFloat;
 import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedInt;
 
 public class ToolStatReplacement {
+
     public ValidatedString material;
     public ValidatedEnum<ToolType> type;
     public ValidatedFloat attackDamage;

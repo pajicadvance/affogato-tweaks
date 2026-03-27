@@ -113,20 +113,21 @@ public class ModConfig extends Config {
     public Debug debug = new Debug();
 
     public static class Features extends ConfigSection {
-        public ValidatedBoolean villagerNuke = new ValidatedBoolean(true);
-        public ValidatedBoolean allowWanderingTraderTrading = new ValidatedBoolean(true);
-        public ValidatedBoolean raidRework = new ValidatedBoolean(true);
-        public ValidatedBoolean nightVisionNuke = new ValidatedBoolean(true);
-        public ValidatedBoolean hardDifficultyDefault = new ValidatedBoolean(true);
-        public ValidatedBoolean holdingAnvilAppliesSlowness = new ValidatedBoolean(true);
-        public ValidatedBoolean alwaysUpdateMaps = new ValidatedBoolean(true);
-        public ValidatedBoolean noRiptideInRain = new ValidatedBoolean(true);
-        public ValidatedBoolean affogatoEarlyGameChanges = new ValidatedBoolean(true);
-        public ValidatedBoolean affogatoBlockLootTableEdits = new ValidatedBoolean(true);
-        public ValidatedBoolean affogatoEntityLootTableEdits = new ValidatedBoolean(true);
-        public ValidatedBoolean affogatoRecipeEdits = new ValidatedBoolean(true);
-        public ValidatedBoolean affogatoWanderingTraderTrades = new ValidatedBoolean(true);
-        public ValidatedBoolean affogatoItemSwapperAddon = new ValidatedBoolean(true);
+        public ValidatedBoolean villagerNuke = new ValidatedBoolean();
+        public ValidatedBoolean allowWanderingTraderTrading = new ValidatedBoolean();
+        public ValidatedBoolean raidRework = new ValidatedBoolean();
+        public ValidatedBoolean nightVisionNuke = new ValidatedBoolean();
+        public ValidatedBoolean hardDifficultyDefault = new ValidatedBoolean();
+        public ValidatedBoolean holdingAnvilAppliesSlowness = new ValidatedBoolean();
+        public ValidatedBoolean alwaysUpdateMaps = new ValidatedBoolean();
+        public ValidatedBoolean noRiptideInRain = new ValidatedBoolean();
+        public ValidatedBoolean affogatoEarlyGameChanges = new ValidatedBoolean();
+        public ValidatedBoolean affogatoBlockLootTableEdits = new ValidatedBoolean();
+        public ValidatedBoolean affogatoEntityLootTableEdits = new ValidatedBoolean();
+        public ValidatedBoolean affogatoRecipeEdits = new ValidatedBoolean();
+        public ValidatedBoolean affogatoWanderingTraderTrades = new ValidatedBoolean();
+        public ValidatedBoolean affogatoItemSwapperAddon = new ValidatedBoolean();
+        public ValidatedBoolean affogatoFDAddon = new ValidatedBoolean();
     }
 
     public static class ExhaustionValues extends ConfigSection {
@@ -215,10 +216,10 @@ public class ModConfig extends Config {
         public ValidatedDouble frostWalkerIglooChance = new ValidatedDouble(0.5, 1, 0);
         public ValidatedDouble frostWalkerIceBoxChance = new ValidatedDouble(1, 1, 0);
         public ValidatedDouble globeBannerPatternChance = new ValidatedDouble(1, 1, 0);
-        public ValidatedBoolean maceEnchantmentsInOminousVaults = new ValidatedBoolean(true);
-        public ValidatedBoolean tridentEnchantmentsFromElderGuardians = new ValidatedBoolean(true);
-        public ValidatedBoolean frostWalkerOnlyInIgloosAndIceBox = new ValidatedBoolean(true);
-        public ValidatedBoolean cursesOnlyInDesertPyramids = new ValidatedBoolean(true);
+        public ValidatedBoolean maceEnchantmentsInOminousVaults = new ValidatedBoolean();
+        public ValidatedBoolean tridentEnchantmentsFromElderGuardians = new ValidatedBoolean();
+        public ValidatedBoolean frostWalkerOnlyInIgloosAndIceBox = new ValidatedBoolean();
+        public ValidatedBoolean cursesOnlyInDesertPyramids = new ValidatedBoolean();
     }
 
     public static class Worldgen extends ConfigSection {
@@ -227,10 +228,10 @@ public class ModConfig extends Config {
         public ValidatedFloat oreSizeMult = new ValidatedFloat(1.2F);
         public ValidatedInt ancientDebrisSize = new ValidatedInt(6);
         public ValidatedInt ancientDebrisMinAmount = new ValidatedInt(3);
-        public ValidatedBoolean removeAncientDebrisHeightLimit = new ValidatedBoolean(true);
-        public ValidatedBoolean addRandomChestsToMansions = new ValidatedBoolean(true);
+        public ValidatedBoolean removeAncientDebrisHeightLimit = new ValidatedBoolean();
+        public ValidatedBoolean addRandomChestsToMansions = new ValidatedBoolean();
         public ValidatedFloat mansionRandomChestChance = new ValidatedFloat(0.008F, 1.0F, 0F, ValidatedNumber.WidgetType.TEXTBOX);
-        public ValidatedBoolean addRandomChestsToMonuments = new ValidatedBoolean(true);
+        public ValidatedBoolean addRandomChestsToMonuments = new ValidatedBoolean();
         public ValidatedFloat monumentRandomChestChance = new ValidatedFloat(0.004F, 1.0F, 0F, ValidatedNumber.WidgetType.TEXTBOX);
     }
 
@@ -262,9 +263,9 @@ public class ModConfig extends Config {
         public ValidatedPair<Integer, Integer> emerald = new ValidatedInt(12).pairWith(new ValidatedInt(15));
         public ValidatedPair<Integer, Integer> redstone = new ValidatedInt(3).pairWith(new ValidatedInt(7));
         public ValidatedPair<Integer, Integer> quartz = new ValidatedInt(3).pairWith(new ValidatedInt(7));
-        public ValidatedBoolean noEnderDragonXpAfterFirst = new ValidatedBoolean(true);
-        public ValidatedBoolean noFishingXp = new ValidatedBoolean(true);
-        public ValidatedBoolean noMobXpDrops = new ValidatedBoolean(true);
+        public ValidatedBoolean noEnderDragonXpAfterFirst = new ValidatedBoolean();
+        public ValidatedBoolean noFishingXp = new ValidatedBoolean();
+        public ValidatedBoolean noMobXpDrops = new ValidatedBoolean();
     }
 
     public static class Combat extends ConfigSection {
@@ -281,18 +282,18 @@ public class ModConfig extends Config {
     }
 
     public static class Misc extends ConfigSection {
-        public ValidatedBoolean noRapidHealing = new ValidatedBoolean(true);
+        public ValidatedBoolean noRapidHealing = new ValidatedBoolean();
         public ValidatedInt cakeSliceFoodLevel = new ValidatedInt(3);
         public ValidatedFloat cakeSliceSaturationLevel = new ValidatedFloat(0.3F);
         public ValidatedInt torchLightLevel = new ValidatedInt(12);
         public ValidatedInt copperTorchLightLevel = new ValidatedInt(12);
         public ValidatedFloat iceFriction = new ValidatedFloat(0.965F);
         public ValidatedFloat blueIceFriction = new ValidatedFloat(0.97F);
-        public ValidatedBoolean hoglinSpawnOnlyOnCrimsonNylium = new ValidatedBoolean(true);
-        public ValidatedBoolean frostWalkerEarlyTrigger = new ValidatedBoolean(true);
-        public ValidatedBoolean ironMinesObsidian = new ValidatedBoolean(true);
-        public ValidatedBoolean moreStoneTypesInStoneCraftingRecipes = new ValidatedBoolean(true);
-        public ValidatedBoolean nullscapeEndAmbienceEdits = new ValidatedBoolean(true);
+        public ValidatedBoolean hoglinSpawnOnlyOnCrimsonNylium = new ValidatedBoolean();
+        public ValidatedBoolean frostWalkerEarlyTrigger = new ValidatedBoolean();
+        public ValidatedBoolean ironMinesObsidian = new ValidatedBoolean();
+        public ValidatedBoolean moreStoneTypesInStoneCraftingRecipes = new ValidatedBoolean();
+        public ValidatedBoolean nullscapeEndAmbienceEdits = new ValidatedBoolean();
         public ValidatedInt caveAmbientSoundFrequency = new ValidatedInt(1200, Integer.MAX_VALUE, 1);
     }
 

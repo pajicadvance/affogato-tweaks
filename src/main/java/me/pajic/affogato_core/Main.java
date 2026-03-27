@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Main implements ModInitializer {
+
     public static final String MOD_ID = "affogato_core";
     public static final Identifier CONFIG_RL = id("config");
     private static final Logger LOGGER = LoggerFactory.getLogger("Affogato Core");

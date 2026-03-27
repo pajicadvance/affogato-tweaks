@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class BlocksMixin {
 
     @ModifyExpressionValue(
-            method = "method_26152",
+            method = "lambda$static$60",
             at = @At(
                     value = "CONSTANT",
                     args = "intValue=14"
@@ -21,7 +21,7 @@ public class BlocksMixin {
     }
 
     @ModifyExpressionValue(
-            method = "method_26136",
+            method = "lambda$static$62",
             at = @At(
                     value = "CONSTANT",
                     args = "intValue=14"
@@ -32,7 +32,7 @@ public class BlocksMixin {
     }
 
     @ModifyExpressionValue(
-            method = "method_73112",
+            method = "lambda$static$135",
             at = @At(
                     value = "CONSTANT",
                     args = "intValue=14"
@@ -43,7 +43,7 @@ public class BlocksMixin {
     }
 
     @ModifyExpressionValue(
-            method = "method_73111",
+            method = "lambda$static$137",
             at = @At(
                     value = "CONSTANT",
                     args = "intValue=14"

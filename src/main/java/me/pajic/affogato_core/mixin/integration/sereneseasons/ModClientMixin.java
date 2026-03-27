@@ -1,5 +1,9 @@
 package me.pajic.affogato_core.mixin.integration.sereneseasons;
 
+// TODO implement when Serene Seasons updates
+
+/*
+
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.moulberry.mixinconstraints.annotations.IfModLoaded;
@@ -14,3 +18,4 @@ public class ModClientMixin {
     @WrapMethod(method = "onItemTooltip")
     private static void noCalendarTooltip(ItemTooltipEvent event, Operation<Void> original) {}
 }
+*/

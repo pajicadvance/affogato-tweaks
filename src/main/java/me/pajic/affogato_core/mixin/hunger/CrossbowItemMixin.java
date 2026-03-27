@@ -13,7 +13,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(CrossbowItem.class)
 public class CrossbowItemMixin {
 
-    @SuppressWarnings("resource")
     @Inject(
             method = "tryLoadProjectiles",
             at = @At(

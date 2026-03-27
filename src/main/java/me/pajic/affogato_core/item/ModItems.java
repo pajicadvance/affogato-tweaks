@@ -5,7 +5,7 @@ import me.pajic.affogato_core.tag.ModTags;
 import me.pajic.affogato_core.util.ToolMaterialId;
 import me.pajic.affogato_core.util.ToolStatReplacement;
 import me.pajic.affogato_core.util.ToolType;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.BlockTags;
@@ -40,12 +40,12 @@ public class ModItems {
     public static final Item FLINT_AXE_HEAD = registerEarlyGameChangesItem("flint_axe_head", new Item.Properties());
 
     public static void init() {
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries ->
-                entries.addBefore(Items.COPPER_SHOVEL, FLINT_SHOVEL, FLINT_PICKAXE, FLINT_AXE, FLINT_HOE)
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries ->
+                entries.insertBefore(Items.COPPER_SHOVEL, FLINT_AXE_HEAD, FLINT_SHOVEL, FLINT_PICKAXE, FLINT_AXE, FLINT_HOE)
         );
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register(entries -> {
-            entries.addBefore(Items.COPPER_AXE, FLINT_AXE);
-            entries.addBefore(Items.COPPER_SWORD, FLINT_SWORD);
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(entries -> {
+            entries.insertBefore(Items.COPPER_AXE, FLINT_AXE);
+            entries.insertBefore(Items.COPPER_SWORD, FLINT_SWORD);
         });
     }
 

@@ -30,7 +30,7 @@ public class FuelValuesMixin {
     }
 
     @WrapOperation(
-            method = "method_61758",
+            method = "lambda$add$0",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/level/block/entity/FuelValues$Builder;putInternal(ILnet/minecraft/world/item/Item;)V"

@@ -23,7 +23,7 @@
   "accessWidener": "affogato_core.accesswidener",
   "depends": {
     "fabricloader": ">=${loader_version}",
-    "fabric": "*",
+    "fabric-api": "*",
     "minecraft": "${minecraft_version}",
     "fzzy_config": "*"
   }

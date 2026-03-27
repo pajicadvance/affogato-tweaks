@@ -1,16 +1,17 @@
-package me.pajic.affogato_core.mixson;
+package me.pajic.affogato_core.mixson.events;
 
 import com.google.gson.*;
 import me.pajic.affogato_core.Main;
+import me.pajic.affogato_core.mixson.MixsonHelper;
 import me.pajic.affogato_core.util.LootEntryReplacement;
-import net.ramixin.mixson.inline.Mixson;
+
+import java.util.Set;
 
 public class LootTableEvents {
     public static void register() {
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.getPath().startsWith("loot_table/chests/"),
+        MixsonHelper.registerMultiJson(
                 "Replace tools and armor in loot chests with materials",
+                index -> index.id().getPath().startsWith("loot_table/chests/"),
                 context -> {
                     JsonArray updatedPools = new JsonArray();
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").forEach(pool -> {
@@ -43,13 +44,11 @@ public class LootTableEvents {
                         updatedPools.add(updatedPool);
                     });
                     context.getFile().getAsJsonObject().add("pools", updatedPools);
-                },
-                false
+                }
         );
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:loot_table/chests/simple_dungeon") || rl.toString().equals("minecraft:loot_table/chests/abandoned_mineshaft"),
+        MixsonHelper.registerMultiJson(
                 "Distribute trial explorer map to dungeons and abandoned mineshafts",
+                Set.of("minecraft:loot_table/chests/simple_dungeon", "minecraft:loot_table/chests/abandoned_mineshaft"),
                 context -> {
                     JsonElement pool = JsonParser.parseString("""
                     {
@@ -86,13 +85,11 @@ public class LootTableEvents {
                             .getAsJsonArray("conditions").get(0).getAsJsonObject()
                             .addProperty("chance", Main.CONFIG.loot.trialExplorerMapChance.get());
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
-                },
-                false
+                }
         );
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:loot_table/chests/woodland_mansion"),
+        MixsonHelper.registerSingleJson(
                 "Distribute Globe banner pattern to woodland mansion chest",
+                "minecraft:loot_table/chests/woodland_mansion",
                 context -> {
                     JsonElement pool = JsonParser.parseString("""
                     {
@@ -114,13 +111,11 @@ public class LootTableEvents {
                             .getAsJsonArray("conditions").get(0).getAsJsonObject()
                             .addProperty("chance", Main.CONFIG.loot.globeBannerPatternChance.get());
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
-                },
-                false
+                }
         );
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:loot_table/chests/pillager_outpost"),
+        MixsonHelper.registerSingleJson(
                 "Distribute woodland explorer map to pillager outpost chest",
+                "minecraft:loot_table/chests/pillager_outpost",
                 context -> {
                     JsonElement pool = JsonParser.parseString("""
                     {
@@ -157,13 +152,11 @@ public class LootTableEvents {
                             .getAsJsonArray("conditions").get(0).getAsJsonObject()
                             .addProperty("chance", Main.CONFIG.loot.woodlandExplorerMapChance.get());
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
-                },
-                false
+                }
         );
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:loot_table/chests/shipwreck_map"),
+        MixsonHelper.registerSingleJson(
                 "Distribute ocean explorer map to shipwreck map chest",
+                "minecraft:loot_table/chests/shipwreck_map",
                 context -> {
                     JsonElement pool = JsonParser.parseString("""
                     {
@@ -200,13 +193,11 @@ public class LootTableEvents {
                             .getAsJsonArray("conditions").get(0).getAsJsonObject()
                             .addProperty("chance", Main.CONFIG.loot.oceanExplorerMapChance.get());
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
-                },
-                false
+                }
         );
-        Main.CONFIG.loot.totemMap.get().forEach((key, value) -> Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:loot_table/chests/" + key),
+        Main.CONFIG.loot.totemMap.get().forEach((key, value) -> MixsonHelper.registerSingleJson(
                 "Distribute Totem of Undying to loot chests",
+                "minecraft:loot_table/chests/" + key,
                 context -> {
                     JsonElement pool = JsonParser.parseString("""
                     {
@@ -230,13 +221,11 @@ public class LootTableEvents {
                             .getAsJsonArray("conditions").get(0).getAsJsonObject()
                             .addProperty("chance", value);
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
-                },
-                false
+                }
         ));
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:loot_table/chests/desert_pyramid"),
+        MixsonHelper.registerSingleJson(
                 "Distribute curse enchantments to desert pyramid chests",
+                "minecraft:loot_table/chests/desert_pyramid",
                 context -> {
                     JsonElement pool = JsonParser.parseString("""
                     {
@@ -264,13 +253,11 @@ public class LootTableEvents {
                             .getAsJsonArray("conditions").get(0).getAsJsonObject()
                             .addProperty("chance", Main.CONFIG.loot.curseEnchantedBookChance.get());
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
-                },
-                false
+                }
         );
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:loot_table/chests/igloo_chest") || rl.toString().equals("minecraft:loot_table/chests/ancient_city_ice_box"),
+        MixsonHelper.registerMultiJson(
                 "Distribute frost walker enchantment to igloo and ice box chests",
+                Set.of("minecraft:loot_table/chests/igloo_chest", "minecraft:loot_table/chests/ancient_city_ice_box"),
                 context -> {
                     JsonElement pool = JsonParser.parseString("""
                     {
@@ -295,16 +282,14 @@ public class LootTableEvents {
                     }
                     """).deepCopy();
                     pool.getAsJsonObject().getAsJsonArray("conditions").get(0).getAsJsonObject()
-                            .addProperty("chance", context.getResourceId().getPath().endsWith("igloo_chest.json") ?
+                            .addProperty("chance", context.getIndex().id().getPath().endsWith("igloo_chest.json") ?
                                     Main.CONFIG.loot.frostWalkerIglooChance.get() : Main.CONFIG.loot.frostWalkerIceBoxChance.get());
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
-                },
-                false
+                }
         );
-        if (Main.CONFIG.loot.tridentEnchantmentsFromElderGuardians.get()) Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:loot_table/entities/elder_guardian"),
+        if (Main.CONFIG.loot.tridentEnchantmentsFromElderGuardians.get()) MixsonHelper.registerSingleJson(
                 "Distribute trident enchantments to elder guardian drops",
+                "minecraft:loot_table/entities/elder_guardian",
                 context -> {
                     JsonElement pool = JsonParser.parseString("""
                     {
@@ -329,13 +314,11 @@ public class LootTableEvents {
                     }
                     """).deepCopy();
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
-                },
-                false
+                }
         );
-        if (Main.CONFIG.loot.maceEnchantmentsInOminousVaults.get()) Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:loot_table/chests/trial_chambers/reward_ominous"),
+        if (Main.CONFIG.loot.maceEnchantmentsInOminousVaults.get()) MixsonHelper.registerSingleJson(
                 "Distribute mace enchantments to trial chamber rewards",
+                "minecraft:loot_table/chests/trial_chambers/reward_ominous",
                 context -> {
                     JsonElement pool = JsonParser.parseString("""
                     {
@@ -358,13 +341,11 @@ public class LootTableEvents {
                     }
                     """).deepCopy();
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
-                },
-                false
+                }
         );
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:tags/enchantment/non_treasure"),
+        MixsonHelper.registerSingleJson(
                 "Remove enchantments from non treasure tag",
+                "minecraft:tags/enchantment/non_treasure",
                 context -> {
                     JsonArray values = context.getFile().getAsJsonObject().getAsJsonArray("values");
                     if (Main.CONFIG.loot.maceEnchantmentsInOminousVaults.get()) {
@@ -377,13 +358,11 @@ public class LootTableEvents {
                         values.remove(new JsonPrimitive("minecraft:riptide"));
                         values.remove(new JsonPrimitive("minecraft:channeling"));
                     }
-                },
-                false
+                }
         );
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:tags/enchantment/on_random_loot"),
+        MixsonHelper.registerSingleJson(
                 "Remove enchantments from random loot tag",
+                "minecraft:tags/enchantment/on_random_loot",
                 context -> {
                     JsonArray values = context.getFile().getAsJsonObject().getAsJsonArray("values");
                     if (Main.CONFIG.loot.frostWalkerOnlyInIgloosAndIceBox.get()) {
@@ -393,8 +372,7 @@ public class LootTableEvents {
                         values.remove(new JsonPrimitive("minecraft:binding_curse"));
                         values.remove(new JsonPrimitive("minecraft:vanishing_curse"));
                     }
-                },
-                false
+                }
         );
     }
 }

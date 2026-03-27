@@ -16,17 +16,17 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(PotionBrewing.class)
 public abstract class PotionBrewingMixin {
 
-    @Definition(id = "NIGHT_VISION", field = "Lnet/minecraft/world/item/alchemy/Potions;NIGHT_VISION:Lnet/minecraft/core/Holder;")
+    @Definition(id = "NIGHT_VISION", field = "Lnet/minecraft/world/item/alchemy/Potions;NIGHT_VISION:Lnet/minecraft/core/Holder$Reference;")
     @Expression("?.?(?, ?, @(NIGHT_VISION))")
     @ModifyExpressionValue(
             method = "addVanillaMixes",
             at = @At("MIXINEXTRAS:EXPRESSION")
     )
-    private static Holder<Potion> changeNightVisionRecipeToInvisibilityRecipe(Holder<Potion> original) {
+    private static Holder.Reference<Potion> changeNightVisionRecipeToInvisibilityRecipe(Holder.Reference<Potion> original) {
         return Main.CONFIG.features.nightVisionNuke.get() ? Potions.INVISIBILITY : original;
     }
 
-    @Definition(id = "NIGHT_VISION", field = "Lnet/minecraft/world/item/alchemy/Potions;NIGHT_VISION:Lnet/minecraft/core/Holder;")
+    @Definition(id = "NIGHT_VISION", field = "Lnet/minecraft/world/item/alchemy/Potions;NIGHT_VISION:Lnet/minecraft/core/Holder$Reference;")
     @Expression("?.?(NIGHT_VISION, ?, ?)")
     @WrapWithCondition(
             method = "addVanillaMixes",

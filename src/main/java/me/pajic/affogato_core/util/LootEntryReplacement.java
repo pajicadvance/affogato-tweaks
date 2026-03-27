@@ -4,6 +4,7 @@ import me.fzzyhmstrs.fzzy_config.validation.misc.ValidatedString;
 import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedInt;
 
 public class LootEntryReplacement {
+
     public ValidatedString replacementItem;
     public ValidatedInt replacementCount;
 

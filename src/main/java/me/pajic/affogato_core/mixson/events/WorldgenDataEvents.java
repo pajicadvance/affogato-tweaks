@@ -1,4 +1,4 @@
-package me.pajic.affogato_core.mixson;
+package me.pajic.affogato_core.mixson.events;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -6,21 +6,22 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import me.pajic.affogato_core.CompatFlags;
 import me.pajic.affogato_core.Main;
-import net.ramixin.mixson.inline.Mixson;
+import me.pajic.affogato_core.mixson.MixsonHelper;
 
 import java.util.List;
 
 public class WorldgenDataEvents {
+
     private static final List<String> ORE = List.of("coal", "copper", "diamond", "emerald", "gold", "iron", "lapis", "nether_gold", "quartz", "redstone");
     private static final List<String> END_BIOMES = List.of(
             "minecraft:end_barrens", "minecraft:end_highlands", "minecraft:end_midlands", "minecraft:small_end_islands", "minecraft:the_end",
             "nullscape:crystal_peaks", "nullscape:shadowlands", "nullscape:void_barrens"
     );
+
     public static void register() {
-        if (Main.CONFIG.features.villagerNuke.get()) Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.getPath().startsWith("worldgen/template_pool/village") && rl.getPath().endsWith("town_centers"),
+        if (Main.CONFIG.features.villagerNuke.get()) MixsonHelper.registerMultiJson(
                 "Remove normal village spawns",
+                index -> index.id().getPath().startsWith("worldgen/template_pool/village") && index.id().getPath().endsWith("town_centers"),
                 context -> {
                     JsonArray elements = context.getFile().getAsJsonObject().getAsJsonArray("elements");
                     JsonArray updatedElements = new JsonArray();
@@ -30,23 +31,19 @@ public class WorldgenDataEvents {
                         }
                     });
                     context.getFile().getAsJsonObject().add("elements", updatedElements);
-                },
-                false
+                }
         );
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.getPath().startsWith("worldgen/configured_feature/ore_ancient_debris"),
+        MixsonHelper.registerMultiJson(
                 "Increase max ancient debris vein size and allow air exposure",
+                index -> index.id().getPath().startsWith("worldgen/configured_feature/ore_ancient_debris"),
                 context -> {
                     context.getFile().getAsJsonObject().getAsJsonObject("config").addProperty("discard_chance_on_air_exposure", 0);
                     context.getFile().getAsJsonObject().getAsJsonObject("config").addProperty("size", Main.CONFIG.worldgen.ancientDebrisSize.get());
-                },
-                false
+                }
         );
-        if (Main.CONFIG.worldgen.removeAncientDebrisHeightLimit.get()) Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.getPath().startsWith("worldgen/placed_feature/ore_ancient_debris_large"),
+        if (Main.CONFIG.worldgen.removeAncientDebrisHeightLimit.get()) MixsonHelper.registerMultiJson(
                 "Remove height limit for large ancient debris spawns",
+                index -> index.id().getPath().startsWith("worldgen/placed_feature/ore_ancient_debris_large"),
                 context -> {
                     JsonArray placement = context.getFile().getAsJsonObject().getAsJsonArray("placement");
                     JsonArray updatedPlacement = new JsonArray();
@@ -69,23 +66,19 @@ public class WorldgenDataEvents {
                                 }
                             }"""));
                     context.getFile().getAsJsonObject().add("placement", updatedPlacement);
-                },
-                false
+                }
         );
-        ORE.forEach(ore -> Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().startsWith("minecraft:worldgen/configured_feature/ore_" + ore),
+        ORE.forEach(ore -> MixsonHelper.registerMultiJson(
                 "Increase " + ore + " ore size",
+                index -> index.id().toString().startsWith("minecraft:worldgen/configured_feature/ore_" + ore),
                 context -> context.getFile().getAsJsonObject()
                         .getAsJsonObject("config").addProperty("size", Math.round(
                                 context.getFile().getAsJsonObject().getAsJsonObject("config")
-                                        .getAsJsonPrimitive("size").getAsInt() * Main.CONFIG.worldgen.oreSizeMult.get())),
-                false
+                                        .getAsJsonPrimitive("size").getAsInt() * Main.CONFIG.worldgen.oreSizeMult.get()))
         ));
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().startsWith("minecraft:worldgen/placed_feature/monster_room") || rl.toString().startsWith("repurposed_structures:worldgen/placed_feature/dungeons/"),
+        MixsonHelper.registerMultiJson(
                 "Increase dungeon spawn rate",
+                index -> index.id().toString().startsWith("minecraft:worldgen/placed_feature/monster_room") || index.id().toString().startsWith("repurposed_structures:worldgen/placed_feature/dungeons/"),
                 context -> {
                     JsonArray placement = context.getFile().getAsJsonObject().getAsJsonArray("placement");
                     for (JsonElement element : placement) {
@@ -95,24 +88,20 @@ public class WorldgenDataEvents {
                             object.addProperty("count", Math.round(object.getAsJsonPrimitive("count").getAsInt() * Main.CONFIG.worldgen.dungeonChanceMult.get()));
                         }
                     }
-                },
-                false
+                }
         );
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:worldgen/structure_set/mineshafts") || rl.toString().startsWith("repurposed_structures:worldgen/structure_set/mineshafts"),
+        MixsonHelper.registerMultiJson(
                 "Increase mineshaft spawn rate",
+                index -> index.id().toString().equals("minecraft:worldgen/structure_set/mineshafts") || index.id().toString().startsWith("repurposed_structures:worldgen/structure_set/mineshafts"),
                 context -> context.getFile().getAsJsonObject()
                         .getAsJsonObject("placement").addProperty("frequency",
                                 context.getFile().getAsJsonObject().getAsJsonObject("placement")
                                         .getAsJsonPrimitive("frequency").getAsFloat() * Main.CONFIG.worldgen.mineshaftChanceMult.get()
-                        ),
-                false
+                        )
         );
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:worldgen/biome/jungle"),
+        MixsonHelper.registerSingleJson(
                 "Fix ocelots being counted as monsters during spawning",
+                "minecraft:worldgen/biome/jungle",
                 context -> {
                     JsonArray monsters = context.getFile().getAsJsonObject()
                             .getAsJsonObject("spawners")
@@ -135,16 +124,14 @@ public class WorldgenDataEvents {
                     }
                     if (idToRemove != -1) monsters.remove(idToRemove);
                     if (!ocelot.isEmpty()) creatures.add(ocelot);
-                },
-                false
+                }
         );
         if (CompatFlags.NULLSCAPE_LOADED && Main.CONFIG.misc.nullscapeEndAmbienceEdits.get()) {
             END_BIOMES.forEach(s -> {
                 String[] split = s.split(":");
-                Mixson.registerEvent(
-                        Mixson.DEFAULT_PRIORITY,
-                        rl -> rl.toString().equals(split[0] + ":worldgen/biome/" + split[1]),
+                MixsonHelper.registerSingleJson(
                         "Fix Nullscape biome fog",
+                        split[0] + ":worldgen/biome/" + split[1],
                         context -> {
                             if (context.getFile().getAsJsonObject().has("attributes")) {
                                 JsonObject attributes = context.getFile().getAsJsonObject().getAsJsonObject("attributes");
@@ -156,20 +143,17 @@ public class WorldgenDataEvents {
                             JsonObject effects = new JsonObject();
                             effects.addProperty("water_color", "#3f76e4");
                             context.getFile().getAsJsonObject().add("effects", effects);
-                        },
-                        false
+                        }
                 );
             });
-            Mixson.registerEvent(
-                    Mixson.DEFAULT_PRIORITY,
-                    rl -> rl.toString().equals("minecraft:dimension_type/the_end"),
+            MixsonHelper.registerSingleJson(
                     "Fix End ambient light with Nullscape",
+                    "minecraft:dimension_type/the_end",
                     context -> {
                         context.getFile().getAsJsonObject().addProperty("ambient_light", 0.25);
                         context.getFile().getAsJsonObject().getAsJsonObject("attributes")
                                 .addProperty("minecraft:visual/sky_light_color", "#e580ff");
-                    },
-                    false
+                    }
             );
         }
     }

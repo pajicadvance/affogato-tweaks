@@ -1,13 +1,14 @@
-package me.pajic.affogato_core.mixson;
+package me.pajic.affogato_core.mixson.events;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import me.pajic.affogato_core.CompatFlags;
 import me.pajic.affogato_core.Main;
-import net.ramixin.mixson.inline.Mixson;
+import me.pajic.affogato_core.mixson.MixsonHelper;
 
 import java.util.List;
+import java.util.Set;
 
 public class TagEvents {
 
@@ -25,58 +26,49 @@ public class TagEvents {
     );
 
     public static void register() {
-        if (Main.CONFIG.misc.moreStoneTypesInStoneCraftingRecipes.get()) Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:tags/item/stone_crafting_materials") || rl.toString().equals("minecraft:tags/item/stone_tool_materials"),
+        if (Main.CONFIG.misc.moreStoneTypesInStoneCraftingRecipes.get()) MixsonHelper.registerMultiJson(
                 "Add more stone types to stone crafting recipes",
+                Set.of("minecraft:tags/item/stone_crafting_materials", "minecraft:tags/item/stone_tool_materials"),
                 context -> {
                     JsonArray values = context.getFile().getAsJsonObject().getAsJsonArray("values");
                     values.add("minecraft:andesite");
                     values.add("minecraft:granite");
                     values.add("minecraft:diorite");
                     values.add("minecraft:tuff");
-                },
-                false
+                }
         );
         if (Main.CONFIG.misc.ironMinesObsidian.get()) {
-            Mixson.registerEvent(
-                    Mixson.DEFAULT_PRIORITY,
-                    rl -> rl.toString().equals("minecraft:tags/block/needs_iron_tool"),
+            MixsonHelper.registerSingleJson(
                     "Allow mining obsidian with iron tools",
+                    "minecraft:tags/block/needs_iron_tool",
                     context -> {
                         JsonArray values = context.getFile().getAsJsonObject().getAsJsonArray("values");
                         values.add("minecraft:obsidian");
                         values.add("minecraft:crying_obsidian");
                         values.add("minecraft:respawn_anchor");
-                    },
-                    false
+                    }
             );
-            Mixson.registerEvent(
-                    Mixson.DEFAULT_PRIORITY,
-                    rl -> rl.toString().equals("minecraft:tags/block/needs_diamond_tool"),
+            MixsonHelper.registerSingleJson(
                     "Allow mining obsidian with iron tools",
+                    "minecraft:tags/block/needs_diamond_tool",
                     context -> {
                         JsonArray values = context.getFile().getAsJsonObject().getAsJsonArray("values");
                         values.remove(new JsonPrimitive("minecraft:obsidian"));
                         values.remove(new JsonPrimitive("minecraft:crying_obsidian"));
                         values.remove(new JsonPrimitive("minecraft:respawn_anchor"));
-                    },
-                    false
+                    }
             );
         }
-        if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("minecraft:tags/block/needs_stone_tool"),
+        if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) MixsonHelper.registerSingleJson(
                 "Allow mining copper ore with flint tools",
+                "minecraft:tags/block/needs_stone_tool",
                 context ->
                         context.getFile().getAsJsonObject().getAsJsonArray("values")
-                                .remove(new JsonPrimitive("minecraft:copper_ore")),
-                false
+                                .remove(new JsonPrimitive("minecraft:copper_ore"))
         );
-        if (CompatFlags.SERENE_WILD_LOADED) Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().startsWith("sereneseasons:tags/") && (rl.getPath().contains("autumn_crops") || rl.getPath().contains("unbreakable_infertile_crops")),
+        if (CompatFlags.SERENE_WILD_LOADED) MixsonHelper.registerMultiJson(
                 "Patch Serene Wild tags for newer versions",
+                index -> index.toString().startsWith("sereneseasons:tags/") && (index.id().getPath().contains("autumn_crops") || index.id().getPath().contains("unbreakable_infertile_crops")),
                 context -> {
                     JsonArray values = context.getFile().getAsJsonObject().getAsJsonArray("values");
                     JsonPrimitive p = new JsonPrimitive("wilderwild:maple_sapling");
@@ -86,13 +78,11 @@ public class TagEvents {
                         values.add("wilderwild:orange_maple_sapling");
                         values.add("wilderwild:red_maple_sapling");
                     }
-                },
-                false
+                }
         );
-        Mixson.registerEvent(
-                Mixson.DEFAULT_PRIORITY,
-                rl -> rl.toString().equals("c:tags/item/hidden_from_recipe_viewers"),
+        MixsonHelper.registerSingleJson(
                 "Hide disabled items from recipe viewers",
+                "c:tags/item/hidden_from_recipe_viewers",
                 context -> {
                     Main.CONFIG.hiddenItems.get().forEach(s -> {
                         JsonObject o = new JsonObject();
@@ -106,8 +96,7 @@ public class TagEvents {
                         o.addProperty("required", false);
                         context.getFile().getAsJsonObject().getAsJsonArray("values").add(o);
                     });
-                },
-                false
+                }
         );
     }
 }
