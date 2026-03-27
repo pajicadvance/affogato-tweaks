@@ -47,7 +47,6 @@
     "hunger.TridentItemMixin",
     "integration.appleskin.FoodHelperMixin",
     "integration.farmersdelight.FoodValuesMixin",
-    "integration.rs.RepurposedStructuresFabricMixin",
     "integration.sereneseasons.ModClientMixin",
     "nightvision.FlowerBlockMixin",
     "nightvision.PotionBrewingMixin",
@@ -79,8 +78,7 @@
     "xp.RedStoneOreBlockMixin"
   ],
   "client": [
-    "difficulty.WorldCreationUiStateMixin",
-    "integration.notes.SelectNoteScreenMixin"
+    "difficulty.WorldCreationUiStateMixin"
   ],
   "injectors": {
     "defaultRequire": 1
