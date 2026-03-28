@@ -2,9 +2,7 @@ package me.pajic.affogato_core.mixin.stats;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import me.pajic.affogato_core.Main;
-import me.pajic.affogato_core.util.ToolMaterialId;
-import me.pajic.affogato_core.util.ToolStatReplacement;
-import me.pajic.affogato_core.util.ToolType;
+import me.pajic.affogato_core.util.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,16 +23,14 @@ public class ItemPropertiesMixin {
             )
     )
     private void modifyPickaxeStats(Args args, @Local(argsOnly = true) ToolMaterial material) {
-        List<ToolStatReplacement> replacements = Main.CONFIG.toolStats.stream().filter(tsr ->
-                ToolMaterialId.equal(tsr.material.get(), material) && tsr.type.get() == ToolType.PICKAXE
+        List<WeaponStatReplacement> replacements = Main.CONFIG.weaponStats.stream().filter(wsr ->
+                ToolMaterialId.equal(wsr.material.get(), material) && wsr.type.get() == WeaponType.PICKAXE
         ).toList();
         if (!replacements.isEmpty()) {
             Main.debugLog("Replacing stats for pickaxe {}", material);
-            ToolStatReplacement replacement = replacements.getFirst();
-            float dmg = replacement.attackDamage.get();
-            float spd = replacement.attackSpeed.get();
-            if (dmg != 99) args.set(2, dmg);
-            if (spd != 99) args.set(3, spd);
+            WeaponStatReplacement replacement = replacements.getFirst();
+            if (replacement.modifyAttackDamage.get()) args.set(2, replacement.attackDamage.get());
+            if (replacement.modifyAttackSpeed.get()) args.set(3, replacement.attackSpeed.get());
         }
     }
 
@@ -46,16 +42,14 @@ public class ItemPropertiesMixin {
             )
     )
     private void modifyAxeStats(Args args, @Local(argsOnly = true) ToolMaterial material) {
-        List<ToolStatReplacement> replacements = Main.CONFIG.toolStats.stream().filter(tsr ->
-                ToolMaterialId.equal(tsr.material.get(), material) && tsr.type.get() == ToolType.AXE
+        List<WeaponStatReplacement> replacements = Main.CONFIG.weaponStats.stream().filter(wsr ->
+                ToolMaterialId.equal(wsr.material.get(), material) && wsr.type.get() == WeaponType.AXE
         ).toList();
         if (!replacements.isEmpty()) {
             Main.debugLog("Replacing stats for axe {}", material);
-            ToolStatReplacement replacement = replacements.getFirst();
-            float dmg = replacement.attackDamage.get();
-            float spd = replacement.attackSpeed.get();
-            if (dmg != 99) args.set(2, dmg);
-            if (spd != 99) args.set(3, spd);
+            WeaponStatReplacement replacement = replacements.getFirst();
+            if (replacement.modifyAttackDamage.get()) args.set(2, replacement.attackDamage.get());
+            if (replacement.modifyAttackSpeed.get()) args.set(3, replacement.attackSpeed.get());
         }
     }
 
@@ -67,16 +61,14 @@ public class ItemPropertiesMixin {
             )
     )
     private void modifyShovelStats(Args args, @Local(argsOnly = true) ToolMaterial material) {
-        List<ToolStatReplacement> replacements = Main.CONFIG.toolStats.stream().filter(tsr ->
-                ToolMaterialId.equal(tsr.material.get(), material) && tsr.type.get() == ToolType.SHOVEL
+        List<WeaponStatReplacement> replacements = Main.CONFIG.weaponStats.stream().filter(wsr ->
+                ToolMaterialId.equal(wsr.material.get(), material) && wsr.type.get() == WeaponType.SHOVEL
         ).toList();
         if (!replacements.isEmpty()) {
             Main.debugLog("Replacing stats for shovel {}", material);
-            ToolStatReplacement replacement = replacements.getFirst();
-            float dmg = replacement.attackDamage.get();
-            float spd = replacement.attackSpeed.get();
-            if (dmg != 99) args.set(2, dmg);
-            if (spd != 99) args.set(3, spd);
+            WeaponStatReplacement replacement = replacements.getFirst();
+            if (replacement.modifyAttackDamage.get()) args.set(2, replacement.attackDamage.get());
+            if (replacement.modifyAttackSpeed.get()) args.set(3, replacement.attackSpeed.get());
         }
     }
 
@@ -88,16 +80,14 @@ public class ItemPropertiesMixin {
             )
     )
     private void modifyHoeStats(Args args, @Local(argsOnly = true) ToolMaterial material) {
-        List<ToolStatReplacement> replacements = Main.CONFIG.toolStats.stream().filter(tsr ->
-                ToolMaterialId.equal(tsr.material.get(), material) && tsr.type.get() == ToolType.HOE
+        List<WeaponStatReplacement> replacements = Main.CONFIG.weaponStats.stream().filter(wsr ->
+                ToolMaterialId.equal(wsr.material.get(), material) && wsr.type.get() == WeaponType.HOE
         ).toList();
         if (!replacements.isEmpty()) {
             Main.debugLog("Replacing stats for hoe {}", material);
-            ToolStatReplacement replacement = replacements.getFirst();
-            float dmg = replacement.attackDamage.get();
-            float spd = replacement.attackSpeed.get();
-            if (dmg != 99) args.set(2, dmg);
-            if (spd != 99) args.set(3, spd);
+            WeaponStatReplacement replacement = replacements.getFirst();
+            if (replacement.modifyAttackDamage.get()) args.set(2, replacement.attackDamage.get());
+            if (replacement.modifyAttackSpeed.get()) args.set(3, replacement.attackSpeed.get());
         }
     }
 
@@ -109,16 +99,14 @@ public class ItemPropertiesMixin {
             )
     )
     private void modifySwordStats(Args args, @Local(argsOnly = true) ToolMaterial material) {
-        List<ToolStatReplacement> replacements = Main.CONFIG.toolStats.stream().filter(tsr ->
-                ToolMaterialId.equal(tsr.material.get(), material) && tsr.type.get() == ToolType.SWORD
+        List<WeaponStatReplacement> replacements = Main.CONFIG.weaponStats.stream().filter(wsr ->
+                ToolMaterialId.equal(wsr.material.get(), material) && wsr.type.get() == WeaponType.SWORD
         ).toList();
         if (!replacements.isEmpty()) {
             Main.debugLog("Replacing stats for sword {}", material);
-            ToolStatReplacement replacement = replacements.getFirst();
-            float dmg = replacement.attackDamage.get();
-            float spd = replacement.attackSpeed.get();
-            if (dmg != 99) args.set(1, dmg);
-            if (spd != 99) args.set(2, spd);
+            WeaponStatReplacement replacement = replacements.getFirst();
+            if (replacement.modifyAttackDamage.get()) args.set(1, replacement.attackDamage.get());
+            if (replacement.modifyAttackSpeed.get()) args.set(2, replacement.attackSpeed.get());
         }
     }
 }

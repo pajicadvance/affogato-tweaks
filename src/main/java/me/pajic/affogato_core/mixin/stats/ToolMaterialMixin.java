@@ -4,7 +4,6 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import me.pajic.affogato_core.Main;
 import me.pajic.affogato_core.util.ToolMaterialId;
 import me.pajic.affogato_core.util.ToolStatReplacement;
-import me.pajic.affogato_core.util.ToolType;
 import net.minecraft.world.item.ToolMaterial;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,13 +27,12 @@ public class ToolMaterialMixin {
     private int modifyDurability(int original) {
         ToolMaterial material = (ToolMaterial) (Object) this;
         List<ToolStatReplacement> replacements = Main.CONFIG.toolStats.stream().filter(tsr ->
-                ToolMaterialId.equal(tsr.material.get(), material) && tsr.type.get() == ToolType.ANY
+                ToolMaterialId.equal(tsr.material.get(), material)
         ).toList();
         if (!replacements.isEmpty()) {
             Main.debugLog("Replacing durability for {}", material);
             ToolStatReplacement replacement = replacements.getFirst();
-            int durability = replacement.durability.get();
-            if (durability != -1) return durability;
+            if (replacement.modifyDurability.get()) return replacement.durability.get();
         }
         return original;
     }
@@ -50,13 +48,12 @@ public class ToolMaterialMixin {
     private float modifyMiningSpeed(float original) {
         ToolMaterial material = (ToolMaterial) (Object) this;
         List<ToolStatReplacement> replacements = Main.CONFIG.toolStats.stream().filter(tsr ->
-                ToolMaterialId.equal(tsr.material.get(), material) && tsr.type.get() == ToolType.ANY
+                ToolMaterialId.equal(tsr.material.get(), material)
         ).toList();
         if (!replacements.isEmpty()) {
             Main.debugLog("Replacing mining speed for {}", material);
             ToolStatReplacement replacement = replacements.getFirst();
-            float miningSpeed = replacement.miningSpeed.get();
-            if (miningSpeed != 99) return miningSpeed;
+            if (replacement.modifyMiningSpeed.get()) return replacement.miningSpeed.get();
         }
         return original;
     }

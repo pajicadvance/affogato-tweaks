@@ -14,7 +14,7 @@ public class ClientMain implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         MixsonClientInitializer.init();
-        ClientLifecycleEvents.CLIENT_STARTED.register(client -> {
+        ClientLifecycleEvents.CLIENT_STARTED.register(_ -> {
             if (Main.CONFIG.debug.logMaterialIds.get()) {
                 LOGGER.info("Material IDs:");
                 ToolMaterialId.MATERIAL_IDS.forEach(LOGGER::info);

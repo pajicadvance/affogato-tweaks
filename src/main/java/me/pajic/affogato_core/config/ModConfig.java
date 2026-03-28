@@ -14,10 +14,7 @@ import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedFloat;
 import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedInt;
 import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedNumber;
 import me.pajic.affogato_core.Main;
-import me.pajic.affogato_core.util.LootEntryReplacement;
-import me.pajic.affogato_core.util.ToolMaterialId;
-import me.pajic.affogato_core.util.ToolStatReplacement;
-import me.pajic.affogato_core.util.ToolType;
+import me.pajic.affogato_core.util.*;
 import net.minecraft.world.item.ToolMaterial;
 
 import java.util.Map;
@@ -37,22 +34,6 @@ public class ModConfig extends Config {
     public Experience experience = new Experience();
     public Combat combat = new Combat();
     public ValidatedList<ToolStatReplacement> toolStats = new ValidatedAny<>(new ToolStatReplacement()).toList(
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.WOOD), ToolType.AXE, 99, -3.4F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.STONE), ToolType.AXE, 99, -3.4F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.IRON), ToolType.AXE, 99, -3.4F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.COPPER), ToolType.AXE, 99, -3.4F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.DIAMOND), ToolType.AXE, 99, -3.4F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.NETHERITE), ToolType.AXE, 99, -3.4F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.WOOD), ToolType.HOE, 99, -2.0F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.STONE), ToolType.HOE, 99, -2.0F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.IRON), ToolType.HOE, 99, -2.0F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.COPPER), ToolType.HOE, 99, -2.0F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.DIAMOND), ToolType.HOE, 99, -2.0F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.NETHERITE), ToolType.HOE, 99, -2.0F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.GOLD), ToolType.SWORD, 99, -1.6F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.GOLD), ToolType.PICKAXE, 99, -2.2F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.GOLD), ToolType.SHOVEL, 99, -2.5F),
-            new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.GOLD), ToolType.HOE, 99, 0.0F),
             new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.WOOD), 80, 3.0F),
             new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.STONE), 96, 4.0F),
             new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.COPPER), 160, 5.0F),
@@ -60,6 +41,24 @@ public class ModConfig extends Config {
             new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.GOLD), 80, 20.0F),
             new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.DIAMOND), 1280, 9.0F),
             new ToolStatReplacement(ToolMaterialId.of(ToolMaterial.NETHERITE), 2560, 11.0F)
+    );
+    public ValidatedList<WeaponStatReplacement> weaponStats = new ValidatedAny<>(new WeaponStatReplacement()).toList(
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.WOOD), WeaponType.AXE, -3.4F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.STONE), WeaponType.AXE, -3.4F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.IRON), WeaponType.AXE, -3.4F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.COPPER), WeaponType.AXE, -3.4F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.DIAMOND), WeaponType.AXE, -3.4F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.NETHERITE), WeaponType.AXE, -3.4F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.WOOD), WeaponType.HOE, -2.0F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.STONE), WeaponType.HOE, -2.0F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.IRON), WeaponType.HOE, -2.0F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.COPPER), WeaponType.HOE, -2.0F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.DIAMOND), WeaponType.HOE, -2.0F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.NETHERITE), WeaponType.HOE, -2.0F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.GOLD), WeaponType.SWORD, -1.6F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.GOLD), WeaponType.PICKAXE, -2.2F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.GOLD), WeaponType.SHOVEL, -2.5F),
+            new WeaponStatReplacement(ToolMaterialId.of(ToolMaterial.GOLD), WeaponType.HOE, 0.0F)
     );
     public ValidatedMap<String, Integer> furnaceFuelMap = (new ValidatedMap.Builder())
             .keyHandler(new ValidatedString())

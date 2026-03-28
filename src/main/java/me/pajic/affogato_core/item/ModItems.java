@@ -4,21 +4,24 @@ import me.pajic.affogato_core.Main;
 import me.pajic.affogato_core.tag.ModTags;
 import me.pajic.affogato_core.util.ToolMaterialId;
 import me.pajic.affogato_core.util.ToolStatReplacement;
-import me.pajic.affogato_core.util.ToolType;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.*;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class ModItems {
 
-    private static final ToolStatReplacement WOOD = Main.CONFIG.toolStats.stream().filter(tsr ->
-            ToolMaterialId.equal(tsr.material.get(), ToolMaterial.WOOD) && tsr.type.get() == ToolType.ANY
-    ).toList().getFirst();
+    @Nullable
+    private static final ToolStatReplacement WOOD = tryGetWoodStats();
 
     private static final ToolMaterial FLINT = new ToolMaterial(
-            BlockTags.INCORRECT_FOR_WOODEN_TOOL, WOOD.durability.get(), WOOD.miningSpeed.get(),
+            BlockTags.INCORRECT_FOR_WOODEN_TOOL,
+            WOOD != null ? WOOD.durability.get() : 59,
+            WOOD != null ? WOOD.miningSpeed.get() : 2.0F,
             0, 15, ModTags.FLINT_TOOL_MATERIALS
     );
 
@@ -55,5 +58,14 @@ public class ModItems {
 
     private static Item registerModItem(String name, Item.Properties properties, boolean enabled) {
         return Registry.register(BuiltInRegistries.ITEM, Main.id(name), new ModItem(properties, name, enabled));
+    }
+
+    @Nullable
+    private static ToolStatReplacement tryGetWoodStats() {
+        List<ToolStatReplacement> list = Main.CONFIG.toolStats.stream().filter(tsr ->
+                ToolMaterialId.equal(tsr.material.get(), ToolMaterial.WOOD)
+        ).toList();
+        if (list.isEmpty()) return null;
+        return list.getFirst();
     }
 }
