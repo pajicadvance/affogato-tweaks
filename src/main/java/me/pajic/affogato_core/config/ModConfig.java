@@ -117,7 +117,6 @@ public class ModConfig extends Config {
         public ValidatedBoolean raidRework = new ValidatedBoolean();
         public ValidatedBoolean nightVisionNuke = new ValidatedBoolean();
         public ValidatedBoolean hardDifficultyDefault = new ValidatedBoolean();
-        public ValidatedBoolean holdingAnvilAppliesSlowness = new ValidatedBoolean();
         public ValidatedBoolean alwaysUpdateMaps = new ValidatedBoolean();
         public ValidatedBoolean noRiptideInRain = new ValidatedBoolean();
         public ValidatedBoolean affogatoEarlyGameChanges = new ValidatedBoolean();

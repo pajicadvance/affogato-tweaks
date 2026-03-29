@@ -30,7 +30,6 @@
     "gameplay.CreativeModeTabMixin",
     "gameplay.FuelValuesMixin",
     "gameplay.HoglinMixin",
-    "gameplay.InventoryMixin",
     "gameplay.MapItemMixin",
     "gameplay.PlayerMixin",
     "gameplay.ReplaceDiskMixin",
