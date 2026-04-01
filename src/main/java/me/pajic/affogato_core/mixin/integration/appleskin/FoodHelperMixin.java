@@ -1,9 +1,5 @@
 package me.pajic.affogato_core.mixin.integration.appleskin;
 
-// TODO implement when AppleSkin updates
-
-/*
-
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import me.pajic.affogato_core.Main;
@@ -39,4 +35,3 @@ public class FoodHelperMixin {
         return Main.CONFIG.misc.noRapidHealing.get() ? -1 : original;
     }
 }
-*/

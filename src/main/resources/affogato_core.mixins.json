@@ -44,6 +44,7 @@
     "hunger.PlayerMixin",
     "hunger.ServerPlayerMixin",
     "hunger.TridentItemMixin",
+    "integration.appleskin.FoodHelperMixin",
     "integration.farmersdelight.FoodValuesMixin",
     "nightvision.FlowerBlockMixin",
     "nightvision.PotionBrewingMixin",
