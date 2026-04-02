@@ -75,7 +75,8 @@
     "xp.RedStoneOreBlockMixin"
   ],
   "client": [
-    "difficulty.WorldCreationUiStateMixin"
+    "difficulty.WorldCreationUiStateMixin",
+    "hud.GuiMixin"
   ],
   "injectors": {
     "defaultRequire": 1

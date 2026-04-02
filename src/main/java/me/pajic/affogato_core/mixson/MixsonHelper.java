@@ -9,6 +9,7 @@ import net.ramixin.mixson.enums.Lifetime;
 import net.ramixin.mixson.util.Index;
 import net.ramixin.mixson.util.functions.Event;
 
+import java.awt.image.BufferedImage;
 import java.util.Set;
 import java.util.function.Predicate;
 
@@ -48,6 +49,18 @@ public class MixsonHelper {
                 ERROR_POLICY,
                 eventName,
                 resourcePredicate,
+                event
+        );
+    }
+
+    public static void registerSingleTexture(String eventName, String target, Event<BufferedImage> event) {
+        Mixson.registerEvent(
+                MixsonCodecs.PNG,
+                Mixson.DEFAULT_PRIORITY,
+                Lifetime.PERSISTENT,
+                ERROR_POLICY,
+                eventName,
+                index -> index.idEquals(new Index(target)),
                 event
         );
     }
