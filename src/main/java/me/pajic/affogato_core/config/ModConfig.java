@@ -231,6 +231,7 @@ public class ModConfig extends Config {
         public ValidatedFloat mansionRandomChestChance = new ValidatedFloat(0.008F, 1.0F, 0F, ValidatedNumber.WidgetType.TEXTBOX);
         public ValidatedBoolean addRandomChestsToMonuments = new ValidatedBoolean();
         public ValidatedFloat monumentRandomChestChance = new ValidatedFloat(0.004F, 1.0F, 0F, ValidatedNumber.WidgetType.TEXTBOX);
+        public ValidatedBoolean cliffFixes = new ValidatedBoolean();
     }
 
     public static class Experience extends ConfigSection {

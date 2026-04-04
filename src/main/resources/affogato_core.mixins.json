@@ -67,6 +67,8 @@
     "trade.WanderingTraderMixin",
     "worldgen.MonumentBuildingMixin",
     "worldgen.ScatteredOreFeatureMixin",
+    "worldgen.SteepMaterialConditionMixin",
+    "worldgen.SurfaceSystemMixin",
     "worldgen.WoodlandMansionStructureMixin",
     "xp.BlocksMixin",
     "xp.EnderDragonMixin",

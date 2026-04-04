@@ -139,21 +139,13 @@ public class WorldgenDataEvents {
                                 attributes.remove("minecraft:visual/water_fog_color");
                                 attributes.remove("minecraft:visual/sky_color");
                             }
-                            context.getFile().getAsJsonObject().remove("effects");
-                            JsonObject effects = new JsonObject();
-                            effects.addProperty("water_color", "#3f76e4");
-                            context.getFile().getAsJsonObject().add("effects", effects);
                         }
                 );
             });
             MixsonHelper.registerSingleJson(
                     "Fix End ambient light with Nullscape",
                     "minecraft:dimension_type/the_end",
-                    context -> {
-                        context.getFile().getAsJsonObject().addProperty("ambient_light", 0.25);
-                        context.getFile().getAsJsonObject().getAsJsonObject("attributes")
-                                .addProperty("minecraft:visual/sky_light_color", "#e580ff");
-                    }
+                    context -> context.getFile().getAsJsonObject().addProperty("ambient_light", 0.25)
             );
         }
     }
