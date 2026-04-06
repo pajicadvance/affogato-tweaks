@@ -14,4 +14,5 @@ public class ModClientConfig extends Config {
 
     public ValidatedBoolean raiseHotbar = new ValidatedBoolean();
     public ValidatedInt hotbarRaisePixels = new ValidatedInt(2, Integer.MAX_VALUE, 1);
+    public ValidatedBoolean disableBetterGrassLayerFeature = new ValidatedBoolean();
 }

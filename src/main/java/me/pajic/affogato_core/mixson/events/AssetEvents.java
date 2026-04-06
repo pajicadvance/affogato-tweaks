@@ -7,15 +7,15 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
 
-public class TextureEvents {
+public class AssetEvents {
 
     public static void register() {
         MixsonHelper.registerSingleTexture(
                 "Patch hotbar selection sprite",
                 "minecraft:textures/gui/sprites/hud/hotbar_selection",
-                event -> {
+                context -> {
                     if (ClientMain.CONFIG.raiseHotbar.get()) {
-                        BufferedImage original = event.getFile();
+                        BufferedImage original = context.getFile();
                         int width = original.getWidth();
                         int height = original.getHeight();
                         if (width % 24 == 0) {
@@ -33,9 +33,16 @@ public class TextureEvents {
                                         Arrays.copyOfRange(pixels, i * width, (i + 1) * width),
                                         0, width
                                 );
-                            event.setFile(patched);
+                            context.setFile(patched);
                         }
                     }
+                }
+        );
+        MixsonHelper.registerMultiJson(
+                "Disable BetterGrass layer feature",
+                index -> index.id().getPath().startsWith("bettergrass/layer_types/"),
+                context -> {
+                    if (ClientMain.CONFIG.disableBetterGrassLayerFeature.get()) context.markForDeletion(true);
                 }
         );
     }
