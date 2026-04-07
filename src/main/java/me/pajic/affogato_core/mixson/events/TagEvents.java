@@ -62,9 +62,15 @@ public class TagEvents {
         if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) MixsonHelper.registerSingleJson(
                 "Allow mining copper ore with flint tools",
                 "minecraft:tags/block/needs_stone_tool",
-                context ->
-                        context.getFile().getAsJsonObject().getAsJsonArray("values")
-                                .remove(new JsonPrimitive("minecraft:copper_ore"))
+                context -> {
+                    JsonArray values = context.getFile().getAsJsonObject().getAsJsonArray("values");
+                    values.remove(new JsonPrimitive("minecraft:copper_ore"));
+                    values.remove(new JsonPrimitive("universal_ores:granite_copper_ore"));
+                    values.remove(new JsonPrimitive("universal_ores:diorite_copper_ore"));
+                    values.remove(new JsonPrimitive("universal_ores:andesite_copper_ore"));
+                    values.remove(new JsonPrimitive("universal_ores:tuff_copper_ore"));
+                    values.remove(new JsonPrimitive("universal_ores:calcite_copper_ore"));
+                }
         );
         if (CompatFlags.SERENE_WILD_LOADED) MixsonHelper.registerMultiJson(
                 "Patch Serene Wild tags for newer versions",
