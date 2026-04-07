@@ -65,6 +65,8 @@
     "trade.ShowTradesToPlayerMixin",
     "trade.VillagerMixin",
     "trade.WanderingTraderMixin",
+    "trashslot.AbstractContainerMenuMixin",
+    "trashslot.InventoryMenuMixin",
     "worldgen.MonumentBuildingMixin",
     "worldgen.ScatteredOreFeatureMixin",
     "worldgen.SteepMaterialConditionMixin",
@@ -78,7 +80,8 @@
   ],
   "client": [
     "difficulty.WorldCreationUiStateMixin",
-    "hud.GuiMixin"
+    "hud.GuiMixin",
+    "trashslot.InventoryScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
