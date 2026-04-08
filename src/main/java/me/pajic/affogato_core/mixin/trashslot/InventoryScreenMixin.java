@@ -1,6 +1,5 @@
 package me.pajic.affogato_core.mixin.trashslot;
 
-import com.llamalad7.mixinextras.sugar.Local;
 import me.pajic.affogato_core.Main;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractRecipeBookScreen;
@@ -27,17 +26,12 @@ public abstract class InventoryScreenMixin extends AbstractRecipeBookScreen<Inve
             method = "extractBackground",
             at = @At("TAIL")
     )
-    private void renderTrashSlot(
-            GuiGraphicsExtractor graphics,
-            int mouseX, int mouseY, float a,
-            CallbackInfo ci,
-            @Local(name = "xo") int xo,
-            @Local(name = "yo") int yo
-    ) {
+    private void renderTrashSlot(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a, CallbackInfo ci) {
         if (Main.CONFIG.misc.trashSlot.get()) graphics.blitSprite(
                 RenderPipelines.GUI_TEXTURED,
                 Identifier.withDefaultNamespace("container/slot"),
-                xo + 76, yo + 43,
+                minecraft.getWindow().getGuiScaledWidth() / 2 - 12,
+                minecraft.getWindow().getGuiScaledHeight() / 2 - 40,
                 18, 18
         );
     }
