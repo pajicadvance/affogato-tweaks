@@ -103,6 +103,8 @@ publishMods {
         accessToken = providers.environmentVariable("MR_KEY")
         projectId = "Q8yzjHI3"
         minecraftVersions.add(project.minecraft_version)
+        minecraftVersions.add("26.1.1")
+        minecraftVersions.add("26.1.2")
         requires("fabric-api", "fzzy-config")
         optional("modmenu")
     }

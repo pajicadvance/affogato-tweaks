@@ -1,2 +1,1 @@
-- Fixed mod breaking the `c:hidden_from_recipe_viewers` tag.
-- Added option to modify the frequency of cave ambient sounds.
+- Initial 26.1 release. Many changes, mod page will be updated later.
