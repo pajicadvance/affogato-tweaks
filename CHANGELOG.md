@@ -1,1 +1,2 @@
-- Initial 26.1 release. Many changes, mod page will be updated later.
+- Replaced vanilla tutorial with appropriate tutorial when Affogato Early Game Changes is enabled.
+- Obtaining a flint axe now unlocks recipes for the rest of the flint tools in the recipe book.

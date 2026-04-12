@@ -1,12 +1,12 @@
 {
   "required": true,
-  "minVersion": "0.8",
+  "minVersion": "0.8.7",
   "mixinextras": {
-    "minVersion": "0.5.0"
+    "minVersion": "0.5.3"
   },
   "package": "me.pajic.affogato_core.mixin",
   "plugin": "com.moulberry.mixinconstraints.ConstraintsMixinPlugin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_25",
   "mixins": [
     "combat.BlazeMixin",
     "combat.BlocksAttacksMixin",
@@ -78,7 +78,11 @@
   ],
   "client": [
     "difficulty.WorldCreationUiStateMixin",
-    "hud.GuiMixin"
+    "hud.GuiMixin",
+    "tutorial.CraftPlanksTutorialStepMixin",
+    "tutorial.FindTreeTutorialStepInstanceMixin",
+    "tutorial.PunchTreeTutorialStepInstanceMixin",
+    "tutorial.TutorialToastIconsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

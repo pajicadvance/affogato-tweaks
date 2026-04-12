@@ -32,6 +32,12 @@
   "tag.item.sereneseasons.autumn_crops": "Autumn Crops",
   "tag.item.sereneseasons.winter_crops": "Winter Crops",
 
+  "tutorial.affogato_core.get_sticks.title": "Get some sticks",
+  "tutorial.affogato_core.get_sticks.description": "Punch tree leaves to collect sticks",
+  "tutorial.affogato_core.get_flint.title": "Get some flint",
+  "tutorial.affogato_core.get_flint.description": "Punch gravel to collect flint",
+  "tutorial.affogato_core.craft_flint_axe.title": "Craft a flint axe",
+
   "block.minecraft.stonecutter": "Blockcutter",
   "container.stonecutter": "Blockcutter",
   "stat.minecraft.interact_with_stonecutter": "Interactions with Blockcutter",
