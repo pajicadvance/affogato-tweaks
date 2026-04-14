@@ -46,6 +46,7 @@
     "hunger.TridentItemMixin",
     "integration.appleskin.FoodHelperMixin",
     "integration.farmersdelight.FoodValuesMixin",
+    "integration.trailiertales.CoffinSpawnerMixin",
     "nightvision.FlowerBlockMixin",
     "nightvision.PotionBrewingMixin",
     "nightvision.SetStewEffectFunctionMixin",

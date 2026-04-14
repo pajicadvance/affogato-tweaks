@@ -15,11 +15,13 @@ public class RecipeEvents {
             "minecraft:recipe/stone_sword",
             "minecraft:recipe/stone_axe",
             "minecraft:recipe/stone_hoe",
+            "minecraft:recipe/stone_spear",
             "minecraft:recipe/wooden_pickaxe",
             "minecraft:recipe/wooden_shovel",
             "minecraft:recipe/wooden_sword",
             "minecraft:recipe/wooden_axe",
-            "minecraft:recipe/wooden_hoe"
+            "minecraft:recipe/wooden_hoe",
+            "minecraft:recipe/wooden_spear"
     );
 
     public static void register() {

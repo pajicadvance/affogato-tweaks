@@ -16,10 +16,15 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.storage.loot.LootTable;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 public class StructureGenUtil {
+
+    private static final Set<Direction> DIRECTIONS = Set.of(Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST);
 
     public static void placeChestsAtRandomLocations(
             BoundingBox boundingBox,
@@ -43,7 +48,7 @@ public class StructureGenUtil {
                             BlockState state1 = worldGenLevel.getBlockState(pos1);
                             if (predicateAt.test(state1)) {
                                 Direction dir = checkSides(pos1, worldGenLevel, predicateAt);
-                                if (dir != Direction.UP && randomSource.nextFloat() < chance) {
+                                if (dir != null && randomSource.nextFloat() < chance) {
                                     createChest(worldGenLevel, boundingBox, randomSource, pos1, dir, lootTable);
                                     Main.debugLog("Placed chest at {} {} {}", pos1.getX(), pos1.getY(), pos1.getZ());
                                 }
@@ -66,26 +71,15 @@ public class StructureGenUtil {
         return false;
     }
 
+    @Nullable
     private static Direction checkSides(BlockPos pos, WorldGenLevel level, Predicate<BlockState> predicate) {
-        boolean north = predicate.test(level.getBlockState(pos.north()));
-        boolean south = predicate.test(level.getBlockState(pos.south()));
-        boolean west = predicate.test(level.getBlockState(pos.west()));
-        boolean east = predicate.test(level.getBlockState(pos.east()));
-        if (!north || !south || !west || !east) {
-            if (north && !south && !west && !east) return Direction.NORTH;
-            if (!north && south && !west && !east) return Direction.SOUTH;
-            if (!north && !south && west && !east) return Direction.WEST;
-            if (!north && !south && !west && east) return Direction.EAST;
-            if (!north && south && west && east) return Direction.SOUTH;
-            if (north && !south && west && east) return Direction.NORTH;
-            if (north && south && !west && east) return Direction.EAST;
-            if (north && south && west && !east) return Direction.WEST;
-            if (north) return Direction.NORTH;
-            if (south) return Direction.SOUTH;
-            if (west) return Direction.WEST;
-            if (east) return Direction.EAST;
+        Map<Direction, Boolean> states = new HashMap<>();
+        for (Direction dir : DIRECTIONS) states.put(dir, predicate.test(level.getBlockState(pos.relative(dir))));
+        if (states.containsValue(false)) {
+            for (Direction dir : DIRECTIONS) if (states.get(dir) && !states.get(dir.getOpposite())) return dir;
+            for (Direction dir : DIRECTIONS) if (states.get(dir)) return dir;
         }
-        return Direction.UP;
+        return null;
     }
 
     private static void createChest(

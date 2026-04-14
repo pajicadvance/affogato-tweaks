@@ -1,2 +1,3 @@
-- Replaced vanilla tutorial with appropriate tutorial when Affogato Early Game Changes is enabled.
-- Obtaining a flint axe now unlocks recipes for the rest of the flint tools in the recipe book.
+- Made the activation range of coffins from Trailier Tales configurable and set it to be much lower by default.
+- Wooden and stone spears are now disabled when Affogato Early Game Changes is enabled.
+- Improvements to the random structure chest placer.
