@@ -1,5 +1,7 @@
 package me.pajic.affogato_core.mixson.events;
 
+import com.google.gson.JsonObject;
+import me.pajic.affogato_core.Main;
 import me.pajic.affogato_core.mixson.MixsonHelper;
 
 public class LanguageEvents {
@@ -8,30 +10,37 @@ public class LanguageEvents {
                 "Modify vanilla item names",
                 "minecraft:lang/en_us",
                 context -> {
-                    context.getFile().getAsJsonObject().remove("block.minecraft.stonecutter");
-                    context.getFile().getAsJsonObject().remove("container.stonecutter");
-                    context.getFile().getAsJsonObject().remove("stat.minecraft.interact_with_stonecutter");
-                    context.getFile().getAsJsonObject().remove("subtitles.ui.stonecutter.take_result");
+                    JsonObject file = context.getFile().getAsJsonObject();
+                    file.remove("block.minecraft.stonecutter");
+                    file.remove("container.stonecutter");
+                    file.remove("stat.minecraft.interact_with_stonecutter");
+                    file.remove("subtitles.ui.stonecutter.take_result");
                 }
         );
         MixsonHelper.registerSingleJson(
                 "Modify item descriptions",
                 "item_descriptions:lang/en_us",
                 context -> {
-                    context.getFile().getAsJsonObject().remove("lore.minecraft.lantern");
-                    context.getFile().getAsJsonObject().remove("lore.minecraft.stonecutter");
-                    context.getFile().getAsJsonObject().remove("lore.minecraft.compass");
-                    context.getFile().getAsJsonObject().remove("lore.minecraft.clock");
-                    context.getFile().getAsJsonObject().remove("lore.minecraft.totem_of_undying");
-                    context.getFile().getAsJsonObject().remove("lore.minecraft.spyglass");
-                    context.getFile().getAsJsonObject().remove("lore.minecraft.ender_chest");
-                    context.getFile().getAsJsonObject().remove("lore.minecraft.arrow");
-                    context.getFile().getAsJsonObject().remove("lore.minecraft.spectral_arrow");
-                    context.getFile().getAsJsonObject().remove("lore.minecraft.tipped_arrow");
-                    context.getFile().getAsJsonObject().remove("lore.minecraft.recovery_compass");
-                    context.getFile().getAsJsonObject().remove("lore.minecraft.elytra");
-                    context.getFile().getAsJsonObject().remove("tag.c.shulker_boxes.description");
-                    context.getFile().getAsJsonObject().remove("tag.c.elytra.description");
+                    JsonObject file = context.getFile().getAsJsonObject();
+                    file.remove("lore.minecraft.lantern");
+                    file.remove("lore.minecraft.stonecutter");
+                    file.remove("lore.minecraft.compass");
+                }
+        );
+        MixsonHelper.registerSingleJson(
+                "Modify item descriptions",
+                "affogato_core:lang/en_us",
+                context -> {
+                    JsonObject file = context.getFile().getAsJsonObject();
+                    if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) {
+                        String txt = file.get("lore.wooden_tools.custom").getAsString();
+                        file.addProperty("lore.minecraft.wooden_pickaxe", txt);
+                        file.addProperty("lore.minecraft.wooden_shovel", txt);
+                        file.addProperty("lore.minecraft.wooden_sword", txt);
+                        file.addProperty("lore.minecraft.wooden_hoe", txt);
+                        file.addProperty("lore.minecraft.wooden_axe", txt);
+                        file.addProperty("lore.minecraft.wooden_spear", txt);
+                    }
                 }
         );
     }

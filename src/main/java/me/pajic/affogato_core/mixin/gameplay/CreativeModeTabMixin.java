@@ -24,11 +24,13 @@ public class CreativeModeTabMixin {
             "minecraft:stone_sword",
             "minecraft:stone_axe",
             "minecraft:stone_hoe",
+            "minecraft:stone_spear",
             "minecraft:wooden_pickaxe",
             "minecraft:wooden_shovel",
             "minecraft:wooden_sword",
             "minecraft:wooden_axe",
-            "minecraft:wooden_hoe"
+            "minecraft:wooden_hoe",
+            "minecraft:wooden_spear"
     );
 
     @Shadow private Collection<ItemStack> displayItems;

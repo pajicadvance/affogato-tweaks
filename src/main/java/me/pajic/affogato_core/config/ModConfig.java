@@ -182,6 +182,7 @@ public class ModConfig extends Config {
                         Map.entry("minecraft:diamond_shovel", new LootEntryReplacement("minecraft:diamond", 1)),
                         Map.entry("minecraft:diamond_sword", new LootEntryReplacement("minecraft:diamond", 2)),
                         Map.entry("minecraft:diamond_hoe", new LootEntryReplacement("minecraft:diamond", 2)),
+                        Map.entry("minecraft:diamond_spear", new LootEntryReplacement("minecraft:diamond", 1)),
                         Map.entry("minecraft:iron_helmet", new LootEntryReplacement("minecraft:iron_ingot", 5)),
                         Map.entry("minecraft:iron_chestplate", new LootEntryReplacement("minecraft:iron_ingot", 8)),
                         Map.entry("minecraft:iron_leggings", new LootEntryReplacement("minecraft:iron_ingot", 7)),
@@ -191,13 +192,15 @@ public class ModConfig extends Config {
                         Map.entry("minecraft:iron_shovel", new LootEntryReplacement("minecraft:iron_ingot", 1)),
                         Map.entry("minecraft:iron_sword", new LootEntryReplacement("minecraft:iron_ingot", 2)),
                         Map.entry("minecraft:iron_hoe", new LootEntryReplacement("minecraft:iron_ingot", 2)),
+                        Map.entry("minecraft:iron_spear", new LootEntryReplacement("minecraft:iron_ingot", 1)),
                         Map.entry("farmersdelight:diamond_knife", new LootEntryReplacement("minecraft:diamond", 1)),
                         Map.entry("farmersdelight:iron_knife", new LootEntryReplacement("minecraft:iron_ingot", 1)),
                         Map.entry("minecraft:stone_pickaxe", new LootEntryReplacement("minecraft:cobblestone", 3)),
-                        Map.entry("minecraft:stone_shovel", new LootEntryReplacement("minecraft:iron_ingot", 1)),
-                        Map.entry("minecraft:stone_sword", new LootEntryReplacement("minecraft:iron_ingot", 2)),
-                        Map.entry("minecraft:stone_axe", new LootEntryReplacement("minecraft:iron_ingot", 3)),
-                        Map.entry("minecraft:stone_hoe", new LootEntryReplacement("minecraft:iron_ingot", 2))
+                        Map.entry("minecraft:stone_shovel", new LootEntryReplacement("minecraft:cobblestone", 1)),
+                        Map.entry("minecraft:stone_sword", new LootEntryReplacement("minecraft:cobblestone", 2)),
+                        Map.entry("minecraft:stone_axe", new LootEntryReplacement("minecraft:cobblestone", 3)),
+                        Map.entry("minecraft:stone_hoe", new LootEntryReplacement("minecraft:cobblestone", 2)),
+                        Map.entry("minecraft:stone_spear", new LootEntryReplacement("minecraft:cobblestone", 1))
                 )).build();
         public ValidatedMap<String, Double> totemMap = (new ValidatedMap.Builder())
                 .keyHandler(new ValidatedString())
