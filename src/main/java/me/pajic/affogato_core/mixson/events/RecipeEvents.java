@@ -56,11 +56,20 @@ public class RecipeEvents {
                 s,
                 context -> context.markForDeletion(true)
         ));
-        if (CompatFlags.FD_LOADED && Main.CONFIG.features.affogatoRecipeEdits.get()) MixsonHelper.registerSingleJson(
-                "Remove cake recipe",
-                "minecraft:recipe/cake",
-                context -> context.markForDeletion(true)
-        );
+        if (CompatFlags.FD_LOADED) {
+            if (Main.CONFIG.features.affogatoRecipeEdits.get()) MixsonHelper.registerSingleJson(
+                    "Remove cake recipe",
+                    "minecraft:recipe/cake",
+                    context -> context.markForDeletion(true)
+            );
+            if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) MixsonHelper.registerSingleJson(
+                    "Modify cooking pot recipe",
+                    "farmersdelight:recipe/cooking_pot",
+                    context -> {
+                        context.getFile().getAsJsonObject().getAsJsonObject("key").addProperty("S", "#minecraft:shovels");
+                    }
+            );
+        }
         if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) EARLY_GAME_DISABLED_TOOLS.forEach(s -> MixsonHelper.registerSingleJson(
                 "Remove recipes",
                 s,
