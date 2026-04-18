@@ -13,8 +13,11 @@ public class ModDatapacks {
     private static final ModContainer CONTAINER = FabricLoader.getInstance().getModContainer(Main.MOD_ID).orElseThrow();
 
     public static void init() {
-        if (Main.CONFIG.features.affogatoBlockLootTableEdits.get())
-            registerPersistentPack("block_loot_table_edits", "Affogato block loot table edits");
+        if (Main.CONFIG.features.affogatoBlockLootTableEdits.get()) {
+            registerPersistentPack("block_loot_table_edits/vanilla", "Affogato vanilla block loot table edits");
+            if (CompatFlags.WILDER_WILD_LOADED) registerPersistentPack("block_loot_table_edits/wilderwild", "Affogato Wilder Wild block loot table edits");
+            if (CompatFlags.TRAVERSE_LOADED) registerPersistentPack("block_loot_table_edits/traverse", "Affogato Traverse block loot table edits");
+        }
         if (Main.CONFIG.features.affogatoEntityLootTableEdits.get())
             registerPersistentPack("entity_loot_table_edits", "Affogato entity loot table edits");
         if (Main.CONFIG.features.affogatoRecipeEdits.get())

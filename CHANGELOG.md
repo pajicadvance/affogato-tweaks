@@ -1,1 +1,1 @@
-- Changed recipe for the cooking pot from Farmer's Delight to accept any shovel when Affogato Early Changes is enabled.
+- Fixed warnings appearing in the log about some modded blocks not existing.
