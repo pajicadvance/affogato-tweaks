@@ -81,6 +81,7 @@
   ],
   "client": [
     "difficulty.WorldCreationUiStateMixin",
+    "gameplay.LightmapRenderStateExtractorMixin",
     "hud.GuiMixin",
     "tutorial.CraftPlanksTutorialStepMixin",
     "tutorial.FindTreeTutorialStepInstanceMixin",

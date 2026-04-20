@@ -3,6 +3,8 @@
   "biome.nullscape.shadowlands": "Shadowlands",
   "biome.nullscape.void_barrens": "Void Barrens",
 
+  "sodium.options.affogato.control.tooltip": "Option controlled by modpack",
+
   "advancements.story.cutting_edge.title": "Embracing the Cutting Edge",
   "advancements.story.cutting_edge.description": "Harvest Flint from Gravel and Sticks from Leaves and make your first tool with an Axe Head",
   "advancements.story.copper_ingot.title": "Acquire Software",
