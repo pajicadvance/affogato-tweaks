@@ -1,1 +1,1 @@
-- Added per-dimension brightness settings. Default settings are tuned for the Delight-map resource pack, making the Nether much brighter and the End slightly darker.
+- "Night Vision Nuke" feature is now compatible with Toil and Trouble.

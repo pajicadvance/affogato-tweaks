@@ -1,11 +1,13 @@
 package me.pajic.affogato_core.mixson.events;
 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import me.pajic.affogato_core.CompatFlags;
 import me.pajic.affogato_core.Main;
 import me.pajic.affogato_core.mixson.MixsonHelper;
 
 import java.util.List;
+import java.util.Set;
 
 public class RecipeEvents {
 
@@ -65,9 +67,9 @@ public class RecipeEvents {
             if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) MixsonHelper.registerSingleJson(
                     "Modify cooking pot recipe",
                     "farmersdelight:recipe/cooking_pot",
-                    context -> {
-                        context.getFile().getAsJsonObject().getAsJsonObject("key").addProperty("S", "#minecraft:shovels");
-                    }
+                    context -> context.getFile().getAsJsonObject()
+                            .getAsJsonObject("key")
+                            .addProperty("S", "#minecraft:shovels")
             );
         }
         if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) EARLY_GAME_DISABLED_TOOLS.forEach(s -> MixsonHelper.registerSingleJson(
@@ -75,5 +77,24 @@ public class RecipeEvents {
                 s,
                 context -> context.markForDeletion(true)
         ));
+        if (Main.CONFIG.features.nightVisionNuke.get() && CompatFlags.TOIL_AND_TROUBLE_LOADED) {
+            MixsonHelper.registerMultiJson(
+                    "Remove night vision recipes",
+                    Set.of(
+                            "toil_and_trouble:recipe/brewing/night_vision",
+                            "toil_and_trouble:recipe/brewing/long_night_vision"
+                    ),
+                    context -> context.markForDeletion(true)
+            );
+            MixsonHelper.registerSingleJson(
+                    "Modify invisibility recipe",
+                    "toil_and_trouble:recipe/brewing/invisibility",
+                    context -> {
+                        JsonObject file = context.getFile().getAsJsonObject();
+                        file.addProperty("reagent", "minecraft:golden_carrot");
+                        file.addProperty("potion", "minecraft:awkward");
+                    }
+            );
+        }
     }
 }

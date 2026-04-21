@@ -10,4 +10,5 @@ public class CompatFlags {
     public static final boolean TRAVERSE_LOADED = FabricLoader.getInstance().isModLoaded("traverse");
     public static final boolean NULLSCAPE_LOADED = FabricLoader.getInstance().isModLoaded("nullscape");
     public static final boolean MASTERCUTTER_LOADED = FabricLoader.getInstance().isModLoaded("mr_mastercutter");
+    public static final boolean TOIL_AND_TROUBLE_LOADED = FabricLoader.getInstance().isModLoaded("toil_and_trouble");
 }
