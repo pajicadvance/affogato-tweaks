@@ -1,1 +1,2 @@
-- "Night Vision Nuke" feature is now compatible with Toil and Trouble.
+- Fixed a few bugs with the per-dimension brightness setting.
+- Increased default activation range of Wilder Wild coffins to 6 from 3.

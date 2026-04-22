@@ -297,7 +297,7 @@ public class ModConfig extends Config {
         public ValidatedBoolean moreStoneTypesInStoneCraftingRecipes = new ValidatedBoolean();
         public ValidatedBoolean nullscapeEndAmbienceEdits = new ValidatedBoolean();
         public ValidatedInt caveAmbientSoundFrequency = new ValidatedInt(1200, Integer.MAX_VALUE, 1);
-        public ValidatedInt coffinActivationRange = new ValidatedInt(3, 48, 1);
+        public ValidatedInt coffinActivationRange = new ValidatedInt(6, 48, 1);
     }
 
     public static class Debug extends ConfigSection {
