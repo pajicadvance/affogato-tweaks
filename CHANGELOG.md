@@ -1,2 +1,1 @@
-- Fixed a few bugs with the per-dimension brightness setting.
-- Increased default activation range of Wilder Wild coffins to 6 from 3.
+- Disable copper horns from Copperier Age when Horseman is installed.

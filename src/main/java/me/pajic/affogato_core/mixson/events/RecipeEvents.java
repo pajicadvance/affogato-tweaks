@@ -72,6 +72,13 @@ public class RecipeEvents {
                             .addProperty("S", "#minecraft:shovels")
             );
         }
+        if (CompatFlags.HORSEMAN_LOADED) {
+            MixsonHelper.registerMultiJson(
+                    "Remove copper horn recipes",
+                    index -> index.id().toString().startsWith("thecopperierage:recipe/") && index.id().toString().endsWith("copper_horn"),
+                    context -> context.markForDeletion(true)
+            );
+        }
         if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) EARLY_GAME_DISABLED_TOOLS.forEach(s -> MixsonHelper.registerSingleJson(
                 "Remove recipes",
                 s,

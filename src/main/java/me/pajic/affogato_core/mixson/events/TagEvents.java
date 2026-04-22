@@ -104,6 +104,9 @@ public class TagEvents {
                         o.addProperty("required", false);
                         context.getFile().getAsJsonObject().getAsJsonArray("values").add(o);
                     });
+                    if (CompatFlags.HORSEMAN_LOADED) {
+                        context.getFile().getAsJsonObject().getAsJsonArray("values").add("thecopperierage:copper_horn");
+                    }
                 }
         );
     }

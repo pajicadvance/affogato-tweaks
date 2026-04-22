@@ -1,7 +1,11 @@
 package me.pajic.affogato_core.mixin.gameplay;
 
+import me.pajic.affogato_core.CompatFlags;
 import me.pajic.affogato_core.Main;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -47,11 +51,8 @@ public class CreativeModeTabMixin {
 
     @Unique
     private void filter(Collection<ItemStack> items) {
-        items.removeIf(stack ->
-                Main.CONFIG.hiddenItems.get().contains(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString())
-        );
-        if (Main.CONFIG.features.affogatoEarlyGameChanges.get()) items.removeIf(stack ->
-                TOOLS.contains(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString())
-        );
+        items.removeIf(stack -> Main.CONFIG.hiddenItems.get().contains(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString()) ||
+                (Main.CONFIG.features.affogatoEarlyGameChanges.get() && TOOLS.contains(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString())) ||
+                (CompatFlags.HORSEMAN_LOADED && stack.is(ResourceKey.create(Registries.ITEM, Identifier.parse("thecopperierage:copper_horn")))));
     }
 }
