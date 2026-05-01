@@ -1,1 +1,3 @@
-- Disable copper horns from Copperier Age when Horseman is installed.
+- Affogato Entity Loot Table Edits now modifies entities from Wilder Wild, Trailier Tales, and Variants and Ventures.
+- Features from the Loot section now support Dungeons and Taverns vanilla structure overhauls.
+- Cats will now properly spawn in abandoned villages when Villager Nuke is on.

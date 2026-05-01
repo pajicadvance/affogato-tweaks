@@ -113,9 +113,9 @@ public class LootTableEvents {
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 }
         );
-        MixsonHelper.registerSingleJson(
+        MixsonHelper.registerMultiJson(
                 "Distribute woodland explorer map to pillager outpost chest",
-                "minecraft:loot_table/chests/pillager_outpost",
+                Set.of("minecraft:loot_table/chests/pillager_outpost", "nova_structures:loot_table/chests/pillager_outpost_treasure"),
                 context -> {
                     JsonElement pool = JsonParser.parseString("""
                     {
@@ -223,9 +223,9 @@ public class LootTableEvents {
                     context.getFile().getAsJsonObject().getAsJsonArray("pools").add(pool);
                 }
         ));
-        MixsonHelper.registerSingleJson(
+        MixsonHelper.registerMultiJson(
                 "Distribute curse enchantments to desert pyramid chests",
-                "minecraft:loot_table/chests/desert_pyramid",
+                Set.of("minecraft:loot_table/chests/desert_pyramid", "nova_structures:loot_table/chests/desert_temple/desert_temple_lesser"),
                 context -> {
                     JsonElement pool = JsonParser.parseString("""
                     {
@@ -257,7 +257,7 @@ public class LootTableEvents {
         );
         MixsonHelper.registerMultiJson(
                 "Distribute frost walker enchantment to igloo and ice box chests",
-                Set.of("minecraft:loot_table/chests/igloo_chest", "minecraft:loot_table/chests/ancient_city_ice_box"),
+                Set.of("minecraft:loot_table/chests/igloo_chest", "minecraft:loot_table/chests/ancient_city_ice_box", "nova_structures:loot_table/chests/ancient_city_ice_box"),
                 context -> {
                     JsonElement pool = JsonParser.parseString("""
                     {

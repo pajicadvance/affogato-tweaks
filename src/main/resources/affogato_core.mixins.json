@@ -68,6 +68,7 @@
     "trade.ShowTradesToPlayerMixin",
     "trade.VillagerMixin",
     "trade.WanderingTraderMixin",
+    "worldgen.CatSpawnerMixin",
     "worldgen.MonumentBuildingMixin",
     "worldgen.ScatteredOreFeatureMixin",
     "worldgen.SteepMaterialConditionMixin",

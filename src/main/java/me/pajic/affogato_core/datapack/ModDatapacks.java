@@ -18,8 +18,12 @@ public class ModDatapacks {
             if (CompatFlags.WILDER_WILD_LOADED) registerPersistentPack("block_loot_table_edits/wilderwild", "Affogato Wilder Wild block loot table edits");
             if (CompatFlags.TRAVERSE_LOADED) registerPersistentPack("block_loot_table_edits/traverse", "Affogato Traverse block loot table edits");
         }
-        if (Main.CONFIG.features.affogatoEntityLootTableEdits.get())
-            registerPersistentPack("entity_loot_table_edits", "Affogato entity loot table edits");
+        if (Main.CONFIG.features.affogatoEntityLootTableEdits.get()) {
+            registerPersistentPack("entity_loot_table_edits/vanilla", "Affogato vanilla entity loot table edits");
+            if (CompatFlags.WILDER_WILD_LOADED) registerPersistentPack("entity_loot_table_edits/wilderwild", "Affogato Wilder Wild entity loot table edits");
+            if (CompatFlags.TRAILIER_TALES_LOADED) registerPersistentPack("entity_loot_table_edits/trailiertales", "Affogato Trailier Tales entity loot table edits");
+            if (CompatFlags.VARIANTS_AND_VENTURES_LOADED) registerPersistentPack("entity_loot_table_edits/vav", "Affogato VAV entity loot table edits");
+        }
         if (Main.CONFIG.features.affogatoRecipeEdits.get())
             registerPersistentPack("recipe_edits", "Affogato recipe edits");
         if (Main.CONFIG.features.affogatoEarlyGameChanges.get())
