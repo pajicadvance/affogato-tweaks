@@ -1,6 +1,6 @@
 package me.pajic.affogato_core.mixson.events;
 
-import me.pajic.affogato_core.ClientMain;
+import me.pajic.affogato_core.config.ModClientConfigHolder;
 import me.pajic.affogato_core.mixson.MixsonHelper;
 
 import java.awt.Graphics2D;
@@ -14,7 +14,7 @@ public class AssetEvents {
                 "Patch hotbar selection sprite",
                 "minecraft:textures/gui/sprites/hud/hotbar_selection",
                 context -> {
-                    if (ClientMain.CONFIG.raiseHotbar.get()) {
+                    if (ModClientConfigHolder.options().raiseHotbarPixels > 0) {
                         BufferedImage original = context.getFile();
                         int width = original.getWidth();
                         int height = original.getHeight();
@@ -42,7 +42,7 @@ public class AssetEvents {
                 "Disable BetterGrass layer feature",
                 index -> index.id().getPath().startsWith("bettergrass/layer_types/"),
                 context -> {
-                    if (ClientMain.CONFIG.disableBetterGrassLayerFeature.get()) context.markForDeletion(true);
+                    if (ModClientConfigHolder.options().disableLBGLayers) context.markForDeletion(true);
                 }
         );
     }

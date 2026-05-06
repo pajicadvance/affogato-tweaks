@@ -3,7 +3,16 @@
   "biome.nullscape.shadowlands": "Shadowlands",
   "biome.nullscape.void_barrens": "Void Barrens",
 
-  "sodium.options.affogato.control.tooltip": "Option controlled by modpack",
+  "config.affogato.settings": "Settings",
+  "config.affogato.currentDimensionBrightness": "Current dimension brightness",
+  "config.affogato.currentDimensionBrightness.tooltip": "Brightness in the current dimension.\n\nValue is saved for each dimension. Overrides the main brightness slider. Drag all the way to the left to disable.",
+  "config.affogato.brightnessNoOverride": "Don't override",
+  "config.affogato.raiseHotbar": "Raise hotbar",
+  "config.affogato.raiseHotbar.tooltip": "Raises the hotbar from the bottom of the screen. Drag all the way to the left to disable.",
+  "config.affogato.raiseHotbar.value": "By %s pixels",
+  "config.affogato.noRaiseHotbar": "Don't raise",
+  "config.affogato.disableLBGLayers": "Disable LBG layers",
+  "config.affogato.disableLBGLayers.tooltip": "Disables everything related to the \"better layers\" feature from LambdaBetterGrass, such as better snow layers, while retaining the block side textures.",
 
   "advancements.story.cutting_edge.title": "Embracing the Cutting Edge",
   "advancements.story.cutting_edge.description": "Harvest Flint from Gravel and Sticks from Leaves and make your first tool with an Axe Head",

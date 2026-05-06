@@ -1,6 +1,6 @@
 package me.pajic.affogato_core.mixin.hud;
 
-import me.pajic.affogato_core.ClientMain;
+import me.pajic.affogato_core.config.ModClientConfigHolder;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -18,9 +18,10 @@ public class GuiMixin {
             at = @At("HEAD")
     )
     private void raiseHotbarStart(GuiGraphicsExtractor graphics, DeltaTracker deltaTracker, CallbackInfo ci) {
-        if (ClientMain.CONFIG.raiseHotbar.get()) {
+        int raisePixels = ModClientConfigHolder.options().raiseHotbarPixels;
+        if (raisePixels > 0) {
             graphics.pose().pushMatrix();
-            graphics.pose().translate(0, -ClientMain.CONFIG.hotbarRaisePixels.get());
+            graphics.pose().translate(0, -raisePixels);
         }
     }
 
@@ -29,7 +30,7 @@ public class GuiMixin {
             at = @At("TAIL")
     )
     private void raiseHotbarEnd(GuiGraphicsExtractor graphics, DeltaTracker deltaTracker, CallbackInfo ci) {
-        if (ClientMain.CONFIG.raiseHotbar.get()) {
+        if (ModClientConfigHolder.options().raiseHotbarPixels > 0) {
             graphics.pose().popMatrix();
         }
     }
@@ -44,6 +45,6 @@ public class GuiMixin {
             index = 5
     )
     private int fixHotbarSelector(int height) {
-        return ClientMain.CONFIG.raiseHotbar.get() ? height + 1 : height;
+        return ModClientConfigHolder.options().raiseHotbarPixels > 0 ? height + 1 : height;
     }
 }

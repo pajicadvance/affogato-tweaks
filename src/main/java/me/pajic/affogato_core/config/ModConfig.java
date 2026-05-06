@@ -225,7 +225,7 @@ public class ModConfig extends Config {
 
     public static class Worldgen extends ConfigSection {
         public ValidatedFloat dungeonChanceMult = new ValidatedFloat(1.3F);
-        public ValidatedFloat mineshaftChanceMult = new ValidatedFloat(1.5F);
+        public ValidatedFloat mineshaftChanceMult = new ValidatedFloat(1.2F);
         public ValidatedFloat oreSizeMult = new ValidatedFloat(1.2F);
         public ValidatedInt ancientDebrisSize = new ValidatedInt(6);
         public ValidatedInt ancientDebrisMinAmount = new ValidatedInt(3);

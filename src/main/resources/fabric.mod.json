@@ -17,7 +17,7 @@
       "me.pajic.affogato_core.Main"
     ],
     "sodium:config_api_user": [
-      "me.pajic.affogato_core.config.SodiumConfig"
+      "me.pajic.affogato_core.config.ModSodiumConfig"
     ]
   },
   "mixins": [
