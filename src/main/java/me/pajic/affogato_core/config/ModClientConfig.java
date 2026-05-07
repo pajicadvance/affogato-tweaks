@@ -16,6 +16,7 @@ import java.util.Map;
 public class ModClientConfig {
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().excludeFieldsWithModifiers(Modifier.PRIVATE).create();
+    public int shaderPreset = -1;
     public Map<String, Integer> perDimensionBrightness = new HashMap<>();
     public int raiseHotbarPixels = 0;
     public boolean disableLBGLayers = false;

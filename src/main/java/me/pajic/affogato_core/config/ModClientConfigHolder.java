@@ -12,6 +12,6 @@ public class ModClientConfigHolder {
     }
 
     public static void init() {
-        CONFIG = ModClientConfig.load(FabricLoader.getInstance().getConfigDir().resolve("affogato_core/config-client.json").toFile());
+        CONFIG = ModClientConfig.load(FabricLoader.getInstance().getConfigDir().resolve("affogato-core-client.json").toFile());
     }
 }

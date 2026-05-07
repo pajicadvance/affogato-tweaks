@@ -105,7 +105,10 @@ public class TagEvents {
                         context.getFile().getAsJsonObject().getAsJsonArray("values").add(o);
                     });
                     if (CompatFlags.HORSEMAN_LOADED) {
-                        context.getFile().getAsJsonObject().getAsJsonArray("values").add("thecopperierage:copper_horn");
+                        JsonObject entry = new JsonObject();
+                        entry.addProperty("id", "thecopperierage:copper_horn");
+                        entry.addProperty("required", false);
+                        context.getFile().getAsJsonObject().getAsJsonArray("values").add(entry);
                     }
                 }
         );

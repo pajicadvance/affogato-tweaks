@@ -47,6 +47,7 @@ dependencies {
     }
 
     compileOnlyApi "net.caffeinemc:sodium-fabric-api:${project.sodium_version}"
+    compileOnly "maven.modrinth:iris:1.10.9+26.1-fabric"
     compileOnly "maven.modrinth:farmers-delight-refabricated:26.1-3.5.1"
     compileOnly "maven.modrinth:appleskin:3.0.9+mc26.1"
     compileOnly "maven.modrinth:wilder-wild:4.2.8-mc26.1"

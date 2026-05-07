@@ -1,5 +1,6 @@
 package me.pajic.affogato_core;
 
+import me.pajic.affogato_core.iris.ShaderPresetSetup;
 import me.pajic.affogato_core.mixson.MixsonClientInitializer;
 import me.pajic.affogato_core.util.ToolMaterialId;
 import net.fabricmc.api.ClientModInitializer;
@@ -9,12 +10,13 @@ import org.slf4j.LoggerFactory;
 
 public class ClientMain implements ClientModInitializer {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger("Affogato Core Client");
+    public static final Logger LOGGER = LoggerFactory.getLogger("Affogato Core Client");
 
     @Override
     public void onInitializeClient() {
         MixsonClientInitializer.init();
         ClientLifecycleEvents.CLIENT_STARTED.register(_ -> {
+            if (CompatFlags.IRIS_LOADED) ShaderPresetSetup.init();
             if (Main.CONFIG.debug.logMaterialIds.get()) {
                 LOGGER.info("Material IDs:");
                 ToolMaterialId.MATERIAL_IDS.forEach(LOGGER::info);

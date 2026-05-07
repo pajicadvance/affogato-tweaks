@@ -1,3 +1,2 @@
-- Affogato Entity Loot Table Edits now modifies entities from Wilder Wild, Trailier Tales, and Variants and Ventures.
-- Features from the Loot section now support Dungeons and Taverns vanilla structure overhauls.
-- Cats will now properly spawn in abandoned villages when Villager Nuke is on.
+- Moved client options to Sodium video settings.
+- Added shader preset handling for Affogato.
