@@ -1,2 +1,1 @@
-- Moved client options to Sodium video settings.
-- Added shader preset handling for Affogato.
+- Removed per-dimension brightness and raise hotbar (moved to MiscTweaks).

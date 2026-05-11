@@ -2,23 +2,17 @@ package me.pajic.affogato_core.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.minecraft.resources.Identifier;
-import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Modifier;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ModClientConfig {
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().excludeFieldsWithModifiers(Modifier.PRIVATE).create();
     public int shaderPreset = -1;
-    public Map<String, Integer> perDimensionBrightness = new HashMap<>();
-    public int raiseHotbarPixels = 0;
     public boolean disableLBGLayers = false;
     private File file;
 
@@ -39,24 +33,6 @@ public class ModClientConfig {
         config.writeChanges();
 
         return config;
-    }
-
-    public int getOrCreateDimensionBrightness(@Nullable Identifier id) {
-        if (id != null) {
-            String idString = id.toString();
-            if (perDimensionBrightness.containsKey(idString)) return perDimensionBrightness.get(idString);
-            perDimensionBrightness.put(idString, -1);
-            writeChanges();
-            return -1;
-        }
-        return -2;
-    }
-
-    public void saveDimensionBrightness(@Nullable Identifier id, int brightness) {
-        if (id != null) {
-            perDimensionBrightness.put(id.toString(), brightness);
-            writeChanges();
-        }
     }
 
     public void writeChanges() {
