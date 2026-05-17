@@ -1,1 +1,1 @@
-- Shader preset generator now handles shader pack updates.
+- Fixed shader preset generator sometimes generating invalid shader packs.

@@ -51,15 +51,16 @@ public class ShaderPresetSetup {
                 });
             } catch (IOException e) {
                 ClientMain.LOGGER.error("Can't access file, did not create shader presets", e);
-                return;
             }
             // if all presets are present, move on
             if (Arrays.stream(presets).noneMatch(Objects::isNull)) {
                 // check if presets were generated previously and if yes get the EP version
                 try (Stream<String> fileStream = Files.lines(EP_VERSION_PATH)) {
                     Optional<String> opt = fileStream.findFirst();
-                    if (opt.isPresent()) epVersion = SemanticVersion.parse(opt.get());
-                    ClientMain.LOGGER.info("Found existing presets for EP {}", epVersion.getFriendlyString());
+                    if (opt.isPresent()) {
+                        epVersion = SemanticVersion.parse(opt.get());
+                        ClientMain.LOGGER.info("Found existing presets for EP {}", epVersion.getFriendlyString());
+                    }
                 } catch (IOException | VersionParsingException e) {
                     ClientMain.LOGGER.info("No existing presets found");
                 }
@@ -70,7 +71,7 @@ public class ShaderPresetSetup {
                     for (File shader : files) {
                         String target = "EuphoriaPatches_";
                         String name = shader.getName();
-                        if (name.contains(target)) {
+                        if (name.contains(target) && !name.endsWith(".txt")) {
                             try {
                                 int beginIndex = name.lastIndexOf(target) + target.length();
                                 SemanticVersion version = shader.isDirectory() ?
