@@ -1,1 +1,1 @@
-- Removed per-dimension brightness and raise hotbar (moved to MiscTweaks).
+- Shader preset generator now handles shader pack updates.
