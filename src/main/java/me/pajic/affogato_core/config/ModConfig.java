@@ -298,6 +298,8 @@ public class ModConfig extends Config {
         public ValidatedBoolean nullscapeEndAmbienceEdits = new ValidatedBoolean();
         public ValidatedInt caveAmbientSoundFrequency = new ValidatedInt(1200, Integer.MAX_VALUE, 1);
         public ValidatedInt coffinActivationRange = new ValidatedInt(6, 48, 1);
+        public ValidatedInt reliableGliderDurability = new ValidatedInt(240);
+        public ValidatedBoolean repairableReliableGlider = new ValidatedBoolean();
     }
 
     public static class Debug extends ConfigSection {

@@ -14,6 +14,7 @@ public class ModClientConfig {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().excludeFieldsWithModifiers(Modifier.PRIVATE).create();
     public int shaderPreset = -1;
     public boolean disableLBGLayers = false;
+    public boolean deleteModdedSplashTexts = false;
     private File file;
 
     public static ModClientConfig load(File file) {

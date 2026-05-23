@@ -1,1 +1,2 @@
-- Fixed shader preset generator sometimes generating invalid shader packs.
+- Added options for modifying the durability and repairability of gliders from Reliable Gliders.
+- Added client option for removing all modded splash texts.
