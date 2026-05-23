@@ -300,6 +300,8 @@ public class ModConfig extends Config {
         public ValidatedInt coffinActivationRange = new ValidatedInt(6, 48, 1);
         public ValidatedInt reliableGliderDurability = new ValidatedInt(240);
         public ValidatedBoolean repairableReliableGlider = new ValidatedBoolean();
+        public ValidatedInt revaultTime = new ValidatedInt(54000);
+        public ValidatedInt ominousRevaultTime = new ValidatedInt(72000);
     }
 
     public static class Debug extends ConfigSection {

@@ -1,2 +1,1 @@
-- Added options for modifying the durability and repairability of gliders from Reliable Gliders.
-- Added client option for removing all modded splash texts.
+- Added options for modifying the default vault wait times from Reusable Vault Blocks.

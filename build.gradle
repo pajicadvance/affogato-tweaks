@@ -54,6 +54,7 @@ dependencies {
     compileOnly "maven.modrinth:trailier-tales:1.2.5-mc26.1"
     compileOnly "maven.modrinth:better-block-entities:1.3.2+mc26.1.2"
     compileOnly "maven.modrinth:reliable-gliders:1.3.1-26.1.2-fabric"
+    compileOnly "maven.modrinth:reusable-vault-blocks:1.0.0-fabric,26.1"
 
     runtimeOnly "net.caffeinemc:sodium-fabric:${project.sodium_version}"
 }

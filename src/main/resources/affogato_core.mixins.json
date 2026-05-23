@@ -48,6 +48,7 @@
     "integration.appleskin.FoodHelperMixin",
     "integration.farmersdelight.FoodValuesMixin",
     "integration.reliable_gliders.ModItemsMixin",
+    "integration.rvb.ReusableVaultBlocksMixin",
     "integration.trailiertales.CoffinSpawnerMixin",
     "integration.wilderwild.bbe.StoneChestBlockEntityMixin",
     "nightvision.FlowerBlockMixin",
